@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Use the Athanas Inspires Scientific Calculator for mathematics, science, school work, percentages, powers, roots, trigonometry, logarithms, and daily calculations.">
+    <title>Scientific Calculator | Athanas Inspires</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <img src="assets/images/logo.png" alt="Athanas Inspires Logo">
+        <span>Athanas Inspires</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon" aria-label="Open menu">☰</label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">ICT Lessons</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a href="tools.html" class="active">Tools</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="faith-inspiration.html">Faith & Inspiration</a></li>
+        <li><a href="youtube.html">YouTube</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="calculator-hero">
+    <div class="calculator-hero-text">
+        <p class="eyebrow">Athanas Inspires Tools</p>
+        <h1>Scientific Calculator</h1>
+        <p>A beautiful calculator for learners, teachers, and everyday problem solvers. Calculate clearly. Learn confidently. Build step by step.</p>
+        <div class="calculator-hero-actions">
+            <a href="#calculatorApp" class="btn">Start Calculating</a>
+            <a href="tools.html" class="btn secondary-btn">Back to Tools</a>
+        </div>
+    </div>
+</section>
+
+<main class="calculator-page" id="calculatorApp">
+    <section class="calculator-shell" aria-label="Athanas Inspires Scientific Calculator">
+        <div class="calculator-topbar">
+            <div>
+                <p class="calc-mini-title">Athanas Inspires</p>
+                <h2>Scientific Calculator</h2>
+            </div>
+            <button class="angle-toggle" id="angleMode" type="button" aria-label="Switch between degree and radian mode">DEG</button>
+        </div>
+
+        <div class="calculator-screen" aria-live="polite">
+            <div class="screen-expression" id="expressionDisplay">0</div>
+            <div class="screen-result" id="resultDisplay">Ready</div>
+        </div>
+
+        <div class="calculator-tools-row">
+            <button class="pill-tool" type="button" id="copyResult">Copy Result</button>
+            <button class="pill-tool" type="button" id="clearHistory">Clear History</button>
+        </div>
+
+        <div class="calculator-grid">
+            <button data-action="clear" class="calc-btn danger">AC</button>
+            <button data-action="delete" class="calc-btn warning">DEL</button>
+            <button data-value="(" class="calc-btn operator">(</button>
+            <button data-value=")" class="calc-btn operator">)</button>
+            <button data-value="%" class="calc-btn operator">%</button>
+
+            <button data-func="sin" class="calc-btn scientific">sin</button>
+            <button data-func="cos" class="calc-btn scientific">cos</button>
+            <button data-func="tan" class="calc-btn scientific">tan</button>
+            <button data-func="log" class="calc-btn scientific">log</button>
+            <button data-func="ln" class="calc-btn scientific">ln</button>
+
+            <button data-func="sqrt" class="calc-btn scientific">√</button>
+            <button data-action="square" class="calc-btn scientific">x²</button>
+            <button data-value="^" class="calc-btn scientific">xʸ</button>
+            <button data-action="inverse" class="calc-btn scientific">1/x</button>
+            <button data-action="factorial" class="calc-btn scientific">x!</button>
+
+            <button data-value="7" class="calc-btn number">7</button>
+            <button data-value="8" class="calc-btn number">8</button>
+            <button data-value="9" class="calc-btn number">9</button>
+            <button data-value="/" class="calc-btn operator">÷</button>
+            <button data-value="Math.PI" data-label="π" class="calc-btn constant">π</button>
+
+            <button data-value="4" class="calc-btn number">4</button>
+            <button data-value="5" class="calc-btn number">5</button>
+            <button data-value="6" class="calc-btn number">6</button>
+            <button data-value="*" class="calc-btn operator">×</button>
+            <button data-value="Math.E" data-label="e" class="calc-btn constant">e</button>
+
+            <button data-value="1" class="calc-btn number">1</button>
+            <button data-value="2" class="calc-btn number">2</button>
+            <button data-value="3" class="calc-btn number">3</button>
+            <button data-value="-" class="calc-btn operator">−</button>
+            <button data-value="**" data-label="EXP" class="calc-btn scientific">Exp</button>
+
+            <button data-value="0" class="calc-btn number wide">0</button>
+            <button data-value="." class="calc-btn number">.</button>
+            <button data-value="+" class="calc-btn operator">+</button>
+            <button data-action="calculate" class="calc-btn equals">=</button>
+        </div>
+    </section>
+
+    <aside class="calculator-side-panel">
+        <div class="side-card">
+            <h3>Calculation History</h3>
+            <p>Your recent calculations appear here.</p>
+            <div class="history-list" id="historyList">
+                <span class="empty-history">No history yet.</span>
+            </div>
+        </div>
+
+        <div class="side-card learning-card">
+            <h3>Quick Tips</h3>
+            <ul>
+                <li>Use <strong>DEG</strong> for most school trigonometry questions.</li>
+                <li>Use brackets when writing longer expressions.</li>
+                <li>Keyboard supported: numbers, operations, Enter, Backspace, Escape.</li>
+            </ul>
+        </div>
+    </aside>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>Athanas Inspires</h3>
+            <p>Learn. Believe. Grow. Build.</p>
+            <p class="footer-note">Clear learning, practical tools, faith-filled encouragement, and resources that help you move from confusion to clarity.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Learn</h4>
+            <a href="courses.html">ICT Lessons</a>
+            <a href="education.html">Education</a>
+            <a href="youtube.html">YouTube Lessons</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Practice & Build</h4>
+            <a href="assignments.html">Assignments</a>
+            <a href="tools.html">Digital Tools</a>
+            <a href="downloads.html">Downloads</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="faith-inspiration.html">Faith & Inspiration</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer">Join WhatsApp Group</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Athanas Inspires. All Rights Reserved.</p>
+        <p>From confusion to clarity — one step at a time.</p>
+    </div>
+</footer>
+
+<script src="js/calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Athanas Inspires is a faith, learning, inspiration, education, and digital tools platform helping people learn, believe, grow, and build.">
+    <title>Athanas Inspires | Learn. Believe. Grow. Build.</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="brand">
+        <img src="assets/images/logo.png" alt="Athanas Inspires Logo">
+        <span>Athanas Inspires</span>
+    </a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon" aria-label="Open menu">☰</label>
+
+    <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="courses.html">ICT Lessons</a></li>
+        <li><a href="assignments.html">Assignments</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="faith-inspiration.html">Faith & Inspiration</a></li>
+        <li><a href="youtube.html">YouTube</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero modern-hero">
+    <div class="hero-text">
+        <h1>Learn. Believe. Grow. Build.</h1>
+        <p class="tagline">From Confusion to Clarity.</p>
+        <p class="hero-desc">
+            Welcome to Athanas Inspires — a place to learn clearly, grow confidently,
+            build useful skills, and find encouragement for life. Here, we move step by step
+            from confusion to clarity.
+        </p>
+        <p class="hero-voice">Learning should feel possible, practical, and full of purpose.</p>
+
+        <div class="hero-buttons">
+            <a href="courses.html" class="btn">Explore ICT Lessons</a>
+            <a href="assignments.html" class="btn secondary-btn">Open Assignments</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="image-frame">
+            <img src="assets/images/athanas.png" alt="Athanas Inspires">
+        </div>
+        <div class="floating-note note-one">✅ ICT Lessons</div>
+        <div class="floating-note note-two">📥 Assignments</div>
+        <div class="floating-note note-three">🛠️ Tools</div>
+    </div>
+</header>
+
+<section class="start-here-section" aria-label="Start here for new computer learners">
+    <div class="start-here-card">
+        <div class="start-here-icon">💻</div>
+        <div class="start-here-text">
+            <p class="eyebrow dark">Start Here</p>
+            <h2>New to computers?</h2>
+            <p>Begin with the Beginner Installments and learn step by step from mouse, keyboard, desktop icons, navigation, files, and folders.</p>
+        </div>
+        <a href="courses.html#beginner-installments" class="btn">Start with Beginner Installments</a>
+    </div>
+</section>
+
+<section class="home-search-section" aria-label="Homepage search">
+    <div class="home-search-card">
+        <div>
+            <p class="eyebrow dark">Search This Page</p>
+            <h2>Find ICT Lessons and Assignments on This Page</h2>
+            <p>Search for Excel, Word, Computer Basics, formulas, IF logic, or assignments.</p>
+        </div>
+        <div class="search-box">
+            <input type="search" id="homeSearch" placeholder="Search this page..." aria-label="Search this page">
+            <button type="button" id="clearSearch">Clear</button>
+        </div>
+    </div>
+</section>
+
+<section class="featured-courses section-white" id="ict-lessons">
+    <div class="section-heading">
+        <p class="eyebrow dark">ICT Lessons</p>
+        <h2>Start Learning Immediately</h2>
+        <p>Start with beginner-friendly ICT lessons, then practice with assignments when you are ready.</p>
+    </div>
+
+    <div class="course-grid searchable-grid">
+        <a href="courses.html#beginner-installments" class="course-card clickable-card search-item" data-search="ict computer basics beginner installments mouse keyboard desktop icons files folders navigation">
+            <div class="course-icon">💻</div>
+            <h3>Computer Basics</h3>
+            <p>Start with mouse, keyboard, desktop icons, navigation, files, and folders.</p>
+            <span class="small-btn">Open Lessons</span>
+        </a>
+
+        <a href="courses.html#word-series" class="course-card clickable-card search-item" data-search="word microsoft word documents typing visuals session assignment">
+            <div class="course-icon">📄</div>
+            <h3>Microsoft Word</h3>
+            <p>Move from simple typing to proper documents and visual document creation.</p>
+            <span class="small-btn">Open Word Sessions</span>
+        </a>
+
+        <a href="courses.html#excel-series" class="course-card clickable-card search-item" data-search="excel microsoft excel formulas tables if statements session assignment download submit">
+            <div class="course-icon">📊</div>
+            <h3>Microsoft Excel</h3>
+            <p>Learn formulas, tables, IF logic, and practical spreadsheet thinking.</p>
+            <span class="small-btn">Open Excel Sessions</span>
+        </a>
+    </div>
+
+    <p class="no-results" id="homeSearchNoResults">No matching ICT lesson or assignment found yet.</p>
+</section>
+
+<section class="section updates-section">
+    <div class="section-heading">
+        <p class="eyebrow dark">New on Athanas Inspires</p>
+        <h2>New Lessons and Resources</h2>
+        <p>See fresh lessons, assignments, tools, and helpful resources as they are added.</p>
+    </div>
+
+    <div class="updates-grid">
+        <a href="courses.html#excel-series" class="update-card clickable-card search-item" data-search="new excel session 4 if logic lesson assignment">
+            <span class="label new-label">New</span>
+            <h3>Excel Session 4</h3>
+            <p>Learn IF logic and simple business-style decision making in Excel.</p>
+            <span class="small-link">View Session →</span>
+        </a>
+
+        <a href="assignments.html#excel-session-4" class="update-card clickable-card search-item" data-search="new excel session 4 assignment submit download">
+            <span class="label new-label">New</span>
+            <h3>Excel Session 4 Assignment</h3>
+            <p>Download the practice file, complete it, then submit through WhatsApp.</p>
+            <span class="small-link">Open Assignment →</span>
+        </a>
+
+        <a href="tools.html" class="update-card clickable-card search-item" data-search="tools excel templates systems bots quick apps">
+            <span class="label coming-label">Coming Soon</span>
+            <h3>Excel Templates</h3>
+            <p>Useful templates for school, data, records, analysis, and productivity.</p>
+            <span class="small-link">Preview Tools →</span>
+        </a>
+    </div>
+</section>
+
+<section class="section section-white">
+    <div class="section-heading">
+        <p class="eyebrow dark">Explore the Platform</p>
+        <h2>More Ways to Learn and Grow</h2>
+        <p>Explore practical learning, useful tools, education resources, faith, and inspiration in one place.</p>
+    </div>
+
+    <div class="platform-grid">
+        <a href="assignments.html" class="platform-card clickable-card">
+            <span>📝</span>
+            <h3>Assignments</h3>
+            <p>Download practice files and submit your work through WhatsApp.</p>
+        </a>
+        <a href="tools.html" class="platform-card clickable-card">
+            <span>🛠️</span>
+            <h3>Digital Tools</h3>
+            <p>Excel templates, bots, quick apps, automation tools, and systems.</p>
+        </a>
+        <a href="education.html" class="platform-card clickable-card">
+            <span>📚</span>
+            <h3>Education</h3>
+            <p>Tanzanian Primary Education resources: exams, notes, videos, and books.</p>
+        </a>
+        <a href="faith-inspiration.html" class="platform-card clickable-card">
+            <span>✨</span>
+            <h3>Faith & Inspiration</h3>
+            <p>Faith content, motivation, articles, audios, videos, and growth messages.</p>
+        </a>
+    </div>
+</section>
+
+<section class="community-section">
+    <div class="community-card">
+        <div>
+            <p class="eyebrow">Learning Community</p>
+            <h2>Join Athanas Inspires ICT Community</h2>
+            <p>
+                Receive lesson updates, assignment reminders, and support as you keep moving
+                from confusion to clarity.
+            </p>
+        </div>
+        <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn">Join WhatsApp Community</a>
+    </div>
+</section>
+
+<section class="why-section">
+    <div class="section-heading light">
+        <p class="eyebrow">Why Athanas Inspires?</p>
+        <h2>Growth Should Feel Possible</h2>
+        <p>Clear teaching, practical resources, encouragement, faith, and tools for real life.</p>
+    </div>
+
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon">✅</div>
+            <h3>Clear Direction</h3>
+            <p>Visitors know where to click and what step to take next.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🧠</div>
+            <h3>Simple Explanations</h3>
+            <p>Lessons are made for real beginners, not people pretending to be beginners.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🛠️</div>
+            <h3>Practical Tools</h3>
+            <p>The platform will provide templates, systems, bots, and quick apps.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🚀</div>
+            <h3>Practical Growth</h3>
+            <p>Learn useful skills, practice with purpose, and build confidence one step at a time.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <h3>Athanas Inspires</h3>
+            <p>Learn. Believe. Grow. Build.</p>
+            <p class="footer-note">Clear learning, practical tools, faith-filled encouragement, and resources that help you move from confusion to clarity.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Learn</h4>
+            <a href="courses.html">ICT Lessons</a>
+            <a href="education.html">Education</a>
+            <a href="youtube.html">YouTube Lessons</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Practice & Build</h4>
+            <a href="assignments.html">Assignments</a>
+            <a href="tools.html">Digital Tools</a>
+            <a href="downloads.html">Downloads</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Connect</h4>
+            <a href="faith-inspiration.html">Faith & Inspiration</a>
+            <a href="contact.html">Contact</a>
+            <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer">Join WhatsApp Group</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Athanas Inspires. All Rights Reserved.</p>
+        <p>From confusion to clarity — one step at a time.</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

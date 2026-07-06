@@ -1253,6 +1253,13 @@ a {
     border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
+.watch-label {
+    color: #082f73;
+    background: rgba(30, 83, 161, 0.10);
+    border: 1px solid rgba(30, 83, 161, 0.22);
+    margin-bottom: 12px;
+}
+
 .coming-label {
     color: #854d0e;
     background: rgba(250, 204, 21, 0.18);
@@ -3347,6 +3354,25 @@ li {
 
 .assignment-feature-actions {
     justify-content: flex-start;
+}
+
+
+.assignment-steps {
+    margin: 14px 0 18px 1.2rem;
+    color: var(--text-color);
+    line-height: 1.75;
+}
+
+.assignment-steps li {
+    margin-bottom: 8px;
+}
+
+.assignment-lesson-btn {
+    background: linear-gradient(135deg, #0f766e, #0d9488);
+}
+
+.assignment-lesson-btn span {
+    color: #fef3c7;
 }
 
 @media (max-width: 900px) {

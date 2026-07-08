@@ -1,0 +1,253 @@
+const typingPassages = {
+    "Beginner": [
+        "I can learn typing step by step. Every small improvement matters.",
+        "My hands are learning the keyboard. I will not fear mistakes.",
+        "Practice every day makes computer work easier and faster.",
+        "I type slowly first, then I build speed with confidence."
+    ],
+    "ICT Words": [
+        "keyboard mouse monitor printer folder file desktop browser email password website download upload",
+        "Microsoft Word Excel PowerPoint formula table document picture shortcut copy paste save print",
+        "computer internet search lesson assignment practice typing accuracy speed learning confidence",
+        "cell row column data chart function format align insert design review protect share"
+    ],
+    "Sentences": [
+        "Athanas Inspires helps learners move from confusion to clarity through simple practical ICT lessons.",
+        "A good learner practices patiently, asks questions, corrects mistakes, and keeps moving forward.",
+        "When you understand the keyboard, the computer becomes less frightening and more useful.",
+        "Clear learning is not about rushing; it is about growing one confident step at a time."
+    ],
+    "Focus Challenge": [
+        "Accuracy before speed. Confidence before perfection. Practice before results. Keep learning and keep improving.",
+        "The quick learner is not the one who never fails, but the one who keeps practicing after mistakes.",
+        "Typing is a skill. The more you train your fingers, the more your mind becomes free to create.",
+        "From confusion to clarity means starting where you are, using what you have, and refusing to stop."
+    ]
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+    const categoryTabs = Array.from(document.querySelectorAll("#typingCategoryTabs .category-tab"));
+    const durationTabs = Array.from(document.querySelectorAll("#typingDurationTabs .category-tab"));
+    const timerEl = document.getElementById("typingTimer");
+    const wpmEl = document.getElementById("typingWpm");
+    const accuracyEl = document.getElementById("typingAccuracy");
+    const mistakesEl = document.getElementById("typingMistakes");
+    const bestPill = document.getElementById("typingBestPill");
+    const tagEl = document.getElementById("typingTag");
+    const passageEl = document.getElementById("typingPassage");
+    const inputEl = document.getElementById("typingInput");
+    const messageEl = document.getElementById("typingLiveMessage");
+    const progressEl = document.getElementById("typingProgressBar");
+    const startBtn = document.getElementById("startTypingBtn");
+    const resetBtn = document.getElementById("resetTypingBtn");
+    const newTextBtn = document.getElementById("newTypingText");
+    const resultSummary = document.getElementById("typingResultSummary");
+    const resultCircle = document.getElementById("typingResultCircle");
+    const shareBtn = document.getElementById("shareTypingScore");
+
+    if (!passageEl || !inputEl || !startBtn) return;
+
+    const state = {
+        category: "Beginner",
+        duration: 60,
+        passage: "",
+        previousPassage: "",
+        startedAt: null,
+        intervalId: null,
+        running: false,
+        finished: false,
+        latest: { wpm: 0, accuracy: 100, mistakes: 0 }
+    };
+
+    const storageKey = "athanasTypingBestWpm";
+
+    const getBest = () => Number(localStorage.getItem(storageKey) || 0);
+
+    const setBest = (wpm) => {
+        const best = Math.max(getBest(), wpm);
+        localStorage.setItem(storageKey, String(best));
+        bestPill.textContent = `Best: ${best} WPM`;
+    };
+
+    const selectRandomPassage = () => {
+        const bank = typingPassages[state.category] || typingPassages.Beginner;
+        let next = bank[Math.floor(Math.random() * bank.length)];
+        if (bank.length > 1) {
+            while (next === state.previousPassage) {
+                next = bank[Math.floor(Math.random() * bank.length)];
+            }
+        }
+        state.previousPassage = next;
+        state.passage = next;
+    };
+
+    const renderPassage = () => {
+        const typed = inputEl.value || "";
+        const characters = Array.from(state.passage);
+        passageEl.innerHTML = characters.map((char, index) => {
+            let className = "";
+            if (index < typed.length) {
+                className = typed[index] === char ? "typed-correct" : "typed-wrong";
+            } else if (index === typed.length && state.running) {
+                className = "typing-current";
+            }
+            const safeChar = char === " " ? "&nbsp;" : char.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            return `<span class="${className}">${safeChar}</span>`;
+        }).join("");
+    };
+
+    const calculateStats = () => {
+        const typed = inputEl.value || "";
+        const elapsedSeconds = state.startedAt ? Math.max((Date.now() - state.startedAt) / 1000, 1) : 1;
+        const elapsedMinutes = elapsedSeconds / 60;
+        const words = typed.trim() ? typed.trim().split(/\s+/).length : 0;
+        let mistakes = 0;
+
+        for (let i = 0; i < typed.length; i += 1) {
+            if (typed[i] !== state.passage[i]) mistakes += 1;
+        }
+
+        const wpm = Math.max(0, Math.round(words / elapsedMinutes));
+        const accuracy = typed.length ? Math.max(0, Math.round(((typed.length - mistakes) / typed.length) * 100)) : 100;
+
+        state.latest = { wpm, accuracy, mistakes };
+        return state.latest;
+    };
+
+    const updateDisplay = () => {
+        const stats = calculateStats();
+        const typedLength = inputEl.value.length;
+        const progress = Math.min((typedLength / Math.max(state.passage.length, 1)) * 100, 100);
+
+        wpmEl.textContent = `${stats.wpm} WPM`;
+        accuracyEl.textContent = `${stats.accuracy}%`;
+        mistakesEl.textContent = stats.mistakes;
+        resultCircle.textContent = stats.wpm;
+        progressEl.style.width = `${progress}%`;
+        renderPassage();
+
+        if (state.running && typedLength >= state.passage.length) {
+            finishRound("completed");
+        }
+    };
+
+    const resetRound = (newPassage = false) => {
+        clearInterval(state.intervalId);
+        state.intervalId = null;
+        state.running = false;
+        state.finished = false;
+        state.startedAt = null;
+
+        if (newPassage || !state.passage) selectRandomPassage();
+
+        inputEl.value = "";
+        inputEl.disabled = true;
+        startBtn.disabled = false;
+        startBtn.textContent = "Start Typing";
+        newTextBtn.disabled = false;
+        timerEl.textContent = `${state.duration}s`;
+        wpmEl.textContent = "0 WPM";
+        accuracyEl.textContent = "100%";
+        mistakesEl.textContent = "0";
+        progressEl.style.width = "0%";
+        resultCircle.textContent = "0";
+        messageEl.textContent = "Ready when you are. Start slowly and let your confidence grow.";
+        resultSummary.textContent = "Start a typing round and your result will appear here.";
+        tagEl.textContent = state.category;
+        renderPassage();
+    };
+
+    const finishRound = (reason = "time") => {
+        if (!state.running) return;
+        state.running = false;
+        state.finished = true;
+        clearInterval(state.intervalId);
+        state.intervalId = null;
+        inputEl.disabled = true;
+        startBtn.disabled = false;
+        startBtn.textContent = "Try Again";
+        newTextBtn.disabled = false;
+
+        const stats = calculateStats();
+        setBest(stats.wpm);
+
+        const resultTone = stats.accuracy >= 90
+            ? "Excellent accuracy — now you can gently increase speed."
+            : stats.accuracy >= 75
+                ? "Good effort — next round, slow down a little and reduce mistakes."
+                : "You started, and that already matters. Repeat calmly and accuracy will rise.";
+
+        const reasonText = reason === "completed" ? "Text completed!" : "Time finished!";
+        messageEl.textContent = `${reasonText} ${resultTone}`;
+        resultSummary.textContent = `You typed at ${stats.wpm} WPM with ${stats.accuracy}% accuracy and ${stats.mistakes} mistake${stats.mistakes === 1 ? "" : "s"}.`;
+        updateDisplay();
+    };
+
+    const startRound = () => {
+        if (state.running) return;
+        if (state.finished) resetRound(false);
+
+        inputEl.disabled = false;
+        inputEl.focus();
+        startBtn.disabled = true;
+        newTextBtn.disabled = true;
+        state.running = true;
+        state.startedAt = Date.now();
+        messageEl.textContent = "Typing started. Stay calm, keep your eyes on the text, and continue.";
+        renderPassage();
+
+        state.intervalId = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - state.startedAt) / 1000);
+            const remaining = Math.max(state.duration - elapsed, 0);
+            timerEl.textContent = `${remaining}s`;
+            updateDisplay();
+            if (remaining <= 0) finishRound("time");
+        }, 250);
+    };
+
+    categoryTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            if (state.running) return;
+            categoryTabs.forEach((button) => button.classList.remove("active"));
+            tab.classList.add("active");
+            state.category = tab.dataset.category || "Beginner";
+            resetRound(true);
+        });
+    });
+
+    durationTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            if (state.running) return;
+            durationTabs.forEach((button) => button.classList.remove("active"));
+            tab.classList.add("active");
+            state.duration = Number(tab.dataset.duration || 60);
+            resetRound(false);
+        });
+    });
+
+    inputEl.addEventListener("input", updateDisplay);
+    startBtn.addEventListener("click", startRound);
+    resetBtn.addEventListener("click", () => resetRound(false));
+    newTextBtn.addEventListener("click", () => resetRound(true));
+
+    shareBtn.addEventListener("click", async () => {
+        const stats = state.latest;
+        const text = `I practiced typing on Athanas Inspires: ${stats.wpm} WPM, ${stats.accuracy}% accuracy, ${stats.mistakes} mistakes. From confusion to clarity!`;
+
+        try {
+            if (navigator.share) {
+                await navigator.share({ title: "My Typing Result", text });
+            } else if (navigator.clipboard) {
+                await navigator.clipboard.writeText(text);
+                messageEl.textContent = "Result copied. You can now paste it on WhatsApp or anywhere you want.";
+            } else {
+                messageEl.textContent = text;
+            }
+        } catch (error) {
+            messageEl.textContent = "Sharing was cancelled. Your result is still shown on the right.";
+        }
+    });
+
+    bestPill.textContent = `Best: ${getBest()} WPM`;
+    resetRound(true);
+});

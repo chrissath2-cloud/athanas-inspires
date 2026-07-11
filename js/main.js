@@ -65,10 +65,149 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Premium same-page inspirational image viewer.
+    // Opening the viewer adds a history entry, so the browser Back button closes it.
+    const imageViewerTriggers = Array.from(document.querySelectorAll("[data-image-viewer]"));
+
+    if (imageViewerTriggers.length > 0) {
+        const viewer = document.createElement("div");
+        viewer.className = "image-viewer";
+        viewer.id = "inspiration-image-viewer";
+        viewer.setAttribute("aria-hidden", "true");
+        viewer.innerHTML = `
+            <div class="image-viewer-backdrop" data-image-viewer-close></div>
+            <section class="image-viewer-panel" role="dialog" aria-modal="true" aria-labelledby="imageViewerTitle">
+                <div class="image-viewer-toolbar">
+                    <button class="image-viewer-back" type="button" data-image-viewer-back>
+                        <span aria-hidden="true">←</span> Back
+                    </button>
+                    <span class="image-viewer-kicker">Athanas Inspires · Inspirational Image</span>
+                    <button class="image-viewer-close" type="button" data-image-viewer-close aria-label="Close image viewer">×</button>
+                </div>
+                <figure class="image-viewer-figure">
+                    <div class="image-viewer-media">
+                        <img src="" alt="">
+                    </div>
+                    <figcaption class="image-viewer-caption">
+                        <div>
+                            <span class="image-viewer-type">Visual Inspiration</span>
+                            <h2 id="imageViewerTitle"></h2>
+                            <p></p>
+                        </div>
+                        <span class="image-viewer-brand" aria-label="Athanas Inspires">Athanas Inspires</span>
+                    </figcaption>
+                </figure>
+            </section>`;
+        document.body.appendChild(viewer);
+
+        const viewerImage = viewer.querySelector(".image-viewer-media img");
+        const viewerTitle = viewer.querySelector(".image-viewer-caption h2");
+        const viewerCaption = viewer.querySelector(".image-viewer-caption p");
+        const viewerBackButton = viewer.querySelector("[data-image-viewer-back]");
+        let lastViewerTrigger = null;
+        let viewerHistoryWasPushed = false;
+
+        const fillViewer = (trigger) => {
+            if (!trigger) return;
+            viewerImage.src = trigger.dataset.imageSrc || "";
+            viewerImage.alt = trigger.dataset.imageAlt || "Inspirational image";
+            viewerTitle.textContent = trigger.dataset.imageTitle || "Inspirational Image";
+            viewerCaption.textContent = trigger.dataset.imageCaption || "";
+        };
+
+        const openViewer = (trigger, pushHistory = true) => {
+            if (trigger) {
+                lastViewerTrigger = trigger;
+                fillViewer(trigger);
+            }
+            viewer.classList.add("is-open");
+            viewer.setAttribute("aria-hidden", "false");
+            document.body.classList.add("image-viewer-open");
+
+            if (pushHistory && window.location.hash !== "#inspiration-image-viewer") {
+                history.pushState({ imageViewer: true }, "", "#inspiration-image-viewer");
+                viewerHistoryWasPushed = true;
+            }
+
+            window.setTimeout(() => viewerBackButton.focus(), 80);
+        };
+
+        const closeViewer = (restoreFocus = true) => {
+            viewer.classList.remove("is-open");
+            viewer.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("image-viewer-open");
+            if (restoreFocus && lastViewerTrigger) lastViewerTrigger.focus({ preventScroll: true });
+        };
+
+        const leaveViewer = () => {
+            if (viewerHistoryWasPushed && window.location.hash === "#inspiration-image-viewer") {
+                viewerHistoryWasPushed = false;
+                history.back();
+            } else {
+                if (window.location.hash === "#inspiration-image-viewer") {
+                    history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+                }
+                closeViewer();
+            }
+        };
+
+        imageViewerTriggers.forEach((trigger) => {
+            trigger.addEventListener("click", (event) => {
+                event.preventDefault();
+                openViewer(trigger, true);
+            });
+        });
+
+        viewer.querySelectorAll("[data-image-viewer-close]").forEach((control) => {
+            control.addEventListener("click", leaveViewer);
+        });
+        viewerBackButton.addEventListener("click", leaveViewer);
+
+        window.addEventListener("popstate", () => {
+            if (window.location.hash === "#inspiration-image-viewer") {
+                openViewer(lastViewerTrigger || imageViewerTriggers[0], false);
+            } else {
+                viewerHistoryWasPushed = false;
+                closeViewer(true);
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (!viewer.classList.contains("is-open")) return;
+
+            if (event.key === "Escape") {
+                event.preventDefault();
+                leaveViewer();
+                return;
+            }
+
+            if (event.key === "Tab") {
+                const focusable = Array.from(viewer.querySelectorAll('button, a[href]')).filter((item) => !item.hasAttribute("disabled"));
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        // Support a copied URL containing the viewer hash without opening a new page.
+        if (window.location.hash === "#inspiration-image-viewer") {
+            openViewer(imageViewerTriggers[0], false);
+        }
+    }
+
     // Smooth in-page scrolling and close mobile menu after click
     document.querySelectorAll('a[href]').forEach((link) => {
         link.addEventListener("click", (event) => {
             const href = link.getAttribute("href") || "";
+
+            if (link.hasAttribute("data-image-viewer")) return;
 
             if (menuToggle && link.closest(".nav-links")) {
                 menuToggle.checked = false;
@@ -122,7 +261,18 @@ document.addEventListener("DOMContentLoaded", () => {
         ".youtube-hero-card",
         ".community-card",
         ".why-card",
-        ".side-card"
+        ".side-card",
+        ".purpose-mission-inner",
+        ".latest-row",
+        ".featured-inspiration-copy",
+        ".featured-inspiration-image",
+        ".inspiration-link-row",
+        ".coming-line",
+        ".article-hero-copy",
+        ".article-hero-image",
+        ".article-reflection",
+        ".start-small-challenge",
+        ".article-next-step"
     ].join(","));
 
     if ("IntersectionObserver" in window) {

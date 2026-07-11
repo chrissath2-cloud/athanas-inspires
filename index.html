@@ -81,9 +81,18 @@
         <div class="image-frame">
             <img src="assets/images/athanas.png" alt="Athanas Inspires">
         </div>
-        <div class="floating-note note-one">✅ ICT Lessons</div>
-        <div class="floating-note note-two">📥 Assignments</div>
-        <div class="floating-note note-three">🛠️ Tools</div>
+        <a class="floating-note note-one" href="courses.html" aria-label="Explore Digital Skills">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H4z"/><path d="M8 19h8M12 15.5V19"/></svg>
+            <span>Digital Skills</span>
+        </a>
+        <a class="floating-note note-two" href="faith-inspiration.html" aria-label="Explore Inspiration and Growth">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
+            <span>Inspiration &amp; Growth</span>
+        </a>
+        <a class="floating-note note-three" href="#purpose-mission" aria-label="Go to Grow with Purpose mission">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/></svg>
+            <span>Grow with Purpose</span>
+        </a>
     </div>
 </header>
 
@@ -103,8 +112,8 @@
     <div class="home-search-card">
         <div>
             <p class="eyebrow dark">Search This Page</p>
-            <h2>Find ICT Lessons and Assignments on This Page</h2>
-            <p>Search for Excel, Word, Computer Basics, typing, formulas, IF logic, or assignments.</p>
+            <h2>Find Lessons, Assignments, Articles, and Tools</h2>
+            <p>Search this homepage for Excel, Word, Computer Basics, inspiration, typing, formulas, assignments, and tools.</p>
         </div>
         <div class="search-box">
             <input type="search" id="homeSearch" placeholder="Search this page..." aria-label="Search this page">
@@ -146,34 +155,84 @@
     <p class="no-results" id="homeSearchNoResults">No matching ICT lesson or assignment found yet.</p>
 </section>
 
-<section class="section updates-section">
+<section class="section updates-section" aria-labelledby="latest-heading">
     <div class="section-heading">
-        <p class="eyebrow dark">New on Athanas Inspires</p>
-        <h2>New Lessons and Resources</h2>
-        <p>See fresh lessons, assignments, tools, and helpful resources as they are added.</p>
+        <p class="eyebrow dark">Fresh Learning &amp; Inspiration</p>
+        <h2 id="latest-heading">Latest from Athanas Inspires</h2>
+        <p>Open the newest lesson, assignment, article, or practical tool.</p>
     </div>
 
-    <div class="updates-grid">
-        <a href="courses.html#excel-series" class="update-card clickable-card search-item" data-search="new excel session 4 if logic lesson assignment">
-            <span class="label new-label">New</span>
-            <h3>Excel Session 4</h3>
-            <p>Learn IF logic and simple business-style decision making in Excel.</p>
-            <span class="small-link">View Session →</span>
+    <div class="latest-list searchable-grid">
+        <a href="courses.html#word-session-3-card" class="latest-row search-item" data-search="new word session 3 microsoft word visual documents pictures wrap text shapes wordart symbols equations">
+            <span class="latest-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg>
+            </span>
+            <span class="latest-title">Word Session 3</span>
+            <span class="latest-arrow" aria-hidden="true">→</span>
         </a>
 
-        <a href="assignments.html#excel-session-4" class="update-card clickable-card search-item" data-search="new excel session 4 assignment submit download">
-            <span class="label new-label">New</span>
-            <h3>Excel Session 4 Assignment</h3>
-            <p>Download the practice file, complete it, then submit through WhatsApp.</p>
-            <span class="small-link">Open Assignment →</span>
+        <a href="assignments.html#word-session-3-assignment" class="latest-row search-item" data-search="new word session 3 mini project assignment microsoft word internet safety guide">
+            <span class="latest-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5M10 13h6M10 17h6"/><path d="m4 13 1.5 1.5L8 12"/></svg>
+            </span>
+            <span class="latest-title">Word Session 3 Mini Project</span>
+            <span class="latest-arrow" aria-hidden="true">→</span>
         </a>
 
-        <a href="typing-trainer.html" class="update-card clickable-card search-item" data-search="typing speed trainer keyboard practice wpm accuracy ict words">
-            <span class="label new-label">New Tool</span>
-            <h3>Typing Speed Trainer</h3>
-            <p>Practice keyboard speed, accuracy, focus, and ICT vocabulary with timed typing exercises.</p>
-            <span class="small-link">Start Typing →</span>
+        <a href="the-power-of-small-beginnings.html" class="latest-row search-item" data-search="new article power small beginnings inspiration growth start where you are use what you have">
+            <span class="latest-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
+            </span>
+            <span class="latest-title">The Power of Small Beginnings</span>
+            <span class="latest-arrow" aria-hidden="true">→</span>
         </a>
+
+        <a href="typing-trainer.html" class="latest-row search-item" data-search="typing speed trainer keyboard practice wpm accuracy ict words">
+            <span class="latest-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M10.5 10h.01M14 10h.01M17.5 10h.01M7 13.5h.01M10.5 13.5h.01M14 13.5h3.5"/></svg>
+            </span>
+            <span class="latest-title">Typing Speed Trainer</span>
+            <span class="latest-arrow" aria-hidden="true">→</span>
+        </a>
+    </div>
+</section>
+
+<section class="purpose-mission-section" id="purpose-mission" aria-labelledby="purpose-mission-title">
+    <div class="purpose-mission-inner">
+        <p class="eyebrow dark">The Heart of Athanas Inspires</p>
+        <h2 id="purpose-mission-title">Build Skills. Grow in Confidence. Move Forward with Purpose.</h2>
+        <p class="mission-intro">Athanas Inspires helps absolute beginners develop practical digital skills, overcome fear and self-doubt, and take meaningful steps toward a confident and purposeful future.</p>
+
+        <div class="mission-pillars">
+            <div class="mission-pillar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H4z"/><path d="M8 19h8M12 15.5V19"/></svg>
+                <div>
+                    <h3>Digital Skills</h3>
+                    <p>Clear, practical ICT lessons, assignments, guides, and tools for people starting from the beginning.</p>
+                </div>
+            </div>
+            <div class="mission-pillar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
+                <div>
+                    <h3>Inspiration &amp; Growth</h3>
+                    <p>Faith-rooted encouragement that helps people challenge negative voices, build confidence, and keep moving.</p>
+                </div>
+            </div>
+            <div class="mission-pillar">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/></svg>
+                <div>
+                    <h3>Grow with Purpose</h3>
+                    <p>Guidance to turn knowledge into action, use what is already in your hands, and create meaningful impact.</p>
+                </div>
+            </div>
+        </div>
+
+        <blockquote class="mission-verse">“Do not despise these small beginnings.” <cite>— Zechariah 4:10</cite></blockquote>
+
+        <div class="mission-actions">
+            <a href="courses.html" class="btn">Explore ICT Lessons</a>
+            <a href="faith-inspiration.html" class="btn secondary-btn mission-outline-btn">Read Inspiration</a>
+        </div>
     </div>
 </section>
 

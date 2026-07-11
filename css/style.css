@@ -5906,3 +5906,766 @@ body.image-viewer-open {
         width: min(220px, 70%);
     }
 }
+
+/* =========================================================
+   PREMIUM HOVER + READABILITY PASS — JULY 2026
+   Final override layer: stronger contrast, clearer typography,
+   richer hover feedback, and consistent keyboard focus.
+   ========================================================= */
+:root {
+    --premium-ease: cubic-bezier(.2,.8,.2,1);
+    --premium-shadow: 0 18px 45px rgba(6, 26, 64, 0.12), 0 4px 14px rgba(15, 23, 42, 0.06);
+    --premium-shadow-hover: 0 30px 78px rgba(6, 26, 64, 0.20), 0 10px 24px rgba(15, 23, 42, 0.10);
+    --premium-ring: 0 0 0 4px rgba(250, 204, 21, 0.25);
+    --readable-text: #172033;
+    --readable-muted: #34435a;
+    --readable-blue: #073579;
+    --readable-on-dark: #f8fbff;
+    --readable-on-dark-muted: #dce9ff;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    color: var(--readable-text);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+main,
+section,
+article {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--readable-blue);
+    line-height: 1.16;
+    text-wrap: balance;
+}
+
+p,
+li,
+dd,
+figcaption,
+label,
+input,
+textarea,
+select,
+button {
+    font-size: max(1rem, 16px);
+}
+
+p,
+li,
+dd,
+figcaption {
+    color: var(--readable-muted);
+}
+
+small,
+.footer-note,
+.download-help-text {
+    font-size: max(.9rem, 14px);
+    line-height: 1.6;
+}
+
+/* Readable body copy on light surfaces */
+:is(
+    .section-heading,
+    .course-card,
+    .path-card,
+    .contact-card,
+    .download-card,
+    .about-card,
+    .notice-card,
+    .update-card,
+    .platform-card,
+    .assignment-card,
+    .session-card,
+    .home-search-card,
+    .start-here-card,
+    .submit-guide-card,
+    .side-card,
+    .learning-card,
+    .featured-inspiration-copy,
+    .featured-visual-spotlight,
+    .inspiration-link-row,
+    .latest-row,
+    .mission-pillar,
+    .article-body,
+    .article-reflection,
+    .start-small-challenge
+) :is(p, li, dd) {
+    color: var(--readable-muted) !important;
+    font-weight: 600;
+    line-height: 1.75;
+}
+
+:is(
+    .course-card,
+    .path-card,
+    .contact-card,
+    .download-card,
+    .about-card,
+    .notice-card,
+    .update-card,
+    .platform-card,
+    .assignment-card,
+    .session-card,
+    .home-search-card,
+    .start-here-card,
+    .submit-guide-card,
+    .side-card,
+    .learning-card,
+    .featured-inspiration-copy,
+    .featured-visual-spotlight,
+    .inspiration-link-row,
+    .latest-row,
+    .mission-pillar,
+    .article-body,
+    .article-reflection,
+    .start-small-challenge
+) :is(h2, h3, h4, strong) {
+    color: var(--readable-blue);
+}
+
+/* Clear text on dark and image-backed surfaces */
+:is(
+    .hero,
+    .page-hero,
+    .youtube-hero,
+    .quiz-hero,
+    .shortcut-hero,
+    .typing-hero,
+    .calculator-hero,
+    .community-section,
+    .community-card,
+    .why-section,
+    .site-footer,
+    .top-contact-bar,
+    .navbar,
+    .article-hero,
+    .article-hero-visual,
+    .image-viewer-panel,
+    .question-card,
+    .shortcut-app-card,
+    .shortcut-question-card,
+    .typing-app-card,
+    .typing-practice-card,
+    .calculator-shell
+) :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--readable-on-dark) !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+:is(
+    .hero,
+    .page-hero,
+    .youtube-hero,
+    .quiz-hero,
+    .shortcut-hero,
+    .typing-hero,
+    .calculator-hero,
+    .community-section,
+    .community-card,
+    .why-section,
+    .site-footer,
+    .top-contact-bar,
+    .navbar,
+    .article-hero,
+    .article-hero-visual,
+    .image-viewer-panel,
+    .question-card,
+    .shortcut-app-card,
+    .shortcut-question-card,
+    .typing-app-card,
+    .typing-practice-card,
+    .calculator-shell
+) :is(p, li, dd, figcaption, label) {
+    color: var(--readable-on-dark-muted) !important;
+}
+
+:is(.hero, .page-hero, .youtube-hero, .quiz-hero, .shortcut-hero, .typing-hero, .calculator-hero) .eyebrow,
+:is(.article-hero, .article-hero-visual, .image-viewer-panel) :is(.eyebrow, .article-visual-kicker, .image-viewer-type) {
+    color: #ffeca1 !important;
+}
+
+/* Tiny labels remain elegant, but no longer microscopic */
+:is(
+    .eyebrow,
+    .new-label,
+    .coming-label,
+    .session-label,
+    .watch-label,
+    .question-tag,
+    .featured-visual-eyebrow,
+    .visual-spotlight-badge,
+    .article-visual-kicker,
+    .article-meta,
+    .image-viewer-type,
+    .image-viewer-kicker,
+    .image-viewer-brand,
+    .article-visual-signature
+) {
+    font-size: max(.76rem, 12px) !important;
+    line-height: 1.4;
+    letter-spacing: .65px;
+}
+
+/* Links are visible even before hover */
+a:not(.btn):not(.small-btn):not(.lesson-btn):not(.latest-row):not(.inspiration-link-row):not(.clickable-card) {
+    text-underline-offset: .2em;
+    text-decoration-thickness: 1.5px;
+}
+
+.article-body a,
+.about-text a,
+.notice-card a,
+.download-help-text a,
+.assignment-instructions-panel a {
+    color: #0757bc;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+/* Unified, premium interaction timing */
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+summary,
+img,
+svg {
+    transition-timing-function: var(--premium-ease) !important;
+}
+
+/* Premium navigation hover */
+@media (hover: hover) and (pointer: fine) {
+    .nav-links a:not(.active) {
+        transition: transform .28s var(--premium-ease), color .28s ease, background .28s ease, box-shadow .28s ease;
+    }
+
+    .nav-links a:not(.active):hover {
+        color: #ffe879;
+        background: rgba(255, 255, 255, 0.115);
+        transform: translateY(-2px);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.09), 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .brand:hover img {
+        transform: translateY(-2px) rotate(-2deg) scale(1.055);
+        filter: drop-shadow(0 15px 20px rgba(0, 0, 0, .38)) saturate(1.08);
+    }
+
+    .brand:hover span {
+        color: #fff0a8;
+        text-shadow: 0 0 22px rgba(250, 204, 21, .25);
+    }
+
+    .top-contact-links a:hover {
+        transform: translateY(-3px) scale(1.02);
+        background: rgba(250, 204, 21, 0.18);
+        border-color: rgba(250, 204, 21, .32);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .18);
+    }
+}
+
+.brand img,
+.brand span {
+    transition: transform .36s var(--premium-ease), color .3s ease, filter .36s ease, text-shadow .3s ease;
+}
+
+/* Premium buttons: lift + light sweep + stronger contrast */
+:is(.btn, .small-btn, .lesson-btn, .outline-btn, .submit-btn, .whatsapp-btn, .youtube-main-btn, .mission-outline-btn, .share-link, .article-community-btn, .search-box button, .quiz-control, .typing-small-action, .angle-toggle, .pill-tool, .calc-btn) {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border-width: 1px;
+    box-shadow: 0 13px 30px rgba(8, 47, 115, .16);
+    transition: transform .32s var(--premium-ease), box-shadow .32s var(--premium-ease), border-color .32s ease, color .32s ease, background .32s ease, filter .32s ease !important;
+}
+
+:is(.btn, .small-btn, .lesson-btn, .outline-btn, .submit-btn, .whatsapp-btn, .youtube-main-btn, .mission-outline-btn, .share-link, .article-community-btn, .search-box button, .quiz-control, .typing-small-action)::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -90%;
+    left: -42%;
+    width: 34%;
+    height: 280%;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .52), transparent);
+    transform: rotate(18deg) translateX(-260%);
+    transition: transform .72s var(--premium-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    :is(.btn, .small-btn, .lesson-btn, .outline-btn, .submit-btn, .whatsapp-btn, .youtube-main-btn, .mission-outline-btn, .share-link, .article-community-btn, .search-box button, .quiz-control, .typing-small-action, .angle-toggle, .pill-tool, .calc-btn):not(:disabled):hover {
+        transform: translateY(-4px) scale(1.015);
+        box-shadow: 0 22px 48px rgba(8, 47, 115, .24), 0 7px 18px rgba(15, 23, 42, .10);
+        filter: saturate(1.07) brightness(1.025);
+    }
+
+    :is(.btn, .small-btn, .lesson-btn, .outline-btn, .submit-btn, .whatsapp-btn, .youtube-main-btn, .mission-outline-btn, .share-link, .article-community-btn, .search-box button, .quiz-control, .typing-small-action):not(:disabled):hover::after {
+        transform: rotate(18deg) translateX(620%);
+    }
+
+    :is(.angle-toggle, .pill-tool, .calc-btn):not(:disabled):hover {
+        transform: translateY(-3px) scale(1.035);
+    }
+}
+
+:is(button, .btn, .small-btn, .lesson-btn, .outline-btn, .submit-btn, .whatsapp-btn, .youtube-main-btn, .mission-outline-btn, .share-link, .article-community-btn):active:not(:disabled) {
+    transform: translateY(-1px) scale(.985) !important;
+}
+
+/* Premium surface hover for all content modules */
+:is(
+    .stat-card,
+    .course-card,
+    .path-card,
+    .contact-card,
+    .download-card,
+    .about-card,
+    .notice-card,
+    .youtube-hero-card,
+    .video-series,
+    .update-card,
+    .platform-card,
+    .assignment-card,
+    .session-card,
+    .home-search-card,
+    .start-here-card,
+    .submit-guide-card,
+    .side-card,
+    .learning-card,
+    .community-card,
+    .why-card,
+    .featured-inspiration-copy,
+    .featured-visual-spotlight,
+    .mission-pillar,
+    .article-reflection,
+    .start-small-challenge,
+    .article-next-step,
+    .calculator-shell,
+    .quiz-app-card,
+    .shortcut-app-card,
+    .typing-app-card
+) {
+    border-color: rgba(7, 53, 121, .12);
+    box-shadow: var(--premium-shadow);
+    transition: transform .38s var(--premium-ease), box-shadow .38s var(--premium-ease), border-color .38s ease, background .38s ease, filter .38s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    :is(
+        .stat-card,
+        .course-card,
+        .path-card,
+        .contact-card,
+        .download-card,
+        .about-card,
+        .notice-card,
+        .youtube-hero-card,
+        .video-series,
+        .update-card,
+        .platform-card,
+        .assignment-card,
+        .session-card,
+        .home-search-card,
+        .start-here-card,
+        .submit-guide-card,
+        .side-card,
+        .learning-card,
+        .community-card,
+        .why-card,
+        .featured-inspiration-copy,
+        .featured-visual-spotlight,
+        .mission-pillar,
+        .article-reflection,
+        .start-small-challenge,
+        .article-next-step,
+        .calculator-shell,
+        .quiz-app-card,
+        .shortcut-app-card,
+        .typing-app-card
+    ):hover {
+        transform: translateY(-8px) scale(1.008);
+        border-color: rgba(13, 71, 161, .25);
+        box-shadow: var(--premium-shadow-hover);
+        filter: saturate(1.025);
+    }
+
+    :is(.course-card, .contact-card, .download-card, .platform-card, .assignment-card, .session-card, .start-here-card, .submit-guide-card, .why-card):hover :is(.course-icon, .contact-icon, .download-icon, .assignment-icon, .start-here-icon, .submit-guide-icon, .why-icon, .series-icon) {
+        transform: translateY(-3px) rotate(-3deg) scale(1.09);
+        filter: drop-shadow(0 12px 18px rgba(8, 47, 115, .18));
+    }
+}
+
+:is(.course-icon, .contact-icon, .download-icon, .assignment-icon, .start-here-icon, .submit-guide-icon, .why-icon, .series-icon, .latest-icon, .inspiration-row-icon) {
+    transition: transform .38s var(--premium-ease), filter .38s ease, background .38s ease, color .38s ease !important;
+}
+
+/* Clickable editorial rows */
+:is(.latest-row, .inspiration-link-row, .clickable-card) {
+    outline: none;
+    transition: transform .34s var(--premium-ease), box-shadow .34s var(--premium-ease), border-color .34s ease, background .34s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    :is(.latest-row, .inspiration-link-row, .clickable-card):hover {
+        transform: translateY(-6px) translateX(3px);
+        border-color: rgba(13, 71, 161, .30);
+        box-shadow: 0 25px 62px rgba(8, 47, 115, .16), 0 6px 18px rgba(15, 23, 42, .08);
+        background-color: rgba(255, 255, 255, .98);
+    }
+
+    :is(.latest-row, .inspiration-link-row):hover .latest-arrow {
+        transform: translateX(5px) rotate(-4deg) scale(1.08);
+        box-shadow: 0 12px 25px rgba(13, 71, 161, .22);
+    }
+}
+
+.latest-title,
+.inspiration-link-row h3 {
+    color: var(--readable-blue) !important;
+    font-weight: 900;
+}
+
+/* Images and media feel tactile, without reducing legibility */
+:is(.image-frame, .about-image, .youtube-hero-card, .featured-inspiration-image, .premium-image-trigger, .featured-visual-spotlight, .article-hero-visual, .assignment-preview-panel) {
+    overflow: hidden;
+}
+
+:is(.image-frame img, .about-image img, .youtube-hero-card img, .featured-inspiration-image img, .premium-image-trigger img, .assignment-preview-img) {
+    transition: transform .55s var(--premium-ease), filter .55s ease, box-shadow .55s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    :is(.image-frame, .about-image, .youtube-hero-card, .featured-inspiration-image, .premium-image-trigger, .assignment-preview-panel):hover img {
+        transform: scale(1.035);
+        filter: saturate(1.08) contrast(1.025);
+    }
+
+    .premium-image-trigger:hover .image-view-hint {
+        transform: translateY(-3px) scale(1.025);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, .28);
+    }
+}
+
+/* Forms and search controls */
+:is(input, textarea, select) {
+    color: #10213a !important;
+    background-color: #ffffff !important;
+    border-color: rgba(7, 53, 121, .23) !important;
+    caret-color: #0d47a1;
+    box-shadow: inset 0 2px 8px rgba(15, 23, 42, .05);
+    transition: border-color .28s ease, box-shadow .28s ease, transform .28s var(--premium-ease), background .28s ease !important;
+}
+
+:is(input, textarea)::placeholder {
+    color: #617087 !important;
+    opacity: 1;
+}
+
+:is(input, textarea, select):hover:not(:disabled) {
+    border-color: rgba(13, 71, 161, .42) !important;
+}
+
+:is(input, textarea, select):focus {
+    border-color: #1762bd !important;
+    box-shadow: 0 0 0 4px rgba(29, 78, 216, .14), 0 12px 28px rgba(8, 47, 115, .10) !important;
+    outline: none;
+}
+
+/* Tables and lists remain readable if added later */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    color: var(--readable-text);
+    background: #ffffff;
+}
+
+th {
+    color: #ffffff;
+    background: #0b438f;
+}
+
+td,
+th {
+    padding: 13px 15px;
+    border-bottom: 1px solid #dbe4ef;
+    text-align: left;
+}
+
+/* Footer links: visible baseline and premium hover */
+.site-footer :is(p, li, a) {
+    color: #e6efff !important;
+    font-size: max(.96rem, 15px);
+}
+
+.footer-column h3,
+.footer-brand h3 {
+    color: #ffffff !important;
+}
+
+.footer-links a,
+.footer-column a {
+    position: relative;
+    display: inline-flex;
+    padding: 3px 0;
+    text-decoration: none;
+    transition: color .28s ease, transform .28s var(--premium-ease) !important;
+}
+
+.footer-links a::after,
+.footer-column a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--gold), #86efac);
+    transition: right .32s var(--premium-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .footer-links a:hover,
+    .footer-column a:hover {
+        color: #ffec91 !important;
+        transform: translateX(4px);
+    }
+
+    .footer-links a:hover::after,
+    .footer-column a:hover::after {
+        right: 0;
+    }
+}
+
+/* Clear focus for keyboard users across the whole website */
+:is(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 3px solid #facc15 !important;
+    outline-offset: 4px !important;
+    box-shadow: var(--premium-ring) !important;
+}
+
+/* Disabled elements stay readable but clearly inactive */
+:is(button, .btn, .small-btn, .lesson-btn, input, textarea, select):disabled,
+:is(.disabled-btn, .coming-soon-btn) {
+    opacity: .72;
+    filter: grayscale(.12);
+}
+
+/* Better reading width and article rhythm */
+.article-body {
+    color: var(--readable-text);
+    font-size: clamp(1.04rem, 1.25vw, 1.18rem);
+    line-height: 1.85;
+}
+
+.article-body p,
+.article-body li {
+    color: #26364d !important;
+    font-weight: 500 !important;
+}
+
+.article-body h2,
+.article-body h3 {
+    color: #073579 !important;
+    margin-top: 1.8em;
+}
+
+.article-pull-quote,
+.article-opening-quote {
+    color: #0b377b !important;
+    font-weight: 800;
+}
+
+.image-viewer-caption p {
+    color: #dce9ff !important;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* Mobile readability and restrained motion */
+@media (max-width: 720px) {
+    body {
+        font-size: 16px;
+        line-height: 1.68;
+    }
+
+    .section-heading p,
+    .page-hero p,
+    .hero-desc,
+    .about-intro {
+        font-size: 17px !important;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 12vw, 54px);
+        line-height: 1.08;
+    }
+
+    .page-hero h1,
+    .section-heading h2 {
+        font-size: clamp(32px, 9vw, 43px);
+    }
+
+    .top-contact-inner {
+        font-size: 14px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding-block: 12px;
+    }
+
+    :is(.latest-row, .inspiration-link-row) {
+        min-height: 82px;
+    }
+
+    .article-body {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* FINAL POLISH PATCH: link spacing, remaining interactive controls, and footer clarity */
+.assignment-instructions-panel a:not(.btn):not(.small-btn):not(.lesson-btn):not(.outline-btn):not(.submit-btn),
+.article-body a:not(.btn):not(.small-btn):not(.share-link),
+.about-text a:not(.btn):not(.small-btn),
+.notice-card a:not(.btn):not(.small-btn),
+.download-help-text a:not(.btn):not(.small-btn) {
+    color: #0757bc;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.footer-column a,
+.footer-links a {
+    display: flex;
+    width: fit-content;
+    margin: .45rem 0;
+    line-height: 1.45;
+}
+
+.footer-column p,
+.footer-brand p {
+    line-height: 1.7;
+}
+
+:is(.category-tab, .answer-btn, .shortcut-choice-btn, .coming-line, .small-link, .article-back-link, .floating-note) {
+    transition: transform .3s var(--premium-ease), box-shadow .3s var(--premium-ease), border-color .3s ease, background .3s ease, color .3s ease, filter .3s ease !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .category-tab:not(.active):hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(8, 47, 115, .18);
+        border-color: rgba(250, 204, 21, .48);
+        filter: saturate(1.08);
+    }
+
+    :is(.answer-btn, .shortcut-choice-btn):hover:not(:disabled) {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 16px 34px rgba(0, 0, 0, .20);
+        border-color: rgba(250, 204, 21, .48) !important;
+    }
+
+    .coming-line:hover {
+        transform: translateX(5px);
+        background: rgba(13, 71, 161, .045);
+        border-color: rgba(13, 71, 161, .22);
+    }
+
+    .small-link:hover,
+    .article-back-link:hover {
+        transform: translateX(4px);
+        color: #073579;
+        text-decoration-thickness: 2px;
+    }
+
+    .floating-note:hover {
+        transform: translateY(-5px) scale(1.035);
+        box-shadow: 0 22px 46px rgba(0, 0, 0, .27);
+        filter: saturate(1.08);
+    }
+}
+
+/* Keep footer navigation comfortably separated on small screens. */
+@media (max-width: 720px) {
+    .footer-column a,
+    .footer-links a {
+        margin: .55rem auto;
+        justify-content: center;
+    }
+
+    .footer-column,
+    .footer-brand {
+        text-align: center;
+    }
+}
+
+/* Contrast corrections discovered during the final audit */
+.navbar {
+    background-color: #061a40;
+}
+
+.assignment-instructions-panel .small-btn,
+.article-body :is(.btn, .small-btn, .share-link),
+.about-text :is(.btn, .small-btn),
+.notice-card :is(.btn, .small-btn),
+.download-help-text :is(.btn, .small-btn) {
+    text-decoration: none;
+}
+
+.assignment-instructions-panel .small-btn {
+    color: #ffffff !important;
+}
+
+:is(
+    .eyebrow,
+    .new-label,
+    .coming-label,
+    .session-label,
+    .watch-label,
+    .question-tag,
+    .featured-visual-eyebrow,
+    .visual-spotlight-badge,
+    .article-visual-kicker,
+    .article-meta,
+    .image-viewer-type,
+    .image-viewer-kicker,
+    .image-viewer-brand,
+    .article-visual-signature
+) {
+    font-size: max(.82rem, 13px) !important;
+}

@@ -294,3 +294,50 @@ document.addEventListener("DOMContentLoaded", () => {
         revealTargets.forEach((element) => element.classList.add("is-visible"));
     }
 });
+
+
+/* Shared Support dropdown and homepage FAQ preview */
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
+
+    const setDropdown = (dropdown, shouldOpen) => {
+        const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+        dropdown.classList.toggle("is-open", shouldOpen);
+        toggle?.setAttribute("aria-expanded", String(shouldOpen));
+    };
+
+    dropdowns.forEach((dropdown) => {
+        const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+        toggle?.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const willOpen = !dropdown.classList.contains("is-open");
+            dropdowns.forEach((item) => setDropdown(item, false));
+            setDropdown(dropdown, willOpen);
+        });
+
+        dropdown.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => setDropdown(dropdown, false));
+        });
+    });
+
+    document.addEventListener("click", (event) => {
+        dropdowns.forEach((dropdown) => {
+            if (!dropdown.contains(event.target)) setDropdown(dropdown, false);
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        dropdowns.forEach((dropdown) => setDropdown(dropdown, false));
+    });
+
+    const homeFaqItems = Array.from(document.querySelectorAll(".home-faq-item"));
+    homeFaqItems.forEach((item) => {
+        item.addEventListener("toggle", () => {
+            if (!item.open) return;
+            homeFaqItems.forEach((other) => {
+                if (other !== item) other.open = false;
+            });
+        });
+    });
+});

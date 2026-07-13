@@ -1,5 +1,5 @@
 window.ATHANAS_ASSISTANT_DATA = {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "updated": "2026-07-13",
   "name": "Athanas Inspires AI Assistant",
   "status": "Your learning guide",
@@ -50,8 +50,8 @@ window.ATHANAS_ASSISTANT_DATA = {
     "Where can I find Excel assignments?",
     "How do I create a PowerPoint presentation?",
     "How can I stay safe from online scams?",
-    "How do I transfer files from my phone to a computer?",
-    "Why is my Excel formula not working?"
+    "How do I use Google Drive?",
+    "What is artificial intelligence?"
   ],
   "lessons": {
     "computer": [
@@ -7374,6 +7374,1937 @@ window.ATHANAS_ASSISTANT_DATA = {
       ],
       "answer": "I am the Athanas Inspires AI Assistant—your learning guide on this website.",
       "details": "I help visitors learn, find resources, and move from confusion to clarity using approved Athanas Inspires and beginner digital-skills knowledge.",
+      "actions": []
+    },
+    {
+      "id": "ai-what-is-ai",
+      "topic": "AI & Digital Literacy",
+      "title": "What is artificial intelligence?",
+      "aliases": [
+        "what is AI",
+        "explain AI"
+      ],
+      "keywords": [
+        "ai",
+        "artificial intelligence",
+        "computer",
+        "learning"
+      ],
+      "answer": "Artificial intelligence is technology that helps computers perform tasks that normally require human-like understanding or decision-making.",
+      "details": "AI can recognise patterns, generate text or images, translate languages, recommend content, and support problem-solving. It does not think or feel like a human, and its output should be checked.",
+      "actions": []
+    },
+    {
+      "id": "ai-generative-ai",
+      "topic": "AI & Digital Literacy",
+      "title": "What is generative AI?",
+      "aliases": [
+        "what does generative AI mean"
+      ],
+      "keywords": [
+        "ai",
+        "generative",
+        "text",
+        "image",
+        "content"
+      ],
+      "answer": "Generative AI creates new content such as text, images, audio, or code from instructions.",
+      "details": "It predicts useful output from patterns learned during training. The result can be helpful, but it can also be incomplete or wrong, so verify important information.",
+      "actions": []
+    },
+    {
+      "id": "ai-prompt",
+      "topic": "AI & Digital Literacy",
+      "title": "What is an AI prompt?",
+      "aliases": [
+        "how do I prompt AI",
+        "prompt meaning"
+      ],
+      "keywords": [
+        "ai",
+        "prompt",
+        "instruction",
+        "question"
+      ],
+      "answer": "A prompt is the instruction or question you give an AI system.",
+      "details": "A strong prompt explains the goal, context, audience, format, and important limits. Clear instructions usually produce clearer results.",
+      "actions": []
+    },
+    {
+      "id": "ai-better-prompts",
+      "topic": "AI & Digital Literacy",
+      "title": "How can I write a better AI prompt?",
+      "aliases": [
+        "better prompt",
+        "good AI question"
+      ],
+      "keywords": [
+        "ai",
+        "prompt",
+        "clear",
+        "context",
+        "format"
+      ],
+      "answer": "State exactly what you need, include useful context, and describe the format you want.",
+      "details": "For example: 'Explain Excel IF to an absolute beginner using one school-results example and three simple steps.' Review the result and ask follow-up questions where necessary.",
+      "actions": []
+    },
+    {
+      "id": "ai-hallucination",
+      "topic": "AI & Digital Literacy",
+      "title": "Can AI give a wrong answer?",
+      "aliases": [
+        "does AI make mistakes",
+        "AI wrong answer"
+      ],
+      "keywords": [
+        "ai",
+        "mistake",
+        "wrong",
+        "verify",
+        "hallucination"
+      ],
+      "answer": "Yes. AI can produce an answer that sounds confident but is inaccurate or invented.",
+      "details": "Verify important facts using trusted sources, especially for health, money, law, security, and current events. Do not treat confident wording as proof.",
+      "actions": []
+    },
+    {
+      "id": "ai-privacy",
+      "topic": "AI & Digital Literacy",
+      "title": "What information should I avoid sharing with AI?",
+      "aliases": [
+        "AI privacy",
+        "safe information AI"
+      ],
+      "keywords": [
+        "ai",
+        "privacy",
+        "password",
+        "personal",
+        "security"
+      ],
+      "answer": "Avoid sharing passwords, financial details, confidential documents, private identification numbers, or sensitive personal information.",
+      "details": "Remove names and confidential details when possible. Use approved workplace or school systems for protected information.",
+      "actions": []
+    },
+    {
+      "id": "ai-learning-use",
+      "topic": "AI & Digital Literacy",
+      "title": "How can I use AI for learning?",
+      "aliases": [
+        "use AI to study",
+        "AI study help"
+      ],
+      "keywords": [
+        "ai",
+        "learning",
+        "study",
+        "explain",
+        "practice"
+      ],
+      "answer": "Use AI to simplify ideas, create practice questions, compare examples, and receive feedback on your own work.",
+      "details": "Do not copy answers without understanding them. Ask the AI to explain steps, quiz you, and point out mistakes so that you remain the learner.",
+      "actions": []
+    },
+    {
+      "id": "ai-teacher-use",
+      "topic": "AI & Digital Literacy",
+      "title": "How can a teacher use AI responsibly?",
+      "aliases": [
+        "AI for teachers",
+        "teacher use AI"
+      ],
+      "keywords": [
+        "ai",
+        "teacher",
+        "lesson",
+        "assessment",
+        "responsible"
+      ],
+      "answer": "A teacher can use AI to brainstorm lesson ideas, adapt explanations, create draft activities, and prepare differentiated practice.",
+      "details": "The teacher should review accuracy, protect learner data, align material with the curriculum, and make the final professional decisions.",
+      "actions": []
+    },
+    {
+      "id": "ai-student-cheating",
+      "topic": "AI & Digital Literacy",
+      "title": "Is using AI always cheating?",
+      "aliases": [
+        "AI cheating",
+        "student AI"
+      ],
+      "keywords": [
+        "ai",
+        "cheating",
+        "student",
+        "school",
+        "rules"
+      ],
+      "answer": "Not always. It depends on the task and the rules given by the teacher or institution.",
+      "details": "Using AI to understand a concept may be allowed, while submitting AI-generated work as your own may not be. Ask what is permitted and acknowledge AI assistance when required.",
+      "actions": []
+    },
+    {
+      "id": "ai-copyright",
+      "topic": "AI & Digital Literacy",
+      "title": "Can I use AI-generated content anywhere?",
+      "aliases": [
+        "AI copyright",
+        "use AI images"
+      ],
+      "keywords": [
+        "ai",
+        "copyright",
+        "content",
+        "permission"
+      ],
+      "answer": "Not automatically. You still need to consider copyright, privacy, platform rules, and whether the content includes protected material.",
+      "details": "Review the service terms and avoid presenting generated content as original human work when disclosure is expected.",
+      "actions": []
+    },
+    {
+      "id": "ai-deepfake",
+      "topic": "AI & Digital Literacy",
+      "title": "What is a deepfake?",
+      "aliases": [
+        "deepfake meaning",
+        "fake AI video"
+      ],
+      "keywords": [
+        "ai",
+        "deepfake",
+        "video",
+        "audio",
+        "scam"
+      ],
+      "answer": "A deepfake is manipulated or generated media that makes someone appear to say or do something they did not.",
+      "details": "Check the original source, look for inconsistencies, and verify surprising claims through trusted channels before sharing.",
+      "actions": []
+    },
+    {
+      "id": "ai-image-check",
+      "topic": "AI & Digital Literacy",
+      "title": "How can I recognise a possible AI-generated image?",
+      "aliases": [
+        "spot AI image",
+        "fake image"
+      ],
+      "keywords": [
+        "ai",
+        "image",
+        "fake",
+        "verify"
+      ],
+      "answer": "Look for inconsistent text, unusual hands or objects, strange reflections, and details that do not match the scene.",
+      "details": "Visual clues are not always reliable. Check the source, context, metadata where available, and trusted reporting.",
+      "actions": []
+    },
+    {
+      "id": "ai-bias",
+      "topic": "AI & Digital Literacy",
+      "title": "What is AI bias?",
+      "aliases": [
+        "bias in AI"
+      ],
+      "keywords": [
+        "ai",
+        "bias",
+        "fairness",
+        "data"
+      ],
+      "answer": "AI bias happens when a system produces unfair or unbalanced results because of its data, design, or use.",
+      "details": "Compare outputs, question assumptions, and include human review—especially for decisions affecting people.",
+      "actions": []
+    },
+    {
+      "id": "ai-human-review",
+      "topic": "AI & Digital Literacy",
+      "title": "Why is human review important when using AI?",
+      "aliases": [
+        "review AI output"
+      ],
+      "keywords": [
+        "ai",
+        "human",
+        "review",
+        "accuracy"
+      ],
+      "answer": "Human review checks whether AI output is accurate, appropriate, fair, and useful for the real situation.",
+      "details": "AI can support judgement, but it should not replace responsibility. The person using the result remains accountable.",
+      "actions": []
+    },
+    {
+      "id": "ai-translate",
+      "topic": "AI & Digital Literacy",
+      "title": "Can AI help me translate languages?",
+      "aliases": [
+        "AI translation"
+      ],
+      "keywords": [
+        "ai",
+        "translate",
+        "language"
+      ],
+      "answer": "Yes. AI can provide quick translations and explain unfamiliar words or phrases.",
+      "details": "For official, legal, medical, or culturally sensitive material, ask a qualified human to review the translation.",
+      "actions": []
+    },
+    {
+      "id": "ai-summary",
+      "topic": "AI & Digital Literacy",
+      "title": "Can AI summarise a long document?",
+      "aliases": [
+        "AI summarize document"
+      ],
+      "keywords": [
+        "ai",
+        "summary",
+        "document",
+        "pdf"
+      ],
+      "answer": "Yes. AI can identify key ideas and create a shorter overview when the document is provided.",
+      "details": "Check the summary against the original because important details, conditions, or exceptions may be missed.",
+      "actions": []
+    },
+    {
+      "id": "ai-job-change",
+      "topic": "AI & Digital Literacy",
+      "title": "Will AI replace every job?",
+      "aliases": [
+        "AI replace jobs"
+      ],
+      "keywords": [
+        "ai",
+        "job",
+        "career",
+        "skills"
+      ],
+      "answer": "AI is more likely to change many tasks than to replace every job in the same way.",
+      "details": "Build skills that combine digital tools with judgement, communication, creativity, problem-solving, and real-world knowledge.",
+      "actions": []
+    },
+    {
+      "id": "ai-fact-check",
+      "topic": "AI & Digital Literacy",
+      "title": "How do I fact-check an AI answer?",
+      "aliases": [
+        "verify AI answer"
+      ],
+      "keywords": [
+        "ai",
+        "fact check",
+        "source",
+        "verify"
+      ],
+      "answer": "Identify the main claims, compare them with trusted sources, and check whether the information is current.",
+      "details": "For technical topics, prefer official documentation. For current information, use recent authoritative sources.",
+      "actions": []
+    },
+    {
+      "id": "ai-assistant-static",
+      "topic": "AI & Digital Literacy",
+      "title": "Is this website assistant the same as ChatGPT?",
+      "aliases": [
+        "is this ChatGPT",
+        "what kind of bot is this"
+      ],
+      "keywords": [
+        "assistant",
+        "chatgpt",
+        "static",
+        "knowledge"
+      ],
+      "answer": "No. This assistant uses approved local knowledge and guided website actions.",
+      "details": "It is designed to be reliable within its supported topics. It does not freely generate unlimited answers, and it redirects when it is not confident.",
+      "actions": []
+    },
+    {
+      "id": "ai-automation",
+      "topic": "AI & Digital Literacy",
+      "title": "What is automation?",
+      "aliases": [
+        "automation meaning"
+      ],
+      "keywords": [
+        "automation",
+        "task",
+        "repeat",
+        "computer"
+      ],
+      "answer": "Automation uses technology to perform repeated steps with little or no manual work.",
+      "details": "Examples include automatic calculations in Excel, scheduled reminders, email rules, and systems that move data between tools.",
+      "actions": []
+    },
+    {
+      "id": "gdocs-create",
+      "topic": "Google Workspace",
+      "title": "How do I create a Google Docs document?",
+      "aliases": [
+        "new Google Doc"
+      ],
+      "keywords": [
+        "google",
+        "docs",
+        "document",
+        "create"
+      ],
+      "answer": "Open Google Docs, choose Blank, and begin typing.",
+      "details": "Give the document a clear name. Changes save automatically when you are connected to the internet.",
+      "actions": []
+    },
+    {
+      "id": "gdocs-share",
+      "topic": "Google Workspace",
+      "title": "How do I share a Google Docs document?",
+      "aliases": [
+        "share Google Doc"
+      ],
+      "keywords": [
+        "google",
+        "docs",
+        "share",
+        "permission"
+      ],
+      "answer": "Open the document, select Share, add the person’s email address, and choose their permission.",
+      "details": "Viewer can read, Commenter can comment, and Editor can change the document. Use the lowest permission needed.",
+      "actions": []
+    },
+    {
+      "id": "gdocs-offline",
+      "topic": "Google Workspace",
+      "title": "Can I use Google Docs offline?",
+      "aliases": [
+        "Google Docs without internet"
+      ],
+      "keywords": [
+        "google",
+        "docs",
+        "offline",
+        "internet"
+      ],
+      "answer": "Yes, if offline access is enabled before you lose the internet connection.",
+      "details": "Use a supported browser, turn on offline access in Google Drive settings, and mark important files for offline use.",
+      "actions": []
+    },
+    {
+      "id": "gdocs-download-word",
+      "topic": "Google Workspace",
+      "title": "How do I download a Google Doc as a Word file?",
+      "aliases": [
+        "convert Google Doc to Word"
+      ],
+      "keywords": [
+        "google",
+        "docs",
+        "download",
+        "word",
+        "docx"
+      ],
+      "answer": "Open the document, choose File, Download, then Microsoft Word (.docx).",
+      "details": "Open the downloaded file in Word and check the formatting because some elements may shift.",
+      "actions": []
+    },
+    {
+      "id": "gdocs-pdf",
+      "topic": "Google Workspace",
+      "title": "How do I save a Google Doc as PDF?",
+      "aliases": [
+        "Google Doc to PDF"
+      ],
+      "keywords": [
+        "google",
+        "docs",
+        "pdf",
+        "download"
+      ],
+      "answer": "Choose File, Download, then PDF Document (.pdf).",
+      "details": "Review the PDF before sharing to confirm page breaks, pictures, and tables appear correctly.",
+      "actions": []
+    },
+    {
+      "id": "gsheets-create",
+      "topic": "Google Workspace",
+      "title": "How do I create a Google Sheet?",
+      "aliases": [
+        "new Google Sheet"
+      ],
+      "keywords": [
+        "google",
+        "sheets",
+        "spreadsheet",
+        "create"
+      ],
+      "answer": "Open Google Sheets, choose Blank, and enter your data into cells.",
+      "details": "Rename the file, add clear headings, and format the data so it is easy to understand.",
+      "actions": []
+    },
+    {
+      "id": "gsheets-formula",
+      "topic": "Google Workspace",
+      "title": "Do Excel formulas work in Google Sheets?",
+      "aliases": [
+        "Excel formula in Google Sheets"
+      ],
+      "keywords": [
+        "google",
+        "sheets",
+        "excel",
+        "formula"
+      ],
+      "answer": "Many common Excel formulas also work in Google Sheets.",
+      "details": "Some functions, features, and separators may differ. Check the Google Sheets function help when a formula is not accepted.",
+      "actions": []
+    },
+    {
+      "id": "gsheets-share",
+      "topic": "Google Workspace",
+      "title": "How do I share a Google Sheet safely?",
+      "aliases": [
+        "share Google Sheet"
+      ],
+      "keywords": [
+        "google",
+        "sheets",
+        "share",
+        "permission"
+      ],
+      "answer": "Use the Share button, add specific people, and choose Viewer, Commenter, or Editor.",
+      "details": "Avoid public editing links for sensitive data. Remove access when it is no longer needed.",
+      "actions": []
+    },
+    {
+      "id": "gsheets-filter",
+      "topic": "Google Workspace",
+      "title": "How do I filter data in Google Sheets?",
+      "aliases": [
+        "filter Google Sheet"
+      ],
+      "keywords": [
+        "google",
+        "sheets",
+        "filter",
+        "data"
+      ],
+      "answer": "Select your table, choose Data, then Create a filter.",
+      "details": "Use the filter icon in a heading cell to show only rows that meet your condition.",
+      "actions": []
+    },
+    {
+      "id": "gsheets-freeze",
+      "topic": "Google Workspace",
+      "title": "How do I freeze a row in Google Sheets?",
+      "aliases": [
+        "freeze header Google Sheets"
+      ],
+      "keywords": [
+        "google",
+        "sheets",
+        "freeze",
+        "row",
+        "header"
+      ],
+      "answer": "Choose View, Freeze, then select the number of rows or columns to keep visible.",
+      "details": "Freezing the heading row helps you understand data while scrolling.",
+      "actions": []
+    },
+    {
+      "id": "gslides-create",
+      "topic": "Google Workspace",
+      "title": "How do I create a Google Slides presentation?",
+      "aliases": [
+        "new Google Slides"
+      ],
+      "keywords": [
+        "google",
+        "slides",
+        "presentation",
+        "create"
+      ],
+      "answer": "Open Google Slides, choose Blank, select a layout, and add your content.",
+      "details": "Use one main idea per slide, readable text, and consistent design.",
+      "actions": []
+    },
+    {
+      "id": "gslides-present",
+      "topic": "Google Workspace",
+      "title": "How do I present Google Slides?",
+      "aliases": [
+        "start slideshow Google Slides"
+      ],
+      "keywords": [
+        "google",
+        "slides",
+        "present",
+        "slideshow"
+      ],
+      "answer": "Select Slideshow or Present in the upper-right corner.",
+      "details": "Test the presentation, internet connection, videos, and speaker notes before the session.",
+      "actions": []
+    },
+    {
+      "id": "gslides-pptx",
+      "topic": "Google Workspace",
+      "title": "How do I download Google Slides as PowerPoint?",
+      "aliases": [
+        "Google Slides to PowerPoint"
+      ],
+      "keywords": [
+        "google",
+        "slides",
+        "powerpoint",
+        "download",
+        "pptx"
+      ],
+      "answer": "Choose File, Download, then Microsoft PowerPoint (.pptx).",
+      "details": "Open the downloaded file in PowerPoint and check fonts, animations, and layout.",
+      "actions": []
+    },
+    {
+      "id": "gforms-create",
+      "topic": "Google Workspace",
+      "title": "What is Google Forms used for?",
+      "aliases": [
+        "Google Forms meaning"
+      ],
+      "keywords": [
+        "google",
+        "forms",
+        "survey",
+        "quiz",
+        "response"
+      ],
+      "answer": "Google Forms collects information through online forms, surveys, registrations, and quizzes.",
+      "details": "Responses can be viewed in Forms or linked to a Google Sheet for analysis.",
+      "actions": []
+    },
+    {
+      "id": "gforms-quiz",
+      "topic": "Google Workspace",
+      "title": "How do I make a quiz in Google Forms?",
+      "aliases": [
+        "Google Forms quiz"
+      ],
+      "keywords": [
+        "google",
+        "forms",
+        "quiz",
+        "answer"
+      ],
+      "answer": "Open Settings, turn on Make this a quiz, then add questions and answer keys.",
+      "details": "Set points and feedback carefully, then test the form before sharing it with learners.",
+      "actions": []
+    },
+    {
+      "id": "gforms-link",
+      "topic": "Google Workspace",
+      "title": "How do I share a Google Form?",
+      "aliases": [
+        "send Google Form"
+      ],
+      "keywords": [
+        "google",
+        "forms",
+        "share",
+        "link"
+      ],
+      "answer": "Select Send, choose the link option, copy the link, and share it with the intended people.",
+      "details": "Check whether sign-in is required and whether each person may submit more than once.",
+      "actions": []
+    },
+    {
+      "id": "gdrive-organize",
+      "topic": "Google Workspace",
+      "title": "How should I organise Google Drive?",
+      "aliases": [
+        "organize Drive"
+      ],
+      "keywords": [
+        "google",
+        "drive",
+        "folder",
+        "organize"
+      ],
+      "answer": "Create folders by project, subject, year, or purpose and use clear file names.",
+      "details": "Avoid keeping everything in My Drive without structure. Review and remove unnecessary duplicates.",
+      "actions": []
+    },
+    {
+      "id": "gdrive-trash",
+      "topic": "Google Workspace",
+      "title": "How do I restore a file from Google Drive Trash?",
+      "aliases": [
+        "recover deleted Drive file"
+      ],
+      "keywords": [
+        "google",
+        "drive",
+        "trash",
+        "restore",
+        "deleted"
+      ],
+      "answer": "Open Trash, right-click the file, and choose Restore.",
+      "details": "Restored files return to their previous location. Items in Trash may be deleted permanently after the retention period.",
+      "actions": []
+    },
+    {
+      "id": "gdrive-storage",
+      "topic": "Google Workspace",
+      "title": "Why is my Google Drive storage full?",
+      "aliases": [
+        "Google storage full"
+      ],
+      "keywords": [
+        "google",
+        "drive",
+        "storage",
+        "full"
+      ],
+      "answer": "Google storage is shared across Drive, Gmail, and Google Photos for many accounts.",
+      "details": "Review large files, empty Trash, remove unnecessary email attachments, and check Photos storage.",
+      "actions": []
+    },
+    {
+      "id": "gmail-label",
+      "topic": "Google Workspace",
+      "title": "What is a Gmail label?",
+      "aliases": [
+        "Gmail labels"
+      ],
+      "keywords": [
+        "gmail",
+        "label",
+        "organize",
+        "email"
+      ],
+      "answer": "A Gmail label helps organise messages into named groups.",
+      "details": "A message can have more than one label. Labels do not behave exactly like traditional folders.",
+      "actions": []
+    },
+    {
+      "id": "gmail-filter",
+      "topic": "Google Workspace",
+      "title": "How do I create a Gmail filter?",
+      "aliases": [
+        "automatic Gmail rule"
+      ],
+      "keywords": [
+        "gmail",
+        "filter",
+        "rule",
+        "email"
+      ],
+      "answer": "Use the search options, enter the conditions, choose Create filter, and select the action.",
+      "details": "Filters can label, archive, forward, mark, or delete matching messages. Test carefully before applying broadly.",
+      "actions": []
+    },
+    {
+      "id": "gmail-undo-send",
+      "topic": "Google Workspace",
+      "title": "Can I undo a sent email in Gmail?",
+      "aliases": [
+        "recall Gmail message"
+      ],
+      "keywords": [
+        "gmail",
+        "undo",
+        "send",
+        "email"
+      ],
+      "answer": "Gmail offers Undo Send for a short period after sending.",
+      "details": "Increase the cancellation period in Gmail settings. After the period ends, the message normally cannot be recalled.",
+      "actions": []
+    },
+    {
+      "id": "google-account-recovery",
+      "topic": "Google Workspace",
+      "title": "How do I recover a Google account?",
+      "aliases": [
+        "forgot Google password"
+      ],
+      "keywords": [
+        "google",
+        "account",
+        "recover",
+        "password"
+      ],
+      "answer": "Use Google’s official account recovery process and answer the questions as accurately as possible.",
+      "details": "Use a familiar device and location where possible. Never pay strangers who claim they can recover the account.",
+      "actions": []
+    },
+    {
+      "id": "google-permissions",
+      "topic": "Google Workspace",
+      "title": "What do Viewer, Commenter, and Editor mean?",
+      "aliases": [
+        "Google sharing permissions"
+      ],
+      "keywords": [
+        "google",
+        "viewer",
+        "commenter",
+        "editor",
+        "permission"
+      ],
+      "answer": "Viewer can read, Commenter can add comments, and Editor can change the file.",
+      "details": "Choose the lowest permission required and review access regularly.",
+      "actions": []
+    },
+    {
+      "id": "outlook-compose",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I send an email in Outlook?",
+      "aliases": [
+        "compose Outlook email"
+      ],
+      "keywords": [
+        "outlook",
+        "email",
+        "send",
+        "compose"
+      ],
+      "answer": "Select New Email, enter the recipient, add a clear subject, write the message, and choose Send.",
+      "details": "Check the address and attachments before sending. Use CC and BCC only when appropriate.",
+      "actions": []
+    },
+    {
+      "id": "outlook-attachment",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I attach a file in Outlook?",
+      "aliases": [
+        "attach Outlook file"
+      ],
+      "keywords": [
+        "outlook",
+        "attachment",
+        "file",
+        "email"
+      ],
+      "answer": "While writing the email, choose Attach File and select the correct document.",
+      "details": "Wait for the upload to finish. Large files may be shared as cloud links instead.",
+      "actions": []
+    },
+    {
+      "id": "outlook-signature",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I add an email signature in Outlook?",
+      "aliases": [
+        "Outlook signature"
+      ],
+      "keywords": [
+        "outlook",
+        "signature",
+        "email"
+      ],
+      "answer": "Open Outlook settings, find Signatures, create the signature, and choose when it should appear.",
+      "details": "Keep it professional and concise. Include only useful contact information.",
+      "actions": []
+    },
+    {
+      "id": "outlook-calendar",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I create a calendar event in Outlook?",
+      "aliases": [
+        "Outlook meeting event"
+      ],
+      "keywords": [
+        "outlook",
+        "calendar",
+        "meeting",
+        "event"
+      ],
+      "answer": "Open Calendar, choose New Event, enter the title, date, time, and attendees, then save or send.",
+      "details": "Add a clear agenda, correct time zone, and meeting link where needed.",
+      "actions": []
+    },
+    {
+      "id": "teams-meeting",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I join a Microsoft Teams meeting?",
+      "aliases": [
+        "join Teams"
+      ],
+      "keywords": [
+        "microsoft",
+        "teams",
+        "meeting",
+        "join"
+      ],
+      "answer": "Open the meeting link, choose the app or browser, enter your name if needed, then select Join now.",
+      "details": "Check the microphone, camera, and speaker before entering.",
+      "actions": []
+    },
+    {
+      "id": "teams-screen-share",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I share my screen in Microsoft Teams?",
+      "aliases": [
+        "Teams share screen"
+      ],
+      "keywords": [
+        "microsoft",
+        "teams",
+        "screen",
+        "share"
+      ],
+      "answer": "During the meeting, choose Share and select your whole screen or a specific window.",
+      "details": "Share only what participants need to see and close private information first.",
+      "actions": []
+    },
+    {
+      "id": "teams-chat",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What is the difference between Teams chat and channels?",
+      "aliases": [
+        "Teams chat vs channel"
+      ],
+      "keywords": [
+        "microsoft",
+        "teams",
+        "chat",
+        "channel"
+      ],
+      "answer": "Chat is usually for direct or small-group conversations, while channels organise discussions around a team topic or project.",
+      "details": "Use channels for information that should remain visible and organised for the wider team.",
+      "actions": []
+    },
+    {
+      "id": "onedrive-sync",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What does OneDrive sync mean?",
+      "aliases": [
+        "OneDrive sync"
+      ],
+      "keywords": [
+        "onedrive",
+        "sync",
+        "cloud",
+        "file"
+      ],
+      "answer": "OneDrive sync keeps selected files connected between your computer and cloud storage.",
+      "details": "A change on one device can update the cloud copy and other synced devices. Check sync status before shutting down.",
+      "actions": []
+    },
+    {
+      "id": "onedrive-share",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I share a OneDrive file?",
+      "aliases": [
+        "share OneDrive"
+      ],
+      "keywords": [
+        "onedrive",
+        "share",
+        "file",
+        "permission"
+      ],
+      "answer": "Select the file, choose Share, set the permission, and send the link to the intended people.",
+      "details": "Avoid allowing editing when viewing is enough, and remove access when the work is complete.",
+      "actions": []
+    },
+    {
+      "id": "office-autosave",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What is AutoSave in Microsoft Office?",
+      "aliases": [
+        "Office AutoSave"
+      ],
+      "keywords": [
+        "office",
+        "autosave",
+        "onedrive",
+        "save"
+      ],
+      "answer": "AutoSave continuously saves supported files stored in OneDrive or SharePoint.",
+      "details": "Confirm that AutoSave is turned on and the file is in a supported cloud location. Keep backups for important work.",
+      "actions": []
+    },
+    {
+      "id": "office-ribbon",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What is the Ribbon in Microsoft Office?",
+      "aliases": [
+        "Microsoft Ribbon"
+      ],
+      "keywords": [
+        "office",
+        "ribbon",
+        "tab",
+        "command"
+      ],
+      "answer": "The Ribbon is the area containing tabs and commands in Word, Excel, and PowerPoint.",
+      "details": "Tabs group related tools, such as Home, Insert, Layout, and Review.",
+      "actions": []
+    },
+    {
+      "id": "office-quick-access",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What is the Quick Access Toolbar?",
+      "aliases": [
+        "quick access toolbar"
+      ],
+      "keywords": [
+        "office",
+        "quick",
+        "access",
+        "toolbar"
+      ],
+      "answer": "The Quick Access Toolbar contains frequently used commands such as Save, Undo, and Redo.",
+      "details": "You can customise it to include commands you use often.",
+      "actions": []
+    },
+    {
+      "id": "office-safe-mode",
+      "topic": "Microsoft 365 & Communication",
+      "title": "What is Office Safe Mode?",
+      "aliases": [
+        "Word safe mode",
+        "Excel safe mode"
+      ],
+      "keywords": [
+        "office",
+        "safe mode",
+        "word",
+        "excel",
+        "problem"
+      ],
+      "answer": "Office Safe Mode opens an application with limited customisations and add-ins.",
+      "details": "It can help identify whether an add-in or setting is causing a problem.",
+      "actions": []
+    },
+    {
+      "id": "office-update",
+      "topic": "Microsoft 365 & Communication",
+      "title": "Why should I update Microsoft Office?",
+      "aliases": [
+        "update Office"
+      ],
+      "keywords": [
+        "office",
+        "update",
+        "security",
+        "feature"
+      ],
+      "answer": "Updates provide security fixes, reliability improvements, and sometimes new features.",
+      "details": "Save your work before updating and use official update methods.",
+      "actions": []
+    },
+    {
+      "id": "professional-message",
+      "topic": "Microsoft 365 & Communication",
+      "title": "How do I write a professional digital message?",
+      "aliases": [
+        "professional WhatsApp message",
+        "formal message"
+      ],
+      "keywords": [
+        "message",
+        "professional",
+        "whatsapp",
+        "email",
+        "communication"
+      ],
+      "answer": "Begin politely, state your purpose clearly, include the necessary context, and end respectfully.",
+      "details": "Avoid unclear abbreviations, excessive capital letters, and sending many fragmented messages.",
+      "actions": []
+    },
+    {
+      "id": "cyber-auth-app",
+      "topic": "Cybersecurity & Privacy",
+      "title": "Is an authenticator app safer than SMS codes?",
+      "aliases": [
+        "authenticator vs SMS"
+      ],
+      "keywords": [
+        "security",
+        "authenticator",
+        "sms",
+        "2fa"
+      ],
+      "answer": "Authenticator apps are often more resistant to phone-number theft than SMS codes.",
+      "details": "Use the strongest option supported by the service and store recovery codes safely.",
+      "actions": []
+    },
+    {
+      "id": "cyber-recovery-code",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What is a recovery code?",
+      "aliases": [
+        "backup code security"
+      ],
+      "keywords": [
+        "security",
+        "recovery",
+        "code",
+        "account"
+      ],
+      "answer": "A recovery code is a backup way to access an account when the normal verification method is unavailable.",
+      "details": "Store codes privately and offline. Do not send them to anyone.",
+      "actions": []
+    },
+    {
+      "id": "cyber-phishing",
+      "topic": "Cybersecurity & Privacy",
+      "title": "How can I recognise a phishing email?",
+      "aliases": [
+        "fake email",
+        "phishing message"
+      ],
+      "keywords": [
+        "security",
+        "phishing",
+        "email",
+        "link",
+        "scam"
+      ],
+      "answer": "Look for unexpected urgency, suspicious links, unusual sender addresses, and requests for passwords or money.",
+      "details": "Do not click immediately. Verify through the organisation’s official website or known contact.",
+      "actions": []
+    },
+    {
+      "id": "cyber-smishing",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What is smishing?",
+      "aliases": [
+        "SMS scam"
+      ],
+      "keywords": [
+        "security",
+        "smishing",
+        "sms",
+        "text",
+        "scam"
+      ],
+      "answer": "Smishing is phishing carried out through SMS or text messages.",
+      "details": "Avoid opening suspicious links and verify unexpected delivery, prize, payment, or account messages independently.",
+      "actions": []
+    },
+    {
+      "id": "cyber-vishing",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What is vishing?",
+      "aliases": [
+        "phone call scam"
+      ],
+      "keywords": [
+        "security",
+        "vishing",
+        "call",
+        "scam"
+      ],
+      "answer": "Vishing is a scam using phone calls or voice messages to steal information or money.",
+      "details": "Do not share verification codes or passwords. End the call and contact the organisation using an official number.",
+      "actions": []
+    },
+    {
+      "id": "cyber-malware",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What is malware?",
+      "aliases": [
+        "malware meaning"
+      ],
+      "keywords": [
+        "security",
+        "malware",
+        "virus",
+        "software"
+      ],
+      "answer": "Malware is software designed to harm, spy on, disrupt, or gain unauthorised access to a device.",
+      "details": "Install software from trusted sources, keep systems updated, and scan suspicious files.",
+      "actions": []
+    },
+    {
+      "id": "cyber-permissions",
+      "topic": "Cybersecurity & Privacy",
+      "title": "Why do apps ask for permissions?",
+      "aliases": [
+        "app permission"
+      ],
+      "keywords": [
+        "privacy",
+        "app",
+        "permission",
+        "camera",
+        "location"
+      ],
+      "answer": "Permissions allow an app to access features such as the camera, microphone, contacts, or location.",
+      "details": "Grant only permissions needed for the app’s purpose and review them regularly.",
+      "actions": []
+    },
+    {
+      "id": "cyber-location",
+      "topic": "Cybersecurity & Privacy",
+      "title": "Should I keep location services on all the time?",
+      "aliases": [
+        "phone location privacy"
+      ],
+      "keywords": [
+        "privacy",
+        "location",
+        "phone",
+        "app"
+      ],
+      "answer": "Not necessarily. Enable location only for apps and situations that need it.",
+      "details": "Use approximate location where available and turn off access for apps that do not require it.",
+      "actions": []
+    },
+    {
+      "id": "cyber-backup",
+      "topic": "Cybersecurity & Privacy",
+      "title": "How does a backup protect me?",
+      "aliases": [
+        "why backup important"
+      ],
+      "keywords": [
+        "security",
+        "backup",
+        "files",
+        "recovery"
+      ],
+      "answer": "A backup gives you another copy of important information if the original is lost, damaged, deleted, or attacked.",
+      "details": "Keep at least one backup separate from the main device and test that you can restore it.",
+      "actions": []
+    },
+    {
+      "id": "cyber-data-breach",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What should I do after a data breach?",
+      "aliases": [
+        "account breached"
+      ],
+      "keywords": [
+        "security",
+        "breach",
+        "password",
+        "account"
+      ],
+      "answer": "Change the affected password immediately and change any reused password on other accounts.",
+      "details": "Enable two-factor authentication, review account activity, and watch for suspicious messages or transactions.",
+      "actions": []
+    },
+    {
+      "id": "cyber-usb",
+      "topic": "Cybersecurity & Privacy",
+      "title": "Is it safe to use an unknown USB flash drive?",
+      "aliases": [
+        "unknown flash drive"
+      ],
+      "keywords": [
+        "security",
+        "usb",
+        "flash",
+        "malware"
+      ],
+      "answer": "No. An unknown USB drive may contain malware or harmful files.",
+      "details": "Use trusted devices only and scan removable media before opening files.",
+      "actions": []
+    },
+    {
+      "id": "cyber-screen-lock",
+      "topic": "Cybersecurity & Privacy",
+      "title": "Why should I lock my screen?",
+      "aliases": [
+        "lock computer screen"
+      ],
+      "keywords": [
+        "security",
+        "screen",
+        "lock",
+        "computer"
+      ],
+      "answer": "Locking the screen prevents other people from using your open accounts and files.",
+      "details": "Use Windows + L on Windows and set automatic locking after inactivity.",
+      "actions": []
+    },
+    {
+      "id": "cyber-share-photo",
+      "topic": "Cybersecurity & Privacy",
+      "title": "What should I check before sharing a photo online?",
+      "aliases": [
+        "photo privacy"
+      ],
+      "keywords": [
+        "privacy",
+        "photo",
+        "share",
+        "online"
+      ],
+      "answer": "Check whether the image reveals private people, school details, addresses, documents, location, or other sensitive information.",
+      "details": "Ask permission where appropriate and remove unnecessary metadata or background details.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-clean",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "How should I clean a computer safely?",
+      "aliases": [
+        "clean laptop",
+        "clean keyboard"
+      ],
+      "keywords": [
+        "computer",
+        "clean",
+        "screen",
+        "keyboard"
+      ],
+      "answer": "Shut down and unplug the device, then use a soft dry or slightly damp microfiber cloth.",
+      "details": "Do not spray liquid directly onto the screen or keyboard. Avoid forcing objects into ports.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-vent",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why should I keep laptop vents clear?",
+      "aliases": [
+        "laptop ventilation"
+      ],
+      "keywords": [
+        "laptop",
+        "vent",
+        "heat",
+        "cooling"
+      ],
+      "answer": "Clear vents allow heat to escape and help prevent overheating.",
+      "details": "Use the laptop on a firm surface rather than a bed or cushion, and remove dust carefully.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-battery",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "How can I care for a laptop battery?",
+      "aliases": [
+        "battery health laptop"
+      ],
+      "keywords": [
+        "laptop",
+        "battery",
+        "charge",
+        "health"
+      ],
+      "answer": "Avoid extreme heat, use a suitable charger, and do not leave the battery fully empty for long periods.",
+      "details": "Modern batteries manage charging automatically, but heat remains a major cause of wear.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-storage",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "How much free storage should I keep?",
+      "aliases": [
+        "disk space free"
+      ],
+      "keywords": [
+        "computer",
+        "storage",
+        "disk",
+        "space"
+      ],
+      "answer": "Keep enough free space for updates, temporary files, and normal operation.",
+      "details": "A practical target is at least 10–20% free space, though the best amount depends on the device.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-startup",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why does my computer start slowly?",
+      "aliases": [
+        "slow startup"
+      ],
+      "keywords": [
+        "computer",
+        "startup",
+        "slow",
+        "program"
+      ],
+      "answer": "Too many startup programs, low storage, updates, or hardware limitations can slow startup.",
+      "details": "Disable unnecessary startup apps, free space, scan for malware, and restart after updates.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-restart",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why does restarting fix many problems?",
+      "aliases": [
+        "restart computer benefit"
+      ],
+      "keywords": [
+        "computer",
+        "restart",
+        "problem",
+        "memory"
+      ],
+      "answer": "Restarting clears temporary processes, releases memory, and completes some updates.",
+      "details": "Save your work first. Restarting is different from simply closing the laptop lid.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-sleep-shutdown",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "What is the difference between Sleep and Shut down?",
+      "aliases": [
+        "sleep vs shutdown"
+      ],
+      "keywords": [
+        "computer",
+        "sleep",
+        "shutdown",
+        "power"
+      ],
+      "answer": "Sleep keeps the session in low power for quick return, while Shut down closes the system and powers off more completely.",
+      "details": "Use Sleep for short breaks and Shut down or restart periodically for updates and troubleshooting.",
+      "actions": []
+    },
+    {
+      "id": "maintenance-surge",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why should I use surge protection?",
+      "aliases": [
+        "power surge computer"
+      ],
+      "keywords": [
+        "computer",
+        "power",
+        "surge",
+        "protection"
+      ],
+      "answer": "A surge protector helps reduce damage from sudden voltage spikes.",
+      "details": "It is not the same as a backup power supply. In unstable power environments, consider a suitable UPS.",
+      "actions": []
+    },
+    {
+      "id": "access-zoom",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "How do I make text larger on a computer?",
+      "aliases": [
+        "increase text size",
+        "screen zoom"
+      ],
+      "keywords": [
+        "accessibility",
+        "text",
+        "zoom",
+        "display"
+      ],
+      "answer": "Use the application zoom controls or increase text and display scaling in system settings.",
+      "details": "In many browsers, Ctrl and plus increases zoom, while Ctrl and zero resets it.",
+      "actions": []
+    },
+    {
+      "id": "access-narrator",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "What is a screen reader?",
+      "aliases": [
+        "screen reader meaning"
+      ],
+      "keywords": [
+        "accessibility",
+        "screen reader",
+        "blind",
+        "audio"
+      ],
+      "answer": "A screen reader reads on-screen text and controls aloud for people who are blind or have low vision.",
+      "details": "Windows includes Narrator, and other screen readers are available. Well-structured websites and documents work better with them.",
+      "actions": []
+    },
+    {
+      "id": "access-contrast",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why is good colour contrast important?",
+      "aliases": [
+        "text contrast"
+      ],
+      "keywords": [
+        "accessibility",
+        "contrast",
+        "text",
+        "colour"
+      ],
+      "answer": "Strong contrast makes text easier to read for people with low vision, colour-vision differences, or bright-screen conditions.",
+      "details": "Do not rely on colour alone to communicate meaning.",
+      "actions": []
+    },
+    {
+      "id": "access-captions",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Why should videos have captions?",
+      "aliases": [
+        "video captions"
+      ],
+      "keywords": [
+        "accessibility",
+        "caption",
+        "video",
+        "hearing"
+      ],
+      "answer": "Captions make spoken content available to people who are deaf, hard of hearing, learning the language, or watching without sound.",
+      "details": "Review automatic captions because names and technical words may be incorrect.",
+      "actions": []
+    },
+    {
+      "id": "access-keyboard",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Can I use a computer without a mouse?",
+      "aliases": [
+        "keyboard navigation"
+      ],
+      "keywords": [
+        "accessibility",
+        "keyboard",
+        "navigation",
+        "tab"
+      ],
+      "answer": "Yes. Many tasks can be performed using Tab, Shift + Tab, arrow keys, Enter, Space, and shortcuts.",
+      "details": "Keyboard accessibility depends on the application, so practise with the tools you use most.",
+      "actions": []
+    },
+    {
+      "id": "access-dark-mode",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "Does dark mode reduce eye strain?",
+      "aliases": [
+        "dark mode eyes"
+      ],
+      "keywords": [
+        "accessibility",
+        "dark mode",
+        "eye",
+        "screen"
+      ],
+      "answer": "Dark mode may feel more comfortable in low light, but it does not help everyone.",
+      "details": "Use comfortable brightness, good room lighting, readable text size, and regular breaks.",
+      "actions": []
+    },
+    {
+      "id": "access-eye-break",
+      "topic": "Computer Maintenance & Accessibility",
+      "title": "How can I reduce screen fatigue?",
+      "aliases": [
+        "eye strain computer"
+      ],
+      "keywords": [
+        "computer",
+        "eye",
+        "break",
+        "screen"
+      ],
+      "answer": "Take regular breaks, blink often, adjust brightness, and keep the screen at a comfortable distance.",
+      "details": "A common guide is the 20-20-20 rule: every 20 minutes, look about 20 feet away for 20 seconds.",
+      "actions": []
+    },
+    {
+      "id": "python-what",
+      "topic": "Coding & Python Basics",
+      "title": "What is Python?",
+      "aliases": [
+        "Python programming meaning"
+      ],
+      "keywords": [
+        "python",
+        "programming",
+        "code"
+      ],
+      "answer": "Python is a programming language known for readable syntax and a wide range of uses.",
+      "details": "It is used for automation, data analysis, websites, artificial intelligence, education, and many other tasks.",
+      "actions": []
+    },
+    {
+      "id": "python-install",
+      "topic": "Coding & Python Basics",
+      "title": "How do I install Python on Windows?",
+      "aliases": [
+        "install Python Windows"
+      ],
+      "keywords": [
+        "python",
+        "install",
+        "windows"
+      ],
+      "answer": "Download Python from its official website, run the installer, and select the option to add Python to PATH.",
+      "details": "After installation, open Command Prompt and test with py --version or python --version.",
+      "actions": []
+    },
+    {
+      "id": "python-py-command",
+      "topic": "Coding & Python Basics",
+      "title": "What does the py command do?",
+      "aliases": [
+        "Python launcher py"
+      ],
+      "keywords": [
+        "python",
+        "py",
+        "command",
+        "launcher"
+      ],
+      "answer": "On Windows, py starts the Python launcher and can run Python files or specific Python versions.",
+      "details": "For example, py script.py runs a file named script.py when the launcher is installed.",
+      "actions": []
+    },
+    {
+      "id": "python-print",
+      "topic": "Coding & Python Basics",
+      "title": "How do I display text in Python?",
+      "aliases": [
+        "Python print"
+      ],
+      "keywords": [
+        "python",
+        "print",
+        "text"
+      ],
+      "answer": "Use the print function, for example: print('Hello').",
+      "details": "Text must normally be inside matching quotation marks.",
+      "actions": []
+    },
+    {
+      "id": "python-variable",
+      "topic": "Coding & Python Basics",
+      "title": "What is a variable in Python?",
+      "aliases": [
+        "Python variable"
+      ],
+      "keywords": [
+        "python",
+        "variable",
+        "value"
+      ],
+      "answer": "A variable is a name that refers to a value, such as score = 80.",
+      "details": "Use clear names and avoid spaces or starting a variable name with a number.",
+      "actions": []
+    },
+    {
+      "id": "python-input",
+      "topic": "Coding & Python Basics",
+      "title": "How do I ask the user for input in Python?",
+      "aliases": [
+        "Python input function"
+      ],
+      "keywords": [
+        "python",
+        "input",
+        "user"
+      ],
+      "answer": "Use input(), for example: name = input('Enter your name: ').",
+      "details": "The returned value is text. Convert it with int() or float() when you need a number.",
+      "actions": []
+    },
+    {
+      "id": "python-if",
+      "topic": "Coding & Python Basics",
+      "title": "How does an IF statement work in Python?",
+      "aliases": [
+        "Python if statement"
+      ],
+      "keywords": [
+        "python",
+        "if",
+        "condition"
+      ],
+      "answer": "An IF statement runs code only when a condition is true.",
+      "details": "Use a colon after the condition and indent the code inside the block.",
+      "actions": []
+    },
+    {
+      "id": "python-loop",
+      "topic": "Coding & Python Basics",
+      "title": "What is a loop in Python?",
+      "aliases": [
+        "Python loop"
+      ],
+      "keywords": [
+        "python",
+        "loop",
+        "repeat",
+        "for",
+        "while"
+      ],
+      "answer": "A loop repeats code.",
+      "details": "A for loop commonly repeats through items or a range, while a while loop continues while a condition remains true.",
+      "actions": []
+    },
+    {
+      "id": "python-function",
+      "topic": "Coding & Python Basics",
+      "title": "What is a function in Python?",
+      "aliases": [
+        "Python function"
+      ],
+      "keywords": [
+        "python",
+        "function",
+        "def"
+      ],
+      "answer": "A function is a reusable block of code that performs a task.",
+      "details": "Create one with def, give it a clear name, and call it when needed.",
+      "actions": []
+    },
+    {
+      "id": "python-error",
+      "topic": "Coding & Python Basics",
+      "title": "What is a syntax error in Python?",
+      "aliases": [
+        "Python syntax error"
+      ],
+      "keywords": [
+        "python",
+        "syntax",
+        "error"
+      ],
+      "answer": "A syntax error means Python cannot understand the structure of the code.",
+      "details": "Check the indicated line and nearby lines for missing colons, brackets, quotes, or incorrect indentation.",
+      "actions": []
+    },
+    {
+      "id": "python-indentation",
+      "topic": "Coding & Python Basics",
+      "title": "Why is indentation important in Python?",
+      "aliases": [
+        "Python indentation"
+      ],
+      "keywords": [
+        "python",
+        "indentation",
+        "space",
+        "block"
+      ],
+      "answer": "Indentation shows which lines belong inside IF statements, loops, functions, and other blocks.",
+      "details": "Use consistent spaces. Mixing tabs and spaces can cause errors.",
+      "actions": []
+    },
+    {
+      "id": "python-list",
+      "topic": "Coding & Python Basics",
+      "title": "What is a list in Python?",
+      "aliases": [
+        "Python list"
+      ],
+      "keywords": [
+        "python",
+        "list",
+        "data"
+      ],
+      "answer": "A list stores multiple items in order, for example: names = ['Asha', 'John'].",
+      "details": "Lists can be changed, searched, sorted, and processed with loops.",
+      "actions": []
+    },
+    {
+      "id": "python-comment",
+      "topic": "Coding & Python Basics",
+      "title": "How do I write a comment in Python?",
+      "aliases": [
+        "Python comment"
+      ],
+      "keywords": [
+        "python",
+        "comment",
+        "#"
+      ],
+      "answer": "Start a comment with #.",
+      "details": "Comments explain code for people and are ignored when Python runs the program.",
+      "actions": []
+    },
+    {
+      "id": "python-file",
+      "topic": "Coding & Python Basics",
+      "title": "How do I run a Python file?",
+      "aliases": [
+        "run Python script"
+      ],
+      "keywords": [
+        "python",
+        "file",
+        "run",
+        "script"
+      ],
+      "answer": "Save the code with a .py extension, open a terminal in that folder, and run py filename.py on many Windows systems.",
+      "details": "Read any error message carefully and confirm the file name and location.",
+      "actions": []
+    },
+    {
+      "id": "python-learning-path",
+      "topic": "Coding & Python Basics",
+      "title": "What should a Python beginner learn first?",
+      "aliases": [
+        "Python beginner path"
+      ],
+      "keywords": [
+        "python",
+        "beginner",
+        "learn",
+        "path"
+      ],
+      "answer": "Begin with output, variables, input, data types, conditions, loops, functions, and small projects.",
+      "details": "Practise each idea through simple programs before moving to graphical apps, files, web development, or automation.",
+      "actions": []
+    },
+    {
+      "id": "learning-practice",
+      "topic": "Digital Learning & Career",
+      "title": "How can I remember a computer skill?",
+      "aliases": [
+        "remember ICT skill"
+      ],
+      "keywords": [
+        "learning",
+        "practice",
+        "repeat",
+        "skill"
+      ],
+      "answer": "Practise the skill soon after learning it and use it in a real task.",
+      "details": "Repeat from memory, explain the steps to someone else, and return to the skill over several days.",
+      "actions": []
+    },
+    {
+      "id": "learning-notes",
+      "topic": "Digital Learning & Career",
+      "title": "Should I take notes while watching an ICT lesson?",
+      "aliases": [
+        "ICT lesson notes"
+      ],
+      "keywords": [
+        "learning",
+        "notes",
+        "lesson",
+        "video"
+      ],
+      "answer": "Yes, but keep notes practical and brief.",
+      "details": "Write key steps, shortcuts, formulas, and mistakes to avoid. Pause the lesson and practise rather than copying every sentence.",
+      "actions": []
+    },
+    {
+      "id": "learning-video",
+      "topic": "Digital Learning & Career",
+      "title": "How should I learn from a video tutorial?",
+      "aliases": [
+        "use tutorial effectively"
+      ],
+      "keywords": [
+        "learning",
+        "video",
+        "tutorial",
+        "practice"
+      ],
+      "answer": "Watch a short section, pause, repeat the steps yourself, and check the result.",
+      "details": "Avoid watching many lessons without practice. Skill grows through doing.",
+      "actions": []
+    },
+    {
+      "id": "learning-plan",
+      "topic": "Digital Learning & Career",
+      "title": "How do I create a digital-skills learning plan?",
+      "aliases": [
+        "ICT study plan"
+      ],
+      "keywords": [
+        "learning",
+        "plan",
+        "goal",
+        "schedule"
+      ],
+      "answer": "Choose one clear goal, break it into small skills, and schedule regular practice.",
+      "details": "Track completed lessons and projects, review weak areas, and adjust the plan as you progress.",
+      "actions": []
+    },
+    {
+      "id": "career-portfolio",
+      "topic": "Digital Learning & Career",
+      "title": "What is a digital portfolio?",
+      "aliases": [
+        "online portfolio"
+      ],
+      "keywords": [
+        "career",
+        "portfolio",
+        "work",
+        "skills"
+      ],
+      "answer": "A digital portfolio is a collection of work that demonstrates your skills and progress.",
+      "details": "Include selected documents, spreadsheets, presentations, projects, and short explanations of what you created.",
+      "actions": []
+    },
+    {
+      "id": "career-cv-file",
+      "topic": "Digital Learning & Career",
+      "title": "What file format should I use for a CV?",
+      "aliases": [
+        "CV PDF or Word"
+      ],
+      "keywords": [
+        "career",
+        "cv",
+        "resume",
+        "pdf",
+        "word"
+      ],
+      "answer": "PDF is usually best for sending because it preserves formatting.",
+      "details": "Keep an editable Word copy for updates. Follow the employer’s requested format when one is specified.",
+      "actions": []
+    },
+    {
+      "id": "career-email",
+      "topic": "Digital Learning & Career",
+      "title": "How do I email a job application?",
+      "aliases": [
+        "send CV email"
+      ],
+      "keywords": [
+        "career",
+        "email",
+        "job",
+        "cv",
+        "attachment"
+      ],
+      "answer": "Use a clear subject, write a brief professional message, attach the requested files, and check the recipient address.",
+      "details": "Name files clearly, such as Athanas_Chris_CV.pdf, and follow the application instructions exactly.",
+      "actions": []
+    },
+    {
+      "id": "career-online-meeting",
+      "topic": "Digital Learning & Career",
+      "title": "How should I prepare for an online interview?",
+      "aliases": [
+        "virtual interview"
+      ],
+      "keywords": [
+        "career",
+        "interview",
+        "online",
+        "meeting"
+      ],
+      "answer": "Test your internet, camera, microphone, lighting, and meeting link in advance.",
+      "details": "Choose a quiet background, keep documents ready, join early, and silence distractions.",
+      "actions": []
+    },
+    {
+      "id": "career-data-skill",
+      "topic": "Digital Learning & Career",
+      "title": "Why are spreadsheet skills useful at work?",
+      "aliases": [
+        "Excel job skill"
+      ],
+      "keywords": [
+        "career",
+        "excel",
+        "spreadsheet",
+        "work"
+      ],
+      "answer": "Spreadsheet skills help organise information, calculate results, analyse patterns, and prepare reports.",
+      "details": "Accuracy, clear structure, and the ability to explain your work are as important as knowing formulas.",
+      "actions": []
+    },
+    {
+      "id": "career-digital-confidence",
+      "topic": "Digital Learning & Career",
+      "title": "How do I build digital confidence?",
+      "aliases": [
+        "computer confidence"
+      ],
+      "keywords": [
+        "learning",
+        "confidence",
+        "computer",
+        "practice"
+      ],
+      "answer": "Start with small useful tasks, practise regularly, and treat mistakes as part of learning.",
+      "details": "Keep a record of what you can now do. Confidence grows from repeated evidence, not from waiting to feel ready.",
       "actions": []
     }
   ]

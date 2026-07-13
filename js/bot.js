@@ -17,7 +17,9 @@
         "assignment", "download", "whatsapp", "community", "excel", "word", "password", "email",
         "typing", "shortcut", "printer", "formula", "internet", "file", "folder", "picture", "chart",
         "percentage", "wifi", "keyboard", "mouse", "computer", "table", "powerpoint", "slide", "pdf", "phone",
-        "google", "drive", "meet", "zoom", "cloud", "backup", "browser", "security", "printer", "website"
+        "google", "drive", "docs", "sheets", "slides", "meet", "zoom", "cloud", "backup", "browser", "security",
+        "ai", "python", "coding", "outlook", "teams", "onedrive", "phishing", "privacy", "accessibility", "career",
+        "printer", "website"
     ]);
     const SPELLING = {
         exel: "excel", excell: "excel", excelent: "excellent", microsft: "microsoft", microsof: "microsoft",
@@ -35,7 +37,12 @@
         gogle: "google", googel: "google", youtub: "youtube", yotube: "youtube", internent: "internet",
         adress: "address", recieve: "receive", seperate: "separate", screeshot: "screenshot", laptob: "laptop",
         moblie: "mobile", smarphone: "smartphone", bluetooh: "bluetooth", wirless: "wireless",
-        attatchment: "attachment", calender: "calendar", passwrod: "password", secuirty: "security"
+        attatchment: "attachment", calender: "calendar", passwrod: "password", secuirty: "security",
+        artifical: "artificial", inteligence: "intelligence", intelegence: "intelligence", chatgptt: "chatgpt",
+        phising: "phishing", fishin: "phishing", authenticatorr: "authenticator", privasy: "privacy",
+        googledoc: "docs", googledocs: "docs", googlesheet: "sheets", googlesheets: "sheets",
+        googleslide: "slides", googleslides: "slides", outlok: "outlook", onedrvie: "onedrive",
+        microsftteams: "teams", pythn: "python", pythom: "python", codng: "coding", acessibility: "accessibility"
     };
 
     const state = {
@@ -350,7 +357,18 @@
                         <div class="ai-live-suggestions" hidden></div>
                     </div>
                     <div class="ai-composer is-hidden">
-                        <div class="ai-example-questions"></div>
+                        <div class="ai-example-drawer">
+                            <button class="ai-example-toggle" type="button" aria-expanded="false" aria-controls="aiExampleQuestions">
+                                <span class="ai-example-toggle-icon" aria-hidden="true">✦</span>
+                                <span class="ai-example-toggle-copy">
+                                    <strong>Suggested questions</strong>
+                                    <small>Tap to reveal examples</small>
+                                </span>
+                                <span class="ai-example-count">${DATA.examples.length}</span>
+                                <span class="ai-example-chevron" aria-hidden="true">⌄</span>
+                            </button>
+                            <div class="ai-example-questions" id="aiExampleQuestions" hidden></div>
+                        </div>
                         <form class="ai-input-form">
                             <button class="ai-menu-button" type="button" aria-label="Show main options" title="Main options">☰</button>
                             <label class="sr-only" for="aiAssistantInput">Ask the AI Assistant</label>
@@ -376,6 +394,8 @@
         state.elements.composer = shell.querySelector(".ai-composer");
         state.elements.form = shell.querySelector(".ai-input-form");
         state.elements.input = shell.querySelector("#aiAssistantInput");
+        state.elements.examplesDrawer = shell.querySelector(".ai-example-drawer");
+        state.elements.examplesToggle = shell.querySelector(".ai-example-toggle");
         state.elements.examples = shell.querySelector(".ai-example-questions");
 
         state.elements.floating.addEventListener("click", openPanel);
@@ -384,6 +404,7 @@
         shell.querySelector("[data-ai-new]").addEventListener("click", startNewConversation);
         shell.querySelector("[data-ai-clear]").addEventListener("click", askToClearConversation);
         shell.querySelector(".ai-menu-button").addEventListener("click", showMainOptions);
+        state.elements.examplesToggle.addEventListener("click", () => toggleExampleQuestions());
         state.elements.form.addEventListener("submit", (event) => {
             event.preventDefault();
             const query = state.elements.input.value.trim();
@@ -407,7 +428,10 @@
         DATA.examples.forEach((question) => {
             const button = createElement("button", "ai-example-chip", question);
             button.type = "button";
-            button.addEventListener("click", () => handleFreeQuestion(question));
+            button.addEventListener("click", () => {
+                hideExampleQuestions();
+                handleFreeQuestion(question);
+            });
             state.elements.examples.appendChild(button);
         });
 
@@ -654,9 +678,46 @@
 
     function renderQuickActions() {
         const choices = DATA.quickActions.map((item) => ({ label: item.label, value: `quick:${item.id}`, icon: item.icon }));
+        const drawer = createElement("section", "ai-options-drawer");
+        const toggle = createElement("button", "ai-options-toggle");
+        toggle.type = "button";
+        toggle.setAttribute("aria-expanded", "false");
+
+        const toggleIcon = createElement("span", "ai-options-toggle-icon", "✨");
+        toggleIcon.setAttribute("aria-hidden", "true");
+        const toggleCopy = createElement("span", "ai-options-toggle-copy");
+        toggleCopy.appendChild(createElement("strong", "", "Explore Assistant Options"));
+        toggleCopy.appendChild(createElement("small", "", `${choices.length} helpful shortcuts—tap to reveal`));
+        const count = createElement("span", "ai-options-count", String(choices.length));
+        count.setAttribute("aria-hidden", "true");
+        const chevron = createElement("span", "ai-options-chevron", "⌄");
+        chevron.setAttribute("aria-hidden", "true");
+
+        toggle.append(toggleIcon, toggleCopy, count, chevron);
+
+        const panel = createElement("div", "ai-options-panel");
+        panel.hidden = true;
         const wrap = renderChoices(choices);
         wrap.classList.add("ai-main-actions");
-        state.elements.messages.appendChild(wrap);
+        panel.appendChild(wrap);
+        drawer.append(toggle, panel);
+
+        const setOpen = (open) => {
+            panel.hidden = !open;
+            drawer.classList.toggle("is-open", open);
+            toggle.setAttribute("aria-expanded", String(open));
+            toggleCopy.querySelector("small").textContent = open
+                ? "Choose one option below"
+                : `${choices.length} helpful shortcuts—tap to reveal`;
+            window.setTimeout(scrollToBottom, 60);
+        };
+
+        toggle.addEventListener("click", () => setOpen(panel.hidden));
+        wrap.querySelectorAll(".ai-choice-button").forEach((button) => {
+            button.addEventListener("click", () => setOpen(false), { once: true });
+        });
+
+        state.elements.messages.appendChild(drawer);
         scrollToBottom();
     }
 
@@ -683,9 +744,25 @@
         scrollToBottom();
     }
 
+    function toggleExampleQuestions(forceOpen) {
+        if (!state.elements.examples || !state.elements.examplesToggle) return;
+        const open = typeof forceOpen === "boolean" ? forceOpen : state.elements.examples.hidden;
+        state.elements.examples.hidden = !open;
+        state.elements.examplesDrawer?.classList.toggle("is-open", open);
+        state.elements.examplesToggle.setAttribute("aria-expanded", String(open));
+        const helper = state.elements.examplesToggle.querySelector("small");
+        if (helper) helper.textContent = open ? "Choose an example or type below" : "Tap to reveal examples";
+        window.setTimeout(scrollToBottom, 50);
+    }
+
+    function hideExampleQuestions() {
+        toggleExampleQuestions(false);
+    }
+
     function hideComposer() {
         state.elements.composer.classList.add("is-hidden");
         state.elements.input.value = "";
+        hideExampleQuestions();
         hideSuggestions();
     }
 
@@ -1076,6 +1153,7 @@
         const cleanQuery = query.trim();
         if (!cleanQuery) return;
         showComposer();
+        hideExampleQuestions();
         addUserMessage(cleanQuery);
         state.latestQuestion = cleanQuery;
 

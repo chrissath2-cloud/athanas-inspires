@@ -1,5 +1,5 @@
 window.ATHANAS_ASSISTANT_DATA = {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "updated": "2026-07-13",
   "name": "Athanas Inspires AI Assistant",
   "status": "Your learning guide",
@@ -46,12 +46,12 @@ window.ATHANAS_ASSISTANT_DATA = {
     }
   ],
   "examples": [
-    "Where should an absolute beginner start?",
-    "Where can I find Excel assignments?",
-    "How do I create a PowerPoint presentation?",
-    "How can I stay safe from online scams?",
-    "How do I use Google Drive?",
-    "What is artificial intelligence?"
+    "What can I learn with Athanas Inspires ICT?",
+    "What are the main parts of a computer?",
+    "How do I organise files and folders?",
+    "How do I use Microsoft Word?",
+    "What is the internet?",
+    "How do I start using Microsoft Excel?"
   ],
   "lessons": {
     "computer": [
@@ -9306,6 +9306,2630 @@ window.ATHANAS_ASSISTANT_DATA = {
       "answer": "Start with small useful tasks, practise regularly, and treat mistakes as part of learning.",
       "details": "Keep a record of what you can now do. Confidence grows from repeated evidence, not from waiting to feel ready.",
       "actions": []
+    },
+    {
+      "id": "v14-scope-athanas-ict",
+      "topic": "Athanas Inspires ICT",
+      "title": "What can I learn with Athanas Inspires ICT?",
+      "aliases": [
+        "Tell me about Athanas Inspires ICT",
+        "What does Athanas Inspires teach?"
+      ],
+      "keywords": [
+        "athanas inspires ict",
+        "ict learning",
+        "computer lessons",
+        "word",
+        "excel",
+        "internet",
+        "file management"
+      ],
+      "answer": "You can learn practical digital skills step by step, especially computer basics, Microsoft Word, Microsoft Excel, Internet skills, file management, online safety, and useful productivity tools.",
+      "details": "Athanas Inspires ICT is designed to help absolute beginners move from confusion to clarity through clear lessons, practice assignments, website tools, YouTube videos, and a supportive WhatsApp community.",
+      "actions": [
+        {
+          "label": "Explore ICT Lessons",
+          "url": "courses.html",
+          "kind": "primary"
+        },
+        {
+          "label": "Browse Assignments",
+          "url": "assignments.html"
+        },
+        {
+          "label": "Open Learning Tools",
+          "url": "tools.html"
+        }
+      ]
+    },
+    {
+      "id": "v14-components-motherboard",
+      "topic": "Computer Components",
+      "title": "What is a motherboard?",
+      "aliases": [
+        "main circuit board"
+      ],
+      "keywords": [
+        "motherboard",
+        "main board",
+        "computer component"
+      ],
+      "answer": "The motherboard is the main circuit board that connects the computer’s major components.",
+      "details": "The CPU, RAM, storage connectors, expansion slots, and ports communicate through the motherboard.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-system-unit",
+      "topic": "Computer Components",
+      "title": "What is the system unit?",
+      "aliases": [
+        "computer tower"
+      ],
+      "keywords": [
+        "system unit",
+        "computer case",
+        "tower"
+      ],
+      "answer": "The system unit is the case that contains the main internal computer components.",
+      "details": "It normally contains the motherboard, CPU, RAM, storage drive, power supply, and cooling system. The monitor is not the system unit.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-monitor",
+      "topic": "Computer Components",
+      "title": "What is a computer monitor?",
+      "aliases": [
+        "computer screen"
+      ],
+      "keywords": [
+        "monitor",
+        "screen",
+        "display",
+        "output device"
+      ],
+      "answer": "A monitor is an output device that displays text, pictures, videos, and program windows.",
+      "details": "Monitors connect through HDMI, DisplayPort, VGA, or USB-C depending on the computer and screen.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-keyboard",
+      "topic": "Computer Components",
+      "title": "What is a computer keyboard?",
+      "aliases": [],
+      "keywords": [
+        "keyboard",
+        "input device",
+        "typing"
+      ],
+      "answer": "A keyboard is an input device used to type text, numbers, commands, and shortcuts.",
+      "details": "Its key groups include letters, numbers, function keys, navigation keys, control keys, and the numeric keypad.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-mouse",
+      "topic": "Computer Components",
+      "title": "What is a computer mouse?",
+      "aliases": [],
+      "keywords": [
+        "mouse",
+        "pointer",
+        "input device",
+        "click"
+      ],
+      "answer": "A mouse is a pointing input device used to move the pointer, click, select, drag, and scroll.",
+      "details": "The main controls are the left button, right button, and scroll wheel.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-webcam",
+      "topic": "Computer Components",
+      "title": "What is a webcam?",
+      "aliases": [
+        "computer camera"
+      ],
+      "keywords": [
+        "webcam",
+        "camera",
+        "video call"
+      ],
+      "answer": "A webcam is a camera used by a computer for video calls, recording, and online meetings.",
+      "details": "Keep the lens clean, check camera permissions, and cover or disable it when privacy is important.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-microphone",
+      "topic": "Computer Components",
+      "title": "What is a computer microphone?",
+      "aliases": [
+        "computer mic"
+      ],
+      "keywords": [
+        "microphone",
+        "mic",
+        "sound input"
+      ],
+      "answer": "A microphone is an input device that captures your voice or other sounds.",
+      "details": "It may be built into a laptop, headset, webcam, or connected as an external USB or audio device.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-speakers",
+      "topic": "Computer Components",
+      "title": "What are computer speakers?",
+      "aliases": [],
+      "keywords": [
+        "speakers",
+        "sound output",
+        "audio"
+      ],
+      "answer": "Computer speakers are output devices that play sound from videos, music, calls, and applications.",
+      "details": "A computer may use built-in speakers, external speakers, headphones, or Bluetooth audio devices.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-printer",
+      "topic": "Computer Components",
+      "title": "What is a printer?",
+      "aliases": [],
+      "keywords": [
+        "printer",
+        "printing",
+        "output device"
+      ],
+      "answer": "A printer is an output device that produces a paper copy of digital text or images.",
+      "details": "Common types include inkjet and laser printers. Printing requires the correct printer, paper, ink or toner, and driver.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-scanner",
+      "topic": "Computer Components",
+      "title": "What is a scanner?",
+      "aliases": [],
+      "keywords": [
+        "scanner",
+        "scan document",
+        "input device"
+      ],
+      "answer": "A scanner is an input device that converts paper documents or photographs into digital files.",
+      "details": "Scanned files are commonly saved as PDF, JPG, or PNG. Many modern printers include a scanner.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-projector",
+      "topic": "Computer Components",
+      "title": "What is a projector?",
+      "aliases": [],
+      "keywords": [
+        "projector",
+        "presentation display",
+        "large screen"
+      ],
+      "answer": "A projector displays a computer image on a large wall or screen.",
+      "details": "It is useful for classrooms, meetings, and presentations and commonly connects through HDMI, VGA, or wireless display.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-gpu",
+      "topic": "Computer Components",
+      "title": "What is a graphics card or GPU?",
+      "aliases": [
+        "graphics processor"
+      ],
+      "keywords": [
+        "gpu",
+        "graphics card",
+        "video card"
+      ],
+      "answer": "A GPU processes graphics, video, animation, and visual calculations.",
+      "details": "Some computers use integrated graphics inside the CPU, while others have a dedicated graphics card for heavier visual work.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-psu",
+      "topic": "Computer Components",
+      "title": "What is a computer power supply?",
+      "aliases": [],
+      "keywords": [
+        "power supply",
+        "psu",
+        "computer power"
+      ],
+      "answer": "The power supply converts electricity from the wall into the voltages used by internal computer components.",
+      "details": "A failing power supply may cause the computer to shut down, restart, or fail to turn on.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-fan",
+      "topic": "Computer Components",
+      "title": "What does a computer cooling fan do?",
+      "aliases": [],
+      "keywords": [
+        "cooling fan",
+        "computer fan",
+        "overheating"
+      ],
+      "answer": "A cooling fan moves air through the computer to reduce heat.",
+      "details": "Blocked vents, dust, or a failed fan can cause overheating, noise, slow performance, or sudden shutdowns.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-heatsink",
+      "topic": "Computer Components",
+      "title": "What is a heat sink in a computer?",
+      "aliases": [],
+      "keywords": [
+        "heat sink",
+        "heatsink",
+        "cpu cooling"
+      ],
+      "answer": "A heat sink absorbs and spreads heat away from a component such as the CPU.",
+      "details": "It normally works with thermal paste and a fan to keep the processor at a safe temperature.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-network-card",
+      "topic": "Computer Components",
+      "title": "What is a network card?",
+      "aliases": [],
+      "keywords": [
+        "network card",
+        "network adapter",
+        "nic",
+        "wifi adapter"
+      ],
+      "answer": "A network card allows a computer to connect to a wired or wireless network.",
+      "details": "It may provide Ethernet, Wi-Fi, or both. It is also called a network adapter or NIC.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-sound-card",
+      "topic": "Computer Components",
+      "title": "What is a sound card?",
+      "aliases": [],
+      "keywords": [
+        "sound card",
+        "audio card",
+        "computer sound"
+      ],
+      "answer": "A sound card processes audio input and output for microphones, speakers, and headphones.",
+      "details": "Most computers have built-in audio hardware, while specialised work may use an external audio interface.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-optical-drive",
+      "topic": "Computer Components",
+      "title": "What is an optical drive?",
+      "aliases": [],
+      "keywords": [
+        "optical drive",
+        "cd drive",
+        "dvd drive"
+      ],
+      "answer": "An optical drive reads or writes CDs, DVDs, or Blu-ray discs.",
+      "details": "Many modern laptops no longer include one, but an external USB optical drive can be connected when needed.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-cmos",
+      "topic": "Computer Components",
+      "title": "What is the CMOS battery?",
+      "aliases": [],
+      "keywords": [
+        "cmos battery",
+        "motherboard battery",
+        "computer clock"
+      ],
+      "answer": "The CMOS battery helps the computer remember basic hardware settings and the date and time when power is off.",
+      "details": "A weak CMOS battery may cause the clock or BIOS settings to reset.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-ports",
+      "topic": "Computer Components",
+      "title": "What are computer ports?",
+      "aliases": [],
+      "keywords": [
+        "computer ports",
+        "connections",
+        "usb",
+        "hdmi"
+      ],
+      "answer": "Computer ports are connection points for devices, power, audio, displays, storage, and networks.",
+      "details": "Common ports include USB, HDMI, Ethernet, audio, DisplayPort, VGA, and USB-C.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-usb-a-c",
+      "topic": "Computer Components",
+      "title": "What is the difference between USB-A and USB-C?",
+      "aliases": [],
+      "keywords": [
+        "usb a",
+        "usb c",
+        "usb connector"
+      ],
+      "answer": "USB-A is the familiar rectangular connector, while USB-C is smaller, reversible, and can support data, charging, and video.",
+      "details": "The exact speed and features depend on the device and cable, not only the connector shape.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-audio-jack",
+      "topic": "Computer Components",
+      "title": "What is an audio jack?",
+      "aliases": [],
+      "keywords": [
+        "audio jack",
+        "headphone port",
+        "microphone port"
+      ],
+      "answer": "An audio jack connects headphones, speakers, or microphones using a round plug.",
+      "details": "Some computers use separate microphone and headphone ports, while others use one combined headset port.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-display-ports",
+      "topic": "Computer Components",
+      "title": "What is the difference between HDMI, DisplayPort, and VGA?",
+      "aliases": [],
+      "keywords": [
+        "hdmi",
+        "displayport",
+        "vga",
+        "monitor cable"
+      ],
+      "answer": "HDMI and DisplayPort carry modern digital video, while VGA carries older analogue video.",
+      "details": "HDMI can also carry sound. Use the port supported by both the computer and display, or a suitable adapter.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-battery",
+      "topic": "Computer Components",
+      "title": "What is a laptop battery?",
+      "aliases": [],
+      "keywords": [
+        "laptop battery",
+        "battery health",
+        "charging"
+      ],
+      "answer": "A laptop battery stores electrical energy so the computer can work without being plugged in.",
+      "details": "Battery capacity decreases gradually with age, heat, and charging cycles.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-charger",
+      "topic": "Computer Components",
+      "title": "What is a laptop charger or power adapter?",
+      "aliases": [],
+      "keywords": [
+        "laptop charger",
+        "power adapter",
+        "charging"
+      ],
+      "answer": "A laptop charger converts wall electricity into the voltage required by the laptop.",
+      "details": "Use a compatible charger with the correct connector, voltage, and sufficient wattage.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-dock",
+      "topic": "Computer Components",
+      "title": "What is a docking station?",
+      "aliases": [],
+      "keywords": [
+        "docking station",
+        "laptop dock",
+        "usb c hub"
+      ],
+      "answer": "A docking station lets a laptop connect to several devices through one main connection.",
+      "details": "It may provide extra USB ports, monitors, Ethernet, audio, charging, and storage connections.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-external-drive",
+      "topic": "Computer Components",
+      "title": "What is an external hard drive or SSD?",
+      "aliases": [],
+      "keywords": [
+        "external hard drive",
+        "external ssd",
+        "portable storage"
+      ],
+      "answer": "An external drive is portable storage connected through USB or another cable.",
+      "details": "It is useful for backups, transferring large files, and adding storage, but it should be safely ejected before unplugging.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-ram-slot",
+      "topic": "Computer Components",
+      "title": "What is a RAM slot?",
+      "aliases": [],
+      "keywords": [
+        "ram slot",
+        "memory slot",
+        "install ram"
+      ],
+      "answer": "A RAM slot is a motherboard connector where memory modules are installed.",
+      "details": "A computer can only use compatible RAM types and capacities supported by the motherboard.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-expansion-slot",
+      "topic": "Computer Components",
+      "title": "What is an expansion slot?",
+      "aliases": [],
+      "keywords": [
+        "expansion slot",
+        "pcie slot",
+        "add in card"
+      ],
+      "answer": "An expansion slot allows an extra card to be installed on the motherboard.",
+      "details": "Examples include graphics cards, network cards, sound cards, and storage controller cards.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-data-information",
+      "topic": "Computer Basics",
+      "title": "What is the difference between data and information?",
+      "aliases": [],
+      "keywords": [
+        "data",
+        "information",
+        "raw facts",
+        "processed data"
+      ],
+      "answer": "Data is raw facts, while information is data that has been organised or processed to become meaningful.",
+      "details": "For example, individual marks are data; a calculated class average is information.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-ipo-cycle",
+      "topic": "Computer Basics",
+      "title": "What is the input-process-output-storage cycle?",
+      "aliases": [],
+      "keywords": [
+        "input process output storage",
+        "computer cycle",
+        "ipo"
+      ],
+      "answer": "A computer receives input, processes it, produces output, and can store the results.",
+      "details": "For example, you type numbers, Excel calculates them, the answer appears on screen, and the workbook can be saved.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-bit-byte",
+      "topic": "Computer Basics",
+      "title": "What is the difference between a bit and a byte?",
+      "aliases": [],
+      "keywords": [
+        "bit",
+        "byte",
+        "digital data"
+      ],
+      "answer": "A bit is the smallest unit of digital data, while one byte usually contains eight bits.",
+      "details": "File and storage sizes are commonly measured in bytes, kilobytes, megabytes, gigabytes, and terabytes.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-storage-units",
+      "topic": "Computer Basics",
+      "title": "What do KB, MB, GB, and TB mean?",
+      "aliases": [],
+      "keywords": [
+        "kb",
+        "mb",
+        "gb",
+        "tb",
+        "storage size"
+      ],
+      "answer": "They are units used to measure file and storage size.",
+      "details": "A kilobyte is small, a megabyte is larger, a gigabyte is much larger, and a terabyte is commonly used for large storage drives.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-multitasking",
+      "topic": "Computer Basics",
+      "title": "What does multitasking mean on a computer?",
+      "aliases": [],
+      "keywords": [
+        "multitasking",
+        "many programs",
+        "computer tasks"
+      ],
+      "answer": "Multitasking means using or keeping several programs and tasks open at the same time.",
+      "details": "Too many demanding programs can use a lot of RAM and make the computer slower.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-cursor-pointer",
+      "topic": "Computer Basics",
+      "title": "What is the difference between a cursor and a mouse pointer?",
+      "aliases": [],
+      "keywords": [
+        "cursor",
+        "pointer",
+        "text cursor",
+        "mouse pointer"
+      ],
+      "answer": "The mouse pointer shows where the mouse will act, while a text cursor shows where typed text will appear.",
+      "details": "The pointer changes shape depending on the task, and the text cursor often appears as a blinking vertical line.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-login-lock",
+      "topic": "Computer Basics",
+      "title": "What is the difference between logging out and locking a computer?",
+      "aliases": [],
+      "keywords": [
+        "log out",
+        "lock computer",
+        "user session"
+      ],
+      "answer": "Locking keeps your programs open but protects access, while logging out closes your user session.",
+      "details": "Use Lock when stepping away briefly and log out when another user needs the computer.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-sleep-hibernate",
+      "topic": "Computer Basics",
+      "title": "What is the difference between Sleep and Hibernate?",
+      "aliases": [],
+      "keywords": [
+        "sleep",
+        "hibernate",
+        "power options"
+      ],
+      "answer": "Sleep keeps work in memory and wakes quickly, while Hibernate saves the session to storage and uses very little power.",
+      "details": "Hibernate is useful when you will not use the laptop for a longer time but want to continue later.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-user-account",
+      "topic": "Computer Basics",
+      "title": "What is a computer user account?",
+      "aliases": [],
+      "keywords": [
+        "user account",
+        "windows account",
+        "login"
+      ],
+      "answer": "A user account stores a person’s settings, files, permissions, and sign-in details on a computer.",
+      "details": "Separate accounts help different users keep their files and preferences private.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-admin-standard",
+      "topic": "Computer Basics",
+      "title": "What is the difference between an administrator and a standard user?",
+      "aliases": [],
+      "keywords": [
+        "administrator",
+        "standard user",
+        "permissions"
+      ],
+      "answer": "An administrator can make major system changes, while a standard user has more limited permissions.",
+      "details": "Using a standard account for daily work can reduce accidental or harmful system changes.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-driver",
+      "topic": "Computer Basics",
+      "title": "What is a device driver?",
+      "aliases": [],
+      "keywords": [
+        "device driver",
+        "hardware driver",
+        "printer driver"
+      ],
+      "answer": "A driver is software that helps the operating system communicate with hardware.",
+      "details": "Printers, graphics cards, sound devices, and network adapters may need the correct driver to work properly.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-firmware",
+      "topic": "Computer Basics",
+      "title": "What is firmware?",
+      "aliases": [],
+      "keywords": [
+        "firmware",
+        "device software",
+        "update device"
+      ],
+      "answer": "Firmware is software stored inside a device that controls its basic operation.",
+      "details": "Routers, printers, cameras, and computer components may receive firmware updates from the manufacturer.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-bios-uefi",
+      "topic": "Computer Basics",
+      "title": "What are BIOS and UEFI?",
+      "aliases": [],
+      "keywords": [
+        "bios",
+        "uefi",
+        "computer startup"
+      ],
+      "answer": "BIOS and UEFI are startup systems that prepare hardware before the operating system loads.",
+      "details": "UEFI is the newer standard. Settings should be changed carefully because incorrect changes can affect startup.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-compatibility",
+      "topic": "Computer Basics",
+      "title": "What does computer compatibility mean?",
+      "aliases": [],
+      "keywords": [
+        "compatibility",
+        "system requirements",
+        "supported"
+      ],
+      "answer": "Compatibility means that hardware, software, file formats, and operating systems can work together correctly.",
+      "details": "Check system requirements, versions, ports, and supported file types before installing or buying something.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-32-64",
+      "topic": "Computer Basics",
+      "title": "What is the difference between 32-bit and 64-bit systems?",
+      "aliases": [],
+      "keywords": [
+        "32 bit",
+        "64 bit",
+        "windows version"
+      ],
+      "answer": "A 64-bit system can normally use more memory and run modern 64-bit applications.",
+      "details": "Most current computers use 64-bit Windows, but some older software may have separate 32-bit versions.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-license",
+      "topic": "Computer Basics",
+      "title": "What is a software licence?",
+      "aliases": [],
+      "keywords": [
+        "software licence",
+        "license",
+        "legal software"
+      ],
+      "answer": "A software licence states how a program may be installed, used, copied, or shared.",
+      "details": "Some software is free, some requires payment, and some has different licences for personal, school, or business use.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-open-source",
+      "topic": "Computer Basics",
+      "title": "What is open-source software?",
+      "aliases": [],
+      "keywords": [
+        "open source",
+        "free software",
+        "source code"
+      ],
+      "answer": "Open-source software makes its source code available under a licence that allows study, modification, or sharing.",
+      "details": "Open source does not always mean there are no rules; the specific licence still applies.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-system-application",
+      "topic": "Computer Basics",
+      "title": "What is the difference between system software and application software?",
+      "aliases": [],
+      "keywords": [
+        "system software",
+        "application software",
+        "apps"
+      ],
+      "answer": "System software runs and manages the computer, while application software helps users perform specific tasks.",
+      "details": "Windows is system software; Word, Excel, browsers, and media players are applications.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-default-app",
+      "topic": "Computer Basics",
+      "title": "What is a default application?",
+      "aliases": [],
+      "keywords": [
+        "default app",
+        "open files automatically",
+        "default browser"
+      ],
+      "answer": "A default application is the program that automatically opens a particular type of file or link.",
+      "details": "You can change the default browser, PDF reader, image viewer, or other app in system settings.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-update-upgrade",
+      "topic": "Computer Basics",
+      "title": "What is the difference between an update and an upgrade?",
+      "aliases": [],
+      "keywords": [
+        "update",
+        "upgrade",
+        "software version"
+      ],
+      "answer": "An update usually improves or fixes the current version, while an upgrade moves to a newer major version or product.",
+      "details": "Back up important files and check compatibility before a major upgrade.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-select-multiple",
+      "topic": "File Management",
+      "title": "How do I select multiple files?",
+      "aliases": [],
+      "keywords": [
+        "select multiple files",
+        "ctrl click",
+        "shift click"
+      ],
+      "answer": "Hold Ctrl and click individual files, or hold Shift to select a continuous range.",
+      "details": "You can also press Ctrl+A to select everything in the current folder.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-sort-files",
+      "topic": "File Management",
+      "title": "How do I sort files in a folder?",
+      "aliases": [],
+      "keywords": [
+        "sort files",
+        "file order",
+        "date modified"
+      ],
+      "answer": "In File Explorer, choose Sort and select Name, Date modified, Type, or Size.",
+      "details": "Sorting changes how files are displayed; it does not move them to new folders.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-view-modes",
+      "topic": "File Management",
+      "title": "What are file view modes in File Explorer?",
+      "aliases": [],
+      "keywords": [
+        "file view",
+        "details view",
+        "icons list"
+      ],
+      "answer": "View modes control whether files appear as icons, a list, tiles, or detailed rows.",
+      "details": "Details view is useful for comparing file type, size, and modification date.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-properties",
+      "topic": "File Management",
+      "title": "What are file properties?",
+      "aliases": [],
+      "keywords": [
+        "file properties",
+        "file details",
+        "size location"
+      ],
+      "answer": "File properties show information such as type, size, location, dates, and permissions.",
+      "details": "Right-click a file or folder and choose Properties to view this information.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-file-path",
+      "topic": "File Management",
+      "title": "What is a file path?",
+      "aliases": [],
+      "keywords": [
+        "file path",
+        "file location",
+        "address"
+      ],
+      "answer": "A file path is the address that shows where a file or folder is stored.",
+      "details": "It may include the drive, folders, subfolders, and filename, such as C:\\Users\\Name\\Documents\\Report.docx.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-root-folder",
+      "topic": "File Management",
+      "title": "What is a root folder?",
+      "aliases": [],
+      "keywords": [
+        "root folder",
+        "drive root",
+        "c drive"
+      ],
+      "answer": "A root folder is the highest-level folder on a drive or storage location.",
+      "details": "On Windows, the root of the main drive is commonly shown as C:\\.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-nested-folders",
+      "topic": "File Management",
+      "title": "What are nested folders?",
+      "aliases": [],
+      "keywords": [
+        "nested folders",
+        "subfolders",
+        "folder hierarchy"
+      ],
+      "answer": "Nested folders are folders stored inside other folders.",
+      "details": "A clear folder hierarchy helps organise work by subject, project, year, or person.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-local-cloud",
+      "topic": "File Management",
+      "title": "What is the difference between a local file and a cloud file?",
+      "aliases": [],
+      "keywords": [
+        "local file",
+        "cloud file",
+        "online storage"
+      ],
+      "answer": "A local file is stored on your device, while a cloud file is stored on an online service.",
+      "details": "A synced cloud file may also have a local copy, depending on your settings.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-open-with",
+      "topic": "File Management",
+      "title": "What does Open with mean?",
+      "aliases": [],
+      "keywords": [
+        "open with",
+        "choose program",
+        "default app"
+      ],
+      "answer": "Open with lets you choose which application should open a file.",
+      "details": "Use it when the default program is wrong or when several programs support the same file type.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-read-only",
+      "topic": "File Management",
+      "title": "What does read-only mean for a file?",
+      "aliases": [],
+      "keywords": [
+        "read only file",
+        "cannot edit",
+        "permissions"
+      ],
+      "answer": "A read-only file can be opened but may not allow normal changes to be saved over the original.",
+      "details": "You may need permission, a new filename, or a different location to save an editable copy.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-hidden-files",
+      "topic": "File Management",
+      "title": "What are hidden files?",
+      "aliases": [],
+      "keywords": [
+        "hidden files",
+        "show hidden items",
+        "system files"
+      ],
+      "answer": "Hidden files are not normally shown because they may contain system or application information.",
+      "details": "Show hidden files only when necessary and avoid changing unfamiliar system files.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-show-extensions",
+      "topic": "File Management",
+      "title": "Why should I show file extensions?",
+      "aliases": [],
+      "keywords": [
+        "show file extensions",
+        "file type",
+        "extension"
+      ],
+      "answer": "Showing extensions helps you identify the true file type, such as .docx, .xlsx, .pdf, or .exe.",
+      "details": "It can also help you avoid disguised or suspicious files.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-copy-usb",
+      "topic": "File Management",
+      "title": "How do I copy files to a USB flash drive?",
+      "aliases": [],
+      "keywords": [
+        "copy files usb",
+        "flash drive transfer",
+        "paste"
+      ],
+      "answer": "Connect the drive, open it in File Explorer, then copy and paste or drag the files into it.",
+      "details": "Wait for copying to finish and safely eject the drive before removing it.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-move-external",
+      "topic": "File Management",
+      "title": "How do I move files to an external drive?",
+      "aliases": [],
+      "keywords": [
+        "move files external drive",
+        "cut paste",
+        "storage"
+      ],
+      "answer": "Cut and paste the files, or drag them while holding Shift, after confirming the external drive has enough space.",
+      "details": "For important files, copy first, verify the copy, and delete the original only after checking.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-batch-rename",
+      "topic": "File Management",
+      "title": "How can I rename several files?",
+      "aliases": [],
+      "keywords": [
+        "rename multiple files",
+        "batch rename",
+        "many files"
+      ],
+      "answer": "Select multiple files, right-click the first, choose Rename, and enter a shared name.",
+      "details": "Windows adds numbers automatically. For complex renaming, use a trusted batch-renaming tool carefully.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-duplicates",
+      "topic": "File Management",
+      "title": "How do I manage duplicate files?",
+      "aliases": [],
+      "keywords": [
+        "duplicate files",
+        "same file copies",
+        "clean files"
+      ],
+      "answer": "Compare names, sizes, dates, and content before deleting duplicates.",
+      "details": "Keep the best or newest copy, place important files in organised folders, and back up before large clean-ups.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-organise-photos",
+      "topic": "File Management",
+      "title": "How should I organise photos on a computer?",
+      "aliases": [],
+      "keywords": [
+        "organise photos",
+        "photo folders",
+        "picture files"
+      ],
+      "answer": "Create folders by year, event, place, or person and use clear filenames.",
+      "details": "Keep a backup and avoid editing the only original copy of important photographs.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-compress-files",
+      "topic": "File Management",
+      "title": "How do I compress files into a ZIP folder?",
+      "aliases": [],
+      "keywords": [
+        "compress files",
+        "create zip",
+        "zip folder"
+      ],
+      "answer": "Select the files, right-click, and choose Compress to ZIP file or Send to > Compressed folder.",
+      "details": "Compression combines files into one package and may reduce size, depending on the file types.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-zip-folder-difference",
+      "topic": "File Management",
+      "title": "What is the difference between a ZIP file and a normal folder?",
+      "aliases": [],
+      "keywords": [
+        "zip file",
+        "normal folder",
+        "extract"
+      ],
+      "answer": "A normal folder is directly usable, while a ZIP file is a compressed package that may need extraction.",
+      "details": "Editing files inside a ZIP can cause confusion, so extract them first for normal work.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-file-too-large",
+      "topic": "File Management",
+      "title": "Why is a file too large to copy?",
+      "aliases": [],
+      "keywords": [
+        "file too large",
+        "cannot copy large file",
+        "4 gb"
+      ],
+      "answer": "The destination may not have enough free space or may use a file system with a size limit.",
+      "details": "A FAT32 drive cannot store a single file larger than about 4 GB. Back up the drive before changing its format.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-file-systems",
+      "topic": "File Management",
+      "title": "What are FAT32, exFAT, and NTFS?",
+      "aliases": [],
+      "keywords": [
+        "fat32",
+        "exfat",
+        "ntfs",
+        "file system"
+      ],
+      "answer": "They are file systems used to organise data on drives.",
+      "details": "FAT32 is widely compatible but limits single files to about 4 GB; exFAT supports large files and portability; NTFS is standard for Windows internal drives.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-format-drive",
+      "topic": "File Management",
+      "title": "What does formatting a drive mean?",
+      "aliases": [],
+      "keywords": [
+        "format drive",
+        "erase usb",
+        "file system"
+      ],
+      "answer": "Formatting prepares a drive with a file system and usually removes its existing data.",
+      "details": "Back up important files first and confirm you selected the correct drive before formatting.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-recover-deleted",
+      "topic": "File Management",
+      "title": "Can deleted files be recovered?",
+      "aliases": [],
+      "keywords": [
+        "recover deleted files",
+        "file recovery",
+        "restore"
+      ],
+      "answer": "Sometimes, especially if the storage space has not been overwritten.",
+      "details": "Stop saving new data to the drive, check the Recycle Bin or backups, and use trusted recovery tools or professional help for valuable files.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-temporary-files",
+      "topic": "File Management",
+      "title": "What are temporary files?",
+      "aliases": [],
+      "keywords": [
+        "temporary files",
+        "temp files",
+        "storage cleanup"
+      ],
+      "answer": "Temporary files are created by Windows and applications while they work.",
+      "details": "Many can be removed through Storage settings or Disk Cleanup, but avoid deleting unfamiliar files manually.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-disk-cleanup",
+      "topic": "File Management",
+      "title": "How do I free storage space safely?",
+      "aliases": [],
+      "keywords": [
+        "free storage",
+        "disk cleanup",
+        "delete junk"
+      ],
+      "answer": "Use Windows Storage settings or Disk Cleanup, remove unused apps, and move large personal files to another drive or backup.",
+      "details": "Review files before deleting and avoid random system-cleaner programs.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-sync-conflict",
+      "topic": "File Management",
+      "title": "What is a cloud sync conflict?",
+      "aliases": [],
+      "keywords": [
+        "sync conflict",
+        "onedrive conflict",
+        "cloud file versions"
+      ],
+      "answer": "A sync conflict happens when different versions of the same file are changed before the service can combine them.",
+      "details": "Compare the versions carefully, keep the correct one, and rename important copies before deleting anything.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-access-denied",
+      "topic": "File Management",
+      "title": "Why does Windows say Access denied?",
+      "aliases": [],
+      "keywords": [
+        "access denied",
+        "permission denied",
+        "cannot open file"
+      ],
+      "answer": "You may not have permission to open, change, or delete the file or folder.",
+      "details": "Use the correct account, check ownership and permissions, or ask the device administrator. Do not bypass security on a device you do not own.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-path-too-long",
+      "topic": "File Management",
+      "title": "Why does Windows say the file path is too long?",
+      "aliases": [],
+      "keywords": [
+        "path too long",
+        "filename too long",
+        "folder nesting"
+      ],
+      "answer": "The combined folder names and filename may exceed a limit used by an application or system.",
+      "details": "Shorten folder names, move the file closer to the drive root, or reduce unnecessary nesting.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-recent-files",
+      "topic": "File Management",
+      "title": "How do I find recently used files?",
+      "aliases": [],
+      "keywords": [
+        "recent files",
+        "last opened file",
+        "date modified"
+      ],
+      "answer": "Open the application’s Recent list or use File Explorer Home and sort by Date modified.",
+      "details": "Recent lists are shortcuts to files; they do not create extra copies.",
+      "actions": []
+    },
+    {
+      "id": "v14-files-file-version",
+      "topic": "File Management",
+      "title": "How can I keep different versions of a file?",
+      "aliases": [],
+      "keywords": [
+        "file versions",
+        "version history",
+        "rename versions"
+      ],
+      "answer": "Use clear version names or a cloud service with version history.",
+      "details": "For example: Report_v1, Report_v2, and Report_Final. Avoid repeatedly using names like final-final-new.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-isp",
+      "topic": "Internet & Browsing",
+      "title": "What is an Internet Service Provider?",
+      "aliases": [],
+      "keywords": [
+        "isp",
+        "internet provider",
+        "service provider"
+      ],
+      "answer": "An Internet Service Provider, or ISP, is a company that gives you access to the internet.",
+      "details": "The connection may use fibre, mobile data, fixed wireless, satellite, cable, or another technology.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-upload-download",
+      "topic": "Internet & Browsing",
+      "title": "What is the difference between uploading and downloading?",
+      "aliases": [],
+      "keywords": [
+        "upload",
+        "download",
+        "send receive internet"
+      ],
+      "answer": "Downloading brings data from the internet to your device, while uploading sends data from your device to the internet.",
+      "details": "Watching a file arrive is downloading; attaching a file to a website or cloud drive is uploading.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-bandwidth",
+      "topic": "Internet & Browsing",
+      "title": "What is internet bandwidth?",
+      "aliases": [],
+      "keywords": [
+        "bandwidth",
+        "internet speed",
+        "data capacity"
+      ],
+      "answer": "Bandwidth is the amount of data a connection can carry over time.",
+      "details": "Higher bandwidth usually supports more devices, faster downloads, and better video quality, but actual speed can still vary.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-latency",
+      "topic": "Internet & Browsing",
+      "title": "What is ping or internet latency?",
+      "aliases": [],
+      "keywords": [
+        "ping",
+        "latency",
+        "internet delay"
+      ],
+      "answer": "Latency is the delay between sending data and receiving a response.",
+      "details": "Low latency is important for video calls, gaming, and remote control, even when download speed is high.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-hotspot",
+      "topic": "Internet & Browsing",
+      "title": "What is a mobile hotspot?",
+      "aliases": [],
+      "keywords": [
+        "mobile hotspot",
+        "share internet",
+        "tethering"
+      ],
+      "answer": "A mobile hotspot shares a phone’s mobile data connection with other devices through Wi-Fi.",
+      "details": "It uses your data allowance and battery, so secure it with a strong password and turn it off when finished.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-router-lights",
+      "topic": "Internet & Browsing",
+      "title": "What do router lights mean?",
+      "aliases": [],
+      "keywords": [
+        "router lights",
+        "modem lights",
+        "internet light"
+      ],
+      "answer": "Router lights normally show power, internet, Wi-Fi, Ethernet, or connection activity.",
+      "details": "The exact colours and patterns depend on the model; check the label or manual when a light is red, off, or blinking unusually.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-airplane-mode",
+      "topic": "Internet & Browsing",
+      "title": "What does Airplane mode do?",
+      "aliases": [],
+      "keywords": [
+        "airplane mode",
+        "wireless off",
+        "phone network"
+      ],
+      "answer": "Airplane mode turns off wireless connections such as cellular, Wi-Fi, and Bluetooth, although some can be turned on again manually.",
+      "details": "It can also help reset a phone’s network connection quickly.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-vpn",
+      "topic": "Internet & Browsing",
+      "title": "What is a VPN?",
+      "aliases": [],
+      "keywords": [
+        "vpn",
+        "virtual private network",
+        "internet privacy"
+      ],
+      "answer": "A VPN creates an encrypted connection between your device and a VPN service.",
+      "details": "It can improve privacy on untrusted networks, but it does not make you anonymous or protect you from every scam. Use a reputable provider.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-incognito",
+      "topic": "Internet & Browsing",
+      "title": "What does private or incognito browsing do?",
+      "aliases": [],
+      "keywords": [
+        "incognito",
+        "private browsing",
+        "browser privacy"
+      ],
+      "answer": "Private browsing avoids saving local browsing history, cookies, and form data after the window closes.",
+      "details": "It does not hide activity from websites, your employer, school, internet provider, or network administrator.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-bookmark",
+      "topic": "Internet & Browsing",
+      "title": "How do I bookmark a website?",
+      "aliases": [],
+      "keywords": [
+        "bookmark website",
+        "save webpage",
+        "favourite"
+      ],
+      "answer": "Use the browser’s star or bookmark command to save the page for later.",
+      "details": "Organise bookmarks into folders and remove old links so they remain useful.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-history",
+      "topic": "Internet & Browsing",
+      "title": "What is browser history?",
+      "aliases": [],
+      "keywords": [
+        "browser history",
+        "visited websites",
+        "clear history"
+      ],
+      "answer": "Browser history is a record of webpages visited in that browser profile.",
+      "details": "You can search or clear it, but clearing history does not delete files you downloaded or information stored by other services.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-popups",
+      "topic": "Internet & Browsing",
+      "title": "What are pop-ups?",
+      "aliases": [],
+      "keywords": [
+        "pop ups",
+        "popup window",
+        "browser alert"
+      ],
+      "answer": "Pop-ups are windows or panels that appear over or beside a webpage.",
+      "details": "Some are useful, but others are advertisements or scams. Avoid clicking alarming pop-ups that claim your device is infected.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-notifications",
+      "topic": "Internet & Browsing",
+      "title": "What are website notifications?",
+      "aliases": [],
+      "keywords": [
+        "website notifications",
+        "browser notifications",
+        "allow notifications"
+      ],
+      "answer": "Website notifications are messages a site can send through the browser after you give permission.",
+      "details": "Allow only trusted sites and remove permissions for sites that send unwanted or misleading alerts.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-qr-code",
+      "topic": "Internet & Browsing",
+      "title": "What is a QR code?",
+      "aliases": [],
+      "keywords": [
+        "qr code",
+        "scan code",
+        "website link"
+      ],
+      "answer": "A QR code stores information that a phone camera can scan, often a website link, contact, or payment request.",
+      "details": "Check the destination before continuing because a QR code can also lead to a harmful site.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-captcha",
+      "topic": "Internet & Browsing",
+      "title": "What is a CAPTCHA?",
+      "aliases": [],
+      "keywords": [
+        "captcha",
+        "not a robot",
+        "website verification"
+      ],
+      "answer": "A CAPTCHA is a test used by websites to distinguish people from automated programs.",
+      "details": "It may ask you to select images, type characters, or tick a box. Avoid sites that ask you to run commands or install software as a CAPTCHA.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-online-form",
+      "topic": "Internet & Browsing",
+      "title": "How do I complete an online form safely?",
+      "aliases": [],
+      "keywords": [
+        "online form",
+        "fill form",
+        "submit information"
+      ],
+      "answer": "Use the official website, read each field carefully, and enter only the information that is genuinely required.",
+      "details": "Check the address before submitting, avoid public computers for sensitive forms, and keep a confirmation when appropriate.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-buffering",
+      "topic": "Internet & Browsing",
+      "title": "Why does a video keep buffering?",
+      "aliases": [],
+      "keywords": [
+        "buffering",
+        "video stops",
+        "slow streaming"
+      ],
+      "answer": "Buffering happens when the video cannot download data fast enough to play continuously.",
+      "details": "Lower the video quality, pause other downloads, move closer to Wi-Fi, restart the router, or try a less busy time.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-data-saver",
+      "topic": "Internet & Browsing",
+      "title": "How can I reduce internet data usage?",
+      "aliases": [],
+      "keywords": [
+        "save data",
+        "reduce internet usage",
+        "mobile data"
+      ],
+      "answer": "Lower video quality, disable automatic downloads, use Wi-Fi for large updates, and turn on data-saving settings.",
+      "details": "Review which apps use the most data and avoid unnecessary cloud syncing on mobile data.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-subdomain",
+      "topic": "Internet & Browsing",
+      "title": "What is a subdomain?",
+      "aliases": [],
+      "keywords": [
+        "subdomain",
+        "website section",
+        "domain"
+      ],
+      "answer": "A subdomain is an extra part placed before a main domain to organise a website or service.",
+      "details": "For example, support.example.com is a subdomain of example.com.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-hyperlink",
+      "topic": "Internet & Browsing",
+      "title": "What is a hyperlink?",
+      "aliases": [],
+      "keywords": [
+        "hyperlink",
+        "link",
+        "clickable text"
+      ],
+      "answer": "A hyperlink is clickable text, an image, or a button that opens another page, file, email address, or location.",
+      "details": "Hovering may show the destination. Check unfamiliar links before opening them.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-upload-file",
+      "topic": "Internet & Browsing",
+      "title": "How do I upload a file to a website?",
+      "aliases": [],
+      "keywords": [
+        "upload file website",
+        "choose file",
+        "attach online"
+      ],
+      "answer": "Click the upload or choose-file button, select the correct file, and wait for the upload to finish.",
+      "details": "Check the allowed file type and size, and avoid uploading private information to an untrusted site.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-homepage",
+      "topic": "Internet & Browsing",
+      "title": "What is a browser home page?",
+      "aliases": [],
+      "keywords": [
+        "browser home page",
+        "startup page",
+        "home button"
+      ],
+      "answer": "A browser home page is the page that opens when you click the Home button or start the browser, depending on settings.",
+      "details": "You can set it to a search engine, a useful website, or a blank page.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-default-browser",
+      "topic": "Internet & Browsing",
+      "title": "What is a default browser?",
+      "aliases": [],
+      "keywords": [
+        "default browser",
+        "open links",
+        "chrome edge"
+      ],
+      "answer": "The default browser is the program that opens web links automatically.",
+      "details": "You can change it in Windows or phone settings if you prefer Chrome, Edge, Firefox, Safari, or another browser.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-refresh",
+      "topic": "Internet & Browsing",
+      "title": "What does refreshing a webpage do?",
+      "aliases": [],
+      "keywords": [
+        "refresh page",
+        "reload website",
+        "ctrl f5"
+      ],
+      "answer": "Refreshing asks the browser to load the webpage again.",
+      "details": "Use it when content is outdated or a page did not load correctly. Ctrl+F5 may force a stronger refresh on Windows browsers.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-trusted-source",
+      "topic": "Internet & Browsing",
+      "title": "How can I tell whether an online source is trustworthy?",
+      "aliases": [],
+      "keywords": [
+        "trusted source",
+        "reliable website",
+        "online information"
+      ],
+      "answer": "Check the author, organisation, date, evidence, purpose, and whether other reliable sources agree.",
+      "details": "A professional design alone does not prove accuracy. Be careful with anonymous claims and sensational headlines.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-fact-check",
+      "topic": "Internet & Browsing",
+      "title": "How do I fact-check information online?",
+      "aliases": [],
+      "keywords": [
+        "fact check",
+        "verify information",
+        "false news"
+      ],
+      "answer": "Search for the same claim in several reliable sources and look for original evidence.",
+      "details": "Check dates, images, context, and official statements before sharing information.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-copyright",
+      "topic": "Internet & Browsing",
+      "title": "What is copyright online?",
+      "aliases": [],
+      "keywords": [
+        "copyright",
+        "online content",
+        "use images"
+      ],
+      "answer": "Copyright protects original creative work such as writing, images, music, videos, and software.",
+      "details": "Do not assume that content found through a search engine is free to copy. Use licensed content, permission, or proper quotation and attribution.",
+      "actions": []
+    },
+    {
+      "id": "v14-internet-plagiarism",
+      "topic": "Internet & Browsing",
+      "title": "What is plagiarism?",
+      "aliases": [],
+      "keywords": [
+        "plagiarism",
+        "copying work",
+        "cite sources"
+      ],
+      "answer": "Plagiarism is presenting another person’s words, ideas, or work as your own.",
+      "details": "Write in your own words, cite sources, and use quotation marks for short direct quotations.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-office-suite",
+      "topic": "Microsoft Office",
+      "title": "What is Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "microsoft office",
+        "office suite",
+        "word excel powerpoint"
+      ],
+      "answer": "Microsoft Office is a collection of productivity applications used for documents, spreadsheets, presentations, email, and other work.",
+      "details": "Common applications include Word, Excel, PowerPoint, Outlook, Access, Publisher, and OneNote, depending on the edition.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-apps-purpose",
+      "topic": "Microsoft Office",
+      "title": "Which Microsoft Office program should I use?",
+      "aliases": [],
+      "keywords": [
+        "which office program",
+        "word excel powerpoint",
+        "office apps"
+      ],
+      "answer": "Use Word for documents, Excel for calculations and tables, PowerPoint for presentations, and Outlook for email and calendars.",
+      "details": "Choose the program based on the final result you need, not only the information you have.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-backstage",
+      "topic": "Microsoft Office",
+      "title": "What is Backstage view in Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "backstage view",
+        "file tab",
+        "save print share"
+      ],
+      "answer": "Backstage view opens through the File tab and contains commands for saving, printing, sharing, exporting, and managing the document.",
+      "details": "It is separate from the main editing area.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-status-bar",
+      "topic": "Microsoft Office",
+      "title": "What is the status bar in Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "status bar",
+        "bottom bar",
+        "word count zoom"
+      ],
+      "answer": "The status bar appears near the bottom and shows information about the current file or selection.",
+      "details": "It may display page number, word count, view buttons, zoom, or calculation summaries.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-zoom-slider",
+      "topic": "Microsoft Office",
+      "title": "What does the zoom slider do in Office?",
+      "aliases": [],
+      "keywords": [
+        "zoom slider",
+        "make page bigger",
+        "view size"
+      ],
+      "answer": "The zoom slider changes how large the document, worksheet, or slide appears on screen.",
+      "details": "Zoom does not change the real font size, print size, or content.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-autosave-recovery",
+      "topic": "Microsoft Office",
+      "title": "What is the difference between AutoSave and AutoRecover?",
+      "aliases": [],
+      "keywords": [
+        "autosave",
+        "autorecover",
+        "recover office file"
+      ],
+      "answer": "AutoSave continuously saves supported cloud files, while AutoRecover stores temporary recovery information at intervals.",
+      "details": "Neither replaces a proper backup. Save important files with clear names and locations.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-protected-view",
+      "topic": "Microsoft Office",
+      "title": "What is Protected View in Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "protected view",
+        "enable editing",
+        "downloaded office file"
+      ],
+      "answer": "Protected View opens files from potentially unsafe sources with editing disabled.",
+      "details": "Review the file and source before choosing Enable Editing. Do not enable content in suspicious files.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-compatibility-mode",
+      "topic": "Microsoft Office",
+      "title": "What is Compatibility Mode in Office?",
+      "aliases": [],
+      "keywords": [
+        "compatibility mode",
+        "old office file",
+        "convert document"
+      ],
+      "answer": "Compatibility Mode limits some newer features so a file can work with an older format or version.",
+      "details": "Use Save As to convert the file to a modern format after confirming older-version compatibility is no longer needed.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-file-formats",
+      "topic": "Microsoft Office",
+      "title": "What do DOCX, XLSX, and PPTX mean?",
+      "aliases": [],
+      "keywords": [
+        "docx",
+        "xlsx",
+        "pptx",
+        "office file types"
+      ],
+      "answer": "DOCX is a Word document, XLSX is an Excel workbook, and PPTX is a PowerPoint presentation.",
+      "details": "The final letters help identify the application and file type. PDF is commonly used for sharing a fixed layout.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-template-general",
+      "topic": "Microsoft Office",
+      "title": "What is a Microsoft Office template?",
+      "aliases": [],
+      "keywords": [
+        "office template",
+        "document template",
+        "presentation template"
+      ],
+      "answer": "A template is a predesigned file used as a starting point for documents, workbooks, or presentations.",
+      "details": "Choose a trusted template, then replace sample content and check that the design suits your purpose.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-recent-files-office",
+      "topic": "Microsoft Office",
+      "title": "What is the Recent files list in Office?",
+      "aliases": [],
+      "keywords": [
+        "recent files office",
+        "last documents",
+        "open recent"
+      ],
+      "answer": "The Recent list provides quick links to files you opened recently.",
+      "details": "Removing an item from the list normally does not delete the actual file.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-office-signin",
+      "topic": "Microsoft Office",
+      "title": "Why would I sign in to Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "sign in office",
+        "microsoft account",
+        "activate office"
+      ],
+      "answer": "Signing in can activate a licence and enable cloud storage, syncing, collaboration, and personalised settings.",
+      "details": "Use your own trusted account and sign out on shared computers.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-add-ins",
+      "topic": "Microsoft Office",
+      "title": "What is an Office add-in?",
+      "aliases": [],
+      "keywords": [
+        "office add in",
+        "extension",
+        "extra features"
+      ],
+      "answer": "An add-in adds extra features or connects Office to another service.",
+      "details": "Install add-ins only from trusted sources and remove ones you no longer need.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-macros",
+      "topic": "Microsoft Office",
+      "title": "What is a macro in Microsoft Office?",
+      "aliases": [],
+      "keywords": [
+        "macro",
+        "office automation",
+        "enable content"
+      ],
+      "answer": "A macro automates repeated actions using recorded steps or code.",
+      "details": "Macros can save time but can also contain harmful code. Enable macros only in files from trusted sources.",
+      "actions": []
+    },
+    {
+      "id": "v14-office-collaboration",
+      "topic": "Microsoft Office",
+      "title": "How can people work together on an Office file?",
+      "aliases": [],
+      "keywords": [
+        "office collaboration",
+        "share document",
+        "coauthor"
+      ],
+      "answer": "Store the file in OneDrive or SharePoint, share it with appropriate permissions, and edit together when supported.",
+      "details": "Use comments, version history, and clear ownership to avoid confusion.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-indents",
+      "topic": "Microsoft Word",
+      "title": "What are indents in Microsoft Word?",
+      "aliases": [],
+      "keywords": [
+        "word indent",
+        "first line indent",
+        "hanging indent"
+      ],
+      "answer": "Indents move a paragraph inward from the left or right margin.",
+      "details": "Use first-line, hanging, left, or right indents instead of pressing the Spacebar many times.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-tab-stops",
+      "topic": "Microsoft Word",
+      "title": "What are tab stops in Word?",
+      "aliases": [],
+      "keywords": [
+        "tab stops",
+        "word ruler",
+        "align text"
+      ],
+      "answer": "Tab stops align text at specific horizontal positions.",
+      "details": "Use the ruler and Tab key for neat alignment instead of repeated spaces.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-borders-shading",
+      "topic": "Microsoft Word",
+      "title": "How do I add borders and shading in Word?",
+      "aliases": [],
+      "keywords": [
+        "word borders",
+        "shading",
+        "paragraph border"
+      ],
+      "answer": "Select the paragraph, text, or table and use the Borders and Shading commands.",
+      "details": "Use these effects sparingly so the document remains readable and professional.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-super-subscript",
+      "topic": "Microsoft Word",
+      "title": "How do I type superscript or subscript in Word?",
+      "aliases": [],
+      "keywords": [
+        "superscript",
+        "subscript",
+        "word font"
+      ],
+      "answer": "Select the text and choose Superscript or Subscript in the Font group.",
+      "details": "Superscript is useful for powers and ordinal endings; subscript is common in chemical formulas.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-formatting-marks",
+      "topic": "Microsoft Word",
+      "title": "What are formatting marks in Word?",
+      "aliases": [],
+      "keywords": [
+        "formatting marks",
+        "paragraph mark",
+        "show hidden characters"
+      ],
+      "answer": "Formatting marks show spaces, paragraph breaks, tabs, and other hidden layout characters.",
+      "details": "Click the ¶ button to show or hide them. They help diagnose spacing and blank-page problems.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-clear-formatting",
+      "topic": "Microsoft Word",
+      "title": "How do I clear formatting in Word?",
+      "aliases": [],
+      "keywords": [
+        "clear formatting",
+        "remove word formatting",
+        "reset text"
+      ],
+      "answer": "Select the text and use Clear All Formatting to remove direct formatting.",
+      "details": "After clearing, apply the correct style, font, and paragraph settings.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-navigation-pane",
+      "topic": "Microsoft Word",
+      "title": "What is the Navigation Pane in Word?",
+      "aliases": [],
+      "keywords": [
+        "navigation pane",
+        "word headings",
+        "find document"
+      ],
+      "answer": "The Navigation Pane helps you search a document and move between headings, pages, or results.",
+      "details": "It works best when headings use Word’s built-in heading styles.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-line-paragraph-break",
+      "topic": "Microsoft Word",
+      "title": "What is the difference between a line break and a paragraph break in Word?",
+      "aliases": [],
+      "keywords": [
+        "line break",
+        "paragraph break",
+        "shift enter"
+      ],
+      "answer": "Enter creates a new paragraph, while Shift+Enter creates a line break inside the same paragraph.",
+      "details": "Paragraph spacing and styles apply differently, so use the correct break.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-text-table",
+      "topic": "Microsoft Word",
+      "title": "How do I convert text into a table in Word?",
+      "aliases": [],
+      "keywords": [
+        "convert text to table",
+        "word table",
+        "tabs"
+      ],
+      "answer": "Select text separated consistently by tabs, commas, or paragraphs, then use Convert Text to Table.",
+      "details": "Check the separator and number of columns before confirming.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-repeat-header",
+      "topic": "Microsoft Word",
+      "title": "How do I repeat a table header row on every page in Word?",
+      "aliases": [],
+      "keywords": [
+        "repeat header row",
+        "word table pages",
+        "table heading"
+      ],
+      "answer": "Select the top row and use Repeat Header Rows in the table layout options.",
+      "details": "This helps readers understand long tables that continue across pages.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-labels-envelopes",
+      "topic": "Microsoft Word",
+      "title": "How do I create labels or envelopes in Word?",
+      "aliases": [],
+      "keywords": [
+        "labels word",
+        "envelopes word",
+        "mailings"
+      ],
+      "answer": "Use the Mailings tab and choose Labels or Envelopes.",
+      "details": "Select the correct paper or label size and test on plain paper before using special stationery.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-checkbox",
+      "topic": "Microsoft Word",
+      "title": "How do I insert a checkbox in Word?",
+      "aliases": [],
+      "keywords": [
+        "checkbox word",
+        "tick box",
+        "developer tab"
+      ],
+      "answer": "For a printable form, insert a checkbox symbol; for a clickable form, enable the Developer tab and use a checkbox content control.",
+      "details": "Protect or restrict the form if you want users to fill fields without changing the layout.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-restrict-editing",
+      "topic": "Microsoft Word",
+      "title": "How do I restrict editing in Word?",
+      "aliases": [],
+      "keywords": [
+        "restrict editing",
+        "protect word document",
+        "read only"
+      ],
+      "answer": "Use Review > Restrict Editing to limit formatting or allow only certain types of changes.",
+      "details": "Keep the password safely; losing it can make later editing difficult.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-compare-documents",
+      "topic": "Microsoft Word",
+      "title": "How do I compare two Word documents?",
+      "aliases": [],
+      "keywords": [
+        "compare word documents",
+        "document differences",
+        "review"
+      ],
+      "answer": "Use Review > Compare and choose the original and revised files.",
+      "details": "Word creates a comparison showing insertions, deletions, and formatting changes.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-compress-pictures",
+      "topic": "Microsoft Word",
+      "title": "How do I reduce picture size in Word?",
+      "aliases": [],
+      "keywords": [
+        "compress pictures word",
+        "reduce document size",
+        "image resolution"
+      ],
+      "answer": "Select a picture and use Compress Pictures to lower resolution or remove cropped areas.",
+      "details": "Keep an original copy if image quality is important.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-alt-text",
+      "topic": "Microsoft Word",
+      "title": "What is alt text in Word?",
+      "aliases": [],
+      "keywords": [
+        "alt text word",
+        "accessibility",
+        "describe image"
+      ],
+      "answer": "Alt text is a short description that helps screen-reader users understand an image or object.",
+      "details": "Describe the purpose and important information rather than only saying “picture.”",
+      "actions": []
+    },
+    {
+      "id": "v14-word-print-pages",
+      "topic": "Microsoft Word",
+      "title": "How do I print only selected pages in Word?",
+      "aliases": [],
+      "keywords": [
+        "print selected pages word",
+        "page range",
+        "print settings"
+      ],
+      "answer": "In Print settings, enter page numbers or ranges such as 2, 4-6.",
+      "details": "Check Print Preview and ensure the document page numbers match the pages you intend to print.",
+      "actions": []
+    },
+    {
+      "id": "v14-word-section-orientation",
+      "topic": "Microsoft Word",
+      "title": "How do I make only one Word page landscape?",
+      "aliases": [],
+      "keywords": [
+        "one page landscape word",
+        "section break",
+        "page orientation"
+      ],
+      "answer": "Insert section breaks before and after the page, then change the orientation for that section.",
+      "details": "Without section breaks, the orientation may change for the whole document.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-formula-bar",
+      "topic": "Microsoft Excel",
+      "title": "What is the Formula Bar in Excel?",
+      "aliases": [],
+      "keywords": [
+        "formula bar",
+        "excel formula area",
+        "edit formula"
+      ],
+      "answer": "The Formula Bar displays and lets you edit the content or formula of the active cell.",
+      "details": "It is especially useful for long formulas that are difficult to edit directly inside a cell.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-name-box",
+      "topic": "Microsoft Excel",
+      "title": "What is the Name Box in Excel?",
+      "aliases": [],
+      "keywords": [
+        "name box",
+        "cell address box",
+        "excel navigation"
+      ],
+      "answer": "The Name Box shows the address or name of the active cell or selected range.",
+      "details": "You can type a cell address, such as G25, and press Enter to jump there.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-sheet-tabs",
+      "topic": "Microsoft Excel",
+      "title": "What are worksheet tabs in Excel?",
+      "aliases": [],
+      "keywords": [
+        "worksheet tabs",
+        "sheet tabs",
+        "excel sheets"
+      ],
+      "answer": "Worksheet tabs appear at the bottom and let you move between sheets in a workbook.",
+      "details": "Rename them clearly, such as January, February, Summary, or Results.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-active-cell",
+      "topic": "Microsoft Excel",
+      "title": "What is the active cell in Excel?",
+      "aliases": [],
+      "keywords": [
+        "active cell",
+        "selected cell",
+        "excel cursor"
+      ],
+      "answer": "The active cell is the currently selected cell where typing or a command will apply.",
+      "details": "Its address appears in the Name Box and it normally has a visible border.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-autosum",
+      "topic": "Microsoft Excel",
+      "title": "What does AutoSum do in Excel?",
+      "aliases": [],
+      "keywords": [
+        "autosum",
+        "sum button",
+        "excel total"
+      ],
+      "answer": "AutoSum quickly inserts a SUM formula for a nearby row or column of numbers.",
+      "details": "Always check that Excel selected the correct range before pressing Enter.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-flash-fill",
+      "topic": "Microsoft Excel",
+      "title": "What is Flash Fill in Excel?",
+      "aliases": [],
+      "keywords": [
+        "flash fill",
+        "excel pattern",
+        "split names"
+      ],
+      "answer": "Flash Fill recognises a pattern from examples and fills the remaining values.",
+      "details": "It is useful for splitting, combining, or reformatting text, but the results are values rather than formulas.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-paste-special",
+      "topic": "Microsoft Excel",
+      "title": "What is Paste Special in Excel?",
+      "aliases": [],
+      "keywords": [
+        "paste special",
+        "paste values",
+        "excel copy"
+      ],
+      "answer": "Paste Special lets you paste only values, formulas, formats, comments, or other parts of copied cells.",
+      "details": "Pasting values is useful when you want results without the original formulas.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-transpose",
+      "topic": "Microsoft Excel",
+      "title": "How do I transpose data in Excel?",
+      "aliases": [],
+      "keywords": [
+        "transpose excel",
+        "rows to columns",
+        "paste special"
+      ],
+      "answer": "Copy the range, choose Paste Special, and select Transpose to change rows into columns or columns into rows.",
+      "details": "Check formulas and references after transposing complex data.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-data-validation",
+      "topic": "Microsoft Excel",
+      "title": "What is Data Validation in Excel?",
+      "aliases": [],
+      "keywords": [
+        "data validation",
+        "dropdown list",
+        "limit entry"
+      ],
+      "answer": "Data Validation controls what users can enter in a cell.",
+      "details": "It can create dropdown lists, limit numbers or dates, and show input or error messages.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-custom-format",
+      "topic": "Microsoft Excel",
+      "title": "What is a custom number format in Excel?",
+      "aliases": [],
+      "keywords": [
+        "custom number format",
+        "excel display",
+        "leading zeros"
+      ],
+      "answer": "A custom number format changes how a value appears without changing the stored value.",
+      "details": "It can add text, leading zeros, colour rules, or special date and number displays.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-date-entry",
+      "topic": "Microsoft Excel",
+      "title": "How should I enter dates in Excel?",
+      "aliases": [],
+      "keywords": [
+        "enter dates excel",
+        "date format",
+        "serial date"
+      ],
+      "answer": "Enter a recognisable date format and then apply the desired date display format.",
+      "details": "Excel stores valid dates as serial numbers, which allows sorting and date calculations.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-trace-precedents",
+      "topic": "Microsoft Excel",
+      "title": "What do Trace Precedents and Trace Dependents do in Excel?",
+      "aliases": [],
+      "keywords": [
+        "trace precedents",
+        "trace dependents",
+        "formula auditing"
+      ],
+      "answer": "They draw arrows showing which cells feed a formula and which formulas use a cell.",
+      "details": "These tools help investigate complex formulas and errors.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-calculation-mode",
+      "topic": "Microsoft Excel",
+      "title": "What is calculation mode in Excel?",
+      "aliases": [],
+      "keywords": [
+        "calculation mode",
+        "formula not updating",
+        "automatic calculation"
+      ],
+      "answer": "Calculation mode controls whether formulas recalculate automatically or manually.",
+      "details": "If formulas are not updating, check that calculation is set to Automatic.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-group-outline",
+      "topic": "Microsoft Excel",
+      "title": "How do I group rows or columns in Excel?",
+      "aliases": [],
+      "keywords": [
+        "group rows excel",
+        "outline",
+        "collapse rows"
+      ],
+      "answer": "Select the rows or columns and use Data > Group to create a collapsible outline.",
+      "details": "Grouping helps hide detail while keeping summary information visible.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-slicer",
+      "topic": "Microsoft Excel",
+      "title": "What is a slicer in Excel?",
+      "aliases": [],
+      "keywords": [
+        "slicer excel",
+        "visual filter",
+        "pivot table"
+      ],
+      "answer": "A slicer is a visual set of buttons used to filter an Excel Table or PivotTable.",
+      "details": "It makes filtering easier to see and use in reports and dashboards.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-sparkline",
+      "topic": "Microsoft Excel",
+      "title": "What is a sparkline in Excel?",
+      "aliases": [],
+      "keywords": [
+        "sparkline",
+        "mini chart",
+        "excel trend"
+      ],
+      "answer": "A sparkline is a tiny chart displayed inside a cell.",
+      "details": "It shows trends across a row of values without using a full chart.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-print-titles",
+      "topic": "Microsoft Excel",
+      "title": "How do I repeat Excel headings on every printed page?",
+      "aliases": [],
+      "keywords": [
+        "print titles excel",
+        "repeat header rows",
+        "printing"
+      ],
+      "answer": "Use Page Layout > Print Titles and choose the rows or columns to repeat.",
+      "details": "This is useful for long tables printed across several pages.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-gridlines",
+      "topic": "Microsoft Excel",
+      "title": "How do I show or hide gridlines in Excel?",
+      "aliases": [],
+      "keywords": [
+        "excel gridlines",
+        "hide gridlines",
+        "print gridlines"
+      ],
+      "answer": "Use the View or Page Layout options to control gridlines on screen or when printing.",
+      "details": "Borders are usually better than printed gridlines for a professional table.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-page-breaks",
+      "topic": "Microsoft Excel",
+      "title": "What are page breaks in Excel?",
+      "aliases": [],
+      "keywords": [
+        "page breaks excel",
+        "print pages",
+        "page break preview"
+      ],
+      "answer": "Page breaks show where a worksheet will divide into printed pages.",
+      "details": "Use Page Break Preview or scaling settings to improve the printed layout.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-external-links",
+      "topic": "Microsoft Excel",
+      "title": "What are external links in Excel?",
+      "aliases": [],
+      "keywords": [
+        "external links excel",
+        "linked workbook",
+        "update links"
+      ],
+      "answer": "External links are formulas or connections that refer to another workbook or data source.",
+      "details": "They can break when files move, so keep linked files organised and review update prompts carefully.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-excel-formats",
+      "topic": "Microsoft Excel",
+      "title": "What are common Excel file formats?",
+      "aliases": [],
+      "keywords": [
+        "xlsx",
+        "xlsm",
+        "xls",
+        "csv",
+        "excel format"
+      ],
+      "answer": "XLSX is the standard workbook format, XLSM supports macros, XLS is older, and CSV stores plain table data.",
+      "details": "Choose the format carefully because CSV keeps only one sheet and does not preserve formulas or formatting.",
+      "actions": []
+    },
+    {
+      "id": "v14-excel-freeze-panes-difference",
+      "topic": "Microsoft Excel",
+      "title": "What is the difference between Freeze Panes and Split in Excel?",
+      "aliases": [],
+      "keywords": [
+        "freeze panes",
+        "split excel",
+        "scroll headings"
+      ],
+      "answer": "Freeze Panes keeps selected headings visible while scrolling, while Split creates separate scrollable sections.",
+      "details": "Use Freeze Panes for most tables with headers.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-contrast",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I improve text contrast in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "powerpoint contrast",
+        "readable slides",
+        "text visibility"
+      ],
+      "answer": "Use light text on a dark background or dark text on a light background, with enough difference between them.",
+      "details": "Avoid placing text directly over busy images unless you add a solid or translucent background.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-font-size",
+      "topic": "Microsoft PowerPoint",
+      "title": "What font size should I use in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "powerpoint font size",
+        "slide text size",
+        "presentation readability"
+      ],
+      "answer": "Use large text that can be read from the back of the room.",
+      "details": "A practical starting point is around 28-32 points for body text and larger for headings, adjusted for the room and screen.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-selection-pane",
+      "topic": "Microsoft PowerPoint",
+      "title": "What is the Selection Pane in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "selection pane powerpoint",
+        "manage objects",
+        "overlapping objects"
+      ],
+      "answer": "The Selection Pane lists objects on a slide and lets you select, rename, hide, or reorder them.",
+      "details": "It is especially useful when objects overlap.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-layers",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I move an object in front of or behind another in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "bring forward",
+        "send backward",
+        "powerpoint layers"
+      ],
+      "answer": "Use Bring Forward, Bring to Front, Send Backward, or Send to Back.",
+      "details": "The Selection Pane can make complex object order easier to manage.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-remove-background",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I remove a picture background in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "remove background powerpoint",
+        "picture background",
+        "transparent image"
+      ],
+      "answer": "Select the picture, choose Remove Background, adjust the marked areas, and keep the changes.",
+      "details": "Use a clear, high-contrast image for better results and check the edges carefully.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-crop-shape",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I crop a picture into a shape in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "crop to shape",
+        "powerpoint picture shape",
+        "image crop"
+      ],
+      "answer": "Select the picture, choose Crop > Crop to Shape, and select a shape.",
+      "details": "Use Fill or Fit options to control how the image sits inside the shape.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-guides",
+      "topic": "Microsoft PowerPoint",
+      "title": "What are guides and gridlines in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "powerpoint guides",
+        "gridlines",
+        "align objects"
+      ],
+      "answer": "Guides and gridlines help align objects consistently on slides.",
+      "details": "Turn on snapping and use Align and Distribute for cleaner layouts.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-action-buttons",
+      "topic": "Microsoft PowerPoint",
+      "title": "What are action buttons in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "action buttons",
+        "interactive powerpoint",
+        "slide navigation"
+      ],
+      "answer": "Action buttons are clickable shapes that move to another slide, open a link, or perform an action during a slideshow.",
+      "details": "Test them in Slide Show mode before presenting.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-hyperlinks",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I add a hyperlink in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "hyperlink powerpoint",
+        "clickable slide",
+        "link"
+      ],
+      "answer": "Select text or an object, choose Link, and enter a webpage, file, email address, or slide destination.",
+      "details": "Test the link and avoid depending on internet access without a backup plan.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-audio",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I add audio to PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "audio powerpoint",
+        "sound presentation",
+        "record audio"
+      ],
+      "answer": "Use Insert > Audio to add a sound file or record audio.",
+      "details": "Set playback options carefully and keep the audio file embedded or packaged with the presentation.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-video",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I add video to PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "video powerpoint",
+        "insert video",
+        "presentation media"
+      ],
+      "answer": "Use Insert > Video and choose a file or supported online video.",
+      "details": "Compress media if the presentation becomes too large and test playback on the presenting computer.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-record-show",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I record a PowerPoint slideshow?",
+      "aliases": [],
+      "keywords": [
+        "record slideshow",
+        "powerpoint narration",
+        "presentation video"
+      ],
+      "answer": "Use Record or Record Slide Show to capture narration, timings, ink, and sometimes camera video.",
+      "details": "Use a quiet room, test the microphone, and review the recording before exporting.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-rehearse",
+      "topic": "Microsoft PowerPoint",
+      "title": "What does Rehearse Timings do in PowerPoint?",
+      "aliases": [],
+      "keywords": [
+        "rehearse timings",
+        "powerpoint timing",
+        "practice presentation"
+      ],
+      "answer": "Rehearse Timings records how long you spend on each slide while practising.",
+      "details": "Use it to improve pacing or create an automatically advancing presentation.",
+      "actions": []
+    },
+    {
+      "id": "v14-powerpoint-accessibility",
+      "topic": "Microsoft PowerPoint",
+      "title": "How do I make PowerPoint slides more accessible?",
+      "aliases": [],
+      "keywords": [
+        "powerpoint accessibility",
+        "alt text slides",
+        "accessible presentation"
+      ],
+      "answer": "Use strong contrast, large readable text, meaningful slide titles, alt text, and a logical reading order.",
+      "details": "Run the Accessibility Checker and avoid relying only on colour to communicate meaning.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-definition",
+      "topic": "Computer Components",
+      "title": "What is a computer component?",
+      "aliases": [
+        "What are computer components?",
+        "computer component meaning"
+      ],
+      "keywords": [
+        "computer component",
+        "hardware part",
+        "internal external parts"
+      ],
+      "answer": "A computer component is a hardware part that helps the computer receive input, process data, store information, produce output, communicate, or receive power.",
+      "details": "Examples include the motherboard, CPU, RAM, storage drive, monitor, keyboard, mouse, printer, network adapter, and power supply.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-internal",
+      "topic": "Computer Components",
+      "title": "What are the main internal computer components?",
+      "aliases": [
+        "parts inside a computer",
+        "internal computer parts"
+      ],
+      "keywords": [
+        "internal components",
+        "inside system unit",
+        "motherboard cpu ram storage power supply"
+      ],
+      "answer": "The main internal components include the motherboard, CPU, RAM, storage drive, power supply, cooling system, and sometimes a dedicated graphics card.",
+      "details": "These parts work together inside the system unit to process data, store files, supply power, and control communication between devices.",
+      "actions": []
+    },
+    {
+      "id": "v14-components-external",
+      "topic": "Computer Components",
+      "title": "What are common external computer components?",
+      "aliases": [
+        "external computer parts",
+        "computer peripherals examples"
+      ],
+      "keywords": [
+        "external components",
+        "peripherals",
+        "monitor keyboard mouse printer scanner speakers"
+      ],
+      "answer": "Common external components include the monitor, keyboard, mouse, speakers, microphone, webcam, printer, scanner, projector, and external storage devices.",
+      "details": "These are often called peripherals because they connect to the computer and provide input, output, storage, or communication functions.",
+      "actions": []
+    },
+    {
+      "id": "v14-basics-scope",
+      "topic": "Computer Basics",
+      "title": "What does computer basics include?",
+      "aliases": [
+        "computer basics topics",
+        "what should a computer beginner learn"
+      ],
+      "keywords": [
+        "computer basics",
+        "beginner skills",
+        "mouse keyboard windows files internet"
+      ],
+      "answer": "Computer basics include understanding computer parts, using the mouse and keyboard, navigating Windows, managing files and folders, opening programs, saving work, and using the internet safely.",
+      "details": "A strong beginner path also includes Microsoft Word, basic Excel, downloads, USB drives, printing, passwords, email, and simple troubleshooting.",
+      "actions": [
+        {
+          "label": "Start Computer Basics",
+          "url": "courses.html",
+          "kind": "primary"
+        }
+      ]
+    },
+    {
+      "id": "v14-files-definition",
+      "topic": "File Management",
+      "title": "What is file management?",
+      "aliases": [
+        "file management meaning",
+        "how to manage computer files"
+      ],
+      "keywords": [
+        "file management",
+        "organise files folders",
+        "save find copy move rename delete"
+      ],
+      "answer": "File management is the process of creating, naming, organising, finding, copying, moving, backing up, and safely deleting files and folders.",
+      "details": "Good file management uses clear folder structures, meaningful filenames, regular backups, and careful control of duplicates and downloads.",
+      "actions": [
+        {
+          "label": "Explore Computer Basics",
+          "url": "courses.html",
+          "kind": "primary"
+        }
+      ]
     }
-  ]
+  ],
+  "scopePrompt": "Ask me about Athanas Inspires ICT",
+  "scopePromptHint": "Computer basics, Internet, Microsoft Office, file management and more.",
+  "mistakes": "I can make mistakes."
 };

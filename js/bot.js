@@ -19,7 +19,9 @@
         "percentage", "wifi", "keyboard", "mouse", "computer", "table", "powerpoint", "slide", "pdf", "phone",
         "google", "drive", "docs", "sheets", "slides", "meet", "zoom", "cloud", "backup", "browser", "security",
         "ai", "python", "coding", "outlook", "teams", "onedrive", "phishing", "privacy", "accessibility", "career",
-        "printer", "website"
+        "printer", "website", "motherboard", "component", "monitor", "scanner", "projector", "speaker",
+        "microphone", "webcam", "storage", "driver", "windows", "office", "power", "port", "router", "modem",
+        "upload", "download", "browser", "document", "workbook", "worksheet", "presentation"
     ]);
     const SPELLING = {
         exel: "excel", excell: "excel", excelent: "excellent", microsft: "microsoft", microsof: "microsoft",
@@ -42,7 +44,11 @@
         phising: "phishing", fishin: "phishing", authenticatorr: "authenticator", privasy: "privacy",
         googledoc: "docs", googledocs: "docs", googlesheet: "sheets", googlesheets: "sheets",
         googleslide: "slides", googleslides: "slides", outlok: "outlook", onedrvie: "onedrive",
-        microsftteams: "teams", pythn: "python", pythom: "python", codng: "coding", acessibility: "accessibility"
+        microsftteams: "teams", pythn: "python", pythom: "python", codng: "coding", acessibility: "accessibility",
+        componet: "component", compnent: "component", compenent: "component", motheboard: "motherboard",
+        moniter: "monitor", scaner: "scanner", projecter: "projector", speeker: "speaker", micraphone: "microphone",
+        webcame: "webcam", windos: "windows", windoes: "windows", ofice: "office", flie: "file", filse: "files",
+        managment: "management", browswer: "browser", routher: "router", moderm: "modem", uplod: "upload"
     };
 
     const state = {
@@ -356,7 +362,15 @@
                         <div class="ai-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
                         <div class="ai-live-suggestions" hidden></div>
                     </div>
-                    <div class="ai-composer is-hidden">
+                    <div class="ai-composer">
+                        <button class="ai-topic-prompt" type="button" aria-label="Ask about Athanas Inspires ICT">
+                            <span class="ai-topic-prompt-icon" aria-hidden="true">✦</span>
+                            <span class="ai-topic-prompt-copy">
+                                <strong>${DATA.scopePrompt || "Ask me about Athanas Inspires ICT"}</strong>
+                                <small>${DATA.scopePromptHint || "Computer basics, Internet, Microsoft Office, file management and more."}</small>
+                            </span>
+                            <span class="ai-topic-prompt-arrow" aria-hidden="true">→</span>
+                        </button>
                         <div class="ai-example-drawer">
                             <button class="ai-example-toggle" type="button" aria-expanded="false" aria-controls="aiExampleQuestions">
                                 <span class="ai-example-toggle-icon" aria-hidden="true">✦</span>
@@ -379,7 +393,8 @@
                         </form>
                     </div>
                     <footer class="ai-assistant-footer">
-                        <p><span aria-hidden="true">🔒</span> ${DATA.privacy}</p>
+                        <p class="ai-privacy-note"><span aria-hidden="true">🔒</span> ${DATA.privacy}</p>
+                        <p class="ai-mistakes-note">${DATA.mistakes || "I can make mistakes."}</p>
                     </footer>
                 </aside>
             </div>`;
@@ -394,6 +409,7 @@
         state.elements.composer = shell.querySelector(".ai-composer");
         state.elements.form = shell.querySelector(".ai-input-form");
         state.elements.input = shell.querySelector("#aiAssistantInput");
+        state.elements.topicPrompt = shell.querySelector(".ai-topic-prompt");
         state.elements.examplesDrawer = shell.querySelector(".ai-example-drawer");
         state.elements.examplesToggle = shell.querySelector(".ai-example-toggle");
         state.elements.examples = shell.querySelector(".ai-example-questions");
@@ -404,6 +420,11 @@
         shell.querySelector("[data-ai-new]").addEventListener("click", startNewConversation);
         shell.querySelector("[data-ai-clear]").addEventListener("click", askToClearConversation);
         shell.querySelector(".ai-menu-button").addEventListener("click", showMainOptions);
+        state.elements.topicPrompt?.addEventListener("click", () => {
+            hideExampleQuestions();
+            hideSuggestions();
+            handleFreeQuestion("What can I learn with Athanas Inspires ICT?");
+        });
         state.elements.examplesToggle.addEventListener("click", () => toggleExampleQuestions());
         state.elements.form.addEventListener("submit", (event) => {
             event.preventDefault();
@@ -760,8 +781,11 @@
     }
 
     function hideComposer() {
-        state.elements.composer.classList.add("is-hidden");
+        // The typing area is intentionally always available. This function only
+        // resets temporary input helpers when a guided flow begins.
+        state.elements.composer.classList.remove("is-hidden");
         state.elements.input.value = "";
+        autoResizeInput();
         hideExampleQuestions();
         hideSuggestions();
     }

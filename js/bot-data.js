@@ -1,10 +1,10 @@
 window.ATHANAS_ASSISTANT_DATA = {
-  "version": "1.4.0",
+  "version": "1.5.5",
   "updated": "2026-07-13",
   "name": "Athanas Inspires AI Assistant",
   "status": "Your learning guide",
-  "greeting": "Hello 👋 I’m the Athanas Inspires AI Assistant. I can help you learn and find resources. How can I help you today?",
-  "privacy": "Your conversation is stored in this browser so you can continue later. It is not sent to Athanas Inspires unless you choose WhatsApp support.",
+  "greeting": "Hello. I'm the Athanas Inspires Assistant. Ask me about Athanas Inspires and ICT.",
+  "privacy": "Saved on this device; shared only if you choose WhatsApp.",
   "whatsappNumber": "255695110859",
   "whatsappCommunity": "https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt",
   "youtubeChannel": "https://youtube.com/@athanas_inspires",
@@ -11929,7 +11929,5 @@ window.ATHANAS_ASSISTANT_DATA = {
       ]
     }
   ],
-  "scopePrompt": "Ask me about Athanas Inspires ICT",
-  "scopePromptHint": "Computer basics, Internet, Microsoft Office, file management and more.",
   "mistakes": "I can make mistakes."
 };

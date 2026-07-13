@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const focusMenuItem = (dropdown, position = "first") => {
-        const links = Array.from(dropdown.querySelectorAll(".nav-dropdown-menu a"));
+        const links = Array.from(dropdown.querySelectorAll(".nav-dropdown-menu a, .nav-dropdown-menu button"));
         if (!links.length) return;
         (position === "last" ? links.at(-1) : links[0]).focus();
     };
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdowns.forEach((dropdown) => {
         const toggle = dropdown.querySelector(".nav-dropdown-toggle");
         const menu = dropdown.querySelector(".nav-dropdown-menu");
-        const links = Array.from(dropdown.querySelectorAll(".nav-dropdown-menu a"));
+        const links = Array.from(dropdown.querySelectorAll(".nav-dropdown-menu a, .nav-dropdown-menu button"));
 
         toggle?.addEventListener("click", (event) => {
             event.stopPropagation();

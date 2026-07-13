@@ -2429,3 +2429,760 @@ body.mobile-nav-open .ai-floating-button {
         display: none;
     }
 }
+
+
+/* =========================================================
+   V1.5 — MOBILE QUESTION BEHAVIOUR & PERSISTENT MAIN OPTIONS
+   ========================================================= */
+.ai-topic-prompt,
+.ai-menu-button,
+.ai-inline-menu-wrap,
+.ai-inline-menu-button {
+    display: none !important;
+}
+
+.ai-main-options-control {
+    position: relative;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) 18px;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    min-height: 42px;
+    margin: 0 0 7px;
+    padding: 6px 9px;
+    border: 1px solid rgba(7, 69, 155, .22);
+    border-radius: 13px;
+    color: #092e59;
+    background:
+        radial-gradient(circle at 5% 10%, rgba(250, 204, 21, .18), transparent 38%),
+        linear-gradient(135deg, #fffdf1 0%, #eef6ff 76%);
+    box-shadow: 0 8px 20px rgba(4, 43, 100, .08), inset 0 1px 0 rgba(255,255,255,.96);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform .24s var(--ai-ease), border-color .24s ease, box-shadow .24s ease, background .24s ease;
+}
+
+.ai-main-options-control::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,.82) 48%, transparent 76%);
+    transform: translateX(-125%);
+    transition: transform .55s var(--ai-ease);
+    pointer-events: none;
+}
+
+.ai-main-options-control-icon {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
+    color: #063d80;
+    background: linear-gradient(145deg, #e9f4ff, #ffffff);
+    border: 1px solid rgba(7,69,155,.16);
+    box-shadow: 0 5px 13px rgba(5,49,111,.10);
+    font-size: 14px;
+    font-weight: 950;
+}
+
+.ai-main-options-control-copy {
+    display: grid;
+    gap: 1px;
+    min-width: 0;
+}
+
+.ai-main-options-control-copy strong {
+    color: #073a78;
+    font-size: 11.4px;
+    font-weight: 950;
+    line-height: 1.2;
+}
+
+.ai-main-options-control-copy small {
+    overflow: hidden;
+    color: #3f536e;
+    font-size: 8.7px;
+    font-weight: 740;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ai-main-options-control-arrow {
+    color: #b86400;
+    font-size: 15px;
+    font-weight: 950;
+    transition: transform .24s var(--ai-ease);
+}
+
+.ai-main-options-control:hover,
+.ai-main-options-control:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(245, 158, 11, .48);
+    background: linear-gradient(135deg, #fff7c8 0%, #eaf4ff 76%);
+    box-shadow: 0 12px 27px rgba(4,43,100,.13), 0 0 0 3px rgba(250,204,21,.075);
+}
+
+.ai-main-options-control:hover::before,
+.ai-main-options-control:focus-visible::before {
+    transform: translateX(125%);
+}
+
+.ai-main-options-control:hover .ai-main-options-control-arrow,
+.ai-main-options-control:focus-visible .ai-main-options-control-arrow {
+    transform: translateX(3px);
+}
+
+.ai-input-form {
+    grid-template-columns: minmax(0, 1fr) 40px;
+}
+
+.ai-input-form textarea {
+    min-width: 0;
+}
+
+/* Support dropdown buttons should look and behave exactly like premium cards. */
+.nav-card-menu button.nav-menu-card {
+    width: 100%;
+    border: 0;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.nav-ai-support-trigger .nav-card-icon {
+    color: #08458f;
+    background: linear-gradient(145deg, #fff2a9, #edf6ff);
+}
+
+@media (max-width: 560px) {
+    .ai-main-options-control {
+        grid-template-columns: 26px minmax(0, 1fr) 16px;
+        min-height: 39px;
+        gap: 7px;
+        padding: 5px 7px;
+    }
+
+    .ai-main-options-control-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .ai-main-options-control-copy strong {
+        font-size: 10.7px;
+    }
+
+    .ai-main-options-control-copy small {
+        font-size: 8.1px;
+    }
+
+    .ai-input-form textarea {
+        font-size: 16px; /* Prevents automatic zoom on iOS while typing. */
+    }
+}
+
+@media (max-width: 380px) {
+    .ai-main-options-control-copy small {
+        display: none;
+    }
+}
+
+/* =========================================================
+   V1.5.2 — ONE PERMANENT ASSISTANT OPTIONS CONTROL
+   The options reveal directly below the single control above
+   Suggested Questions; no duplicate folded drawer is created.
+   ========================================================= */
+.ai-main-options-panel {
+    width: 100%;
+    max-width: 100%;
+    max-height: min(38dvh, 330px);
+    margin: -1px 0 8px;
+    padding: 8px;
+    border: 1px solid rgba(7, 69, 155, .18);
+    border-top: 0;
+    border-radius: 0 0 14px 14px;
+    background:
+        radial-gradient(circle at 96% 0%, rgba(250, 204, 21, .12), transparent 34%),
+        linear-gradient(160deg, rgba(255,255,255,.99), rgba(239,247,255,.98));
+    box-shadow: 0 13px 28px rgba(4, 43, 100, .10), inset 0 1px 0 rgba(255,255,255,.92);
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: aiSuggestionIn .24s var(--ai-ease) both;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(7,69,155,.32) transparent;
+}
+
+.ai-main-options-panel[hidden] {
+    display: none !important;
+}
+
+.ai-main-options-panel .ai-main-actions {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ai-main-options-control.is-open {
+    margin-bottom: 0;
+    border-color: rgba(245, 158, 11, .44);
+    border-radius: 13px 13px 0 0;
+    background: linear-gradient(135deg, #fff6bf 0%, #eaf4ff 76%);
+    box-shadow: 0 9px 22px rgba(4,43,100,.11), 0 0 0 3px rgba(250,204,21,.06);
+}
+
+.ai-main-options-control.is-open .ai-main-options-control-arrow {
+    color: #8b5000;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 560px) {
+    .ai-main-options-panel {
+        max-height: min(36dvh, 300px);
+        padding: 7px;
+    }
+
+    .ai-main-options-panel .ai-main-actions {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .ai-main-options-panel .ai-choice-button {
+        min-height: 46px;
+    }
+}
+
+/* =========================================================
+   V1.5.3 — MANUAL-ONLY OPTIONS & PREMIUM VISITOR QUESTIONS
+   Assistant options remain closed unless the visitor clicks
+   the Explore Assistant Options control. Visitor questions
+   receive a clearer, higher-contrast premium treatment.
+   ========================================================= */
+
+/* Premium visitor question card */
+.ai-message-row.user .ai-message-content {
+    max-width: min(88%, 370px);
+}
+
+.ai-message-row.user .ai-message-bubble {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 11px 13px 13px;
+    border: 1px solid rgba(255, 221, 87, .42);
+    border-radius: 18px 6px 18px 18px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 92% 8%, rgba(255, 232, 117, .18), transparent 34%),
+        linear-gradient(138deg, #0b5fd1 0%, #07469f 48%, #04265f 100%);
+    box-shadow:
+        0 15px 32px rgba(3, 34, 85, .25),
+        0 0 0 1px rgba(255,255,255,.045) inset,
+        0 1px 0 rgba(255,255,255,.20) inset;
+}
+
+.ai-message-row.user .ai-message-bubble::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(112deg, transparent 18%, rgba(255,255,255,.13) 48%, transparent 78%);
+    transform: translateX(-125%);
+    transition: transform .65s var(--ai-ease);
+    pointer-events: none;
+}
+
+.ai-message-row.user .ai-message-bubble::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 0;
+    height: 2px;
+    border-radius: 999px 999px 0 0;
+    background: linear-gradient(90deg, transparent, #ffe45c, rgba(255,255,255,.55), transparent);
+    opacity: .88;
+    pointer-events: none;
+}
+
+.ai-user-message-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 0 6px;
+    padding: 3px 7px;
+    border: 1px solid rgba(255, 232, 117, .34);
+    border-radius: 999px;
+    color: #fff3a8;
+    background: rgba(2, 24, 63, .32);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.10);
+    font-size: 8.7px;
+    font-weight: 950;
+    letter-spacing: .06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.ai-user-message-label::before {
+    content: "✦";
+    color: #ffe45c;
+    font-size: 8px;
+}
+
+.ai-message-row.user .ai-message-bubble > p {
+    margin: 0;
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 720;
+    line-height: 1.58;
+    letter-spacing: .004em;
+    text-shadow: 0 1px 1px rgba(0, 18, 48, .35);
+}
+
+.ai-message-avatar.user {
+    color: #fff8ca;
+    background: linear-gradient(145deg, #0a56bb, #03285f);
+    border: 1px solid rgba(255, 226, 92, .46);
+    box-shadow: 0 8px 20px rgba(3, 36, 90, .22), inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .ai-message-row.user .ai-message-bubble:hover {
+        transform: translateY(-2px) translateX(-1px);
+        border-color: rgba(255, 226, 92, .72);
+        box-shadow:
+            0 19px 40px rgba(3, 34, 85, .31),
+            0 0 0 3px rgba(250, 204, 21, .07),
+            inset 0 1px 0 rgba(255,255,255,.22);
+    }
+
+    .ai-message-row.user .ai-message-bubble:hover::before {
+        transform: translateX(125%);
+    }
+}
+
+@media (max-width: 560px) {
+    .ai-message-row.user .ai-message-content {
+        max-width: min(91%, 340px);
+    }
+
+    .ai-message-row.user .ai-message-bubble {
+        padding: 10px 11px 12px;
+        border-radius: 16px 5px 16px 16px;
+    }
+
+    .ai-message-row.user .ai-message-bubble > p {
+        font-size: 13.6px;
+        line-height: 1.55;
+    }
+
+    .ai-user-message-label {
+        margin-bottom: 5px;
+        font-size: 8.2px;
+    }
+}
+
+
+/* =========================================================
+   V1.5.4 — MAXIMUM CONVERSATION SPACE + ONE-LINE PRIVACY
+   Keeps essential controls available while giving the message
+   history the largest practical share of the assistant panel.
+   ========================================================= */
+
+/* A slightly wider desktop panel gives answers and questions more room. */
+.ai-assistant-panel {
+    width: min(480px, 100vw);
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+}
+
+/* Compact premium header. */
+.ai-assistant-header {
+    min-height: 64px;
+    padding: 8px 10px;
+    gap: 8px;
+}
+
+.ai-header-brand {
+    gap: 8px;
+}
+
+.ai-header-logo {
+    width: 42px;
+    height: 42px;
+    padding: 3px;
+    border-radius: 12px;
+}
+
+.ai-header-logo img {
+    border-radius: 9px;
+}
+
+.ai-header-brand h2 {
+    font-size: 14.5px;
+    line-height: 1.15;
+}
+
+.ai-header-brand p {
+    margin-top: 2px;
+    font-size: 10.5px;
+    line-height: 1.15;
+}
+
+.ai-status-dot {
+    width: 6px;
+    height: 6px;
+}
+
+.ai-header-controls {
+    gap: 4px;
+}
+
+.ai-header-controls button {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+}
+
+.ai-header-controls button svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* Conversation surface gets tighter outer spacing, not tighter text. */
+.ai-assistant-body {
+    min-height: 0;
+}
+
+.ai-messages {
+    padding: 10px 10px 12px;
+    scroll-padding-block: 10px;
+}
+
+.ai-message-row {
+    gap: 7px;
+    margin-bottom: 10px;
+}
+
+.ai-message-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.ai-message-row:not(.user) .ai-message-content {
+    width: calc(100% - 37px);
+}
+
+.ai-message-row.user .ai-message-content {
+    width: min(91%, calc(100% - 37px));
+    max-width: min(91%, 410px);
+}
+
+.ai-message-bubble {
+    padding: 11px 12px;
+}
+
+.ai-message-row.user .ai-message-bubble {
+    padding: 9px 11px 11px;
+}
+
+.ai-message-bubble > p,
+.ai-message-details p {
+    font-size: 13.4px;
+    line-height: 1.55;
+}
+
+.ai-message-row.user .ai-message-bubble > p {
+    font-size: 13.6px;
+    line-height: 1.52;
+}
+
+.ai-message-author,
+.ai-user-message-label {
+    margin-bottom: 4px;
+}
+
+/* Make the permanently visible controls as compact as possible. */
+.ai-composer,
+.ai-composer.is-hidden {
+    padding: 5px 8px 6px;
+}
+
+.ai-main-options-control {
+    grid-template-columns: 22px minmax(0, 1fr) 14px;
+    min-height: 32px;
+    margin-bottom: 4px;
+    padding: 3px 7px;
+    border-radius: 10px;
+}
+
+.ai-main-options-control-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    font-size: 11px;
+}
+
+.ai-main-options-control-copy {
+    display: block;
+}
+
+.ai-main-options-control-copy strong {
+    display: block;
+    font-size: 10.4px;
+    line-height: 1.15;
+}
+
+.ai-main-options-control-copy small {
+    display: none !important;
+}
+
+.ai-main-options-control-arrow {
+    font-size: 12px;
+}
+
+.ai-example-drawer {
+    margin-bottom: 4px;
+    border-radius: 10px;
+}
+
+.ai-example-toggle {
+    min-height: 32px;
+    padding: 3px 7px;
+}
+
+.ai-example-toggle-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    font-size: 10px;
+}
+
+.ai-example-toggle-copy strong {
+    font-size: 10.4px;
+    line-height: 1.15;
+}
+
+.ai-example-toggle-copy small {
+    display: none !important;
+}
+
+.ai-example-count {
+    min-width: 20px;
+    height: 20px;
+    padding-inline: 5px;
+    font-size: 8.5px;
+}
+
+.ai-example-chevron {
+    font-size: 12px;
+}
+
+.ai-example-questions {
+    padding: 4px 5px 6px;
+}
+
+.ai-example-chip {
+    min-height: 27px;
+    padding: 5px 8px;
+    font-size: 9.8px;
+}
+
+.ai-main-options-panel {
+    max-height: min(28dvh, 240px);
+    margin-bottom: 4px;
+    padding: 6px;
+}
+
+.ai-main-options-panel .ai-choice-button {
+    min-height: 42px;
+}
+
+.ai-input-form {
+    grid-template-columns: minmax(0, 1fr) 36px;
+    gap: 5px;
+    padding: 4px;
+    border-radius: 13px;
+}
+
+.ai-input-form textarea {
+    min-height: 32px;
+    max-height: 82px;
+    padding: 6px 3px;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.ai-send-button {
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+/* Both notices share one ultra-compact footer row. */
+.ai-assistant-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 20px;
+    padding: 3px 7px calc(3px + env(safe-area-inset-bottom));
+    overflow: hidden;
+}
+
+.ai-assistant-footer .ai-privacy-note,
+.ai-assistant-footer .ai-mistakes-note {
+    display: block !important;
+    flex: 0 1 auto;
+    margin: 0 !important;
+    padding: 0;
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: clip;
+    line-height: 1 !important;
+}
+
+.ai-assistant-footer .ai-privacy-note {
+    color: #344b67;
+    font-size: clamp(6.7px, 1.75vw, 8.2px);
+    font-weight: 760;
+}
+
+.ai-assistant-footer .ai-mistakes-note {
+    color: #6d7785 !important;
+    font-size: clamp(6.3px, 1.55vw, 7.4px) !important;
+    font-weight: 680 !important;
+}
+
+.ai-assistant-footer .ai-mistakes-note::before {
+    content: "• ";
+}
+
+/* Short screens need every pixel for the conversation. */
+@media (max-height: 720px) {
+    .ai-assistant-header {
+        min-height: 56px;
+        padding-block: 6px;
+    }
+
+    .ai-header-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .ai-header-brand p {
+        display: none;
+    }
+
+    .ai-messages {
+        padding-top: 8px;
+        padding-bottom: 9px;
+    }
+
+    .ai-composer,
+    .ai-composer.is-hidden {
+        padding-top: 4px;
+        padding-bottom: 5px;
+    }
+
+    .ai-main-options-control,
+    .ai-example-toggle {
+        min-height: 29px;
+    }
+
+    .ai-input-form textarea {
+        min-height: 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .ai-assistant-header {
+        min-height: 58px;
+        padding: 7px 8px;
+    }
+
+    .ai-header-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .ai-header-brand h2 {
+        font-size: 13.2px;
+    }
+
+    .ai-header-brand p {
+        font-size: 9.4px;
+    }
+
+    .ai-header-controls button {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+    }
+
+    .ai-messages {
+        padding-inline: 8px;
+    }
+
+    .ai-message-row.user .ai-message-content {
+        max-width: 93%;
+    }
+
+    .ai-composer,
+    .ai-composer.is-hidden {
+        padding-inline: 6px;
+    }
+
+    .ai-main-options-panel {
+        max-height: min(25dvh, 205px);
+    }
+
+    .ai-input-form textarea {
+        font-size: 16px; /* Prevents iOS zoom while retaining a compact field. */
+    }
+
+    .ai-assistant-footer {
+        gap: 4px;
+        padding-inline: 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    .ai-header-brand p {
+        display: none;
+    }
+
+    .ai-header-logo {
+        width: 34px;
+        height: 34px;
+    }
+
+    .ai-header-brand h2 {
+        font-size: 12.2px;
+    }
+
+    .ai-header-controls {
+        gap: 2px;
+    }
+
+    .ai-header-controls button {
+        width: 26px;
+        height: 26px;
+    }
+
+    .ai-assistant-footer .ai-privacy-note {
+        font-size: 6.25px;
+    }
+
+    .ai-assistant-footer .ai-mistakes-note {
+        font-size: 6px !important;
+    }
+}
+\n\n/* =========================================================\n   V1.5.5 — MORE CONVERSATION SPACE + SMARTER LIVE SUGGESTIONS\n   Removes the permanent example-question drawer and lets\n   matching questions appear only while the visitor types.\n   ========================================================= */\n\n/* The old static Suggested Questions drawer is permanently removed. */\n.ai-example-drawer,\n.ai-example-toggle,\n.ai-example-questions {\n    display: none !important;\n}\n\n/* Give the conversation the greatest practical vertical share. */\n.ai-assistant-header {\n    min-height: 56px;\n    padding: 6px 8px;\n}\n\n.ai-header-logo {\n    width: 36px;\n    height: 36px;\n    padding: 2px;\n    border-radius: 10px;\n}\n\n.ai-header-logo img {\n    border-radius: 8px;\n}\n\n.ai-header-brand h2 {\n    font-size: 13px;\n    line-height: 1.1;\n}\n\n.ai-header-brand p {\n    margin-top: 1px;\n    font-size: 9.4px;\n}\n\n.ai-header-controls button {\n    width: 27px;\n    height: 27px;\n    border-radius: 8px;\n}\n\n.ai-header-controls button svg {\n    width: 14px;\n    height: 14px;\n}\n\n.ai-messages {\n    padding: 8px 8px 10px;\n}\n\n.ai-message-row {\n    margin-bottom: 8px;\n}\n\n.ai-composer,\n.ai-composer.is-hidden {\n    position: relative;\n    z-index: 6;\n    padding: 4px 6px 5px;\n}\n\n.ai-main-options-control {\n    min-height: 28px;\n    margin-bottom: 3px;\n    padding: 2px 6px;\n    border-radius: 9px;\n}\n\n.ai-main-options-control-icon {\n    width: 20px;\n    height: 20px;\n    border-radius: 6px;\n    font-size: 10px;\n}\n\n.ai-main-options-control-copy strong {\n    font-size: 10px;\n}\n\n.ai-main-options-panel {\n    max-height: min(27dvh, 220px);\n    margin-bottom: 3px;\n    padding: 5px;\n}\n\n.ai-input-form {\n    grid-template-columns: minmax(0, 1fr) 34px;\n    gap: 4px;\n    padding: 3px;\n    border-radius: 12px;\n}\n\n.ai-input-form textarea {\n    min-height: 30px;\n    max-height: 76px;\n    padding: 5px 3px;\n    line-height: 1.3;\n}\n\n.ai-send-button {\n    width: 34px;\n    height: 34px;\n    padding: 7px;\n    border-radius: 9px;\n}\n\n.ai-assistant-footer {\n    min-height: 17px;\n    padding-top: 2px;\n    padding-bottom: calc(2px + env(safe-area-inset-bottom));\n}\n\n/* Live suggestions float over the lower conversation area instead of\n   consuming permanent layout space. */\n.ai-live-suggestions {\n    left: 7px;\n    right: 7px;\n    bottom: 7px;\n    z-index: 12;\n    max-height: min(46dvh, 360px);\n    padding: 6px;\n    border: 1px solid rgba(7, 69, 155, .20);\n    border-radius: 14px;\n    background:\n        radial-gradient(circle at 96% 0%, rgba(250, 204, 21, .13), transparent 31%),\n        rgba(255, 255, 255, .992);\n    box-shadow: 0 20px 52px rgba(3, 23, 55, .24), inset 0 1px 0 #fff;\n}\n\n.ai-suggestions-label {\n    margin: 1px 6px 5px;\n    color: #063f89;\n    font-size: 9.5px;\n    letter-spacing: .075em;\n}\n\n.ai-suggestion-button {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    grid-template-areas:\n        "title arrow"\n        "topic arrow";\n    align-items: center;\n    column-gap: 8px;\n    min-height: 42px;\n    padding: 6px 8px 6px 10px;\n    border: 1px solid transparent;\n    border-radius: 10px;\n    color: #102f52;\n    background: rgba(246, 250, 255, .76);\n    box-shadow: inset 3px 0 0 rgba(17, 91, 190, .13);\n    transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;\n}\n\n.ai-suggestion-button + .ai-suggestion-button {\n    margin-top: 3px;\n}\n\n.ai-suggestion-title {\n    grid-area: title;\n    min-width: 0;\n    color: #0a315f;\n    font-size: 11.6px;\n    font-weight: 820;\n    line-height: 1.25;\n    overflow-wrap: anywhere;\n}\n\n.ai-suggestion-topic {\n    grid-area: topic;\n    margin-top: 2px;\n    color: #506985;\n    font-size: 9.2px;\n    font-weight: 700;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n.ai-suggestion-arrow {\n    grid-area: arrow;\n    color: #b66a00;\n    font-size: 15px;\n    font-weight: 900;\n    transition: transform .2s ease;\n}\n\n.ai-suggestion-button:hover,\n.ai-suggestion-button:focus-visible {\n    transform: translateY(-1px);\n    color: #052a60;\n    border-color: rgba(245, 158, 11, .32);\n    background: linear-gradient(135deg, #fffdf4, #eef6ff);\n    box-shadow: inset 4px 0 0 #f2b30f, 0 8px 20px rgba(6, 53, 121, .12);\n}\n\n.ai-suggestion-button:hover .ai-suggestion-arrow,\n.ai-suggestion-button:focus-visible .ai-suggestion-arrow {\n    transform: translateX(2px);\n}\n\n@media (max-height: 720px) {\n    .ai-assistant-header {\n        min-height: 50px;\n        padding-block: 5px;\n    }\n\n    .ai-header-logo {\n        width: 32px;\n        height: 32px;\n    }\n\n    .ai-messages {\n        padding-top: 6px;\n        padding-bottom: 7px;\n    }\n\n    .ai-main-options-control {\n        min-height: 26px;\n    }\n}\n\n@media (max-width: 560px) {\n    .ai-assistant-header {\n        min-height: 52px;\n        padding: 5px 6px;\n    }\n\n    .ai-header-logo {\n        width: 33px;\n        height: 33px;\n    }\n\n    .ai-header-brand h2 {\n        font-size: 12.2px;\n    }\n\n    .ai-header-brand p {\n        font-size: 8.8px;\n    }\n\n    .ai-header-controls button {\n        width: 25px;\n        height: 25px;\n    }\n\n    .ai-messages {\n        padding-inline: 6px;\n    }\n\n    .ai-composer,\n    .ai-composer.is-hidden {\n        padding-inline: 5px;\n    }\n\n    .ai-live-suggestions {\n        left: 5px;\n        right: 5px;\n        bottom: 5px;\n        max-height: min(44dvh, 330px);\n    }\n\n    .ai-suggestion-button {\n        min-height: 40px;\n    }\n\n    .ai-suggestion-title {\n        font-size: 11.2px;\n    }\n}\n

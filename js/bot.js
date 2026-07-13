@@ -51,6 +51,19 @@
         managment: "management", browswer: "browser", routher: "router", moderm: "modem", uplod: "upload"
     };
 
+    const QUERY_EXPANSIONS = {
+        pc: ["computer"], laptop: ["computer"], desktop: ["computer"], organ: ["organise", "organize", "management"],
+        ms: ["microsoft"], office: ["microsoft", "word", "excel", "powerpoint"],
+        spreadsheet: ["excel", "worksheet", "workbook"], workbook: ["excel", "spreadsheet"], worksheet: ["excel", "spreadsheet"],
+        document: ["word"], typing: ["keyboard"], presentation: ["powerpoint", "slide"], slides: ["powerpoint", "presentation"],
+        web: ["internet", "browser"], online: ["internet"], wifi: ["internet", "router"],
+        mail: ["email"], gmail: ["email"], attachment: ["email", "file"],
+        save: ["file"], storage: ["file", "folder"], usb: ["flash", "drive"], flash: ["usb", "drive"],
+        lesson: ["course", "session"], class: ["lesson", "course"], practice: ["assignment"], task: ["assignment"],
+        help: ["support"], group: ["community", "whatsapp"], join: ["community", "whatsapp"],
+        picture: ["image"], image: ["picture"], print: ["printer"], password: ["security"], scam: ["phishing", "security"]
+    };
+
     const state = {
         storage: loadStorage(),
         flow: null,
@@ -73,6 +86,11 @@
             if (!parsed || !Array.isArray(parsed.messages) || Date.now() - Number(parsed.updatedAt || 0) > MAX_AGE) {
                 localStorage.removeItem(STORAGE_KEY);
                 return emptyStorage();
+            }
+            // Keep the current approved opening message even when a visitor has
+            // a conversation saved from an older assistant version.
+            if (parsed.messages[0]?.role === "assistant" && /Athanas Inspires (AI )?Assistant/i.test(parsed.messages[0].text || "")) {
+                parsed.messages[0].text = DATA.greeting;
             }
             parsed.version = DATA.version;
             return { ...emptyStorage(), ...parsed };
@@ -176,14 +194,13 @@
         if (intent.type === "greeting") {
             const opening = intent.period === "morning" ? "Good morning" : intent.period === "afternoon" ? "Good afternoon" : intent.period === "evening" ? "Good evening" : "Hello";
             addBotMessage(`${opening} 👋 It’s great to have you here. I’m ready to help you learn or find the right resource.`, { save: true });
-            renderQuickActions();
+            setMainOptionsOpen(false);
             showComposer();
             return true;
         }
         if (intent.type === "thanks") {
             addBotMessage("You’re very welcome 😊 Keep practising—each clear step builds confidence. Is there anything else I can help you find?", {
-                save: true,
-                actions: [{ label: "Main Options", command: "main", kind: "primary" }]
+                save: true
             });
             return true;
         }
@@ -193,18 +210,18 @@
         }
         if (intent.type === "wellbeing") {
             addBotMessage("I’m ready and happy to help 😊 Tell me what you want to learn, find, or solve today.", { save: true });
-            renderQuickActions();
+            setMainOptionsOpen(false);
             return true;
         }
         if (intent.type === "help") {
             addBotMessage("I can guide you to lessons, assignments, tools, education resources, inspiration, and support. I can also answer many beginner questions about computers, Word, Excel, PowerPoint, PDFs, phones, email, internet safety, and digital productivity.", { save: true });
-            renderQuickActions();
+            setMainOptionsOpen(false);
             showComposer();
             return true;
         }
         if (intent.type === "acknowledgement") {
             addBotMessage("Great 👍 What would you like to explore next?", { save: true });
-            renderQuickActions();
+            setMainOptionsOpen(false);
             return true;
         }
         return false;
@@ -299,11 +316,99 @@
             .slice(0, limit);
     }
 
+    function suggestionTokens(query) {
+        const normalizedQuery = normalize(query);
+        const base = tokenize(normalizedQuery, true);
+        const expanded = [...base];
+        if (/\bpower\s+point\b/.test(normalizedQuery)) expanded.push("powerpoint");
+        if (/\bfile\s+man/.test(normalizedQuery)) expanded.push("management");
+        if (/\bonline\s+saf|internet\s+saf/.test(normalizedQuery)) expanded.push("safety", "security");
+        if (/\bword\s+doc/.test(normalizedQuery)) expanded.push("document", "word");
+        if (/\bspread\s*sheet/.test(normalizedQuery)) expanded.push("spreadsheet", "excel");
+        base.forEach((token) => {
+            (QUERY_EXPANSIONS[token] || []).forEach((extra) => expanded.push(stem(extra)));
+        });
+        return [...new Set(expanded.filter(Boolean))];
+    }
+
+    function scoreSuggestion(query, entry) {
+        const q = normalize(query);
+        if (!q) return 0;
+        const tokens = suggestionTokens(q);
+        const candidatePhrases = [entry._title, ...entry._aliases].filter(Boolean);
+        const candidateTokens = [...new Set([
+            ...entry._titleTokens,
+            ...entry._aliasTokens,
+            ...entry._keywordTokens
+        ])];
+        let score = Math.max(0, scoreEntry(q, entry));
+
+        candidatePhrases.forEach((phrase, index) => {
+            if (phrase === q) score += index === 0 ? 120 : 100;
+            else if (phrase.startsWith(q)) score += index === 0 ? 68 : 54;
+            else if (q.length >= 3 && phrase.includes(q)) score += index === 0 ? 42 : 34;
+        });
+
+        const originalCoreTokens = tokenize(q);
+        const tokenMatched = new Map();
+        tokens.forEach((token) => {
+            if (token.length < 2) return;
+            let bestTokenScore = 0;
+            candidateTokens.forEach((candidate) => {
+                if (candidate === token) bestTokenScore = Math.max(bestTokenScore, 18);
+                else if (candidate.startsWith(token)) bestTokenScore = Math.max(bestTokenScore, token.length >= 3 ? 17 : 9);
+                else if (token.startsWith(candidate) && candidate.length >= 3) bestTokenScore = Math.max(bestTokenScore, 10);
+                else if (token.length >= 4 && candidate.includes(token)) bestTokenScore = Math.max(bestTokenScore, 9);
+                else if (token.length >= 4 && Math.abs(candidate.length - token.length) <= 2) {
+                    const distance = levenshtein(token, candidate);
+                    if (distance === 1) bestTokenScore = Math.max(bestTokenScore, 8);
+                    else if (distance === 2 && token.length >= 7) bestTokenScore = Math.max(bestTokenScore, 4);
+                }
+            });
+            tokenMatched.set(token, bestTokenScore > 0);
+            score += bestTokenScore;
+        });
+
+        const originalMatched = originalCoreTokens.filter((token) => {
+            return candidateTokens.some((candidate) =>
+                candidate === token || candidate.startsWith(token) ||
+                (token.length >= 4 && candidate.includes(token)) ||
+                (token.length >= 5 && levenshtein(token, candidate) <= 1)
+            );
+        }).length;
+        if (originalCoreTokens.length > 1) {
+            const coverage = originalMatched / originalCoreTokens.length;
+            if (coverage === 1) score += 30;
+            else if (coverage >= .66) score += 14;
+            else if (coverage <= .5) score -= 14;
+        } else if (originalMatched === 1) {
+            score += 10;
+        }
+
+        const expandedCoverage = tokens.filter((token) => tokenMatched.get(token)).length;
+        if (expandedCoverage >= 2) score += Math.min(18, expandedCoverage * 4);
+        return score;
+    }
+
+    function findSuggestionMatches(query, limit = 5) {
+        const q = normalize(query);
+        const minimum = q.length <= 2 ? 18 : q.length <= 4 ? 10 : 7;
+        return preparedKnowledge
+            .map((entry) => ({ entry, score: scoreSuggestion(q, entry) }))
+            .filter((result) => result.score >= minimum)
+            .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
+            .slice(0, limit);
+    }
+
     function createElement(tag, className, text) {
         const element = document.createElement(tag);
         if (className) element.className = className;
         if (typeof text === "string") element.textContent = text;
         return element;
+    }
+
+    function usesMobileInputMode() {
+        return window.matchMedia("(pointer: coarse)").matches || window.innerWidth <= 760;
     }
 
     function injectNavbarButton() {
@@ -353,7 +458,7 @@
                             </div>
                         </div>
                         <div class="ai-header-controls">
-                            <button type="button" data-ai-new title="Start a new conversation" aria-label="Start a new conversation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19 12a7 7 0 1 0-2.05 4.95"/></svg></button>
+                            <button type="button" data-ai-new title="Reset assistant" aria-label="Reset assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19 12a7 7 0 1 0-2.05 4.95"/></svg></button>
                             <button type="button" data-ai-clear title="Clear saved conversation" aria-label="Clear saved conversation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg></button>
                             <button type="button" data-ai-close title="Close assistant" aria-label="Close assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
                         </div>
@@ -363,28 +468,16 @@
                         <div class="ai-live-suggestions" hidden></div>
                     </div>
                     <div class="ai-composer">
-                        <button class="ai-topic-prompt" type="button" aria-label="Ask about Athanas Inspires ICT">
-                            <span class="ai-topic-prompt-icon" aria-hidden="true">✦</span>
-                            <span class="ai-topic-prompt-copy">
-                                <strong>${DATA.scopePrompt || "Ask me about Athanas Inspires ICT"}</strong>
-                                <small>${DATA.scopePromptHint || "Computer basics, Internet, Microsoft Office, file management and more."}</small>
+                        <button class="ai-main-options-control" type="button" aria-label="Explore assistant options" aria-expanded="false" aria-controls="aiMainOptionsPanel">
+                            <span class="ai-main-options-control-icon" aria-hidden="true">☰</span>
+                            <span class="ai-main-options-control-copy">
+                                <strong>Explore Assistant Options</strong>
+                                <small>Lessons, assignments, tools, resources and support</small>
                             </span>
-                            <span class="ai-topic-prompt-arrow" aria-hidden="true">→</span>
+                            <span class="ai-main-options-control-arrow" aria-hidden="true">⌄</span>
                         </button>
-                        <div class="ai-example-drawer">
-                            <button class="ai-example-toggle" type="button" aria-expanded="false" aria-controls="aiExampleQuestions">
-                                <span class="ai-example-toggle-icon" aria-hidden="true">✦</span>
-                                <span class="ai-example-toggle-copy">
-                                    <strong>Suggested questions</strong>
-                                    <small>Tap to reveal examples</small>
-                                </span>
-                                <span class="ai-example-count">${DATA.examples.length}</span>
-                                <span class="ai-example-chevron" aria-hidden="true">⌄</span>
-                            </button>
-                            <div class="ai-example-questions" id="aiExampleQuestions" hidden></div>
-                        </div>
+                        <div class="ai-main-options-panel" id="aiMainOptionsPanel" hidden></div>
                         <form class="ai-input-form">
-                            <button class="ai-menu-button" type="button" aria-label="Show main options" title="Main options">☰</button>
                             <label class="sr-only" for="aiAssistantInput">Ask the AI Assistant</label>
                             <textarea id="aiAssistantInput" rows="1" maxlength="400" placeholder="Type your question..."></textarea>
                             <button class="ai-send-button" type="submit" aria-label="Send question">
@@ -409,23 +502,36 @@
         state.elements.composer = shell.querySelector(".ai-composer");
         state.elements.form = shell.querySelector(".ai-input-form");
         state.elements.input = shell.querySelector("#aiAssistantInput");
-        state.elements.topicPrompt = shell.querySelector(".ai-topic-prompt");
-        state.elements.examplesDrawer = shell.querySelector(".ai-example-drawer");
-        state.elements.examplesToggle = shell.querySelector(".ai-example-toggle");
-        state.elements.examples = shell.querySelector(".ai-example-questions");
+        state.elements.mainOptionsControl = shell.querySelector(".ai-main-options-control");
+        state.elements.mainOptionsPanel = shell.querySelector(".ai-main-options-panel");
+
+        state.elements.panel.addEventListener("click", (event) => {
+            const link = event.target.closest("a[href]");
+            if (!link) return;
+            closePanel({ restoreFocus: false });
+        });
 
         state.elements.floating.addEventListener("click", openPanel);
         shell.querySelector(".ai-overlay-dismiss").addEventListener("click", closePanel);
         shell.querySelector("[data-ai-close]").addEventListener("click", closePanel);
         shell.querySelector("[data-ai-new]").addEventListener("click", startNewConversation);
         shell.querySelector("[data-ai-clear]").addEventListener("click", askToClearConversation);
-        shell.querySelector(".ai-menu-button").addEventListener("click", showMainOptions);
-        state.elements.topicPrompt?.addEventListener("click", () => {
-            hideExampleQuestions();
-            hideSuggestions();
-            handleFreeQuestion("What can I learn with Athanas Inspires ICT?");
+        const mainOptionChoices = DATA.quickActions.map((item) => ({
+            label: item.label,
+            value: `quick:${item.id}`,
+            icon: item.icon
+        }));
+        const mainOptionsGrid = renderChoices(mainOptionChoices);
+        mainOptionsGrid.classList.add("ai-main-actions");
+        state.elements.mainOptionsPanel.appendChild(mainOptionsGrid);
+        mainOptionsGrid.querySelectorAll(".ai-choice-button").forEach((button) => {
+            button.addEventListener("click", () => setMainOptionsOpen(false));
         });
-        state.elements.examplesToggle.addEventListener("click", () => toggleExampleQuestions());
+
+        state.elements.mainOptionsControl?.addEventListener("click", () => {
+            hideSuggestions();
+            setMainOptionsOpen(state.elements.mainOptionsPanel.hidden);
+        });
         state.elements.form.addEventListener("submit", (event) => {
             event.preventDefault();
             const query = state.elements.input.value.trim();
@@ -440,20 +546,10 @@
             updateLiveSuggestions();
         });
         state.elements.input.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" && !event.shiftKey) {
+            if (event.key === "Enter" && !event.shiftKey && !usesMobileInputMode()) {
                 event.preventDefault();
                 state.elements.form.requestSubmit();
             }
-        });
-
-        DATA.examples.forEach((question) => {
-            const button = createElement("button", "ai-example-chip", question);
-            button.type = "button";
-            button.addEventListener("click", () => {
-                hideExampleQuestions();
-                handleFreeQuestion(question);
-            });
-            state.elements.examples.appendChild(button);
         });
 
         const menuToggle = document.getElementById("menu-toggle");
@@ -471,6 +567,19 @@
             } else if (event.key === "Tab") {
                 trapFocus(event);
             }
+        });
+
+        document.querySelectorAll("[data-ai-open]").forEach((button) => {
+            button.addEventListener("click", () => {
+                document.querySelectorAll(".nav-dropdown.is-open").forEach((dropdown) => {
+                    dropdown.classList.remove("is-open");
+                    dropdown.querySelector(".nav-dropdown-toggle")?.setAttribute("aria-expanded", "false");
+                });
+                const menuToggle = document.getElementById("menu-toggle");
+                if (menuToggle) menuToggle.checked = false;
+                document.body.classList.remove("mobile-nav-open");
+                openPanel();
+            });
         });
 
         window.setTimeout(() => state.elements.floating.classList.add("is-compact"), 5200);
@@ -520,28 +629,21 @@
         scrollToBottom();
     }
 
-    function closePanel() {
+    function closePanel(options = {}) {
+        const { restoreFocus = true } = options;
         state.panelOpen = false;
         state.elements.overlay.classList.remove("is-open");
         state.elements.overlay.setAttribute("aria-hidden", "true");
         document.body.classList.remove("ai-assistant-open");
         state.elements.floating.setAttribute("aria-expanded", "false");
         try { sessionStorage.removeItem(OPEN_SESSION_KEY); } catch (error) {}
-        state.elements.floating.focus({ preventScroll: true });
+        if (restoreFocus) state.elements.floating.focus({ preventScroll: true });
     }
 
     function prepareOpeningView() {
         state.returnChoiceHandled = true;
-        const hasHistory = state.storage.messages.length > 0;
-        clearMessagesView();
-        if (hasHistory) {
-            addBotMessage("Welcome back 👋 Would you like to continue your previous conversation or start a new one?", {
-                save: false,
-                choices: [
-                    { label: "Continue Conversation", value: "continue-history", icon: "↩" },
-                    { label: "Start New Conversation", value: "start-new", icon: "✨" }
-                ]
-            });
+        if (state.storage.messages.length > 0) {
+            continueConversation();
         } else {
             initializeConversation();
         }
@@ -552,11 +654,12 @@
         state.flow = null;
         state.storage.messages = [];
         addBotMessage(DATA.greeting, { save: true });
-        renderQuickActions();
+        setMainOptionsOpen(false);
         saveStorage();
     }
 
     function startNewConversation() {
+        setMainOptionsOpen(false);
         clearStorage();
         state.returnChoiceHandled = true;
         hideComposer();
@@ -574,11 +677,11 @@
     }
 
     function continueConversation() {
+        setMainOptionsOpen(false);
         clearMessagesView();
         state.storage.messages.forEach((message) => renderStoredMessage(message));
         state.flow = state.storage.flow || null;
         if (state.flow) restoreFlowChoices();
-        else renderCompactMainButton();
         scrollToBottom();
     }
 
@@ -630,6 +733,10 @@
             const author = createElement("span", "ai-message-author", "Athanas AI");
             author.setAttribute("aria-hidden", "true");
             bubble.appendChild(author);
+        } else {
+            const visitorLabel = createElement("span", "ai-user-message-label", "Your question");
+            visitorLabel.setAttribute("aria-hidden", "true");
+            bubble.appendChild(visitorLabel);
         }
         const paragraph = createElement("p", "", record.text);
         bubble.appendChild(paragraph);
@@ -664,7 +771,9 @@
 
     function renderActions(actions) {
         const wrap = createElement("div", "ai-message-actions");
-        actions.forEach((item) => {
+        actions
+            .filter((item) => item.command !== "main" && !/^show main options$|^main options$/i.test(item.label || ""))
+            .forEach((item) => {
             if (item.url) {
                 const link = createElement("a", `ai-action-link ${item.kind === "primary" ? "primary" : ""}`, item.label);
                 link.href = item.url;
@@ -697,87 +806,38 @@
         return wrap;
     }
 
-    function renderQuickActions() {
-        const choices = DATA.quickActions.map((item) => ({ label: item.label, value: `quick:${item.id}`, icon: item.icon }));
-        const drawer = createElement("section", "ai-options-drawer");
-        const toggle = createElement("button", "ai-options-toggle");
-        toggle.type = "button";
-        toggle.setAttribute("aria-expanded", "false");
-
-        const toggleIcon = createElement("span", "ai-options-toggle-icon", "✨");
-        toggleIcon.setAttribute("aria-hidden", "true");
-        const toggleCopy = createElement("span", "ai-options-toggle-copy");
-        toggleCopy.appendChild(createElement("strong", "", "Explore Assistant Options"));
-        toggleCopy.appendChild(createElement("small", "", `${choices.length} helpful shortcuts—tap to reveal`));
-        const count = createElement("span", "ai-options-count", String(choices.length));
-        count.setAttribute("aria-hidden", "true");
-        const chevron = createElement("span", "ai-options-chevron", "⌄");
-        chevron.setAttribute("aria-hidden", "true");
-
-        toggle.append(toggleIcon, toggleCopy, count, chevron);
-
-        const panel = createElement("div", "ai-options-panel");
-        panel.hidden = true;
-        const wrap = renderChoices(choices);
-        wrap.classList.add("ai-main-actions");
-        panel.appendChild(wrap);
-        drawer.append(toggle, panel);
-
-        const setOpen = (open) => {
-            panel.hidden = !open;
-            drawer.classList.toggle("is-open", open);
-            toggle.setAttribute("aria-expanded", String(open));
-            toggleCopy.querySelector("small").textContent = open
-                ? "Choose one option below"
-                : `${choices.length} helpful shortcuts—tap to reveal`;
-            window.setTimeout(scrollToBottom, 60);
-        };
-
-        toggle.addEventListener("click", () => setOpen(panel.hidden));
-        wrap.querySelectorAll(".ai-choice-button").forEach((button) => {
-            button.addEventListener("click", () => setOpen(false), { once: true });
-        });
-
-        state.elements.messages.appendChild(drawer);
-        scrollToBottom();
+    function setMainOptionsOpen(open) {
+        if (!state.elements.mainOptionsPanel || !state.elements.mainOptionsControl) return;
+        state.elements.mainOptionsPanel.hidden = !open;
+        state.elements.mainOptionsControl.classList.toggle("is-open", open);
+        state.elements.mainOptionsControl.setAttribute("aria-expanded", String(open));
+        const arrow = state.elements.mainOptionsControl.querySelector(".ai-main-options-control-arrow");
+        if (arrow) arrow.textContent = open ? "⌃" : "⌄";
+        if (open) {
+                hideSuggestions();
+        }
+        window.setTimeout(() => {
+            if (open) state.elements.mainOptionsControl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }, 40);
     }
 
-    function renderCompactMainButton() {
-        const wrap = createElement("div", "ai-inline-menu-wrap");
-        const button = createElement("button", "ai-inline-menu-button", "Show Main Options");
-        button.type = "button";
-        button.addEventListener("click", showMainOptions);
-        wrap.appendChild(button);
-        state.elements.messages.appendChild(wrap);
+    function renderQuickActions() {
+        setMainOptionsOpen(false);
     }
 
     function showMainOptions() {
-        hideComposer();
         state.flow = null;
         saveStorage();
-        addBotMessage("What would you like help with?", { save: true });
-        renderQuickActions();
+        showComposer();
+        setMainOptionsOpen(false);
+        state.elements.mainOptionsControl?.scrollIntoView({ block: "nearest", behavior: "smooth" });
     }
 
-    function showComposer() {
+    function showComposer(options = {}) {
+        const { focus = false } = options;
         state.elements.composer.classList.remove("is-hidden");
-        window.setTimeout(() => state.elements.input.focus(), 50);
+        if (focus) window.setTimeout(() => state.elements.input.focus({ preventScroll: true }), 50);
         scrollToBottom();
-    }
-
-    function toggleExampleQuestions(forceOpen) {
-        if (!state.elements.examples || !state.elements.examplesToggle) return;
-        const open = typeof forceOpen === "boolean" ? forceOpen : state.elements.examples.hidden;
-        state.elements.examples.hidden = !open;
-        state.elements.examplesDrawer?.classList.toggle("is-open", open);
-        state.elements.examplesToggle.setAttribute("aria-expanded", String(open));
-        const helper = state.elements.examplesToggle.querySelector("small");
-        if (helper) helper.textContent = open ? "Choose an example or type below" : "Tap to reveal examples";
-        window.setTimeout(scrollToBottom, 50);
-    }
-
-    function hideExampleQuestions() {
-        toggleExampleQuestions(false);
     }
 
     function hideComposer() {
@@ -786,7 +846,6 @@
         state.elements.composer.classList.remove("is-hidden");
         state.elements.input.value = "";
         autoResizeInput();
-        hideExampleQuestions();
         hideSuggestions();
     }
 
@@ -798,25 +857,34 @@
 
     function updateLiveSuggestions() {
         const value = state.elements.input.value.trim();
-        if (normalize(value).length < 2) {
+        const normalizedValue = normalize(value);
+        if (normalizedValue.length < 2) {
             hideSuggestions();
             return;
         }
-        const matches = findMatches(value, 3).filter((match) => match.score >= 7);
+
+        const matches = findSuggestionMatches(value, 5);
         if (!matches.length) {
             hideSuggestions();
             return;
         }
+
         const box = state.elements.suggestions;
         box.innerHTML = "";
-        box.appendChild(createElement("p", "ai-suggestions-label", "Suggested questions"));
+        box.appendChild(createElement("p", "ai-suggestions-label", "You may mean"));
         matches.forEach(({ entry }) => {
-            const button = createElement("button", "ai-suggestion-button", entry.title);
+            const button = createElement("button", "ai-suggestion-button");
             button.type = "button";
+            button.appendChild(createElement("span", "ai-suggestion-title", entry.title));
+            if (entry.topic) button.appendChild(createElement("span", "ai-suggestion-topic", entry.topic));
+            button.appendChild(createElement("span", "ai-suggestion-arrow", "→"));
+            button.addEventListener("pointerdown", (event) => event.preventDefault());
             button.addEventListener("click", () => {
                 state.elements.input.value = "";
+                autoResizeInput();
                 hideSuggestions();
-                handleFreeQuestion(entry.title);
+                state.elements.input.blur();
+                handleFreeQuestion(entry.title, { focusInput: false });
             });
             box.appendChild(button);
         });
@@ -837,14 +905,6 @@
     }
 
     function handleChoice(value, choice) {
-        if (value === "continue-history") {
-            continueConversation();
-            return;
-        }
-        if (value === "start-new") {
-            startNewConversation();
-            return;
-        }
         if (value === "confirm-clear") {
             clearStorage();
             initializeConversation();
@@ -883,7 +943,7 @@
         }
         if (value === "none-of-these" || value === "rephrase") {
             addBotMessage("No problem. Try a shorter question, or choose one of the examples below.", { save: true });
-            showComposer();
+            showComposer({ focus: true });
             return;
         }
     }
@@ -901,7 +961,7 @@
                 state.flow = null;
                 saveStorage();
                 addBotMessage("Type your question below. I’ll search my approved website and beginner ICT knowledge, then guide you carefully.", { save: true });
-                showComposer();
+                showComposer({ focus: true });
                 break;
             default: showMainOptions();
         }
@@ -971,8 +1031,7 @@
         addBotMessage(text, {
             actions: [
                 { label: "Watch Recommended Lesson", url: lesson.url, kind: "primary" },
-                { label: "View Full Learning Path", url: "courses.html" },
-                { label: "Main Options", command: "main" }
+                { label: "View Full Learning Path", url: "courses.html" }
             ]
         });
     }
@@ -997,8 +1056,7 @@
             addBotMessage("Computer Basics does not currently have a downloadable assignment. Repeat the lesson steps on your computer, or use the General ICT Quiz Game for extra practice.", {
                 actions: [
                     { label: "Open ICT Quiz", url: "quiz.html", kind: "primary" },
-                    { label: "Browse All Assignments", url: "assignments.html" },
-                    { label: "Main Options", command: "main" }
+                    { label: "Browse All Assignments", url: "assignments.html" }
                 ]
             });
             return;
@@ -1025,8 +1083,7 @@
             actions: [
                 { label: "Download Assignment", url: item.download, kind: "primary" },
                 { label: "View Instructions", url: item.page },
-                { label: "Submit on WhatsApp", url: item.submit },
-                { label: "Main Options", command: "main" }
+                { label: "Submit on WhatsApp", url: item.submit }
             ]
         });
     }
@@ -1053,8 +1110,7 @@
             addBotMessage(`Here is a quick guide. ${summary}`, {
                 actions: [
                     { label: "View All Learning Tools", url: "tools.html", kind: "primary" },
-                    { label: "Choose Again", command: "tools" },
-                    { label: "Main Options", command: "main" }
+                    { label: "Choose Again", command: "tools" }
                 ]
             });
             return;
@@ -1067,8 +1123,7 @@
         addBotMessage(`${tool.label} is the best match. ${tool.description}`, {
             actions: [
                 { label: "Open Recommended Tool", url: tool.url, kind: "primary" },
-                { label: "View All Learning Tools", url: "tools.html" },
-                { label: "Main Options", command: "main" }
+                { label: "View All Learning Tools", url: "tools.html" }
             ]
         });
     }
@@ -1079,8 +1134,7 @@
         saveStorage();
         addBotMessage("Here are the education resources currently available for the Tanzanian education system.", {
             actions: [
-                { label: "Open Education Resources", url: "education.html", kind: "primary" },
-                { label: "Main Options", command: "main" }
+                { label: "Open Education Resources", url: "education.html", kind: "primary" }
             ]
         });
     }
@@ -1093,8 +1147,7 @@
             details: `Featured article: ${DATA.featuredFaith.title}. The Faith & Inspiration section is rooted in Christian faith and offers practical encouragement for growth, hope, perseverance, and purpose.`,
             actions: [
                 { label: "Read the Full Article", url: DATA.featuredFaith.url, kind: "primary" },
-                { label: "Explore Faith & Inspiration", url: DATA.featuredFaith.page },
-                { label: "Main Options", command: "main" }
+                { label: "Explore Faith & Inspiration", url: DATA.featuredFaith.page }
             ]
         });
     }
@@ -1106,8 +1159,7 @@
         addBotMessage("The Athanas Inspires ICT Community is a supportive space for learners building practical digital skills. Members receive lesson updates, assignment reminders, encouragement, support, and opportunities to share progress. After joining, introduce yourself with your name, country, and the ICT skill you want to learn. Please keep discussions respectful and focused on learning.", {
             actions: [
                 { label: "Join WhatsApp ICT Community", url: DATA.whatsappCommunity, kind: "primary" },
-                { label: "Learn More", url: "faq.html#faq-28" },
-                { label: "Main Options", command: "main" }
+                { label: "Learn More", url: "faq.html#faq-28" }
             ]
         });
     }
@@ -1119,7 +1171,7 @@
         else if (command === "whatsapp") openWhatsApp(payload);
         else if (command === "rephrase") {
             addBotMessage("Try using fewer words and mention the main topic, such as Excel, Word, assignments, downloads, or passwords.", { save: true });
-            showComposer();
+            showComposer({ focus: true });
         }
     }
 
@@ -1173,11 +1225,13 @@
         }
     }
 
-    function handleFreeQuestion(query) {
+    function handleFreeQuestion(query, options = {}) {
         const cleanQuery = query.trim();
         if (!cleanQuery) return;
-        showComposer();
-        hideExampleQuestions();
+        setMainOptionsOpen(false);
+        const { focusInput = false } = options;
+        showComposer({ focus: focusInput });
+        if (!focusInput && usesMobileInputMode()) state.elements.input.blur();
         addUserMessage(cleanQuery);
         state.latestQuestion = cleanQuery;
 
@@ -1215,7 +1269,6 @@
     function answerKnowledge(entry) {
         state.latestTopic = entry.topic || "General support";
         const actions = [...(entry.actions || [])];
-        if (!actions.some((item) => item.command === "main")) actions.push({ label: "Main Options", command: "main" });
         addBotMessage(entry.answer, {
             details: entry.details || "",
             actions

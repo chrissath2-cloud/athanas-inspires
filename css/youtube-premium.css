@@ -249,3 +249,582 @@
   .youtube-premium-page *, .youtube-premium-page *::before, .youtube-premium-page *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
   [data-ytp-reveal] { opacity:1; transform:none; }
 }
+
+/* =========================================================
+   YOUTUBE PAGE V3 — MOBILE AUDIO SPACING, STRONGER CONTRAST,
+   AND A MORE AUTHENTIC YOUTUBE-INSPIRED INTERFACE
+   ========================================================= */
+.youtube-premium-page {
+  --yt-red: #ff0000;
+  --yt-red-deep: #b50000;
+  --yt-bg: #0f0f0f;
+  --yt-surface: #181818;
+  --yt-surface-2: #212121;
+  --yt-surface-hover: #272727;
+  --yt-border: #3f3f3f;
+  --yt-primary-text: #f9f9f9;
+  --yt-secondary-text: #d7d7d7;
+  font-family: Roboto, "Segoe UI", Arial, sans-serif;
+  color: var(--yt-primary-text);
+  background: var(--yt-bg);
+}
+
+.youtube-premium-page :where(h1, h2, h3, h4, h5, h6, p, a, button, span, strong) {
+  font-family: inherit;
+}
+
+/* Make the main website navigation acknowledge the YouTube destination. */
+.youtube-premium-page .nav-links > li > a.active {
+  position: relative;
+  padding-left: 34px;
+  color: #fff;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  box-shadow: 0 12px 28px rgba(255, 0, 0, .30), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.youtube-premium-page .nav-links > li > a.active::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-left: 9px solid #fff;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  transform: translateY(-50%);
+}
+
+.ytp-section-title,
+.ytp-hero h1,
+.ytp-featured-copy h2,
+.ytp-series-head h2,
+.ytp-upcoming h3,
+.ytp-final-cta h2 {
+  text-wrap: balance;
+  font-weight: 900;
+}
+
+.ytp-section-copy,
+.ytp-hero-lead,
+.ytp-personal-intro,
+.ytp-featured-copy p,
+.ytp-series-head p,
+.ytp-testimonial-card p,
+.ytp-final-cta p {
+  color: var(--yt-secondary-text);
+}
+
+/* YouTube-like buttons and filter chips. */
+.ytp-btn {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ff1717, #d90000);
+  box-shadow: 0 14px 34px rgba(255,0,0,.24);
+}
+
+.ytp-btn:hover,
+.ytp-btn:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, #ff3030, #ef0000);
+  box-shadow: 0 22px 48px rgba(255,0,0,.38), 0 0 0 4px rgba(255,0,0,.10);
+}
+
+.ytp-btn:active,
+.ytp-path-links a:active,
+.ytp-lesson-action:active,
+.ytp-slider-control:active {
+  transform: scale(.97);
+}
+
+.ytp-btn--ghost {
+  border-color: var(--yt-border);
+  background: var(--yt-surface-hover);
+  color: #fff;
+}
+
+.ytp-btn--ghost:hover,
+.ytp-btn--ghost:focus-visible {
+  border-color: #666;
+  color: #0f0f0f;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(0,0,0,.32);
+}
+
+.ytp-btn--gold {
+  color: #17120a;
+  background: linear-gradient(135deg, #ffe98f, #ffc928);
+}
+
+/* Hero: a cleaner YouTube dark-mode stage with premium red light. */
+.ytp-hero {
+  background:
+    radial-gradient(circle at 82% 14%, rgba(255,0,0,.34), transparent 31%),
+    radial-gradient(circle at 14% 86%, rgba(255,193,7,.13), transparent 30%),
+    linear-gradient(145deg, #0f0f0f 0%, #151515 54%, #21090b 100%);
+}
+
+.ytp-hero::before {
+  opacity: .20;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.ytp-live-badge {
+  border-color: var(--yt-border);
+  color: #fff;
+  background: rgba(33,33,33,.94);
+  box-shadow: 0 14px 32px rgba(0,0,0,.30);
+}
+
+.ytp-live-badge i {
+  background: #ff0000;
+  box-shadow: 0 0 0 7px rgba(255,0,0,.13), 0 0 22px rgba(255,0,0,.55);
+}
+
+.ytp-hero h1 {
+  color: #fff;
+  text-shadow: 0 8px 32px rgba(0,0,0,.34);
+}
+
+.ytp-hero h1 span {
+  color: #ffd85e;
+}
+
+.ytp-hero-lead {
+  color: #f0f0f0;
+  font-weight: 520;
+}
+
+.ytp-personal-intro {
+  border-left-color: #ff0000;
+  color: #f5f5f5;
+  background: linear-gradient(90deg, rgba(255,0,0,.15), rgba(33,33,33,.72));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.ytp-path-links a {
+  border-color: var(--yt-border);
+  color: #f1f1f1;
+  background: var(--yt-surface-hover);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.ytp-path-links a:hover,
+.ytp-path-links a:focus-visible {
+  border-color: #fff;
+  color: #0f0f0f;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  transform: translateY(-3px);
+}
+
+.ytp-portrait-frame {
+  border-color: rgba(255,255,255,.23);
+  background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(33,33,33,.72));
+  box-shadow: 0 42px 90px rgba(0,0,0,.54), 0 0 0 2px rgba(255,0,0,.14), 0 0 80px rgba(255,0,0,.18);
+  transition: transform .45s cubic-bezier(.2,.75,.25,1), box-shadow .45s ease;
+}
+
+.ytp-portrait-frame:hover {
+  transform: rotate(0) translateY(-8px) scale(1.015);
+  box-shadow: 0 52px 100px rgba(0,0,0,.60), 0 0 0 2px rgba(255,0,0,.32), 0 0 100px rgba(255,0,0,.24);
+}
+
+.ytp-floating-chip {
+  border-color: var(--yt-border);
+  background: rgba(24,24,24,.92);
+}
+
+/* Sticky section chips mirror YouTube's selected-filter behaviour. */
+.ytp-section-nav {
+  border-color: #303030;
+  background: rgba(15,15,15,.94);
+}
+
+.ytp-section-nav a {
+  color: #e1e1e1;
+  background: #272727;
+  border: 1px solid transparent;
+}
+
+.ytp-section-nav a:hover,
+.ytp-section-nav a:focus-visible {
+  color: #fff;
+  background: #3a3a3a;
+}
+
+.ytp-section-nav a.is-active {
+  color: #0f0f0f;
+  background: #fff;
+  border-color: #fff;
+}
+
+.ytp-section-nav a.is-active::after {
+  background: #ff0000;
+}
+
+/* Featured lesson */
+.ytp-featured {
+  background:
+    radial-gradient(circle at 8% 5%, rgba(255,0,0,.11), transparent 31%),
+    linear-gradient(180deg, #0f0f0f, #141414);
+}
+
+.ytp-player-shell {
+  border-color: #383838;
+  border-radius: 22px;
+  background: #000;
+  box-shadow: 0 34px 82px rgba(0,0,0,.56), 0 0 0 1px rgba(255,0,0,.08);
+  transition: transform .4s cubic-bezier(.2,.75,.25,1), box-shadow .4s ease, border-color .4s ease;
+}
+
+.ytp-player-shell:hover {
+  transform: translateY(-7px);
+  border-color: rgba(255,0,0,.60);
+  box-shadow: 0 44px 94px rgba(0,0,0,.64), 0 0 42px rgba(255,0,0,.18);
+}
+
+.ytp-player-shell::before {
+  content: "FEATURED ON YOUTUBE";
+  position: absolute;
+  z-index: 4;
+  left: 16px;
+  top: 16px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255,0,0,.92);
+  box-shadow: 0 10px 24px rgba(255,0,0,.28);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.ytp-player-shell.is-playing::before {
+  display: none;
+}
+
+.ytp-featured-play span {
+  background: #ff0000;
+  border-radius: 18px;
+}
+
+.ytp-featured-play:hover span,
+.ytp-featured-play:focus-visible span {
+  transform: scale(1.11) translateY(-4px);
+  box-shadow: 0 30px 70px rgba(255,0,0,.62), 0 0 0 8px rgba(255,0,0,.12);
+}
+
+.ytp-featured-copy p {
+  color: #e4e4e4;
+}
+
+/* Lesson library: YouTube-style dark rows, brighter titles and red watch actions. */
+.ytp-library {
+  background: #0f0f0f;
+}
+
+.ytp-library-intro {
+  background: radial-gradient(circle at 50% 0, rgba(255,0,0,.13), transparent 47%);
+}
+
+.ytp-series-head p {
+  color: #e2e2e2;
+}
+
+.ytp-series-art {
+  border-color: #3b3b3b;
+}
+
+.ytp-series:hover .ytp-series-art {
+  transform: translateY(-8px) rotate(.45deg) scale(1.012);
+  border-color: rgba(255,0,0,.46);
+  box-shadow: 0 40px 90px rgba(0,0,0,.48), 0 0 48px rgba(255,0,0,.12);
+}
+
+.ytp-lesson-row {
+  border-color: #353535;
+  background: linear-gradient(135deg, #181818, #202020);
+  box-shadow: 0 12px 28px rgba(0,0,0,.22);
+}
+
+.ytp-lesson-row::before {
+  width: 4px;
+  background: #ff0000;
+}
+
+.ytp-lesson-row:hover {
+  transform: translateY(-5px) scale(1.006);
+  border-color: #5a5a5a;
+  background: linear-gradient(135deg, #242424, #2b2b2b);
+  box-shadow: 0 24px 50px rgba(0,0,0,.34), 0 0 0 1px rgba(255,0,0,.12);
+}
+
+.ytp-lesson-thumb {
+  position: relative;
+  background: #000;
+}
+
+.ytp-lesson-thumb::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-left: 12px solid #fff;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.7));
+  opacity: 0;
+  transform: translate(-42%, -50%) scale(.65);
+  transition: opacity .28s ease, transform .28s ease;
+}
+
+.ytp-lesson-thumb img {
+  transition: transform .38s ease, filter .38s ease;
+}
+
+.ytp-lesson-row:hover .ytp-lesson-thumb img {
+  transform: scale(1.08);
+  filter: brightness(.62);
+}
+
+.ytp-lesson-row:hover .ytp-lesson-thumb::after {
+  opacity: 1;
+  transform: translate(-42%, -50%) scale(1);
+}
+
+.ytp-lesson-title {
+  color: #fff;
+  font-weight: 800;
+}
+
+.ytp-lesson-action {
+  border-color: #4a4a4a;
+  color: #f7f7f7;
+  background: #2b2b2b;
+  border-radius: 999px;
+}
+
+.ytp-lesson-action--watch {
+  border-color: #ff0000;
+  color: #fff;
+  background: #ff0000;
+}
+
+.ytp-lesson-action:hover,
+.ytp-lesson-action:focus-visible {
+  transform: translateY(-3px) scale(1.03);
+  border-color: #fff;
+  color: #0f0f0f;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(0,0,0,.30);
+}
+
+/* Testimonials feel like premium YouTube comment surfaces. */
+.ytp-testimonials {
+  background:
+    radial-gradient(circle at 12% 9%, rgba(255,0,0,.12), transparent 32%),
+    radial-gradient(circle at 88% 72%, rgba(255,193,7,.10), transparent 34%),
+    #0f0f0f;
+}
+
+.ytp-featured-quote,
+.ytp-testimonial-card {
+  border-color: #3b3b3b;
+  background: linear-gradient(145deg, #181818, #202020);
+}
+
+.ytp-featured-quote {
+  box-shadow: 0 34px 78px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.ytp-testimonial-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(0,0,0,.28);
+}
+
+.ytp-testimonial-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff0000, #ff5a5a, #ff0000);
+  transform: scaleX(.18);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+
+.ytp-testimonial-card:hover {
+  transform: translateY(-9px) scale(1.012);
+  border-color: #595959;
+  background: linear-gradient(145deg, #242424, #292929);
+  box-shadow: 0 30px 64px rgba(0,0,0,.42), 0 0 36px rgba(255,0,0,.10);
+}
+
+.ytp-testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ytp-comment-badge {
+  background: #ff0000;
+  box-shadow: 0 8px 20px rgba(255,0,0,.22);
+}
+
+.ytp-testimonial-card p,
+.ytp-quote-person span,
+.ytp-testimonial-meta {
+  color: #dedede;
+}
+
+.ytp-slider-control {
+  border-color: #454545;
+  background: #272727;
+  border-radius: 999px;
+}
+
+.ytp-slider-control:hover,
+.ytp-slider-control:focus-visible {
+  border-color: #fff;
+  color: #0f0f0f;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(0,0,0,.30);
+}
+
+.ytp-final-cta {
+  background: linear-gradient(145deg, #130000, #4b0000 55%, #160000);
+}
+
+.ytp-final-cta::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,0,0,.42), transparent 48%),
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, 42px 42px, 42px 42px;
+}
+
+/* Welcome audio: use the exact homepage mobile stacking relationship.
+   The assistant stays at the bottom; the welcome strip sits above it. */
+.youtube-premium-page .youtube-welcome-audio-widget {
+  border-color: rgba(255,255,255,.30);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(255,255,255,.10), transparent 38%),
+    linear-gradient(135deg, rgba(201,0,0,.98), rgba(94,0,0,.99) 58%, rgba(24,0,0,.99));
+  box-shadow: 0 24px 62px rgba(0,0,0,.54), 0 0 0 1px rgba(255,0,0,.20) inset;
+}
+
+.youtube-premium-page .youtube-welcome-audio-widget .welcome-audio-kicker {
+  color: #fff;
+}
+
+.youtube-premium-page .youtube-welcome-audio-widget .welcome-audio-visual span {
+  background: linear-gradient(180deg, #fff, #ff8b8b);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .youtube-premium-page .youtube-welcome-audio-widget:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.56);
+    box-shadow: 0 30px 72px rgba(0,0,0,.62), 0 0 42px rgba(255,0,0,.20);
+  }
+}
+
+@media (max-width: 700px) {
+  .youtube-premium-page .welcome-audio-widget {
+    bottom: 84px;
+  }
+
+  /* The extra YouTube floating controls wait while the welcome strip is open,
+     leaving the same clean arrangement seen on the homepage. */
+  .youtube-premium-page.ytp-audio-visible .ytp-floating-youtube,
+  .youtube-premium-page.ytp-audio-visible .ytp-back-top {
+    opacity: 0 !important;
+    visibility: hidden;
+    pointer-events: none !important;
+    transform: translateY(12px) scale(.9) !important;
+  }
+
+  .ytp-floating-youtube {
+    bottom: 82px;
+  }
+
+  .ytp-back-top {
+    bottom: 144px;
+  }
+
+  .ytp-hero {
+    padding-top: 64px;
+  }
+
+  .ytp-hero h1 {
+    font-size: clamp(40px, 12.8vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -.045em;
+  }
+
+  .ytp-hero-lead,
+  .ytp-personal-intro {
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .ytp-personal-intro {
+    border-left-width: 4px;
+    text-align: left;
+  }
+
+  .ytp-live-badge {
+    font-size: 10px;
+    letter-spacing: .10em;
+  }
+
+  .ytp-section-nav-toggle {
+    color: #fff;
+    background: #181818;
+  }
+
+  .ytp-section-nav.is-open .ytp-section-nav-links {
+    background: #0f0f0f;
+  }
+
+  .ytp-player-shell {
+    border-radius: 18px;
+  }
+
+  .ytp-player-shell::before {
+    left: 10px;
+    top: 10px;
+    font-size: 8px;
+  }
+
+  .ytp-lesson-row {
+    border-radius: 15px;
+  }
+
+  .ytp-lesson-row:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 430px) {
+  .youtube-premium-page .welcome-audio-widget {
+    left: max(10px, env(safe-area-inset-left));
+    right: max(10px, env(safe-area-inset-right));
+    width: auto;
+  }
+
+  .ytp-live-badge {
+    max-width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .ytp-section-title {
+    font-size: clamp(31px, 10.5vw, 45px);
+  }
+}

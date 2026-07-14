@@ -188,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!widget || !action || !status) return;
     clearTimeout(hideTimer);
     widget.hidden = false;
+    document.body.classList.add("ytp-audio-visible");
     widget.classList.toggle("is-playing", state === "playing");
     widget.classList.toggle("is-ready", state === "ready");
     widget.classList.toggle("is-ended", state === "ended");
@@ -197,7 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const hideAudioWidget = () => {
     if (!widget) return;
     widget.classList.add("is-hiding");
-    setTimeout(() => { widget.hidden = true; widget.classList.remove("is-hiding", "is-playing", "is-ready", "is-ended"); }, 280);
+    setTimeout(() => {
+      widget.hidden = true;
+      widget.classList.remove("is-hiding", "is-playing", "is-ready", "is-ended");
+      document.body.classList.remove("ytp-audio-visible");
+    }, 280);
   };
   const playAudio = async (reset = false) => {
     if (!audio) return false;

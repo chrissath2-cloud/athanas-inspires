@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeAudioDismiss = document.getElementById("welcomeAudioDismiss");
     const welcomePlayedKey = "athanas-welcome-audio-played";
     const welcomeDismissedKey = "athanas-welcome-audio-dismissed";
+    const anyWelcomePlayedKey = "athanas-any-welcome-audio-played";
     let welcomeHideTimer = null;
 
     const readSessionFlag = (key) => {
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             await welcomeAudio.play();
             saveSessionFlag(welcomePlayedKey);
+            saveSessionFlag(anyWelcomePlayedKey);
             showWelcomeAudioWidget("playing", "Welcome audio playing");
             return true;
         } catch (error) {
@@ -76,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const initialiseWelcomeAudio = () => {
-        if (!welcomeAudio || readSessionFlag(welcomePlayedKey) || readSessionFlag(welcomeDismissedKey)) return;
+        if (!welcomeAudio || readSessionFlag(welcomePlayedKey) || readSessionFlag(welcomeDismissedKey) || readSessionFlag(anyWelcomePlayedKey)) return;
 
         const dataSaverEnabled = Boolean(navigator.connection && navigator.connection.saveData);
         if (dataSaverEnabled) {

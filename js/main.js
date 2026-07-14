@@ -4,12 +4,127 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbar = document.querySelector(".navbar");
     const menuToggle = document.getElementById("menu-toggle");
 
+    // Homepage welcome audio. Browsers may block sound until the visitor interacts,
+    // so autoplay is attempted first and a premium play control appears when needed.
+    const welcomeAudio = document.getElementById("welcomeAudio");
+    const welcomeAudioWidget = document.getElementById("welcomeAudioWidget");
+    const welcomeAudioAction = document.getElementById("welcomeAudioAction");
+    const welcomeAudioStatus = document.getElementById("welcomeAudioStatus");
+    const welcomeAudioDismiss = document.getElementById("welcomeAudioDismiss");
+    const welcomePlayedKey = "athanas-welcome-audio-played";
+    const welcomeDismissedKey = "athanas-welcome-audio-dismissed";
+    let welcomeHideTimer = null;
+
+    const readSessionFlag = (key) => {
+        try {
+            return window.sessionStorage.getItem(key) === "true";
+        } catch (error) {
+            return false;
+        }
+    };
+
+    const saveSessionFlag = (key) => {
+        try {
+            window.sessionStorage.setItem(key, "true");
+        } catch (error) {
+            // Storage can be unavailable in strict privacy modes; audio still works.
+        }
+    };
+
+    const showWelcomeAudioWidget = (state, label) => {
+        if (!welcomeAudioWidget || !welcomeAudioAction || !welcomeAudioStatus) return;
+
+        window.clearTimeout(welcomeHideTimer);
+        welcomeAudioWidget.hidden = false;
+        welcomeAudioWidget.classList.toggle("is-playing", state === "playing");
+        welcomeAudioWidget.classList.toggle("is-ready", state === "ready");
+        welcomeAudioWidget.classList.toggle("is-ended", state === "ended");
+        welcomeAudioStatus.textContent = label;
+
+        const actionLabel = state === "playing"
+            ? "Pause welcome message"
+            : state === "ended"
+                ? "Replay welcome message"
+                : "Play welcome message";
+        welcomeAudioAction.setAttribute("aria-label", actionLabel);
+    };
+
+    const hideWelcomeAudioWidget = () => {
+        if (!welcomeAudioWidget) return;
+        welcomeAudioWidget.classList.add("is-hiding");
+        window.setTimeout(() => {
+            welcomeAudioWidget.hidden = true;
+            welcomeAudioWidget.classList.remove("is-hiding", "is-playing", "is-ready", "is-ended");
+        }, 280);
+    };
+
+    const playWelcomeAudio = async ({ reset = false } = {}) => {
+        if (!welcomeAudio) return false;
+
+        if (reset || welcomeAudio.ended) welcomeAudio.currentTime = 0;
+        welcomeAudio.volume = 0.82;
+
+        try {
+            await welcomeAudio.play();
+            saveSessionFlag(welcomePlayedKey);
+            showWelcomeAudioWidget("playing", "Welcome audio playing");
+            return true;
+        } catch (error) {
+            showWelcomeAudioWidget("ready", "Tap to hear our welcome");
+            return false;
+        }
+    };
+
+    const initialiseWelcomeAudio = () => {
+        if (!welcomeAudio || readSessionFlag(welcomePlayedKey) || readSessionFlag(welcomeDismissedKey)) return;
+
+        const dataSaverEnabled = Boolean(navigator.connection && navigator.connection.saveData);
+        if (dataSaverEnabled) {
+            showWelcomeAudioWidget("ready", "Play our welcome");
+            return;
+        }
+
+        playWelcomeAudio();
+    };
+
+    if (welcomeAudio && welcomeAudioAction && welcomeAudioDismiss) {
+        welcomeAudioAction.addEventListener("click", () => {
+            if (!welcomeAudio.paused) {
+                welcomeAudio.pause();
+                showWelcomeAudioWidget("ready", "Continue welcome audio");
+                return;
+            }
+
+            playWelcomeAudio({ reset: welcomeAudio.ended });
+        });
+
+        welcomeAudioDismiss.addEventListener("click", () => {
+            welcomeAudio.pause();
+            saveSessionFlag(welcomeDismissedKey);
+            hideWelcomeAudioWidget();
+        });
+
+        welcomeAudio.addEventListener("playing", () => {
+            showWelcomeAudioWidget("playing", "Welcome audio playing");
+        });
+
+        welcomeAudio.addEventListener("ended", () => {
+            showWelcomeAudioWidget("ended", "Replay welcome audio");
+            welcomeHideTimer = window.setTimeout(hideWelcomeAudioWidget, 8000);
+        });
+
+        welcomeAudio.addEventListener("error", () => {
+            hideWelcomeAudioWidget();
+        });
+    }
+
     // Top loading state
     window.addEventListener("load", () => {
         body.classList.add("site-loaded");
         if (loader) {
             window.setTimeout(() => loader.classList.add("is-hidden"), 420);
         }
+        window.setTimeout(initialiseWelcomeAudio, 900);
     });
 
     // Page scroll progress indicator

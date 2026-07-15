@@ -1,0 +1,21 @@
+ATHANAS INSPIRES — PREMIUM CONTRAST & HOVER V3
+Date: 15 July 2026
+
+Main fixes
+- Corrected white text on gold/yellow surfaces shown in the supplied screenshots.
+- Footer primary CTA now uses dark navy text in default, hover, focus, and visited states.
+- Footer secondary CTA now changes to a white/light-blue surface with dark navy text on hover.
+- Footer WhatsApp Community CTA now uses dark navy text in every state.
+- Active gold navigation cards, including Assignments, now keep dark text, icons, and arrows in every state.
+- Added targeted safeguards to prevent broad footer or navigation rules from overriding contrast.
+
+Premium interaction improvements
+- Richer button lift, background movement, shadow, focus, and pressed states.
+- More refined card elevation, border glow, icon movement, and arrow motion.
+- Footer links now use an illuminated side rail on hover.
+- Contact links use animated icon tiles.
+- Stronger keyboard-focus visibility.
+- Reduced-motion preferences remain respected.
+
+Assets
+- No images or audio files were changed, compressed, or converted.

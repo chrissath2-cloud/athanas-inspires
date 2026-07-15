@@ -102,16 +102,56 @@
   function renderTools() {
     const root = document.getElementById("toolsRoot");
     if (!root) return;
-    root.innerHTML = data.tools.map((item) => `
-      <article class="premium-tool-card ${item.status === "coming-soon" ? "is-coming-soon" : ""}">
-        <div class="premium-tool-top"><span class="premium-tool-icon" aria-hidden="true">${item.icon}</span><span class="content-status ${item.status === "available" ? "content-status--available" : "content-status--soon"}">${statusLabel(item.status)}</span></div>
+
+    const available = data.tools.filter((item) => item.status === "available").length;
+    const upcoming = data.tools.filter((item) => item.status === "coming-soon").length;
+    const availableCount = document.getElementById("toolsAvailableCount");
+    const upcomingCount = document.getElementById("toolsUpcomingCount");
+    if (availableCount) availableCount.textContent = available;
+    if (upcomingCount) upcomingCount.textContent = upcoming;
+
+    root.innerHTML = data.tools.map((item, index) => `
+      <article class="premium-tool-card premium-tool-card--${escapeHtml(item.id)} ${item.status === "coming-soon" ? "is-coming-soon" : "is-available"}" data-tool-status="${escapeHtml(item.status)}">
+        <span class="premium-tool-card-glow" aria-hidden="true"></span>
+        <div class="premium-tool-top">
+          <span class="premium-tool-index">${String(index + 1).padStart(2, "0")}</span>
+          <span class="content-status ${item.status === "available" ? "content-status--available" : "content-status--soon"}">${statusLabel(item.status)}</span>
+        </div>
+        <div class="premium-tool-visual" aria-hidden="true">
+          <span class="premium-tool-orbit"></span>
+          <span class="premium-tool-icon">${item.icon}</span>
+        </div>
         <div class="premium-tool-tags"><span>${escapeHtml(item.level)}</span><span>${escapeHtml(item.purpose)}</span></div>
         <h2>${escapeHtml(item.title)}</h2>
         <p>${escapeHtml(item.description)}</p>
-        ${item.url ? `<a class="small-btn content-primary-action" href="${escapeHtml(item.url)}" data-track="tool_open" data-track-label="${escapeHtml(item.title)}">Open Tool <span aria-hidden="true">→</span></a>` : `<span class="premium-tool-wait">Being prepared with care</span>`}
+        ${item.url ? `<a class="small-btn content-primary-action" href="${escapeHtml(item.url)}" data-track="tool_open" data-track-label="${escapeHtml(item.title)}">Open Tool <span aria-hidden="true">→</span></a>` : `<span class="premium-tool-wait"><i aria-hidden="true">✦</i> Being prepared with care</span>`}
       </article>`).join("");
-  }
 
+    const filters = Array.from(document.querySelectorAll("[data-tool-filter]"));
+    const resultCount = document.getElementById("toolsResultCount");
+    const cards = Array.from(root.querySelectorAll("[data-tool-status]"));
+
+    const applyFilter = (filter) => {
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.toolStatus === filter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      filters.forEach((button) => {
+        const active = button.dataset.toolFilter === filter;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      if (resultCount) {
+        const label = filter === "all" ? "all tools" : filter === "available" ? "available tools" : "upcoming tools";
+        resultCount.textContent = `Showing ${visible} ${label}`;
+      }
+    };
+
+    filters.forEach((button) => button.addEventListener("click", () => applyFilter(button.dataset.toolFilter || "all")));
+    applyFilter("all");
+  }
 
   function renderLatest() {
     const root = document.getElementById("latestLearningRoot");

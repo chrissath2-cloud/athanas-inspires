@@ -1,0 +1,13 @@
+DIGITAL TOOLS PAGE — SIMPLE PREMIUM HERO UPDATE
+
+Updated the Digital Tools hero visual by removing the orbit graphic and the confusing central “AI” label.
+
+The replacement is a clean “Digital Practice Studio” panel with direct links to:
+- ICT Quiz
+- Typing Trainer
+- Shortcut Trainer
+- Calculator
+
+The new panel includes stronger text contrast, compact descriptions, clear status messaging, refined hover movement, and a one-column mobile layout.
+
+No images or audio files were changed.

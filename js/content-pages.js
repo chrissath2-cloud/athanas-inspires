@@ -160,6 +160,7 @@
     const assignment = data.assignments.find((item) => item.lessonId === featured?.id);
     const typing = data.tools.find((item) => item.id === "typing");
     const items = [
+      { icon: "💻", title: "Why Technology Is Necessary in Today’s World", url: "why-technology-is-necessary.html", search: "technology article digital growth learning future skills" },
       { icon: "▶", title: featured.displayTitle, url: "youtube.html#featured", search: `${featured.title} microsoft word visual documents` },
       { icon: "📝", title: assignment.title, url: `assignments.html#${assignment.anchor}`, search: `${assignment.title} practice assignment` },
       { icon: "🌱", title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html", search: "article inspiration growth small beginnings" },

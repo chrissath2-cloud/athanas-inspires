@@ -1,0 +1,11 @@
+ATHANAS INSPIRES — INSPIRATION HUB & ARTICLE CONTRAST UPDATE
+
+Changes included:
+1. Fixed the dark-on-dark text contrast in the Technology article hero.
+2. Replaced the single “Faith & Inspiration” navbar link with an “Inspiration” dropdown.
+3. Added two clear categories: Faith & Personal Growth, and Technology & Digital Growth.
+4. Added technology-insights.html as the home for present and future technology articles.
+5. Moved the Technology article out of the Faith article library.
+6. Updated footer links, website search, sitemap, and cache versions.
+
+Upload all files in this package, preserving the folder structure.

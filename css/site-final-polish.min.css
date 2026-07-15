@@ -1669,3 +1669,4 @@
     transition-duration: .01ms !important;
   }
 }
+.nav-dropdown-toggle.active{color:#082f73;background:linear-gradient(135deg,#facc15,#f59e0b);border-color:rgba(255,240,166,.72);box-shadow:0 10px 24px rgba(250,204,21,.30)}.nav-dropdown-toggle.active .nav-chevron{border-color:#082f73}.nav-dropdown-toggle.active::before{display:none}

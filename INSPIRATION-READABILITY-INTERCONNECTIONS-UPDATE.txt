@@ -1,0 +1,8 @@
+ATHANAS INSPIRES — INSPIRATION READABILITY & INTERCONNECTIONS UPDATE
+
+1. Fixed the active Inspiration navbar tab contrast with white text, a richer blue background, and a gold border.
+2. Increased the technology article body text size slightly and kept comfortable line spacing.
+3. Fixed the bottom “Share this message” label contrast on the white article background.
+4. Added the technology article to “Latest from Athanas Inspires” on the homepage.
+5. Added a premium “Keep Your Journey Connected” section at the end of the article linking to Technology Articles, ICT Lessons, Digital Tools, and Faith & Personal Growth.
+6. Updated cache-busting versions so browsers load the new CSS and JavaScript.

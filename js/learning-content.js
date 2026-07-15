@@ -1,6 +1,6 @@
 /* Central content source for lessons, assignments, downloads, tools, and search. */
 window.ATHANAS_LEARNING_CONTENT = {
-  version: "2026.07.15.2",
+  version: "2026.07.15.3",
   updated: "2026-07-15",
   site: {
     name: "Athanas Inspires",
@@ -158,6 +158,7 @@ window.ATHANAS_LEARNING_CONTENT = {
     { category: "Page", title: "Tanzanian Education Resources", description: "Explore resources supporting the Tanzanian primary education system.", url: "education.html", keywords: "Tanzania primary education exams notes books" },
     { category: "Page", title: "Faith & Personal Growth", description: "Read faith-rooted encouragement, courage-building articles, and personal growth messages.", url: "faith-inspiration.html", keywords: "faith inspiration courage personal growth encouragement" },
     { category: "Page", title: "Technology & Digital Growth", description: "Read simple technology articles that build digital confidence and help beginners move forward.", url: "technology-insights.html", keywords: "technology articles digital growth confidence beginner future skills" },
+    { category: "Article", title: "Digital Skills Every Beginner Should Learn", description: "A simple guide to the practical digital skills every beginner can learn step by step.", url: "digital-skills-every-beginner-should-learn.html", keywords: "digital skills beginner computer typing folders internet email word excel powerpoint smartphone cloud troubleshooting pdf online learning" },
     { category: "Article", title: "Why Technology Is Necessary in Today’s World", description: "An inspiring guide to learning, adapting, and using technology to move forward.", url: "why-technology-is-necessary.html", keywords: "technology digital skills learning work business beginner future" },
     { category: "Article", title: "The Power of Small Beginnings", description: "An encouragement to start where you are and use what you have.", url: "the-power-of-small-beginnings.html", keywords: "small beginnings start purpose Zechariah" },
     { category: "Support", title: "Frequently Asked Questions", description: "Find answers about lessons, assignments, downloads, tools, and the community.", url: "faq.html", keywords: "faq questions help support" },

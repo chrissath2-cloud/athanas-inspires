@@ -156,8 +156,18 @@ document.addEventListener("DOMContentLoaded", () => {
   qs("#testimonialNext")?.addEventListener("click", () => scrollTestimonials(1));
 
   let testimonialTimer = null;
+  const testimonialToggle = qs("#testimonialAutoplayToggle");
+  const testimonialPreferenceKey = "athanas-testimonials-paused";
+  let testimonialsUserPaused = reduceMotion;
+  try { testimonialsUserPaused = reduceMotion || localStorage.getItem(testimonialPreferenceKey) === "true"; } catch (_) {}
+
+  const updateTestimonialToggle = () => {
+    if (!testimonialToggle) return;
+    testimonialToggle.setAttribute("aria-pressed", String(testimonialsUserPaused));
+    testimonialToggle.innerHTML = testimonialsUserPaused ? '<span aria-hidden="true">▶</span> Continue testimonials' : '<span aria-hidden="true">⏸</span> Pause testimonials';
+  };
   const startTestimonialFlow = () => {
-    if (reduceMotion || !viewport) return;
+    if (testimonialsUserPaused || reduceMotion || !viewport || document.hidden) return;
     clearInterval(testimonialTimer);
     testimonialTimer = setInterval(() => {
       const card = qs(".ytp-testimonial-card", viewport);
@@ -166,11 +176,23 @@ document.addEventListener("DOMContentLoaded", () => {
       viewport.scrollTo({ left: nearEnd ? 0 : viewport.scrollLeft + amount, behavior: "smooth" });
     }, 3000);
   };
-  const stopTestimonialFlow = () => clearInterval(testimonialTimer);
+  const stopTestimonialFlow = () => { clearInterval(testimonialTimer); testimonialTimer = null; };
+  const saveTestimonialPreference = () => {
+    try { localStorage.setItem(testimonialPreferenceKey, String(testimonialsUserPaused)); } catch (_) {}
+  };
+  testimonialToggle?.addEventListener("click", () => {
+    testimonialsUserPaused = !testimonialsUserPaused;
+    saveTestimonialPreference();
+    updateTestimonialToggle();
+    if (testimonialsUserPaused) stopTestimonialFlow(); else startTestimonialFlow();
+    document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name: "testimonial_autoplay_toggle", label: testimonialsUserPaused ? "Paused" : "Continued" } }));
+  });
   viewport?.addEventListener("mouseenter", stopTestimonialFlow);
   viewport?.addEventListener("mouseleave", startTestimonialFlow);
   viewport?.addEventListener("focusin", stopTestimonialFlow);
   viewport?.addEventListener("focusout", startTestimonialFlow);
+  document.addEventListener("visibilitychange", () => { if (document.hidden) stopTestimonialFlow(); else startTestimonialFlow(); });
+  updateTestimonialToggle();
   startTestimonialFlow();
 
   // Page-specific welcome audio, styled exactly like the homepage control.
@@ -281,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Back-to-top support.
   const backTop = qs("#youtubeBackTop");
+  widget?.setAttribute("data-floating-control", "audio-youtube");
   const floatingYouTube = qs(".ytp-floating-youtube");
   const updateBackTop = () => {
     backTop?.classList.toggle("is-visible", window.scrollY > 750);

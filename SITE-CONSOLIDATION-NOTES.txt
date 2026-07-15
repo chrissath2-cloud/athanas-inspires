@@ -1,0 +1,78 @@
+ATHANAS INSPIRES — WEBSITE CONSOLIDATION UPDATE
+Completed: 15 July 2026
+
+THE ONE FILE TO EDIT FOR FUTURE LESSON UPDATES
+------------------------------------------------
+Edit: js/learning-content.js
+
+This file now controls:
+- Computer Basics, Microsoft Word, and Microsoft Excel lesson titles and links
+- Published and Coming Soon status
+- Assignments and downloads
+- Tools and their availability
+- YouTube Learning Hub lesson lists
+- Courses roadmap
+- Assignments page
+- Downloads page
+- Website-wide search
+- AI Assistant lesson and assignment information
+- Homepage latest-learning items
+
+For a normal lesson update, edit learning-content.js only. It is loaded directly by the website, so no minification step is required.
+
+WHEN EXCEL SESSION 5 IS PUBLISHED
+---------------------------------
+In js/learning-content.js, find the lesson with:
+  id: "excel-5"
+
+Then:
+1. Add videoId and videoUrl.
+2. Change status from "coming-soon" to "published".
+3. Add an assignmentId only if an assignment is available.
+4. Add a matching assignment in the assignments section only when ready.
+
+The Courses page, YouTube page, Search, and Assistant will update from that central source.
+
+PERFORMANCE
+-----------
+- The large Assistant files load only after a visitor opens the Assistant.
+- Website pages use minified CSS and JavaScript.
+- Images far below the first screen use lazy loading.
+- Audio files and image files were not converted, recompressed, or changed.
+- Shared assets use version: 20260715-consolidation-1
+
+EDITING WEBSITE CODE
+--------------------
+After editing CSS or JavaScript source code, regenerate minified assets:
+  py -m pip install rcssmin rjsmin
+  py build-minified-assets.py
+
+Do not run the build script for normal lesson-data changes in learning-content.js.
+
+NEW SITE FILES
+--------------
+- privacy-policy.html
+- cookie-policy.html
+- terms.html
+- accessibility.html
+- 404.html
+- sitemap.xml
+- robots.txt
+- js/learning-content.js
+- js/content-pages.js
+- js/site-search.js
+- js/assistant-loader.js
+- js/assistant-learning-sync.js
+- js/floating-controls.js
+- js/analytics.js
+- js/consent.js
+- css/consolidation.css
+
+PRIVACY CHOICES
+---------------
+Google Analytics storage is denied by default until the visitor accepts analytics.
+Essential-only use keeps the website available without optional analytics storage.
+
+IMPORTANT
+---------
+The legal pages are general website information, not professional legal advice. Review them with a qualified adviser if the platform later adds user accounts, payments, sensitive data, or expanded services.

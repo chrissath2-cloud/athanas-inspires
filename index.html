@@ -2,521 +2,478 @@
 <!-- analytics redeploy 2 -->
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YQVGYGYD8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YQVGYGYD8');
-</script>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Athanas Inspires is a faith, learning, inspiration, education, and digital tools platform helping people learn, believe, grow, and build.">
-    <title>Athanas Inspires | Learn. Believe. Grow. Build.</title>
-    <link rel="stylesheet" href="css/style.css?v=20260714-welcome-audio-1">
-    <link rel="stylesheet" href="css/bot.css?v=20260713-ai-assistant-5">
-</head>
-<body>
-
-<div class="site-loader" aria-live="polite" aria-label="Website loading">
-    <div class="loader-card">
-        <img src="assets/images/logo.png" alt="Athanas Inspires Logo">
-        <span>Loading Athanas Inspires...</span>
-        <div class="loader-bar" aria-hidden="true"><span></span></div>
-    </div>
+<!-- Google tag (gtag.js) -->
+<script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+try { if (localStorage.getItem('athanasCookieChoiceV1') === 'granted') gtag('consent','update',{analytics_storage:'granted'}); } catch (e) {}
+gtag('js', new Date());
+gtag('config','G-YQVGYGYD8',{anonymize_ip:true});</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YQVGYGYD8"></script><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Learn practical computer skills, Microsoft Word, Microsoft Excel, use beginner-friendly tools, complete assignments, and grow with confidence through Athanas Inspires." name="description"/>
+<title>Athanas Inspires | Learn Practical Digital Skills and Grow</title>
+<link href="https://athanasinspires.com/" rel="canonical"/><link href="assets/images/logo.png" rel="icon" type="image/png"/><link href="assets/images/logo.png" rel="apple-touch-icon"/><meta content="#06183a" name="theme-color"/><meta content="Athanas Inspires" property="og:site_name"/><meta content="Athanas Inspires | Learn Practical Digital Skills and Grow" property="og:title"/><meta content="Learn practical computer skills, Microsoft Word, Microsoft Excel, use beginner-friendly tools, complete assignments, and grow with confidence through Athanas Inspires." property="og:description"/><meta content="website" property="og:type"/><meta content="https://athanasinspires.com/" property="og:url"/><meta content="https://athanasinspires.com/assets/images/logo.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Athanas Inspires | Learn Practical Digital Skills and Grow" name="twitter:title"/><meta content="Learn practical computer skills, Microsoft Word, Microsoft Excel, use beginner-friendly tools, complete assignments, and grow with confidence through Athanas Inspires." name="twitter:description"/><meta content="https://athanasinspires.com/assets/images/logo.png" name="twitter:image"/><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "Athanas Inspires", "url": "https://athanasinspires.com", "logo": "https://athanasinspires.com/assets/images/logo.png", "email": "mailto:chriss.ath2@gmail.com", "sameAs": ["https://www.youtube.com/@Athanas_Inspires"]}, {"@context": "https://schema.org", "@type": "WebPage", "name": "Athanas Inspires | Learn Practical Digital Skills and Grow", "url": "https://athanasinspires.com/", "description": "Learn practical computer skills, Microsoft Word, Microsoft Excel, use beginner-friendly tools, complete assignments, and grow with confidence through Athanas Inspires.", "isPartOf": {"@type": "WebSite", "name": "Athanas Inspires", "url": "https://athanasinspires.com"}}, {"@context": "https://schema.org", "@type": "WebSite", "name": "Athanas Inspires", "url": "https://athanasinspires.com", "potentialAction": {"@type": "SearchAction", "target": "https://athanasinspires.com/?search={search_term_string}", "query-input": "required name=search_term_string"}}]</script><link href="css/style.min.css?v=20260715-home-refinement-2" rel="stylesheet"/><link href="css/consolidation.min.css?v=20260715-home-refinement-2" rel="stylesheet"/><link href="css/premium-refresh.min.css?v=20260715-home-refinement-2" rel="stylesheet"/></head>
+<body class="home-premium"><a class="skip-link" href="#main-content">Skip to main content</a>
+<div aria-label="Website loading" aria-live="polite" class="site-loader">
+<div class="loader-card">
+<img alt="Athanas Inspires Logo" fetchpriority="high" src="assets/images/logo.png"/>
+<span>Loading Athanas Inspires...</span>
+<div aria-hidden="true" class="loader-bar"><span></span></div>
 </div>
-
+</div>
 <!-- Homepage welcome audio: tries autoplay after full load and falls back to a visitor-controlled play button. -->
-<audio id="welcomeAudio" preload="auto">
-    <source src="assets/audio/welcome-message.mp3" type="audio/mpeg">
+<audio id="welcomeAudio" preload="metadata">
+<source src="assets/audio/welcome-message.mp3" type="audio/mpeg"/>
 </audio>
-
-<aside class="welcome-audio-widget" id="welcomeAudioWidget" aria-label="Welcome audio controls" aria-live="polite" hidden>
-    <div class="welcome-audio-visual" aria-hidden="true">
-        <span></span><span></span><span></span><span></span>
-    </div>
-    <button class="welcome-audio-action" id="welcomeAudioAction" type="button" aria-label="Play welcome message">
-        <span class="welcome-audio-kicker">Welcome Message</span>
-        <strong id="welcomeAudioStatus">Play welcome</strong>
-    </button>
-    <button class="welcome-audio-dismiss" id="welcomeAudioDismiss" type="button" aria-label="Dismiss welcome audio">×</button>
-</aside>
-
-<div class="top-contact-bar" aria-label="Quick contact information">
-    <div class="top-contact-inner">
-        <span class="top-contact-message">Need help learning ICT? Reach Athanas Inspires:</span>
-        <div class="top-contact-links">
-            <a href="tel:+255695110859">📞 +255 695 110 859</a>
-            <a href="https://wa.me/255695110859" target="_blank" rel="noopener noreferrer">💬 WhatsApp: +255 695 110 859</a>
-            <a href="mailto:chriss.ath2@gmail.com">✉️ chriss.ath2@gmail.com</a>
-            <a href="https://youtube.com/@athanas_inspires" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
-        </div>
-    </div>
+<aside aria-label="Welcome audio controls" aria-live="polite" class="welcome-audio-widget" data-floating-control="audio-home" hidden="" id="welcomeAudioWidget">
+<div aria-hidden="true" class="welcome-audio-visual">
+<span></span><span></span><span></span><span></span>
 </div>
-
+<button aria-label="Play welcome message" class="welcome-audio-action" id="welcomeAudioAction" type="button">
+<span class="welcome-audio-kicker">Welcome Message</span>
+<strong id="welcomeAudioStatus">Play welcome</strong>
+</button>
+<button aria-label="Dismiss welcome audio" class="welcome-audio-dismiss" id="welcomeAudioDismiss" type="button">×</button>
+</aside>
+<div aria-label="Quick contact information" class="top-contact-bar">
+<div class="top-contact-inner">
+<span class="top-contact-message">Need help learning ICT? Reach Athanas Inspires:</span>
+<div class="top-contact-links">
+<a href="tel:+255695110859">📞 +255 695 110 859</a>
+<a href="https://wa.me/255695110859" rel="noopener noreferrer" target="_blank">💬 WhatsApp: +255 695 110 859</a>
+<a href="mailto:chriss.ath2@gmail.com">✉️ chriss.ath2@gmail.com</a>
+<a href="https://youtube.com/@athanas_inspires" rel="noopener noreferrer" target="_blank">▶️ YouTube</a>
+</div>
+</div>
+</div>
 <nav class="navbar">
-    <a href="index.html" class="brand">
-        <img src="assets/images/logo.png" alt="Athanas Inspires Logo">
-        <span>Athanas Inspires</span>
-    </a>
-
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon" aria-label="Open menu">☰</label>
-
-    <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li class="nav-dropdown nav-dropdown-cards">
-            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="learn-menu">
-                <span>Learn</span> <span class="nav-chevron" aria-hidden="true"></span>
-            </button>
-            <ul class="nav-dropdown-menu nav-card-menu" id="learn-menu" aria-label="Learn menu">
-                <li>
-                    <a href="courses.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M8 9h8M8 12h5"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>ICT Lessons</strong>
-                            <small>Step-by-step digital-skills courses</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="assignments.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l3 3v13H5V4h3Z"/><path d="M9 4v4h6V4M9 12h6M9 16h4"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Assignments</strong>
-                            <small>Practise and apply what you learn</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li><a href="youtube.html">YouTube</a></li>
-        <li class="nav-dropdown nav-dropdown-cards">
-            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="resources-menu">
-                <span>Resources</span> <span class="nav-chevron" aria-hidden="true"></span>
-            </button>
-            <ul class="nav-dropdown-menu nav-card-menu" id="resources-menu" aria-label="Resources menu">
-                <li>
-                    <a href="tools.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.6 2.6-3-3 2.6-2.6Z"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Learning Tools</strong>
-                            <small>Quizzes, trainers, and calculators</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="education.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5A4.5 4.5 0 0 1 7.5 1H12v18H7.5A4.5 4.5 0 0 0 3 23V5.5Z"/><path d="M21 5.5A4.5 4.5 0 0 0 16.5 1H12v18h4.5A4.5 4.5 0 0 1 21 23V5.5Z"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Education Resources</strong>
-                            <small>Support for Tanzania’s education system</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="downloads.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Downloads</strong>
-                            <small>Templates and practice files</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li><a href="faith-inspiration.html">Faith &amp; Inspiration</a></li>
-        <li class="nav-dropdown nav-dropdown-cards nav-dropdown-support">
-            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="support-menu">
-                <span>Support</span> <span class="nav-chevron" aria-hidden="true"></span>
-            </button>
-            <ul class="nav-dropdown-menu nav-card-menu" id="support-menu" aria-label="Support menu">
-                <li>
-                    <a href="faq.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.3 2.2c-.8.4-1.1.9-1.1 1.8M12 17h.01"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Frequently Asked Questions</strong>
-                            <small>Find clear answers quickly</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.html" class="nav-menu-card">
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Contact Us</strong>
-                            <small>Reach Athanas Inspires for help</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </a>
-                </li>
-                <li>
-                    <button type="button" class="nav-menu-card nav-ai-support-trigger" data-ai-open>
-                        <span class="nav-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-6 6v1.2A3.5 3.5 0 0 0 4 13.4V17a2 2 0 0 0 2 2h2l1.6 2h4.8L16 19h2a2 2 0 0 0 2-2v-3.6a3.5 3.5 0 0 0-2-3.2V9a6 6 0 0 0-6-6Z"/><path d="M9 12h.01M15 12h.01M9.5 16h5"/></svg></span>
-                        <span class="nav-card-copy">
-                            <strong>Get More Help with AI Assistant</strong>
-                            <small>Open your learning guide</small>
-                        </span>
-                        <span class="nav-card-arrow" aria-hidden="true">→</span>
-                    </button>
-                </li>
-            </ul>
-        </li>
-    </ul>
+<a class="brand" href="index.html">
+<img alt="Athanas Inspires Logo" fetchpriority="high" src="assets/images/logo.png"/>
+<span>Athanas Inspires</span>
+</a>
+<input class="menu-toggle" id="menu-toggle" type="checkbox"/>
+<label aria-label="Open menu" class="menu-icon" for="menu-toggle">☰</label>
+<ul class="nav-links">
+<li><a aria-current="page" class="active" href="index.html">Home</a></li>
+<li class="nav-dropdown nav-dropdown-cards">
+<button aria-controls="learn-menu" aria-expanded="false" class="nav-dropdown-toggle" type="button">
+<span>Learn</span> <span aria-hidden="true" class="nav-chevron"></span>
+</button>
+<ul aria-label="Learn menu" class="nav-dropdown-menu nav-card-menu" id="learn-menu">
+<li>
+<a class="nav-menu-card" href="courses.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><rect height="13" rx="2" width="18" x="3" y="4"></rect><path d="M8 21h8M12 17v4M8 9h8M8 12h5"></path></svg></span>
+<span class="nav-card-copy">
+<strong>ICT Lessons</strong>
+<small>Step-by-step digital-skills courses</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+<li>
+<a class="nav-menu-card" href="assignments.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 4h8l3 3v13H5V4h3Z"></path><path d="M9 4v4h6V4M9 12h6M9 16h4"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Assignments</strong>
+<small>Practise and apply what you learn</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+</ul>
+</li>
+<li><a href="youtube.html">YouTube</a></li>
+<li class="nav-dropdown nav-dropdown-cards">
+<button aria-controls="resources-menu" aria-expanded="false" class="nav-dropdown-toggle" type="button">
+<span>Resources</span> <span aria-hidden="true" class="nav-chevron"></span>
+</button>
+<ul aria-label="Resources menu" class="nav-dropdown-menu nav-card-menu" id="resources-menu">
+<li>
+<a class="nav-menu-card" href="tools.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.6 2.6-3-3 2.6-2.6Z"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Learning Tools</strong>
+<small>Quizzes, trainers, and calculators</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+<li>
+<a class="nav-menu-card" href="education.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 5.5A4.5 4.5 0 0 1 7.5 1H12v18H7.5A4.5 4.5 0 0 0 3 23V5.5Z"></path><path d="M21 5.5A4.5 4.5 0 0 0 16.5 1H12v18h4.5A4.5 4.5 0 0 1 21 23V5.5Z"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Education Resources</strong>
+<small>Support for Tanzania’s education system</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+<li>
+<a class="nav-menu-card" href="downloads.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Downloads</strong>
+<small>Templates and practice files</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+</ul>
+</li>
+<li><a href="faith-inspiration.html">Faith &amp; Inspiration</a></li>
+<li class="nav-dropdown nav-dropdown-cards nav-dropdown-support">
+<button aria-controls="support-menu" aria-expanded="false" class="nav-dropdown-toggle" type="button">
+<span>Support</span> <span aria-hidden="true" class="nav-chevron"></span>
+</button>
+<ul aria-label="Support menu" class="nav-dropdown-menu nav-card-menu" id="support-menu">
+<li>
+<a class="nav-menu-card" href="faq.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M9.8 9a2.4 2.4 0 1 1 3.3 2.2c-.8.4-1.1.9-1.1 1.8M12 17h.01"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Frequently Asked Questions</strong>
+<small>Find clear answers quickly</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+<li>
+<a class="nav-menu-card" href="contact.html">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"></path><path d="M8 9h8M8 12h5"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Contact Us</strong>
+<small>Reach Athanas Inspires for help</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</a>
+</li>
+<li>
+<button class="nav-menu-card nav-ai-support-trigger" data-ai-open="" type="button">
+<span aria-hidden="true" class="nav-card-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v1.2A3.5 3.5 0 0 0 4 13.4V17a2 2 0 0 0 2 2h2l1.6 2h4.8L16 19h2a2 2 0 0 0 2-2v-3.6a3.5 3.5 0 0 0-2-3.2V9a6 6 0 0 0-6-6Z"></path><path d="M9 12h.01M15 12h.01M9.5 16h5"></path></svg></span>
+<span class="nav-card-copy">
+<strong>Get More Help with AI Assistant</strong>
+<small>Open your learning guide</small>
+</span>
+<span aria-hidden="true" class="nav-card-arrow">→</span>
+</button>
+</li>
+</ul>
+</li>
+</ul>
 </nav>
-
-<header class="hero modern-hero">
-    <div class="hero-text">
-        <h1>Learn. Believe. Grow. Build.</h1>
-        <p class="tagline">From Confusion to Clarity.</p>
-        <p class="hero-desc">
+<main id="main-content"><header class="hero modern-hero">
+<div class="hero-text">
+<h1>Learn. Believe. Grow. Build.</h1>
+<p class="tagline">From Confusion to Clarity.</p>
+<p class="hero-desc">
             Welcome to Athanas Inspires — a place to learn clearly, grow confidently,
             build useful skills, and find encouragement for life. Here, we move step by step
             from confusion to clarity.
         </p>
-        <p class="hero-voice">Learning should feel possible, practical, and full of purpose.</p>
-
-        <div class="hero-buttons">
-            <a href="courses.html" class="btn">Explore ICT Lessons</a>
-            <a href="assignments.html" class="btn secondary-btn">Open Assignments</a>
-        </div>
-    </div>
-
-    <div class="hero-image">
-        <div class="image-frame">
-            <img src="assets/images/athanas.png" alt="Athanas Inspires">
-        </div>
-        <a class="floating-note note-one" href="courses.html" aria-label="Explore Digital Skills">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H4z"/><path d="M8 19h8M12 15.5V19"/></svg>
-            <span>Digital Skills</span>
-        </a>
-        <a class="floating-note note-two" href="faith-inspiration.html" aria-label="Explore Inspiration and Growth">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
-            <span>Inspiration &amp; Growth</span>
-        </a>
-        <a class="floating-note note-three" href="#purpose-mission" aria-label="Go to Grow with Purpose mission">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/></svg>
-            <span>Grow with Purpose</span>
-        </a>
-    </div>
-</header>
-
-<section class="start-here-section" aria-label="Start here for new computer learners">
-    <div class="start-here-card">
-        <div class="start-here-icon">💻</div>
-        <div class="start-here-text">
-            <p class="eyebrow dark">Start Here</p>
-            <h2>New to computers?</h2>
-            <p>Begin with the Beginner Installments and learn step by step from mouse, keyboard, desktop icons, navigation, files, and folders.</p>
-        </div>
-        <a href="courses.html#beginner-installments" class="btn">Start with Beginner Installments</a>
-    </div>
-</section>
-
-<section class="home-search-section" aria-label="Homepage search">
-    <div class="home-search-card">
-        <div>
-            <p class="eyebrow dark">Search This Page</p>
-            <h2>Find Lessons, Assignments, Articles, and Tools</h2>
-            <p>Search this homepage for Excel, Word, Computer Basics, inspiration, typing, formulas, assignments, and tools.</p>
-        </div>
-        <div class="search-box">
-            <input type="search" id="homeSearch" placeholder="Search this page..." aria-label="Search this page">
-            <button type="button" id="clearSearch">Clear</button>
-        </div>
-    </div>
-</section>
-
-<section class="featured-courses section-white" id="ict-lessons">
-    <div class="section-heading">
-        <p class="eyebrow dark">ICT Lessons</p>
-        <h2>Start Learning Immediately</h2>
-        <p>Start with beginner-friendly ICT lessons, then practice with assignments when you are ready.</p>
-    </div>
-
-    <div class="course-grid searchable-grid">
-        <a href="courses.html#beginner-installments" class="course-card clickable-card search-item" data-search="ict computer basics beginner installments mouse keyboard desktop icons files folders navigation">
-            <div class="course-icon">💻</div>
-            <h3>Computer Basics</h3>
-            <p>Start with mouse, keyboard, desktop icons, navigation, files, and folders.</p>
-            <span class="small-btn">Open Lessons</span>
-        </a>
-
-        <a href="courses.html#word-series" class="course-card clickable-card search-item" data-search="word microsoft word documents typing visuals session assignment">
-            <div class="course-icon">📄</div>
-            <h3>Microsoft Word</h3>
-            <p>Move from simple typing to proper documents and visual document creation.</p>
-            <span class="small-btn">Open Word Sessions</span>
-        </a>
-
-        <a href="courses.html#excel-series" class="course-card clickable-card search-item" data-search="excel microsoft excel formulas tables if statements session assignment download submit">
-            <div class="course-icon">📊</div>
-            <h3>Microsoft Excel</h3>
-            <p>Learn formulas, tables, IF logic, and practical spreadsheet thinking.</p>
-            <span class="small-btn">Open Excel Sessions</span>
-        </a>
-    </div>
-
-    <p class="no-results" id="homeSearchNoResults">No matching ICT lesson or assignment found yet.</p>
-</section>
-
-<section class="section updates-section" aria-labelledby="latest-heading">
-    <div class="section-heading">
-        <p class="eyebrow dark">Fresh Learning &amp; Inspiration</p>
-        <h2 id="latest-heading">Latest from Athanas Inspires</h2>
-        <p>Open the newest lesson, assignment, article, or practical tool.</p>
-    </div>
-
-    <div class="latest-list searchable-grid">
-        <a href="courses.html#word-session-3-card" class="latest-row search-item" data-search="new word session 3 microsoft word visual documents pictures wrap text shapes wordart symbols equations">
-            <span class="latest-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9 5 3-5 3V9Z"/></svg>
-            </span>
-            <span class="latest-title">Word Session 3</span>
-            <span class="latest-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a href="assignments.html#word-session-3-assignment" class="latest-row search-item" data-search="new word session 3 mini project assignment microsoft word internet safety guide">
-            <span class="latest-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h5M10 13h6M10 17h6"/><path d="m4 13 1.5 1.5L8 12"/></svg>
-            </span>
-            <span class="latest-title">Word Session 3 Mini Project</span>
-            <span class="latest-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a href="the-power-of-small-beginnings.html" class="latest-row search-item" data-search="new article power small beginnings inspiration growth start where you are use what you have">
-            <span class="latest-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
-            </span>
-            <span class="latest-title">The Power of Small Beginnings</span>
-            <span class="latest-arrow" aria-hidden="true">→</span>
-        </a>
-
-        <a href="typing-trainer.html" class="latest-row search-item" data-search="typing speed trainer keyboard practice wpm accuracy ict words">
-            <span class="latest-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M10.5 10h.01M14 10h.01M17.5 10h.01M7 13.5h.01M10.5 13.5h.01M14 13.5h3.5"/></svg>
-            </span>
-            <span class="latest-title">Typing Speed Trainer</span>
-            <span class="latest-arrow" aria-hidden="true">→</span>
-        </a>
-    </div>
-</section>
-
-<section class="purpose-mission-section" id="purpose-mission" aria-labelledby="purpose-mission-title">
-    <div class="purpose-mission-inner">
-        <p class="eyebrow dark">The Heart of Athanas Inspires</p>
-        <h2 id="purpose-mission-title">Build Skills. Grow in Confidence. Move Forward with Purpose.</h2>
-        <p class="mission-intro">Athanas Inspires helps absolute beginners develop practical digital skills, overcome fear and self-doubt, and take meaningful steps toward a confident and purposeful future.</p>
-
-        <div class="mission-pillars">
-            <div class="mission-pillar">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16v10H4z"/><path d="M8 19h8M12 15.5V19"/></svg>
-                <div>
-                    <h3>Digital Skills</h3>
-                    <p>Clear, practical ICT lessons, assignments, guides, and tools for people starting from the beginning.</p>
-                </div>
-            </div>
-            <div class="mission-pillar">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V10"/><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"/><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"/></svg>
-                <div>
-                    <h3>Inspiration &amp; Growth</h3>
-                    <p>Faith-rooted encouragement that helps people challenge negative voices, build confidence, and keep moving.</p>
-                </div>
-            </div>
-            <div class="mission-pillar">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/></svg>
-                <div>
-                    <h3>Grow with Purpose</h3>
-                    <p>Guidance to turn knowledge into action, use what is already in your hands, and create meaningful impact.</p>
-                </div>
-            </div>
-        </div>
-
-        <blockquote class="mission-verse">“Do not despise these small beginnings.” <cite>— Zechariah 4:10</cite></blockquote>
-
-        <div class="mission-actions">
-            <a href="courses.html" class="btn">Explore ICT Lessons</a>
-            <a href="faith-inspiration.html" class="btn secondary-btn mission-outline-btn">Read Inspiration</a>
-        </div>
-    </div>
-</section>
-
-<section class="section section-white">
-    <div class="section-heading">
-        <p class="eyebrow dark">Explore the Platform</p>
-        <h2>More Ways to Learn and Grow</h2>
-        <p>Explore practical learning, useful tools, education resources, faith, and inspiration in one place.</p>
-    </div>
-
-    <div class="platform-grid">
-        <a href="assignments.html" class="platform-card clickable-card">
-            <span>📝</span>
-            <h3>Assignments</h3>
-            <p>Download practice files and submit your work through WhatsApp.</p>
-        </a>
-        <a href="tools.html" class="platform-card clickable-card">
-            <span>🛠️</span>
-            <h3>Digital Tools</h3>
-            <p>Quiz game, calculator, shortcut trainer, typing trainer, templates, bots, quick apps, and systems.</p>
-        </a>
-        <a href="education.html" class="platform-card clickable-card">
-            <span>📚</span>
-            <h3>Education</h3>
-            <p>Tanzanian Primary Education resources: exams, notes, videos, and books.</p>
-        </a>
-        <a href="faith-inspiration.html" class="platform-card clickable-card">
-            <span>✨</span>
-            <h3>Faith & Inspiration</h3>
-            <p>Faith content, motivation, articles, audios, videos, and growth messages.</p>
-        </a>
-    </div>
-</section>
-
-<section class="home-faq-section" aria-labelledby="home-faq-title">
-    <div class="home-faq-shell">
-        <div class="home-faq-heading">
-            <p class="eyebrow dark">Frequently Asked Questions</p>
-            <h2 id="home-faq-title">How Can We Help You?</h2>
-            <p>Open a question for a quick answer, or visit the full FAQ page for more guidance.</p>
-        </div>
-
-        <div class="home-faq-list">
-            <details class="home-faq-item">
-                <summary>
-                    <span>What is Athanas Inspires?</span>
-                    <span class="home-faq-plus" aria-hidden="true"></span>
-                </summary>
-                <div class="home-faq-answer">
-                    <p><strong>Athanas Inspires is a growing learning and impact platform that helps people learn, believe, grow, and build.</strong></p>
-                    <p>It brings together beginner-friendly ICT lessons, practical assignments, digital tools, Tanzanian education resources, faith-rooted inspiration, YouTube learning, and a supportive WhatsApp community. Everything is designed to help people move <strong>from confusion to clarity</strong>, build confidence, and grow with purpose.</p>
-                    <a href="about.html" class="home-faq-link">Learn More About Us <span aria-hidden="true">→</span></a>
-                </div>
-            </details>
-
-            <details class="home-faq-item">
-                <summary>
-                    <span>Are the ICT lessons free?</span>
-                    <span class="home-faq-plus" aria-hidden="true"></span>
-                </summary>
-                <div class="home-faq-answer">
-                    <p><strong>Yes. The ICT lessons currently available through Athanas Inspires are free.</strong></p>
-                    <p>You can watch the beginner-friendly lessons on YouTube, follow the learning series through the website, practise with available assignments, and use the free interactive learning tools. New lessons and resources will continue to be added as the platform grows.</p>
-                    <a href="courses.html" class="home-faq-link">Explore Free ICT Lessons <span aria-hidden="true">→</span></a>
-                </div>
-            </details>
-
-            <details class="home-faq-item">
-                <summary>
-                    <span>How can I join the WhatsApp ICT community?</span>
-                    <span class="home-faq-plus" aria-hidden="true"></span>
-                </summary>
-                <div class="home-faq-answer">
-                    <p><strong>You can join the Athanas Inspires ICT community through the official WhatsApp invitation link available on the website.</strong></p>
-                    <p>The community connects learners from different countries who are developing practical ICT skills. Members receive lesson updates, assignment reminders, learning support, encouragement, and opportunities to share their progress.</p>
-                    <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer" class="home-faq-link">Join the WhatsApp ICT Community <span aria-hidden="true">→</span></a>
-                </div>
-            </details>
-        </div>
-
-        <div class="home-faq-action">
-            <a href="faq.html" class="btn">View All Frequently Asked Questions</a>
-        </div>
-    </div>
-</section>
-
-<section class="community-section">
-    <div class="community-card">
-        <div>
-            <p class="eyebrow">Learning Community</p>
-            <h2>Join Athanas Inspires ICT Community</h2>
-            <p>
+<p class="hero-voice">Learning should feel possible, practical, and full of purpose.</p>
+<div class="hero-buttons">
+<a class="btn" href="courses.html">Explore ICT Lessons</a>
+<a class="btn secondary-btn" href="assignments.html">Open Assignments</a>
+</div><details class="audio-transcript-inline"><summary>Read the welcome audio transcript</summary><p>Welcome to Athanas Inspires. Here, you can learn practical digital skills, build confidence, and find encouragement for life. Explore the lessons, assignments, tools, education resources, faith, and inspiration as we move step by step from confusion to clarity.</p></details>
+</div>
+<div class="hero-image premium-hanging-portrait">
+<span aria-hidden="true" class="portrait-halo"></span>
+<span aria-hidden="true" class="portrait-hanger-bar"><i></i><i></i></span>
+<span aria-hidden="true" class="portrait-suspension portrait-suspension-left"></span>
+<span aria-hidden="true" class="portrait-suspension portrait-suspension-right"></span>
+<span aria-hidden="true" class="portrait-frame-shadow"></span>
+<div class="image-frame premium-portrait-frame">
+<span aria-hidden="true" class="portrait-frame-glow"></span>
+<span aria-hidden="true" class="portrait-corner portrait-corner-one"></span>
+<span aria-hidden="true" class="portrait-corner portrait-corner-two"></span>
+<img alt="Athanas Inspires" fetchpriority="high" src="assets/images/athanas.png"/>
+</div>
+<a aria-label="Explore Digital Skills" class="floating-note note-one" href="courses.html">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 5.5h16v10H4z"></path><path d="M8 19h8M12 15.5V19"></path></svg>
+<span>Digital Skills</span>
+</a>
+<a aria-label="Explore Inspiration and Growth" class="floating-note note-two" href="faith-inspiration.html">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 21V10"></path><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"></path><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"></path></svg>
+<span>Inspiration &amp; Growth</span>
+</a>
+<a aria-label="Go to Grow with Purpose mission" class="floating-note note-three" href="#purpose-mission">
+<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"></path></svg>
+<span>Grow with Purpose</span>
+</a>
+</div>
+</header><section aria-label="Start here for new computer learners" class="start-here-section">
+<div class="start-here-card">
+<div class="start-here-visual" aria-hidden="true">
+<span class="start-here-icon">💻</span>
+<span class="start-here-orbit"></span>
+</div>
+<div class="start-here-text">
+<p class="eyebrow dark">Start Here</p>
+<h2>Start from zero. Build real computer confidence.</h2>
+<p>Follow the beginner path calmly and practically—starting with the mouse and keyboard, then moving to desktop navigation, files, and folders.</p>
+<div class="start-here-highlights" aria-label="Beginner path topics">
+<span>Mouse &amp; keyboard</span><span>Desktop navigation</span><span>Files &amp; folders</span>
+</div>
+</div>
+<div class="start-here-action">
+<span class="start-here-recommendation">Recommended first learning path</span>
+<a class="btn" href="courses.html#beginner-installments">Begin Computer Basics <span aria-hidden="true">→</span></a>
+</div>
+</div>
+</section><section class="featured-courses section-white home-learning-section" id="ict-lessons">
+<div class="section-heading home-learning-heading">
+<p class="eyebrow dark">Choose Your Learning Path</p>
+<h2>Start Learning Immediately</h2>
+<p>Begin at your level, follow the lessons in order, and build practical digital confidence one clear step at a time.</p>
+</div>
+<div class="home-learning-grid">
+<a class="home-learning-card home-learning-card--basics" href="courses.html#beginner-installments">
+<span aria-hidden="true" class="home-learning-glow"></span>
+<div class="home-learning-topline"><span class="home-learning-number">01</span><span class="home-learning-status">Best first step</span></div>
+<div class="home-learning-icon" aria-hidden="true">💻</div>
+<div class="home-learning-copy">
+<p class="home-learning-series">Computer Confidence</p>
+<h3>Computer Basics</h3>
+<p>Learn the essential skills needed to use a computer calmly and independently.</p>
+<div class="home-learning-chips"><span>4 lessons</span><span>Absolute beginner</span></div>
+</div>
+<div class="home-learning-footer"><strong>Start Here <span aria-hidden="true">→</span></strong></div>
+</a>
+<a class="home-learning-card home-learning-card--word" href="courses.html#word-series">
+<span aria-hidden="true" class="home-learning-glow"></span>
+<div class="home-learning-topline"><span class="home-learning-number">02</span><span class="home-learning-status">Create documents</span></div>
+<div class="home-learning-icon" aria-hidden="true">📄</div>
+<div class="home-learning-copy">
+<p class="home-learning-series">Microsoft Office</p>
+<h3>Microsoft Word</h3>
+<p>Create clear, organised, and professional documents through practical sessions.</p>
+<div class="home-learning-chips"><span>3 sessions</span><span>Projects included</span></div>
+</div>
+<div class="home-learning-footer"><strong>Learn Word <span aria-hidden="true">→</span></strong></div>
+</a>
+<a class="home-learning-card home-learning-card--excel" href="courses.html#excel-series">
+<span aria-hidden="true" class="home-learning-glow"></span>
+<div class="home-learning-topline"><span class="home-learning-number">03</span><span class="home-learning-status">Think with data</span></div>
+<div class="home-learning-icon" aria-hidden="true">📊</div>
+<div class="home-learning-copy">
+<p class="home-learning-series">Microsoft Office</p>
+<h3>Microsoft Excel</h3>
+<p>Build formulas, smart tables, IF logic, and practical decision-making skills.</p>
+<div class="home-learning-chips"><span>4 sessions</span><span>Session 5 soon</span></div>
+</div>
+<div class="home-learning-footer"><strong>Learn Excel <span aria-hidden="true">→</span></strong></div>
+</a>
+</div>
+</section><section aria-labelledby="latest-heading" class="section updates-section">
+<div class="section-heading">
+<p class="eyebrow dark">Fresh Learning &amp; Inspiration</p>
+<h2 id="latest-heading">Latest from Athanas Inspires</h2>
+<p>Open the newest lesson, assignment, article, or practical tool.</p>
+</div>
+<div class="latest-list searchable-grid" id="latestLearningRoot"><noscript>Please enable JavaScript to load the latest learning updates.</noscript></div>
+</section><section aria-labelledby="youtube-hub-promo-title" class="youtube-hub-promo">
+<div class="youtube-hub-promo-inner">
+<div>
+<p class="eyebrow">New Premium Learning Experience</p>
+<h2 id="youtube-hub-promo-title">Explore the Athanas Inspires YouTube Learning Hub</h2>
+<p>Follow a clear beginner journey through Computer Basics, Microsoft Word, and Microsoft Excel. Watch the featured lesson, see the upcoming Excel Session 5, hear from real learners, and subscribe without losing your place.</p>
+<div class="youtube-hub-actions"><a class="btn" data-track="youtube_hub_open" data-track-label="Homepage YouTube Hub" href="youtube.html">Explore YouTube Learning</a><a class="btn secondary-btn" data-track="youtube_subscribe_click" href="https://www.youtube.com/@Athanas_Inspires?sub_confirmation=1" rel="noopener noreferrer" target="_blank">Subscribe on YouTube</a></div>
+</div>
+<div aria-label="YouTube learning paths" class="youtube-hub-preview">
+<div class="youtube-path-list"><a href="youtube.html#computer-basics"><span>💻</span>Computer Basics</a><a href="youtube.html#word-series"><span>📄</span>Microsoft Word</a><a href="youtube.html#excel-series"><span>📊</span>Microsoft Excel</a><a href="youtube.html#testimonials"><span>💬</span>Learner Testimonials</a></div>
+</div>
+</div>
+</section><section aria-labelledby="purpose-mission-title" class="purpose-mission-section" id="purpose-mission">
+<div class="purpose-mission-inner">
+<p class="eyebrow dark">The Heart of Athanas Inspires</p>
+<h2 id="purpose-mission-title">Build Skills. Grow in Confidence. Move Forward with Purpose.</h2>
+<p class="mission-intro">Athanas Inspires helps absolute beginners develop practical digital skills, overcome fear and self-doubt, and take meaningful steps toward a confident and purposeful future.</p>
+<div class="mission-pillars">
+<div class="mission-pillar">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 5.5h16v10H4z"></path><path d="M8 19h8M12 15.5V19"></path></svg>
+<div>
+<h3>Digital Skills</h3>
+<p>Clear, practical ICT lessons, assignments, guides, and tools for people starting from the beginning.</p>
+</div>
+</div>
+<div class="mission-pillar">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M12 21V10"></path><path d="M12 14c-4.5 0-7-2.5-7-7 4.5 0 7 2.5 7 7Z"></path><path d="M12 11c4.5 0 7-2.5 7-7-4.5 0-7 2.5-7 7Z"></path></svg>
+<div>
+<h3>Inspiration &amp; Growth</h3>
+<p>Faith-rooted encouragement that helps people challenge negative voices, build confidence, and keep moving.</p>
+</div>
+</div>
+<div class="mission-pillar">
+<svg aria-hidden="true" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"></path></svg>
+<div>
+<h3>Grow with Purpose</h3>
+<p>Guidance to turn knowledge into action, use what is already in your hands, and create meaningful impact.</p>
+</div>
+</div>
+</div>
+<blockquote class="mission-verse">“Do not despise these small beginnings.” <cite>— Zechariah 4:10</cite></blockquote>
+<div class="mission-actions">
+<a class="btn" href="courses.html">Explore ICT Lessons</a>
+<a class="btn secondary-btn mission-outline-btn" href="faith-inspiration.html">Read Inspiration</a>
+</div>
+</div>
+</section><section class="section section-white platform-showcase-section">
+<div class="section-heading">
+<p class="eyebrow dark">Explore the Platform</p>
+<h2>More Ways to Learn and Grow</h2>
+<p>Explore practical learning, useful tools, education resources, faith, and inspiration in one place.</p>
+</div>
+<div class="platform-grid premium-platform-grid">
+<a class="platform-card platform-card--assignments clickable-card" href="assignments.html">
+<span aria-hidden="true" class="platform-card-accent"></span>
+<div class="platform-card-head"><span aria-hidden="true" class="platform-card-icon">📝</span><span class="platform-card-index">01</span></div>
+<p class="platform-card-kicker">Practise What You Learn</p>
+<h3>Assignments</h3>
+<p>Download guided practice files, complete real tasks, and submit your work for follow-up.</p>
+<span class="platform-card-link">Open Assignments <i aria-hidden="true">→</i></span>
+</a>
+<a class="platform-card platform-card--tools clickable-card" href="tools.html">
+<span aria-hidden="true" class="platform-card-accent"></span>
+<div class="platform-card-head"><span aria-hidden="true" class="platform-card-icon">🛠️</span><span class="platform-card-index">02</span></div>
+<p class="platform-card-kicker">Learn by Doing</p>
+<h3>Digital Tools</h3>
+<p>Use quizzes, trainers, calculators, templates, and practical tools that build confidence.</p>
+<span class="platform-card-link">Explore Tools <i aria-hidden="true">→</i></span>
+</a>
+<a class="platform-card platform-card--education clickable-card" href="education.html">
+<span aria-hidden="true" class="platform-card-accent"></span>
+<div class="platform-card-head"><span aria-hidden="true" class="platform-card-icon">📚</span><span class="platform-card-index">03</span></div>
+<p class="platform-card-kicker">Tanzanian Learning Resources</p>
+<h3>Education</h3>
+<p>Access primary education materials, examinations, notes, books, and useful learning support.</p>
+<span class="platform-card-link">Browse Resources <i aria-hidden="true">→</i></span>
+</a>
+<a class="platform-card platform-card--faith clickable-card" href="faith-inspiration.html">
+<span aria-hidden="true" class="platform-card-accent"></span>
+<div class="platform-card-head"><span aria-hidden="true" class="platform-card-icon">✨</span><span class="platform-card-index">04</span></div>
+<p class="platform-card-kicker">Grow Beyond Skills</p>
+<h3>Faith &amp; Inspiration</h3>
+<p>Find faith-rooted encouragement, practical motivation, and messages that help you keep moving.</p>
+<span class="platform-card-link">Be Inspired <i aria-hidden="true">→</i></span>
+</a>
+</div>
+</section><section aria-labelledby="home-faq-title" class="home-faq-section">
+<div class="home-faq-shell">
+<div class="home-faq-heading">
+<p class="eyebrow dark">Frequently Asked Questions</p>
+<h2 id="home-faq-title">How Can We Help You?</h2>
+<p>Open a question for a quick answer, or visit the full FAQ page for more guidance.</p>
+</div>
+<div class="home-faq-list">
+<details class="home-faq-item">
+<summary>
+<span>What is Athanas Inspires?</span>
+<span aria-hidden="true" class="home-faq-plus"></span>
+</summary>
+<div class="home-faq-answer">
+<p><strong>Athanas Inspires is a growing learning and impact platform that helps people learn, believe, grow, and build.</strong></p>
+<p>It brings together beginner-friendly ICT lessons, practical assignments, digital tools, Tanzanian education resources, faith-rooted inspiration, YouTube learning, and a supportive WhatsApp community. Everything is designed to help people move <strong>from confusion to clarity</strong>, build confidence, and grow with purpose.</p>
+<a class="home-faq-link" href="about.html">Learn More About Us <span aria-hidden="true">→</span></a>
+</div>
+</details>
+<details class="home-faq-item">
+<summary>
+<span>Are the ICT lessons free?</span>
+<span aria-hidden="true" class="home-faq-plus"></span>
+</summary>
+<div class="home-faq-answer">
+<p><strong>Yes. The ICT lessons currently available through Athanas Inspires are free.</strong></p>
+<p>You can watch the beginner-friendly lessons on YouTube, follow the learning series through the website, practise with available assignments, and use the free interactive learning tools. New lessons and resources will continue to be added as the platform grows.</p>
+<a class="home-faq-link" href="courses.html">Explore Free ICT Lessons <span aria-hidden="true">→</span></a>
+</div>
+</details>
+<details class="home-faq-item">
+<summary>
+<span>How can I join the WhatsApp ICT community?</span>
+<span aria-hidden="true" class="home-faq-plus"></span>
+</summary>
+<div class="home-faq-answer">
+<p><strong>You can join the Athanas Inspires ICT community through the official WhatsApp invitation link available on the website.</strong></p>
+<p>The community connects learners from different countries who are developing practical ICT skills. Members receive lesson updates, assignment reminders, learning support, encouragement, and opportunities to share their progress.</p>
+<a class="home-faq-link" href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" rel="noopener noreferrer" target="_blank">Join the WhatsApp ICT Community <span aria-hidden="true">→</span></a>
+</div>
+</details>
+</div>
+<div class="home-faq-action">
+<a class="btn" href="faq.html">View All Frequently Asked Questions</a>
+</div>
+</div>
+</section><section class="community-section">
+<div class="community-card">
+<div>
+<p class="eyebrow">Learning Community</p>
+<h2>Join Athanas Inspires ICT Community</h2>
+<p>
                 Receive lesson updates, assignment reminders, and support as you keep moving
                 from confusion to clarity.
             </p>
-        </div>
-        <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn">Join WhatsApp Community</a>
-    </div>
-</section>
-
-<section class="why-section">
-    <div class="section-heading light">
-        <p class="eyebrow">Why Athanas Inspires?</p>
-        <h2>Growth Should Feel Possible</h2>
-        <p>Clear teaching, practical resources, encouragement, faith, and tools for real life.</p>
-    </div>
-
-    <div class="why-grid">
-        <div class="why-card">
-            <div class="why-icon">✅</div>
-            <h3>Clear Direction</h3>
-            <p>Visitors know where to click and what step to take next.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon">🧠</div>
-            <h3>Simple Explanations</h3>
-            <p>Lessons are made for real beginners, not people pretending to be beginners.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon">🛠️</div>
-            <h3>Practical Tools</h3>
-            <p>The platform will provide templates, systems, bots, and quick apps.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon">🚀</div>
-            <h3>Practical Growth</h3>
-            <p>Learn useful skills, practice with purpose, and build confidence one step at a time.</p>
-        </div>
-    </div>
-</section>
-
+</div>
+<a class="btn whatsapp-btn" href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" rel="noopener noreferrer" target="_blank">Join WhatsApp Community</a>
+</div>
+</section><section class="why-section">
+<div class="section-heading light">
+<p class="eyebrow">Why Athanas Inspires?</p>
+<h2>Growth Should Feel Possible</h2>
+<p>Clear teaching, practical resources, encouragement, faith, and tools for real life.</p>
+</div>
+<div class="why-grid">
+<div class="why-card">
+<div class="why-icon">✅</div>
+<h3>Clear Direction</h3>
+<p>Visitors know where to click and what step to take next.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🧠</div>
+<h3>Simple Explanations</h3>
+<p>Lessons are made for real beginners, not people pretending to be beginners.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🛠️</div>
+<h3>Practical Tools</h3>
+<p>The platform will provide templates, systems, bots, and quick apps.</p>
+</div>
+<div class="why-card">
+<div class="why-icon">🚀</div>
+<h3>Practical Growth</h3>
+<p>Learn useful skills, practice with purpose, and build confidence one step at a time.</p>
+</div>
+</div>
+</section></main>
 <footer class="site-footer">
-    <div class="footer-grid">
-        <div class="footer-brand">
-            <h3>Athanas Inspires</h3>
-            <p>Learn. Believe. Grow. Build.</p>
-            <p class="footer-note">Clear learning, practical tools, faith-filled encouragement, and resources that help you move from confusion to clarity.</p>
-        </div>
-
-        <div class="footer-column">
-            <h4>Learn</h4>
-            <a href="courses.html">ICT Lessons</a>
-            <a href="education.html">Education</a>
-            <a href="youtube.html">YouTube Lessons</a>
-        </div>
-
-        <div class="footer-column">
-            <h4>Practice & Build</h4>
-            <a href="assignments.html">Assignments</a>
-            <a href="tools.html">Digital Tools</a>
-            <a href="downloads.html">Downloads</a>
-        </div>
-
-        <div class="footer-column">
-            <h4>Support &amp; Connect</h4>
-            <a href="faq.html">Frequently Asked Questions</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="faith-inspiration.html">Faith &amp; Inspiration</a>
-            <a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" target="_blank" rel="noopener noreferrer">Join WhatsApp Community</a>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 Athanas Inspires. All Rights Reserved.</p>
-        <p>From confusion to clarity — one step at a time.</p>
-    </div>
+<div class="footer-grid">
+<div class="footer-brand">
+<h3>Athanas Inspires</h3>
+<p>Learn. Believe. Grow. Build.</p>
+<p class="footer-note">Clear learning, practical tools, faith-filled encouragement, and resources that help you move from confusion to clarity.</p>
+</div>
+<div class="footer-column">
+<h4>Learn</h4>
+<a href="courses.html">ICT Lessons</a>
+<a href="education.html">Education</a>
+<a href="youtube.html">YouTube Lessons</a>
+</div>
+<div class="footer-column">
+<h4>Practice &amp; Build</h4>
+<a href="assignments.html">Assignments</a>
+<a href="tools.html">Digital Tools</a>
+<a href="downloads.html">Downloads</a>
+</div>
+<div class="footer-column">
+<h4>Support &amp; Connect</h4>
+<a href="faq.html">Frequently Asked Questions</a>
+<a href="contact.html">Contact Us</a>
+<a href="faith-inspiration.html">Faith &amp; Inspiration</a>
+<a href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" rel="noopener noreferrer" target="_blank">Join WhatsApp Community</a>
+</div>
+</div>
+<nav aria-label="Legal and accessibility" class="footer-legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="cookie-policy.html">Cookie Information</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></nav><div class="footer-bottom">
+<p>© 2026 Athanas Inspires. All Rights Reserved.</p>
+<p>From confusion to clarity — one step at a time.</p>
+</div>
 </footer>
-
-<script src="js/main.js?v=20260714-welcome-audio-1"></script>
-
-<script src="js/bot-data.js?v=20260713-ai-assistant-5"></script>
-<script src="js/bot.js?v=20260713-ai-assistant-5"></script>
-</body>
+<script defer="" src="js/learning-content.js?v=20260715-home-refinement-2"></script><script defer="" src="js/content-pages.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/main.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/floating-controls.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/site-search.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/analytics.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/consent.min.js?v=20260715-home-refinement-2"></script><script defer="" src="js/assistant-loader.min.js?v=20260715-home-refinement-2"></script></body>
 </html>

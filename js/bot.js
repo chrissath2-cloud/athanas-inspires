@@ -495,6 +495,7 @@
 
         state.elements.shell = shell;
         state.elements.floating = shell.querySelector(".ai-floating-button");
+        state.elements.floating?.setAttribute("data-floating-control", "assistant");
         state.elements.overlay = shell.querySelector(".ai-assistant-overlay");
         state.elements.panel = shell.querySelector(".ai-assistant-panel");
         state.elements.messages = shell.querySelector(".ai-messages");
@@ -583,6 +584,7 @@
         });
 
         window.setTimeout(() => state.elements.floating.classList.add("is-compact"), 5200);
+        document.dispatchEvent(new CustomEvent("athanas:floating-controls-update"));
         updateVersionBadge();
     }
 
@@ -1314,15 +1316,16 @@
     }
 
     function init() {
-        injectNavbarButton();
+        if (!document.querySelector("[data-ai-open]")) injectNavbarButton();
         injectAssistant();
         state.flow = state.storage.flow || null;
         try {
-            if (sessionStorage.getItem(OPEN_SESSION_KEY) === "1") {
+            if (sessionStorage.getItem(OPEN_SESSION_KEY) === "1" || window.__ATHANAS_ASSISTANT_AUTO_OPEN) {
                 state.returnChoiceHandled = true;
                 if (state.storage.messages.length) continueConversation();
                 else initializeConversation();
                 window.setTimeout(openPanel, 180);
+                window.__ATHANAS_ASSISTANT_AUTO_OPEN = false;
             }
         } catch (error) {}
     }

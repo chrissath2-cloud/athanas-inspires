@@ -1,0 +1,85 @@
+(() => {
+  "use strict";
+  const VERSION = "20260715-consolidation-1";
+  let loadingPromise = null;
+
+  const track = (name, detail = {}) => document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name, ...detail } }));
+
+  function addLauncher() {
+    if (document.querySelector(".ai-loader-launcher, .ai-floating-button")) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "ai-loader-launcher";
+    button.setAttribute("aria-label", "Open Athanas Inspires AI Assistant");
+    button.setAttribute("data-floating-control", "assistant");
+    button.innerHTML = '<span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6v1.2A3.5 3.5 0 0 0 4 13.4V17a2 2 0 0 0 2 2h2l1.6 2h4.8L16 19h2a2 2 0 0 0 2-2v-3.6a3.5 3.5 0 0 0-2-3.2V9a6 6 0 0 0-6-6Z"/><path d="M9 12h.01M15 12h.01M9.5 16h5"/></svg></span><span class="ai-loader-label">AI Assistant</span>';
+    button.addEventListener("click", () => loadAssistant(true));
+    document.body.appendChild(button);
+  }
+
+  function loadStylesheet(href) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`link[href^="${href}"]`);
+      if (existing) {
+        if (existing.sheet) resolve();
+        else { existing.addEventListener("load", resolve, { once: true }); existing.addEventListener("error", reject, { once: true }); }
+        return;
+      }
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = `${href}?v=${VERSION}`;
+      link.onload = resolve;
+      link.onerror = reject;
+      document.head.appendChild(link);
+    });
+  }
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src^="${src}"]`)) return resolve();
+      const script = document.createElement("script");
+      script.src = `${src}?v=${VERSION}`;
+      script.defer = true;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.body.appendChild(script);
+    });
+  }
+
+  async function loadAssistant(openAfterLoad = false) {
+    if (window.ATHANAS_ASSISTANT_DATA && document.querySelector(".ai-assistant-shell")) {
+      document.querySelector(".ai-floating-button")?.click();
+      return;
+    }
+    window.__ATHANAS_ASSISTANT_AUTO_OPEN = Boolean(openAfterLoad);
+    document.querySelector(".ai-loader-launcher")?.classList.add("is-loading");
+    if (!loadingPromise) {
+      loadingPromise = (async () => {
+        await loadStylesheet("css/bot.min.css");
+        await loadScript("js/bot-data.min.js");
+        await loadScript("js/assistant-learning-sync.min.js");
+        await loadScript("js/bot.min.js");
+        document.querySelector(".ai-loader-launcher")?.remove();
+        track("assistant_loaded", { label: "AI Assistant" });
+      })().catch((error) => {
+        console.error("Assistant could not load", error);
+        const launcher = document.querySelector(".ai-loader-launcher");
+        launcher?.classList.remove("is-loading");
+        launcher?.setAttribute("aria-label", "Try loading the AI Assistant again");
+        loadingPromise = null;
+      });
+    }
+    return loadingPromise;
+  }
+
+  document.addEventListener("click", (event) => {
+    const trigger = event.target.closest("[data-ai-open]");
+    if (!trigger || document.querySelector(".ai-assistant-shell")) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    track("assistant_open", { label: "Navigation support link" });
+    loadAssistant(true);
+  }, true);
+
+  document.addEventListener("DOMContentLoaded", addLauncher);
+})();

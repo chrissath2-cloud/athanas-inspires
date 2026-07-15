@@ -1,0 +1,23 @@
+ATHANAS INSPIRES — PREMIUM VISUAL REFRESH
+Updated: July 2026
+
+HOMEPAGE
+1. Enlarged the Athanas portrait and rebuilt it as a premium hanging frame.
+2. Added gold suspension lines, hooks, halo lighting, frame details, signature panel, and gentle hanging movement.
+3. Removed the duplicate “Search the Whole Website” homepage section. The premium navbar search remains the single sitewide search system.
+4. Rebuilt “Start Learning Immediately” into three complete premium learning pathways:
+   - Computer Basics
+   - Microsoft Word
+   - Microsoft Excel
+5. Improved the Start Here panel, YouTube Hub promotion, mission pillars, platform cards, FAQ cards, community section, and downstream homepage hover effects.
+
+SITEWIDE
+1. Added css/premium-refresh.css as the final visual enhancement layer on all 21 HTML pages.
+2. Improved navbar, dropdown, button, card, image, form, hero, FAQ, legal-page, and footer interactions.
+3. Added stronger focus states, contrast, shadows, depth, responsive behaviour, and reduced-motion support.
+4. Standardised refreshed asset cache version to 20260715-premium-refresh-1.
+
+PRESERVED
+- Existing images were not converted or compressed.
+- Existing audio files were not compressed or changed.
+- Central lesson data, navbar search, AI Assistant, analytics, consent, legal pages, accessibility, floating controls, and YouTube systems remain intact.

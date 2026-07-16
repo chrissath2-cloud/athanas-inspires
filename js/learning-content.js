@@ -1,7 +1,7 @@
 /* Central content source for lessons, assignments, downloads, tools, and search. */
 window.ATHANAS_LEARNING_CONTENT = {
-  version: "2026.07.16.1",
-  updated: "2026-07-16",
+  version: "2026.07.15.3",
+  updated: "2026-07-15",
   site: {
     name: "Athanas Inspires",
     domain: "https://athanasinspires.com",
@@ -157,7 +157,6 @@ window.ATHANAS_LEARNING_CONTENT = {
     { category: "Page", title: "Learning Tools", description: "Open the ICT quiz, shortcut trainer, typing trainer, and scientific calculator.", url: "tools.html", keywords: "tools quiz shortcut typing calculator" },
     { category: "Page", title: "Tanzanian Education Resources", description: "Explore resources supporting the Tanzanian primary education system.", url: "education.html", keywords: "Tanzania primary education exams notes books" },
     { category: "Page", title: "Faith & Personal Growth", description: "Read faith-rooted encouragement, courage-building articles, and personal growth messages.", url: "faith-inspiration.html", keywords: "faith inspiration courage personal growth encouragement" },
-    { category: "Faith Resource", title: "Biblia Takatifu ya Kiswahili", description: "Soma vitabu vyote 66 vya Biblia, tafuta maandiko, na nakili mistari kwa urahisi.", url: "bible.html", keywords: "biblia kiswahili bible scripture neno la Mungu agano la kale agano jipya zaburi yohana" },
     { category: "Page", title: "Technology & Digital Growth", description: "Read simple technology articles that build digital confidence and help beginners move forward.", url: "technology-insights.html", keywords: "technology articles digital growth confidence beginner future skills" },
     { category: "Article", title: "Digital Skills Every Beginner Should Learn", description: "A simple guide to the practical digital skills every beginner can learn step by step.", url: "digital-skills-every-beginner-should-learn.html", keywords: "digital skills beginner computer typing folders internet email word excel powerpoint smartphone cloud troubleshooting pdf online learning" },
     { category: "Article", title: "Why Technology Is Necessary in Today’s World", description: "An inspiring guide to learning, adapting, and using technology to move forward.", url: "why-technology-is-necessary.html", keywords: "technology digital skills learning work business beginner future" },

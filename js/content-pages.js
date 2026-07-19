@@ -156,18 +156,22 @@
   function renderLatest() {
     const root = document.getElementById("latestLearningRoot");
     if (!root) return;
-    const featured = data.series.flatMap((series) => series.lessons).find((lesson) => lesson.id === data.featuredLessonId);
-    const assignment = data.assignments.find((item) => item.lessonId === featured?.id);
-    const typing = data.tools.find((item) => item.id === "typing");
-    const items = [
-      { icon: "🧭", title: "Digital Skills Every Beginner Should Learn", url: "digital-skills-every-beginner-should-learn.html", search: "digital skills beginner computer typing files word excel powerpoint smartphone cloud online learning" },
-      { icon: "💻", title: "Why Technology Is Necessary in Today’s World", url: "why-technology-is-necessary.html", search: "technology article digital growth learning future skills" },
-      { icon: "▶", title: featured.displayTitle, url: "youtube.html#featured", search: `${featured.title} microsoft word visual documents` },
-      { icon: "📝", title: assignment.title, url: `assignments.html#${assignment.anchor}`, search: `${assignment.title} practice assignment` },
-      { icon: "🌱", title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html", search: "article inspiration growth small beginnings" },
-      { icon: "⌨", title: typing.title, url: typing.url, search: `${typing.title} typing speed accuracy tool` }
-    ];
-    root.innerHTML = items.map((item) => `<a href="${escapeHtml(item.url)}" class="latest-row search-item" data-search="${escapeHtml(item.search)}"><span class="latest-icon latest-icon--text" aria-hidden="true">${item.icon}</span><span class="latest-title">${escapeHtml(item.title)}</span><span class="latest-arrow" aria-hidden="true">→</span></a>`).join("");
+    const labels = { lesson: "Newest Lesson", assignment: "Newest Assignment", article: "Newest Article", tool: "Updated Tool" };
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const items = [...(data.latestUpdates || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+    root.innerHTML = items.map((item) => {
+      const published = new Date(`${item.date}T00:00:00`);
+      const ageDays = Math.floor((now - published) / 86400000);
+      const isNew = ageDays >= 0 && ageDays <= 21;
+      return `<a href="${escapeHtml(item.url)}" class="latest-update-card latest-update-card--${escapeHtml(item.type)} search-item" data-search="${escapeHtml(`${item.type} ${item.title} ${item.summary}`)}">
+        <div class="latest-update-top"><span class="latest-update-icon" aria-hidden="true">${item.icon}</span>${isNew ? '<span class="latest-new-badge">New</span>' : ''}</div>
+        <span class="latest-update-type">${escapeHtml(labels[item.type] || item.type)}</span>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.summary)}</p>
+        <span class="latest-update-footer"><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.dateLabel)}</time><span class="latest-update-open">Open <span aria-hidden="true">→</span></span></span>
+      </a>`;
+    }).join("");
   }
   document.addEventListener("DOMContentLoaded", () => {
     renderCourses();

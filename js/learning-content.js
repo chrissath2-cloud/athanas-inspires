@@ -1,7 +1,13 @@
 /* Central content source for lessons, assignments, downloads, tools, and search. */
 window.ATHANAS_LEARNING_CONTENT = {
-  version: "2026.07.15.3",
-  updated: "2026-07-15",
+  version: "2026.07.19.1",
+  updated: "2026-07-19",
+  latestUpdates: [
+    { type: "article", icon: "✦", title: "Digital Skills Every Beginner Should Learn", summary: "A practical beginner map covering computer use, typing, files, Word, Excel, online learning, and more.", url: "digital-skills-every-beginner-should-learn.html", date: "2026-07-15", dateLabel: "15 July 2026" },
+    { type: "lesson", icon: "▶", title: "Word Session 3: Professional Documents with Visuals", summary: "Learn pictures, Wrap Text, shapes, text boxes, WordArt, symbols, and equations step by step.", url: "youtube.html#featured", date: "2026-07-06", dateLabel: "6 July 2026" },
+    { type: "assignment", icon: "✓", title: "Word Session 3 Mini Project", summary: "Recreate the Internet Safety Guide and turn the lesson into a complete practical document.", url: "assignments.html#word-session-3-assignment", date: "2026-07-06", dateLabel: "6 July 2026" },
+    { type: "tool", icon: "⌨", title: "Typing Speed Trainer", summary: "Build speed, accuracy, focus, and digital confidence through timed beginner-friendly practice.", url: "typing-trainer.html", date: "2026-07-15", dateLabel: "Updated 15 July 2026" }
+  ],
   site: {
     name: "Athanas Inspires",
     domain: "https://athanasinspires.com",

@@ -1,23 +1,25 @@
-// Browsers can restore a page from the Back/Forward Cache exactly as it was left.
-// Clear the exit fade immediately so a restored page never remains pale or almost white.
-window.addEventListener("pageshow", (event) => {
-    const navigationEntry = typeof performance.getEntriesByType === "function"
-        ? performance.getEntriesByType("navigation")[0]
-        : null;
-    const restoredFromHistory = event.persisted || navigationEntry?.type === "back_forward";
-
-    if (!restoredFromHistory) return;
-
-    document.body.classList.remove("is-leaving");
-    document.body.classList.add("site-loaded");
-    document.querySelector(".site-loader")?.classList.add("is-hidden");
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const loader = document.querySelector(".site-loader");
     const navbar = document.querySelector(".navbar");
     const menuToggle = document.getElementById("menu-toggle");
+    const transitionCurtain = document.createElement("div");
+    transitionCurtain.className = "page-transition-curtain";
+    transitionCurtain.setAttribute("aria-hidden", "true");
+    document.body.appendChild(transitionCurtain);
+
+    const clearNavigationState = ({ restored = false } = {}) => {
+        body.classList.remove("is-leaving");
+        transitionCurtain.classList.remove("is-active");
+        if (restored) {
+            body.classList.add("site-loaded");
+            loader?.classList.add("is-hidden");
+        }
+    };
+
+    window.addEventListener("pageshow", (event) => clearNavigationState({ restored: event.persisted }));
+    window.addEventListener("pagehide", (event) => { if (event.persisted) clearNavigationState({ restored: true }); });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) clearNavigationState(); });
 
     // Homepage welcome audio. Browsers may block sound until the visitor interacts,
     // so autoplay is attempted first and a premium play control appears when needed.
@@ -57,6 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         welcomeAudioWidget.classList.toggle("is-ready", state === "ready");
         welcomeAudioWidget.classList.toggle("is-ended", state === "ended");
         welcomeAudioStatus.textContent = label;
+        document.dispatchEvent(new CustomEvent("athanas:floating-layout"));
 
         const actionLabel = state === "playing"
             ? "Pause welcome message"
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hideWelcomeAudioWidget = () => {
         if (!welcomeAudioWidget) return;
         welcomeAudioWidget.classList.add("is-hiding");
+        document.dispatchEvent(new CustomEvent("athanas:floating-layout"));
         window.setTimeout(() => {
             welcomeAudioWidget.hidden = true;
             welcomeAudioWidget.classList.remove("is-hiding", "is-playing", "is-ready", "is-ended");
@@ -140,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("load", () => {
         body.classList.add("site-loaded");
         if (loader) {
-            window.setTimeout(() => loader.classList.add("is-hidden"), 420);
+            window.setTimeout(() => loader.classList.add("is-hidden"), 240);
         }
         window.setTimeout(initialiseWelcomeAudio, 900);
     });
@@ -331,9 +335,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             event.preventDefault();
             body.classList.add("is-leaving");
+            transitionCurtain.classList.add("is-active");
             window.setTimeout(() => {
                 window.location.href = href;
-            }, 180);
+            }, 210);
         });
     });
 

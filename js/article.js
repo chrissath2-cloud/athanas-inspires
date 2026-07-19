@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", async () => {
             const link = button.dataset.copyLink || window.location.href;
             const originalText = button.textContent;
-
             try {
                 await navigator.clipboard.writeText(link);
                 button.textContent = "Link copied ✓";
@@ -19,10 +18,111 @@ document.addEventListener("DOMContentLoaded", () => {
                 temporaryInput.remove();
                 button.textContent = "Link copied ✓";
             }
-
-            window.setTimeout(() => {
-                button.textContent = originalText;
-            }, 2200);
+            window.setTimeout(() => { button.textContent = originalText; }, 2200);
         });
     });
+
+    const body = document.querySelector(".article-body");
+    const layout = document.querySelector(".article-reading-layout");
+    if (!body || !layout) return;
+
+    const page = location.pathname.split("/").pop() || "index.html";
+    const articleMap = {
+        "digital-skills-every-beginner-should-learn.html": {
+            previous: { title: "Why Technology Is Necessary", url: "why-technology-is-necessary.html" },
+            next: { title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html" },
+            continue: [
+                { title: "Start Computer Basics", url: "courses.html#beginner-installments" },
+                { title: "Practise Typing", url: "typing-trainer.html" },
+                { title: "Explore ICT Lessons", url: "courses.html" }
+            ]
+        },
+        "why-technology-is-necessary.html": {
+            previous: { title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html" },
+            next: { title: "Digital Skills Every Beginner Should Learn", url: "digital-skills-every-beginner-should-learn.html" },
+            continue: [
+                { title: "Choose a Digital Skill", url: "digital-skills-every-beginner-should-learn.html" },
+                { title: "Open Learning Tools", url: "tools.html" },
+                { title: "Join the ICT Community", url: "https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" }
+            ]
+        },
+        "the-power-of-small-beginnings.html": {
+            previous: { title: "Digital Skills Every Beginner Should Learn", url: "digital-skills-every-beginner-should-learn.html" },
+            next: { title: "Why Technology Is Necessary", url: "why-technology-is-necessary.html" },
+            continue: [
+                { title: "Begin Computer Basics", url: "courses.html#beginner-installments" },
+                { title: "Complete One Assignment", url: "assignments.html" },
+                { title: "Read More Inspiration", url: "faith-inspiration.html" }
+            ]
+        }
+    };
+    const config = articleMap[page] || articleMap["digital-skills-every-beginner-should-learn.html"];
+
+    const words = (body.innerText || "").trim().split(/\s+/).filter(Boolean).length;
+    const minutes = Math.max(1, Math.ceil(words / 220));
+    const heroCopy = document.querySelector(".article-hero-copy");
+    if (heroCopy) {
+        const readingMeta = document.createElement("p");
+        readingMeta.className = "article-reading-meta";
+        readingMeta.innerHTML = `<span aria-hidden="true">◷</span> ${minutes} min read <span aria-hidden="true">•</span> ${words.toLocaleString()} words`;
+        const intro = heroCopy.querySelector(".article-intro");
+        heroCopy.insertBefore(readingMeta, intro || null);
+    }
+
+    const progress = document.createElement("div");
+    progress.className = "article-reading-progress";
+    progress.setAttribute("aria-hidden", "true");
+    progress.innerHTML = "<span></span>";
+    document.body.appendChild(progress);
+    const progressBar = progress.firstElementChild;
+    const updateProgress = () => {
+        const start = body.getBoundingClientRect().top + scrollY - innerHeight * .22;
+        const end = start + body.offsetHeight - innerHeight * .45;
+        const value = Math.min(1, Math.max(0, (scrollY - start) / Math.max(1, end - start)));
+        progressBar.style.width = `${value * 100}%`;
+    };
+    updateProgress();
+    addEventListener("scroll", updateProgress, { passive: true });
+    addEventListener("resize", updateProgress, { passive: true });
+
+    const slugify = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const headings = Array.from(body.querySelectorAll("h2")).filter((heading) => heading.textContent.trim());
+    const seen = new Set();
+    headings.forEach((heading, index) => {
+        let id = heading.id || slugify(heading.textContent) || `article-section-${index + 1}`;
+        let unique = id; let count = 2;
+        while (seen.has(unique) || document.getElementById(unique)) unique = `${id}-${count++}`;
+        if (!heading.id) heading.id = unique;
+        seen.add(heading.id);
+    });
+
+    if (headings.length) {
+        const toc = document.createElement("aside");
+        toc.className = "article-toc";
+        toc.setAttribute("aria-label", "Table of contents");
+        toc.innerHTML = `<div class="article-toc-top"><span>Reading Guide</span><b aria-hidden="true">☰</b></div><h2>In this article</h2><nav>${headings.map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`).join("")}</nav><div class="article-toc-continue"><small>Turn reading into action</small><a href="${config.continue[0].url}">Continue Learning →</a></div>`;
+        layout.insertBefore(toc, body);
+        const links = Array.from(toc.querySelectorAll("nav a"));
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    links.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`));
+                });
+            }, { rootMargin: "-18% 0px -68% 0px", threshold: 0 });
+            headings.forEach((heading) => observer.observe(heading));
+        }
+    }
+
+    const navigation = document.createElement("nav");
+    navigation.className = "article-series-nav";
+    navigation.setAttribute("aria-label", "Previous and next articles");
+    navigation.innerHTML = `<a class="article-series-link" href="${config.previous.url}"><small>← Previous article</small><strong>${config.previous.title}</strong></a><a class="article-series-link article-series-link--next" href="${config.next.url}"><small>Next article →</small><strong>${config.next.title}</strong></a>`;
+    layout.appendChild(navigation);
+
+    const continuation = document.createElement("section");
+    continuation.className = "article-continue-learning";
+    continuation.setAttribute("aria-labelledby", "continue-learning-title");
+    continuation.innerHTML = `<h2 id="continue-learning-title">Continue Learning</h2><p>Choose one practical next step while the message is still fresh.</p><div class="article-continue-links">${config.continue.map((item) => `<a href="${item.url}"${item.url.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${item.title} <span aria-hidden="true">→</span></a>`).join("")}</div>`;
+    layout.appendChild(continuation);
 });

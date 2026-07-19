@@ -1,3 +1,18 @@
+// Browsers can restore a page from the Back/Forward Cache exactly as it was left.
+// Clear the exit fade immediately so a restored page never remains pale or almost white.
+window.addEventListener("pageshow", (event) => {
+    const navigationEntry = typeof performance.getEntriesByType === "function"
+        ? performance.getEntriesByType("navigation")[0]
+        : null;
+    const restoredFromHistory = event.persisted || navigationEntry?.type === "back_forward";
+
+    if (!restoredFromHistory) return;
+
+    document.body.classList.remove("is-leaving");
+    document.body.classList.add("site-loaded");
+    document.querySelector(".site-loader")?.classList.add("is-hidden");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const loader = document.querySelector(".site-loader");

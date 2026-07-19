@@ -1,0 +1,14 @@
+ATHANAS INSPIRES — PREMIUM PLATFORM UPGRADE (19 JULY 2026)
+
+Completed:
+1. Replaced the white page fade with a navy-and-gold transition and fixed Back/Forward cache restoration.
+2. Merged “More Ways to Learn and Grow” and “How Can We Help You?” into one premium exploration/support gateway.
+3. Upgraded Latest to newest lesson, assignment, article, and tool with dates and automatic 21-day New badges.
+4. Coordinated cookie, audio, AI Assistant, YouTube, and back-to-top floating controls on mobile and desktop.
+5. Merged common CSS into one production file per page; switched to minified learning content; added smaller logo assets; retained click-only loading for the heavy AI Assistant assets.
+6. Added premium 1200×630 social preview images for the homepage, lessons, assignments, tools, education, faith, and every major article.
+7. Added article reading progress, reading time, generated table of contents, previous/next navigation, and Continue Learning links.
+8. Added FAQPage, Course/ItemList, LearningResource, and improved Article structured data.
+
+Production CSS: css/site.min.css and css/site-youtube.min.css
+Cache version: 20260719-premium-1

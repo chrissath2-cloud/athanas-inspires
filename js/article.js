@@ -27,36 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!body || !layout) return;
 
     const page = location.pathname.split("/").pop() || "index.html";
-    const articleMap = {
-        "digital-skills-every-beginner-should-learn.html": {
-            previous: { title: "Why Technology Is Necessary", url: "why-technology-is-necessary.html" },
-            next: { title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html" },
-            continue: [
-                { title: "Start Computer Basics", url: "courses.html#beginner-installments" },
-                { title: "Practise Typing", url: "typing-trainer.html" },
-                { title: "Explore ICT Lessons", url: "courses.html" }
-            ]
-        },
-        "why-technology-is-necessary.html": {
-            previous: { title: "The Power of Small Beginnings", url: "the-power-of-small-beginnings.html" },
-            next: { title: "Digital Skills Every Beginner Should Learn", url: "digital-skills-every-beginner-should-learn.html" },
-            continue: [
-                { title: "Choose a Digital Skill", url: "digital-skills-every-beginner-should-learn.html" },
-                { title: "Open Learning Tools", url: "tools.html" },
-                { title: "Join the ICT Community", url: "https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" }
-            ]
-        },
-        "the-power-of-small-beginnings.html": {
-            previous: { title: "Digital Skills Every Beginner Should Learn", url: "digital-skills-every-beginner-should-learn.html" },
-            next: { title: "Why Technology Is Necessary", url: "why-technology-is-necessary.html" },
-            continue: [
-                { title: "Begin Computer Basics", url: "courses.html#beginner-installments" },
-                { title: "Complete One Assignment", url: "assignments.html" },
-                { title: "Read More Inspiration", url: "faith-inspiration.html" }
-            ]
-        }
-    };
-    const config = articleMap[page] || articleMap["digital-skills-every-beginner-should-learn.html"];
+    const articles = window.ATHANAS_LEARNING_CONTENT?.articles || [];
+    const currentIndex = Math.max(0, articles.findIndex((item) => item.url === page));
+    const current = articles[currentIndex] || articles[0] || {};
+    const previous = articles[(currentIndex - 1 + articles.length) % articles.length] || { title: "Faith & Personal Growth", url: "faith-inspiration.html" };
+    const next = articles[(currentIndex + 1) % articles.length] || { title: "Technology & Digital Growth", url: "technology-insights.html" };
+    const config = { previous, next, continue: current.continue || [{ title: "Explore ICT Lessons", url: "courses.html" }, { title: "Open Learning Tools", url: "tools.html" }, { title: "Read More Articles", url: "faith-inspiration.html" }] };
 
     const words = (body.innerText || "").trim().split(/\s+/).filter(Boolean).length;
     const minutes = Math.max(1, Math.ceil(words / 220));

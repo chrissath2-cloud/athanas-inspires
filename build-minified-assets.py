@@ -1,7 +1,7 @@
 """Rebuild minified CSS and JavaScript after editing source code.
 Run on Windows with: py build-minified-assets.py
 Requires: pip install rcssmin rjsmin
-The central lesson file js/learning-content.js is loaded directly and does not need minification.
+The central platform file js/learning-content.js is loaded directly so pages, articles, search, and the AI Assistant always share the current content.
 """
 from pathlib import Path
 try:

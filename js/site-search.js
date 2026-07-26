@@ -5,8 +5,9 @@
   const normalize = (value = "") => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
   const track = (name, detail = {}) => document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name, ...detail } }));
 
-  const entries = [
-    ...data.staticSearchEntries,
+  const rawEntries = [
+    ...(data.pages || []),
+    ...(data.articles || []).map((article) => ({ category: "Article", title: article.title, description: article.description, url: article.url, keywords: `${article.subtitle || ""} ${article.keywords || ""} ${(article.keyIdeas || []).join(" ")}` })),
     ...data.series.flatMap((series) => series.lessons.map((lesson) => ({
       category: lesson.status === "published" ? "Video Lesson" : "Upcoming Lesson",
       title: lesson.displayTitle,
@@ -18,7 +19,8 @@
     ...data.assignments.map((item) => ({ category: "Assignment", title: item.title, description: item.description, url: `assignments.html#${item.anchor}`, keywords: `${item.series} practice download submit` })),
     ...data.downloads.map((item) => ({ category: "Download", title: item.title, description: item.description, url: item.url, keywords: `${item.category} ${item.type} file resource` })),
     ...data.tools.map((item) => ({ category: item.status === "available" ? "Learning Tool" : "Upcoming Tool", title: item.title, description: item.description, url: item.url || "tools.html", keywords: `${item.level} ${item.purpose} ${item.status}` }))
-  ].map((entry) => ({ ...entry, search: normalize(`${entry.title} ${entry.description} ${entry.keywords || ""} ${entry.category}`) }));
+  ];
+  const entries = Array.from(new Map(rawEntries.map((entry) => [`${entry.url}|${entry.title}`, entry])).values()).map((entry) => ({ ...entry, search: normalize(`${entry.title} ${entry.description} ${entry.keywords || ""} ${entry.category}`) }));
 
   function createUi() {
     if (document.getElementById("siteSearchDialog")) return;
@@ -33,7 +35,7 @@
             <button class="site-search-close" type="button" aria-label="Close website search">×</button>
           </header>
           <label class="site-search-field"><span class="sr-only">Search lessons, assignments, tools, articles, and pages</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Try ‘Excel Session 4’, ‘typing’, or ‘assignment’"></label>
-          <div class="site-search-suggestions" aria-label="Popular searches"><button type="button" data-search-suggestion="computer basics">Computer Basics</button><button type="button" data-search-suggestion="microsoft word">Microsoft Word</button><button type="button" data-search-suggestion="excel assignments">Excel Assignments</button><button type="button" data-search-suggestion="typing trainer">Typing Trainer</button></div>
+          <div class="site-search-suggestions" aria-label="Popular searches"><button type="button" data-search-suggestion="computer basics">Computer Basics</button><button type="button" data-search-suggestion="microsoft word">Microsoft Word</button><button type="button" data-search-suggestion="excel assignments">Excel Assignments</button><button type="button" data-search-suggestion="typing trainer">Typing Trainer</button><button type="button" data-search-suggestion="build valuable skills">Build Valuable Skills</button></div>
           <div class="site-search-summary" id="siteSearchSummary">Start typing to search the whole platform.</div>
           <div class="site-search-results" id="siteSearchResults" role="listbox" aria-live="polite"></div>
         </section>

@@ -153,6 +153,42 @@
     applyFilter("all");
   }
 
+
+  function articleLink(article, note = "Written Article") {
+    return `<a class="inspiration-link-row inspiration-link-row--article" href="${escapeHtml(article.url)}">
+      <span aria-hidden="true" class="inspiration-row-icon"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v5h5M10 12h6M10 16h6"></path></svg></span>
+      <span><small>${escapeHtml(note)}</small><strong>${escapeHtml(article.title)}</strong></span><span aria-hidden="true" class="latest-arrow">→</span></a>`;
+  }
+
+  function renderArticleCollections() {
+    const articles = [...(data.articles || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const featured = articles.find((item) => item.id === data.featuredArticleId) || articles[0];
+    const home = document.getElementById("homeFeaturedArticleRoot");
+    if (home && featured) home.innerHTML = `<article class="home-editorial-card"><div class="home-editorial-copy"><p class="eyebrow dark">New Featured Article</p><div class="home-editorial-tags"><span>Skills</span><span>Personal Growth</span><span>Technology</span></div><h2>${escapeHtml(featured.title)}</h2><p class="home-editorial-subtitle">${escapeHtml(featured.subtitle)}</p><p>${escapeHtml(featured.description)}</p><blockquote>${escapeHtml(featured.quote)}</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read and Assess Yourself <span aria-hidden="true">→</span></a></div><a class="home-editorial-image" href="${escapeHtml(featured.url)}" aria-label="Read ${escapeHtml(featured.title)}"><img src="${escapeHtml(featured.image)}" alt="A learner building valuable complementary skills with technology" loading="lazy" decoding="async"><span>NEW FEATURED ARTICLE</span></a></article>`;
+
+    const faithFeature = document.getElementById("faithFeaturedArticleRoot");
+    if (faithFeature && featured) faithFeature.innerHTML = `<p class="eyebrow dark">Featured Article</p><h2 id="featured-inspiration-title">${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><blockquote>“${escapeHtml(featured.quote)}”</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read the Article</a>`;
+    const faithVisual = document.getElementById("faithFeaturedVisualRoot");
+    if (faithVisual && featured) faithVisual.innerHTML = `<p class="eyebrow dark featured-visual-eyebrow">Featured Article Visual</p><a class="featured-inspiration-image article-feature-image" href="${escapeHtml(featured.url)}"><img alt="A learner building valuable complementary skills with technology" src="${escapeHtml(featured.image)}" loading="lazy" decoding="async"><span class="visual-spotlight-badge">Skills &amp; Growth</span><span class="image-view-hint">Read article →</span></a>`;
+    const faithList = document.getElementById("faithArticleListRoot");
+    if (faithList) faithList.innerHTML = articles.filter((item) => item.categories?.includes("faith")).map((item, index) => articleLink(item, index === 0 ? "Written Article · New" : "Written Article")).join("") + `<a aria-label="View Start Where You Are inspirational image on this page" class="inspiration-link-row inspiration-link-row--visual" data-image-alt="A farmer working with simple tools beside the words Start where you are. Use what you have." data-image-caption="A standalone visual reminder to begin faithfully with the resources already in your hands." data-image-src="assets/images/start-where-you-are.webp" data-image-title="Start Where You Are. Use What You Have." data-image-viewer href="#inspiration-image-viewer"><span aria-hidden="true" class="inspiration-row-icon"><svg viewBox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="8.5" cy="9" r="1.5"></circle><path d="m5 17 5-5 3 3 2-2 4 4"></path></svg></span><span><small>Visual Inspiration</small><strong>Start Where You Are. Use What You Have.</strong></span><span aria-hidden="true" class="latest-arrow">→</span></a>`;
+
+    const techFeature = document.getElementById("techFeaturedArticleRoot");
+    if (techFeature && featured) techFeature.innerHTML = `<p class="eyebrow dark">Featured Skills &amp; Technology Article</p><h2 id="tech-feature-title">${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><blockquote>“${escapeHtml(featured.quote)}”</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read the Article</a>`;
+    const techVisual = document.getElementById("techFeaturedVisualRoot");
+    if (techVisual && featured) techVisual.innerHTML = `<a class="tech-article-feature-image" href="${escapeHtml(featured.url)}"><img src="${escapeHtml(featured.image)}" alt="A learner combining technology, communication, and problem-solving skills" loading="lazy" decoding="async"><span>Skills amplified by technology</span></a>`;
+    const techList = document.getElementById("techArticleListRoot");
+    if (techList) techList.innerHTML = articles.filter((item) => item.categories?.includes("technology")).map((item, index) => articleLink(item, index === 0 ? "Skills &amp; Technology · New" : item.readingLabel)).join("");
+  }
+
+  function restoreDynamicHash() {
+    if (!location.hash) return;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = document.getElementById(id);
+    if (!target) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ block: "start" })));
+  }
+
   function renderLatest() {
     const root = document.getElementById("latestLearningRoot");
     if (!root) return;
@@ -179,5 +215,7 @@
     renderDownloads();
     renderTools();
     renderLatest();
+    renderArticleCollections();
+    restoreDynamicHash();
   });
 })();

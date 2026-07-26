@@ -1,0 +1,9 @@
+ATHANAS INSPIRES — CONTRAST AND FAQ UPDATE
+
+1. Added sitewide contrast guardrails for all yellow and gold surfaces.
+2. Corrected inherited white text on gold buttons, badges, icons and active navigation elements.
+3. Strengthened readable body text on light premium cards.
+4. Rebuilt FAQ category tab hover, active and keyboard-focus states.
+5. Improved FAQ question-card hover and open-state animation.
+6. Updated the shared asset cache version across all HTML pages.
+7. Rebuilt all minified CSS and JavaScript files.

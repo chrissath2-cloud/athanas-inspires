@@ -1,0 +1,33 @@
+ATHANAS INSPIRES — HOMEPAGE REFINEMENT
+Date: 15 July 2026
+
+Completed updates
+-----------------
+1. Rebuilt the homepage portrait presentation around the existing image file.
+   - Larger premium frame matching the supplied reference layout.
+   - Gold hanging rail, braided suspension lines, hooks, glow, shadow, and gentle swing.
+   - Three floating identity labels retained and improved.
+   - No image was generated, converted, compressed, or edited.
+
+2. Improved the Start Here section.
+   - Clear beginner-first message and stronger visual hierarchy.
+   - Compact topic chips and a prominent first-step action.
+   - High-contrast desktop and mobile layouts.
+
+3. Rebuilt Choose Your Learning Path.
+   - Smaller, cleaner cards for Computer Basics, Microsoft Word, and Microsoft Excel.
+   - Stronger text contrast, concise descriptions, compact badges, and premium hover motion.
+
+4. Rebuilt Explore the Platform.
+   - Four distinct premium cards with clearer purposes, richer icons, numbered identities,
+     stronger hover effects, and high-contrast calls to action.
+
+5. Added responsive and reduced-motion behaviour and updated the CSS cache version.
+
+Primary edited files
+--------------------
+- index.html
+- css/premium-refresh.css
+- css/premium-refresh.min.css
+
+The existing website images and audio files were preserved unchanged.

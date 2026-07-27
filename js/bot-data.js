@@ -193,6 +193,21 @@ window.ATHANAS_ASSISTANT_DATA = {
         "math",
         "calculation"
       ]
+    },
+    {
+      "id": "qr-generator",
+      "label": "Premium QR Code Generator",
+      "need": "create and customise QR codes",
+      "description": "Create QR codes for websites, WhatsApp, Wi-Fi, contacts, payments, locations, and social media, then test and export them.",
+      "url": "qr-code-generator.html",
+      "keywords": [
+        "qr",
+        "qr code",
+        "generator",
+        "wifi",
+        "whatsapp",
+        "payment"
+      ]
     }
   ],
   "featuredFaith": {

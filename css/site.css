@@ -13817,3 +13817,7 @@ body.is-leaving{opacity:1!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){.page-transition-curtain{display:none!important}.latest-new-badge::before{animation:none}.premium-gateway-card,.latest-update-card,.article-series-link{transition:none!important}}
 /* Mobile article cleanup: hide the desktop Reading Guide. */
 @media(max-width:760px){.article-toc{display:none!important}.article-reading-layout{padding-top:24px!important}}
+/* QR Code Generator integration — 27 July 2026 */
+.premium-tools-section--upgraded .premium-tool-card--qr{--tool-accent:#0a7d72}
+.tools-showcase-link--qr{--studio-accent:#ffd12f;grid-column:1/-1}
+@media(max-width:760px){.tools-showcase-link--qr{grid-column:auto}}

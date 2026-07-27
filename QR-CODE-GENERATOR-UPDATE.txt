@@ -1,0 +1,28 @@
+ATHANAS INSPIRES — QR CODE GENERATOR UPDATE
+===========================================
+
+Added:
+- New premium qr-code-generator.html page
+- QR Code Generator cards and links on the Digital Tools page
+- Website, text, phone, email, WhatsApp, Wi-Fi, contact, SMS, location,
+  social-media and payment QR types
+- Live poster preview, premium templates, colours, patterns, corners and logo upload
+- Scan-readiness score and practical design warnings
+- PNG, JPG, SVG, PDF and print exports
+- Camera/upload QR testing where the browser supports it
+- Private browser-based project saving, favourites, duplication and deletion
+- Bulk QR generation from pasted data, CSV and optional Excel files
+- ZIP and multi-page PDF bulk export
+- Poster, story, table card, business card, badge, label and church-giving layouts
+- Branded and neutral export modes
+
+Deployment notes:
+- Upload all files and folders together; the new page depends on files inside css/
+  and js/.
+- Camera testing requires HTTPS and browser permission.
+- Core QR creation, PNG/JPG/SVG/PDF export, CSV bulk generation and ZIP export are
+  hosted locally in the website package.
+- Excel workbook import and enhanced image decoding load optional browser libraries
+  from trusted public CDNs. CSV remains available if those libraries are unavailable.
+- Dynamic QR redirection, accounts and scan analytics are intentionally reserved for
+  a future backend-enabled phase.

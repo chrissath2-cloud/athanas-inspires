@@ -1,0 +1,50 @@
+ATHANAS INSPIRES — PREMIUM INTERACTION & CLARITY UPDATE
+Date: 29 July 2026
+
+Implemented across the complete website:
+
+1. Digital Tools category navigation
+- Category links now filter the correct tools and smoothly scroll to the tools library.
+- Selecting an already active category still gives visible feedback.
+- The active tab pulses once, the result message highlights briefly, and the library receives a soft glow.
+- Explore All Tools now works without unnecessarily reloading the current Digital Tools page.
+- Mobile tabs scroll horizontally and automatically bring the selected category into view.
+
+2. Digital Tools layout
+- Hero shortened substantially on desktop and made ultra-compact on mobile.
+- Hero wording and action labels simplified.
+- Tool cards reduced while retaining icon, category, status, title, description, and action.
+- Responsive grid: four columns on large screens, three on medium screens, one on mobile.
+- Tool cards retain strong navy/blue/gold colour-changing hover effects.
+
+3. Homepage Explore & Get Support
+- Replaced the larger multi-card/FAQ layout with two compact premium panels:
+  Explore the Platform and Get Clear Support.
+- Each panel contains an icon, title, one short sentence, and one clear action.
+
+4. New labels
+- The exact word “New” now uses a continuous soft blink and gold glow.
+- Animation pauses on hover and respects reduced-motion preferences.
+
+5. Buttons and hover system
+- Primary buttons change to a navy/bright-blue gradient with white text.
+- Secondary and outline buttons change to gold with navy text.
+- WhatsApp actions receive a stronger green gradient response.
+- Important arrows move slightly on hover.
+- Hover colours are guaranteed even in browsers with unusual hover-media reporting.
+
+6. Navbar dropdowns
+- Dropdown entries appear one by one using a staggered fade, downward movement, and gentle scaling.
+- Active-link navy-on-gold contrast remains protected during repeated hover.
+
+7. Surface clarity
+- Light sections use clearer blue-tinted separation instead of white content blending into white backgrounds.
+- Common content cards receive stronger borders and soft depth.
+
+Quality checks completed:
+- 33 HTML pages reviewed.
+- 1,862 local references checked: 0 missing.
+- Duplicate IDs: 0.
+- 46 JavaScript files syntax checked: 0 failures.
+- Final CSS brace balance: valid.
+- Desktop, medium, mobile, filtered-category, dropdown, and homepage support states rendered and inspected.

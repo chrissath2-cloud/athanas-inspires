@@ -68,6 +68,7 @@
         storage: loadStorage(),
         flow: null,
         panelOpen: false,
+        expanded: false,
         returnChoiceHandled: false,
         latestQuestion: "",
         latestTopic: "General support",
@@ -438,6 +439,7 @@
 
     function injectAssistant() {
         const shell = createElement("div", "ai-assistant-shell");
+        const logoUrl = window.AthanasPaths?.resolve("/assets/images/logo.png") || "/assets/images/logo.png";
         shell.innerHTML = `
             <button class="ai-floating-button" type="button" aria-label="Open Athanas Inspires AI Assistant" aria-controls="athanas-ai-assistant-panel">
                 <span class="ai-floating-icon" aria-hidden="true">
@@ -451,7 +453,7 @@
                 <aside class="ai-assistant-panel" id="athanas-ai-assistant-panel" role="dialog" aria-modal="true" aria-labelledby="aiAssistantTitle" tabindex="-1">
                     <header class="ai-assistant-header">
                         <div class="ai-header-brand">
-                            <div class="ai-header-logo"><img src="assets/images/logo.png" alt=""></div>
+                            <div class="ai-header-logo"><img src="${logoUrl}" alt=""></div>
                             <div>
                                 <h2 id="aiAssistantTitle">${DATA.name}</h2>
                                 <p><span class="ai-status-dot" aria-hidden="true"></span>${DATA.status}</p>
@@ -460,12 +462,24 @@
                         <div class="ai-header-controls">
                             <button type="button" data-ai-new title="Reset assistant" aria-label="Reset assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19 12a7 7 0 1 0-2.05 4.95"/></svg></button>
                             <button type="button" data-ai-clear title="Clear saved conversation" aria-label="Clear saved conversation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></svg></button>
+                            <button type="button" data-ai-expand title="Expand assistant workspace" aria-label="Expand assistant workspace" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H4a1 1 0 0 0-1 1v4M16 3h4a1 1 0 0 1 1 1v4M8 21H4a1 1 0 0 1-1-1v-4M16 21h4a1 1 0 0 0 1-1v-4"/></svg></button>
                             <button type="button" data-ai-close title="Close assistant" aria-label="Close assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
                         </div>
                     </header>
                     <div class="ai-assistant-body">
-                        <div class="ai-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
-                        <div class="ai-live-suggestions" hidden></div>
+                        <div class="ai-conversation-pane">
+                            <div class="ai-messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+                            <div class="ai-live-suggestions" hidden></div>
+                        </div>
+                        <aside class="ai-related-panel" aria-label="Related learning and next steps">
+                            <div class="ai-related-panel-heading">
+                                <span aria-hidden="true">✦</span>
+                                <div><strong>Continue Learning</strong><small>Related content and practical next steps</small></div>
+                            </div>
+                            <div class="ai-related-panel-content">
+                                <p>Ask a question to see carefully matched lessons, tools, articles, and next steps here.</p>
+                            </div>
+                        </aside>
                     </div>
                     <div class="ai-composer">
                         <button class="ai-main-options-control" type="button" aria-label="Explore assistant options" aria-expanded="false" aria-controls="aiMainOptionsPanel">
@@ -498,8 +512,11 @@
         state.elements.floating?.setAttribute("data-floating-control", "assistant");
         state.elements.overlay = shell.querySelector(".ai-assistant-overlay");
         state.elements.panel = shell.querySelector(".ai-assistant-panel");
+        state.elements.conversationPane = shell.querySelector(".ai-conversation-pane");
         state.elements.messages = shell.querySelector(".ai-messages");
         state.elements.suggestions = shell.querySelector(".ai-live-suggestions");
+        state.elements.relatedPanel = shell.querySelector(".ai-related-panel-content");
+        state.elements.expandButton = shell.querySelector("[data-ai-expand]");
         state.elements.composer = shell.querySelector(".ai-composer");
         state.elements.form = shell.querySelector(".ai-input-form");
         state.elements.input = shell.querySelector("#aiAssistantInput");
@@ -517,6 +534,7 @@
         shell.querySelector("[data-ai-close]").addEventListener("click", closePanel);
         shell.querySelector("[data-ai-new]").addEventListener("click", startNewConversation);
         shell.querySelector("[data-ai-clear]").addEventListener("click", askToClearConversation);
+        state.elements.expandButton?.addEventListener("click", () => toggleExpanded());
         const mainOptionChoices = DATA.quickActions.map((item) => ({
             label: item.label,
             value: `quick:${item.id}`,
@@ -616,12 +634,32 @@
         updateVersionBadge();
     }
 
+    function toggleExpanded(force) {
+        const expanded = typeof force === "boolean" ? force : !state.expanded;
+        state.expanded = expanded;
+        state.elements.overlay?.classList.toggle("is-expanded", expanded);
+        state.elements.panel?.classList.toggle("is-expanded", expanded);
+        document.body.classList.toggle("ai-assistant-expanded", expanded && state.panelOpen);
+        if (state.elements.expandButton) {
+            state.elements.expandButton.setAttribute("aria-pressed", String(expanded));
+            state.elements.expandButton.setAttribute("aria-label", expanded ? "Return to compact assistant" : "Expand assistant workspace");
+            state.elements.expandButton.title = expanded ? "Return to compact assistant" : "Expand assistant workspace";
+            state.elements.expandButton.classList.toggle("is-active", expanded);
+        }
+        window.setTimeout(() => {
+            state.elements.panel?.focus({ preventScroll: true });
+            scrollToBottom();
+        }, 80);
+    }
+
     function openPanel() {
         if (!state.elements.panel) return;
         state.panelOpen = true;
         state.elements.overlay.classList.add("is-open");
         state.elements.overlay.setAttribute("aria-hidden", "false");
         document.body.classList.add("ai-assistant-open");
+        document.body.classList.toggle("ai-assistant-expanded", state.expanded);
+        state.elements.overlay.classList.toggle("is-expanded", state.expanded);
         state.elements.floating.setAttribute("aria-expanded", "true");
         try { sessionStorage.setItem(OPEN_SESSION_KEY, "1"); } catch (error) {}
         markVersionSeen();
@@ -636,7 +674,7 @@
         state.panelOpen = false;
         state.elements.overlay.classList.remove("is-open");
         state.elements.overlay.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("ai-assistant-open");
+        document.body.classList.remove("ai-assistant-open", "ai-assistant-expanded");
         state.elements.floating.setAttribute("aria-expanded", "false");
         try { sessionStorage.removeItem(OPEN_SESSION_KEY); } catch (error) {}
         if (restoreFocus) state.elements.floating.focus({ preventScroll: true });
@@ -707,7 +745,11 @@
             role,
             text: String(text || ""),
             details: options.details || "",
-            actions: (options.actions || []).filter((a) => a && (a.url || a.command))
+            actions: (options.actions || []).filter((a) => a && (a.url || a.command)),
+            related: (options.related || []).filter((item) => item && item.label && item.url),
+            nextStep: options.nextStep || "",
+            sourceType: options.sourceType || "",
+            sourceLabel: options.sourceLabel || ""
         };
         renderStoredMessage(record, options.choices || []);
         if (options.save !== false) {
@@ -740,6 +782,10 @@
             visitorLabel.setAttribute("aria-hidden", "true");
             bubble.appendChild(visitorLabel);
         }
+        if (record.role === "assistant" && record.sourceType) {
+            const source = createElement("span", `ai-source-badge ${record.sourceType === "official" ? "official" : "general"}`, record.sourceLabel || (record.sourceType === "official" ? "Official Athanas Inspires Content" : "General Guidance"));
+            bubble.appendChild(source);
+        }
         const paragraph = createElement("p", "", record.text);
         bubble.appendChild(paragraph);
 
@@ -760,15 +806,75 @@
             bubble.appendChild(details);
         }
 
+        if (record.nextStep) {
+            const next = createElement("div", "ai-next-step");
+            next.innerHTML = `<strong>Next step</strong><span>${escapeAssistantText(record.nextStep)}</span>`;
+            bubble.appendChild(next);
+        }
         if (record.actions && record.actions.length) {
             bubble.appendChild(renderActions(record.actions));
+        }
+        if (record.related && record.related.length) {
+            bubble.appendChild(renderRelatedInline(record.related));
         }
         content.appendChild(bubble);
         if (choices.length) content.appendChild(renderChoices(choices));
         row.appendChild(content);
         if (record.role === "user") row.appendChild(avatar("user"));
         state.elements.messages.appendChild(row);
+        if (record.role === "assistant") updateRelatedPanel(record);
         scrollToBottom();
+    }
+
+    function escapeAssistantText(value) {
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function renderRelatedInline(related) {
+        const wrap = createElement("div", "ai-related-inline");
+        wrap.appendChild(createElement("strong", "ai-related-inline-title", "Related learning"));
+        const list = createElement("div", "ai-related-inline-list");
+        related.slice(0, 3).forEach((item) => {
+            const link = createElement("a", "ai-related-inline-link");
+            link.href = window.AthanasPaths?.resolve(item.url) || item.url;
+            if (/^https?:/i.test(item.url)) { link.target = "_blank"; link.rel = "noopener noreferrer"; }
+            link.innerHTML = `<span>${escapeAssistantText(item.label)}</span><b aria-hidden="true">→</b>`;
+            list.appendChild(link);
+        });
+        wrap.appendChild(list);
+        return wrap;
+    }
+
+    function updateRelatedPanel(record) {
+        if (!state.elements.relatedPanel || !record) return;
+        const links = [];
+        [...(record.related || []), ...(record.actions || []).filter((item) => item.url)].forEach((item) => {
+            if (!item?.url || links.some((existing) => existing.url === item.url)) return;
+            links.push({ label: item.label, url: item.url });
+        });
+        const sourceLabel = record.sourceLabel || (record.sourceType === "official" ? "Official Athanas Inspires Content" : record.sourceType ? "General Guidance" : "Learning Support");
+        const sourceClass = record.sourceType === "official" ? "official" : "general";
+        state.elements.relatedPanel.innerHTML = `
+            <span class="ai-related-source ${sourceClass}">${escapeAssistantText(sourceLabel)}</span>
+            ${record.nextStep ? `<div class="ai-related-next"><strong>Recommended next step</strong><p>${escapeAssistantText(record.nextStep)}</p></div>` : ""}
+            <div class="ai-related-panel-links"></div>`;
+        const container = state.elements.relatedPanel.querySelector(".ai-related-panel-links");
+        if (!links.length) {
+            container.innerHTML = '<p class="ai-related-empty">Continue by asking a more specific question or opening the assistant options.</p>';
+            return;
+        }
+        links.slice(0, 5).forEach((item) => {
+            const link = createElement("a", "ai-related-panel-link");
+            link.href = window.AthanasPaths?.resolve(item.url) || item.url;
+            if (/^https?:/i.test(item.url)) { link.target = "_blank"; link.rel = "noopener noreferrer"; }
+            link.innerHTML = `<span>${escapeAssistantText(item.label)}</span><b aria-hidden="true">→</b>`;
+            container.appendChild(link);
+        });
     }
 
     function renderActions(actions) {
@@ -900,9 +1006,15 @@
     }
 
     function scrollToBottom() {
+        const box = state.elements.messages;
+        if (!box) return;
+
+        // Two frames allow newly rendered messages and layout changes
+        // (including expanded mode) to settle before scrolling.
         window.requestAnimationFrame(() => {
-            const box = state.elements.messages;
-            if (box) box.scrollTop = box.scrollHeight;
+            window.requestAnimationFrame(() => {
+                box.scrollTo({ top: box.scrollHeight, behavior: "auto" });
+            });
         });
     }
 
@@ -1275,14 +1387,22 @@
         const actions = [...(entry.actions || [])];
         addBotMessage(entry.answer, {
             details: entry.details || "",
-            actions
+            actions,
+            related: entry.related || [],
+            nextStep: entry.nextStep || "",
+            sourceType: entry.sourceType || "general",
+            sourceLabel: entry.sourceLabel || (entry.sourceType === "official" ? "Official Athanas Inspires Content" : "General Guidance")
         });
     }
 
     function showFallback(query) {
         state.latestTopic = inferTopic(query);
         const whatsappUrl = buildWhatsAppUrl(query, state.latestTopic);
-        addBotMessage("I’m sorry—I couldn’t find a confident answer to that question. Try a shorter question, explore the Frequently Asked Questions, or ask Athanas Inspires on WhatsApp. When I’m unsure, I guide rather than guess.", {
+        addBotMessage("I’m sorry—I couldn’t find a confident answer to that question. Try naming the main topic and the exact task, explore the Frequently Asked Questions, or ask Athanas Inspires on WhatsApp. When I’m unsure, I guide rather than guess.", {
+            sourceType: "general",
+            sourceLabel: "General Guidance",
+            nextStep: `Try asking: “How do I ${query.replace(/[?!.]+$/g, "").toLowerCase()}?”`,
+            related: [{ label: "Frequently Asked Questions", url: "/faq.html" }, { label: "Contact Athanas Inspires", url: "/contact.html" }],
             actions: [
                 { label: "Try Another Question", command: "rephrase", kind: "primary" },
                 { label: "Open FAQ", url: "faq.html" },

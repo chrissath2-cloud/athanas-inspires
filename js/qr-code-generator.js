@@ -36,7 +36,7 @@
     values:{},
     style:{fg:"#06183a",bg:"#ffffff",dots:"rounded",corners:"extra-rounded"},
     logo:{source:"",processed:"",shape:"rounded",size:26},
-    poster:{showTop:true,showBottom:true,showWebsite:true,topText:"Scan to open athanasinspires.com",bottomText:"Learn. Believe. Grow. Build.",topDirty:false,bottomDirty:false},
+    poster:{showTop:true,showBottom:true,showWebsite:true,topText:"Scan to open athanasinspires.com",bottomText:"",topDirty:false,bottomDirty:false},
     touched:new Set(),
     visited:new Set(["type"])
   };
@@ -391,10 +391,6 @@
     if(force||!state.poster.topDirty){
       state.poster.topText=getSuggestedTopText();
       if(dom.topText)dom.topText.value=state.poster.topText;
-    }
-    if(force||!state.poster.bottomDirty){
-      state.poster.bottomText="Learn. Believe. Grow. Build.";
-      if(dom.bottomText)dom.bottomText.value=state.poster.bottomText;
     }
   }
 
@@ -881,7 +877,7 @@
     state.values={};
     state.style={fg:"#06183a",bg:"#ffffff",dots:"rounded",corners:"extra-rounded"};
     state.logo={source:"",processed:"",shape:"rounded",size:26};
-    state.poster={showTop:true,showBottom:true,showWebsite:true,topText:"Scan to open athanasinspires.com",bottomText:"Learn. Believe. Grow. Build.",topDirty:false,bottomDirty:false};
+    state.poster={showTop:true,showBottom:true,showWebsite:true,topText:"Scan to open athanasinspires.com",bottomText:"",topDirty:false,bottomDirty:false};
     state.touched.clear();
     state.visited=new Set(["type"]);
     dom.foreground.value=state.style.fg;dom.foregroundHex.value=state.style.fg.toUpperCase();

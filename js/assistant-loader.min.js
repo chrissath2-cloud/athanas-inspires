@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const VERSION = "20260729-digital-tools-1";
+  const VERSION = "20260729-assistant-scroll-2";
   let loadingPromise = null;
 
   const track = (name, detail = {}) => document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name, ...detail } }));
@@ -58,6 +58,7 @@
         await loadStylesheet(window.AthanasPaths?.resolve("/css/bot.min.css") || "/css/bot.min.css");
         await loadScript(window.AthanasPaths?.resolve("/js/bot-data.min.js") || "/js/bot-data.min.js");
         await loadScript(window.AthanasPaths?.resolve("/js/assistant-learning-sync.js") || "/js/assistant-learning-sync.js");
+        await loadScript(window.AthanasPaths?.resolve("/js/assistant-knowledge-base.js") || "/js/assistant-knowledge-base.js");
         await loadScript(window.AthanasPaths?.resolve("/js/bot.min.js") || "/js/bot.min.js");
         document.querySelector(".ai-loader-launcher")?.remove();
         track("assistant_loaded", { label: "AI Assistant" });

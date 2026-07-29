@@ -164,7 +164,7 @@
     const articles = [...(data.articles || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
     const featured = articles.find((item) => item.id === data.featuredArticleId) || articles[0];
     const home = document.getElementById("homeFeaturedArticleRoot");
-    if (home && featured) home.innerHTML = `<article class="home-editorial-card"><div class="home-editorial-copy"><p class="eyebrow dark">New Featured Article</p><div class="home-editorial-tags"><span>Skills</span><span>Personal Growth</span><span>Technology</span></div><h2>${escapeHtml(featured.title)}</h2><p class="home-editorial-subtitle">${escapeHtml(featured.subtitle)}</p><p>${escapeHtml(featured.description)}</p><blockquote>${escapeHtml(featured.quote)}</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read and Assess Yourself <span aria-hidden="true">→</span></a></div><a class="home-editorial-image" href="${escapeHtml(featured.url)}" aria-label="Read ${escapeHtml(featured.title)}"><img src="${escapeHtml(featured.image)}" alt="A learner building valuable complementary skills with technology" loading="lazy" decoding="async"><span>NEW FEATURED ARTICLE</span></a></article>`;
+    if (home && featured) home.innerHTML = `<article class="home-editorial-card"><a class="home-editorial-image" href="${escapeHtml(featured.url)}" aria-label="Read ${escapeHtml(featured.title)}"><img src="${escapeHtml(featured.image)}" alt="A learner building valuable complementary skills with technology" loading="lazy" decoding="async"><span class="home-editorial-badge"><span class="new-blink">NEW</span><span>ARTICLE</span></span></a><div class="home-editorial-copy"><div class="home-editorial-meta"><span>New Featured Article</span><small>${escapeHtml(featured.dateLabel)} · ${escapeHtml(featured.readingLabel)}</small></div><h2>${escapeHtml(featured.title)}</h2><p class="home-editorial-subtitle">${escapeHtml(featured.subtitle)}</p><a class="home-editorial-link" href="${escapeHtml(featured.url)}">Read the article <span aria-hidden="true">→</span></a></div></article>`;
 
     const faithFeature = document.getElementById("faithFeaturedArticleRoot");
     if (faithFeature && featured) faithFeature.innerHTML = `<p class="eyebrow dark">Featured Article</p><h2 id="featured-inspiration-title">${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><blockquote>“${escapeHtml(featured.quote)}”</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read the Article</a>`;
@@ -195,15 +195,15 @@
     const labels = { lesson: "Newest Lesson", assignment: "Newest Assignment", article: "Newest Article", tool: "Newest Tool" };
     const now = new Date();
     now.setHours(0, 0, 0, 0);
-    const items = [...(data.latestUpdates || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const items = [...(data.latestUpdates || [])].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
     root.innerHTML = items.map((item) => {
       const published = new Date(`${item.date}T00:00:00`);
       const ageDays = Math.floor((now - published) / 86400000);
       const isNew = ageDays >= 0 && ageDays <= 21;
-      return `<a href="${escapeHtml(item.url)}" class="latest-update-card latest-update-card--${escapeHtml(item.type)} search-item" data-search="${escapeHtml(`${item.type} ${item.title} ${item.summary}`)}">
-        <div class="latest-update-top"><span class="latest-update-icon" aria-hidden="true">${item.icon}</span>${isNew ? '<span class="latest-new-badge">New</span>' : ''}</div>
-        <div class="latest-update-copy"><span class="latest-update-type">${escapeHtml(labels[item.type] || item.type)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p></div>
-        <span class="latest-update-footer"><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.dateLabel)}</time><span class="latest-update-open">Open <span aria-hidden="true">→</span></span></span>
+      return `<a href="${escapeHtml(item.url)}" class="latest-update-row latest-update-row--${escapeHtml(item.type)} search-item" data-search="${escapeHtml(`${item.type} ${item.title} ${item.summary}`)}">
+        <span class="latest-update-icon" aria-hidden="true">${item.icon}</span>
+        <span class="latest-update-copy"><span class="latest-update-meta"><span>${escapeHtml(labels[item.type] || item.type)}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.dateLabel)}</time>${isNew ? '<b>New</b>' : ''}</span><h3>${escapeHtml(item.title)}</h3></span>
+        <span class="latest-update-open" aria-hidden="true">→</span>
       </a>`;
     }).join("");
   }

@@ -1,0 +1,14 @@
+Digital Tools local preview link fix
+Date: 29 July 2026
+
+Problem fixed:
+- Links such as digital-tools/ opened the folder listing under file:/// previews.
+- Category links such as digital-tools/#create had the same problem.
+
+Solution:
+- All Digital Tools hub links now explicitly target digital-tools/index.html.
+- Category links now target digital-tools/index.html#category.
+- Links inside the digital-tools folder now explicitly target index.html.
+- Dynamic hub links in website JavaScript now target /digital-tools/index.html.
+
+These links work when opened locally, on GitHub Pages, and on athanasinspires.com.

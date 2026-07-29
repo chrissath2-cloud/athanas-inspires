@@ -377,3 +377,32 @@
   .qr-poster-sheet #qrCodeMount{width:57px;height:57px}
   .qr-preview-actions button:first-child{display:none}
 }
+
+/* ---------- 2026-07-29: Keep QR help above the sticky live preview ---------- */
+.qr-studio-header {
+  position: relative;
+  z-index: 90;
+  overflow: visible;
+}
+.qr-studio-topbar,
+.qr-top-actions,
+.qr-help-wrap {
+  position: relative;
+  z-index: 91;
+}
+.qr-help-menu {
+  z-index: 120 !important;
+}
+.qr-workspace-section {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 760px) {
+  .qr-help-menu {
+    top: calc(100% + 8px);
+    max-height: min(430px, calc(100vh - 120px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}

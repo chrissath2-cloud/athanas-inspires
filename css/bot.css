@@ -3185,4 +3185,682 @@ body.mobile-nav-open .ai-floating-button {
         font-size: 6px !important;
     }
 }
-\n\n/* =========================================================\n   V1.5.5 — MORE CONVERSATION SPACE + SMARTER LIVE SUGGESTIONS\n   Removes the permanent example-question drawer and lets\n   matching questions appear only while the visitor types.\n   ========================================================= */\n\n/* The old static Suggested Questions drawer is permanently removed. */\n.ai-example-drawer,\n.ai-example-toggle,\n.ai-example-questions {\n    display: none !important;\n}\n\n/* Give the conversation the greatest practical vertical share. */\n.ai-assistant-header {\n    min-height: 56px;\n    padding: 6px 8px;\n}\n\n.ai-header-logo {\n    width: 36px;\n    height: 36px;\n    padding: 2px;\n    border-radius: 10px;\n}\n\n.ai-header-logo img {\n    border-radius: 8px;\n}\n\n.ai-header-brand h2 {\n    font-size: 13px;\n    line-height: 1.1;\n}\n\n.ai-header-brand p {\n    margin-top: 1px;\n    font-size: 9.4px;\n}\n\n.ai-header-controls button {\n    width: 27px;\n    height: 27px;\n    border-radius: 8px;\n}\n\n.ai-header-controls button svg {\n    width: 14px;\n    height: 14px;\n}\n\n.ai-messages {\n    padding: 8px 8px 10px;\n}\n\n.ai-message-row {\n    margin-bottom: 8px;\n}\n\n.ai-composer,\n.ai-composer.is-hidden {\n    position: relative;\n    z-index: 6;\n    padding: 4px 6px 5px;\n}\n\n.ai-main-options-control {\n    min-height: 28px;\n    margin-bottom: 3px;\n    padding: 2px 6px;\n    border-radius: 9px;\n}\n\n.ai-main-options-control-icon {\n    width: 20px;\n    height: 20px;\n    border-radius: 6px;\n    font-size: 10px;\n}\n\n.ai-main-options-control-copy strong {\n    font-size: 10px;\n}\n\n.ai-main-options-panel {\n    max-height: min(27dvh, 220px);\n    margin-bottom: 3px;\n    padding: 5px;\n}\n\n.ai-input-form {\n    grid-template-columns: minmax(0, 1fr) 34px;\n    gap: 4px;\n    padding: 3px;\n    border-radius: 12px;\n}\n\n.ai-input-form textarea {\n    min-height: 30px;\n    max-height: 76px;\n    padding: 5px 3px;\n    line-height: 1.3;\n}\n\n.ai-send-button {\n    width: 34px;\n    height: 34px;\n    padding: 7px;\n    border-radius: 9px;\n}\n\n.ai-assistant-footer {\n    min-height: 17px;\n    padding-top: 2px;\n    padding-bottom: calc(2px + env(safe-area-inset-bottom));\n}\n\n/* Live suggestions float over the lower conversation area instead of\n   consuming permanent layout space. */\n.ai-live-suggestions {\n    left: 7px;\n    right: 7px;\n    bottom: 7px;\n    z-index: 12;\n    max-height: min(46dvh, 360px);\n    padding: 6px;\n    border: 1px solid rgba(7, 69, 155, .20);\n    border-radius: 14px;\n    background:\n        radial-gradient(circle at 96% 0%, rgba(250, 204, 21, .13), transparent 31%),\n        rgba(255, 255, 255, .992);\n    box-shadow: 0 20px 52px rgba(3, 23, 55, .24), inset 0 1px 0 #fff;\n}\n\n.ai-suggestions-label {\n    margin: 1px 6px 5px;\n    color: #063f89;\n    font-size: 9.5px;\n    letter-spacing: .075em;\n}\n\n.ai-suggestion-button {\n    display: grid;\n    grid-template-columns: minmax(0, 1fr) auto;\n    grid-template-areas:\n        "title arrow"\n        "topic arrow";\n    align-items: center;\n    column-gap: 8px;\n    min-height: 42px;\n    padding: 6px 8px 6px 10px;\n    border: 1px solid transparent;\n    border-radius: 10px;\n    color: #102f52;\n    background: rgba(246, 250, 255, .76);\n    box-shadow: inset 3px 0 0 rgba(17, 91, 190, .13);\n    transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;\n}\n\n.ai-suggestion-button + .ai-suggestion-button {\n    margin-top: 3px;\n}\n\n.ai-suggestion-title {\n    grid-area: title;\n    min-width: 0;\n    color: #0a315f;\n    font-size: 11.6px;\n    font-weight: 820;\n    line-height: 1.25;\n    overflow-wrap: anywhere;\n}\n\n.ai-suggestion-topic {\n    grid-area: topic;\n    margin-top: 2px;\n    color: #506985;\n    font-size: 9.2px;\n    font-weight: 700;\n    line-height: 1.15;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n.ai-suggestion-arrow {\n    grid-area: arrow;\n    color: #b66a00;\n    font-size: 15px;\n    font-weight: 900;\n    transition: transform .2s ease;\n}\n\n.ai-suggestion-button:hover,\n.ai-suggestion-button:focus-visible {\n    transform: translateY(-1px);\n    color: #052a60;\n    border-color: rgba(245, 158, 11, .32);\n    background: linear-gradient(135deg, #fffdf4, #eef6ff);\n    box-shadow: inset 4px 0 0 #f2b30f, 0 8px 20px rgba(6, 53, 121, .12);\n}\n\n.ai-suggestion-button:hover .ai-suggestion-arrow,\n.ai-suggestion-button:focus-visible .ai-suggestion-arrow {\n    transform: translateX(2px);\n}\n\n@media (max-height: 720px) {\n    .ai-assistant-header {\n        min-height: 50px;\n        padding-block: 5px;\n    }\n\n    .ai-header-logo {\n        width: 32px;\n        height: 32px;\n    }\n\n    .ai-messages {\n        padding-top: 6px;\n        padding-bottom: 7px;\n    }\n\n    .ai-main-options-control {\n        min-height: 26px;\n    }\n}\n\n@media (max-width: 560px) {\n    .ai-assistant-header {\n        min-height: 52px;\n        padding: 5px 6px;\n    }\n\n    .ai-header-logo {\n        width: 33px;\n        height: 33px;\n    }\n\n    .ai-header-brand h2 {\n        font-size: 12.2px;\n    }\n\n    .ai-header-brand p {\n        font-size: 8.8px;\n    }\n\n    .ai-header-controls button {\n        width: 25px;\n        height: 25px;\n    }\n\n    .ai-messages {\n        padding-inline: 6px;\n    }\n\n    .ai-composer,\n    .ai-composer.is-hidden {\n        padding-inline: 5px;\n    }\n\n    .ai-live-suggestions {\n        left: 5px;\n        right: 5px;\n        bottom: 5px;\n        max-height: min(44dvh, 330px);\n    }\n\n    .ai-suggestion-button {\n        min-height: 40px;\n    }\n\n    .ai-suggestion-title {\n        font-size: 11.2px;\n    }\n}\n
+
+
+/* =========================================================
+   V1.5.5 — MORE CONVERSATION SPACE + SMARTER LIVE SUGGESTIONS
+   Removes the permanent example-question drawer and lets
+   matching questions appear only while the visitor types.
+   ========================================================= */
+
+/* The old static Suggested Questions drawer is permanently removed. */
+.ai-example-drawer,
+.ai-example-toggle,
+.ai-example-questions {
+    display: none !important;
+}
+
+/* Give the conversation the greatest practical vertical share. */
+.ai-assistant-header {
+    min-height: 56px;
+    padding: 6px 8px;
+}
+
+.ai-header-logo {
+    width: 36px;
+    height: 36px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.ai-header-logo img {
+    border-radius: 8px;
+}
+
+.ai-header-brand h2 {
+    font-size: 13px;
+    line-height: 1.1;
+}
+
+.ai-header-brand p {
+    margin-top: 1px;
+    font-size: 9.4px;
+}
+
+.ai-header-controls button {
+    width: 27px;
+    height: 27px;
+    border-radius: 8px;
+}
+
+.ai-header-controls button svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ai-messages {
+    padding: 8px 8px 10px;
+}
+
+.ai-message-row {
+    margin-bottom: 8px;
+}
+
+.ai-composer,
+.ai-composer.is-hidden {
+    position: relative;
+    z-index: 6;
+    padding: 4px 6px 5px;
+}
+
+.ai-main-options-control {
+    min-height: 28px;
+    margin-bottom: 3px;
+    padding: 2px 6px;
+    border-radius: 9px;
+}
+
+.ai-main-options-control-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    font-size: 10px;
+}
+
+.ai-main-options-control-copy strong {
+    font-size: 10px;
+}
+
+.ai-main-options-panel {
+    max-height: min(27dvh, 220px);
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.ai-input-form {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    gap: 4px;
+    padding: 3px;
+    border-radius: 12px;
+}
+
+.ai-input-form textarea {
+    min-height: 30px;
+    max-height: 76px;
+    padding: 5px 3px;
+    line-height: 1.3;
+}
+
+.ai-send-button {
+    width: 34px;
+    height: 34px;
+    padding: 7px;
+    border-radius: 9px;
+}
+
+.ai-assistant-footer {
+    min-height: 17px;
+    padding-top: 2px;
+    padding-bottom: calc(2px + env(safe-area-inset-bottom));
+}
+
+/* Live suggestions float over the lower conversation area instead of
+   consuming permanent layout space. */
+.ai-live-suggestions {
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    z-index: 12;
+    max-height: min(46dvh, 360px);
+    padding: 6px;
+    border: 1px solid rgba(7, 69, 155, .20);
+    border-radius: 14px;
+    background:
+        radial-gradient(circle at 96% 0%, rgba(250, 204, 21, .13), transparent 31%),
+        rgba(255, 255, 255, .992);
+    box-shadow: 0 20px 52px rgba(3, 23, 55, .24), inset 0 1px 0 #fff;
+}
+
+.ai-suggestions-label {
+    margin: 1px 6px 5px;
+    color: #063f89;
+    font-size: 9.5px;
+    letter-spacing: .075em;
+}
+
+.ai-suggestion-button {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+        "title arrow"
+        "topic arrow";
+    align-items: center;
+    column-gap: 8px;
+    min-height: 42px;
+    padding: 6px 8px 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #102f52;
+    background: rgba(246, 250, 255, .76);
+    box-shadow: inset 3px 0 0 rgba(17, 91, 190, .13);
+    transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.ai-suggestion-button + .ai-suggestion-button {
+    margin-top: 3px;
+}
+
+.ai-suggestion-title {
+    grid-area: title;
+    min-width: 0;
+    color: #0a315f;
+    font-size: 11.6px;
+    font-weight: 820;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.ai-suggestion-topic {
+    grid-area: topic;
+    margin-top: 2px;
+    color: #506985;
+    font-size: 9.2px;
+    font-weight: 700;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ai-suggestion-arrow {
+    grid-area: arrow;
+    color: #b66a00;
+    font-size: 15px;
+    font-weight: 900;
+    transition: transform .2s ease;
+}
+
+.ai-suggestion-button:hover,
+.ai-suggestion-button:focus-visible {
+    transform: translateY(-1px);
+    color: #052a60;
+    border-color: rgba(245, 158, 11, .32);
+    background: linear-gradient(135deg, #fffdf4, #eef6ff);
+    box-shadow: inset 4px 0 0 #f2b30f, 0 8px 20px rgba(6, 53, 121, .12);
+}
+
+.ai-suggestion-button:hover .ai-suggestion-arrow,
+.ai-suggestion-button:focus-visible .ai-suggestion-arrow {
+    transform: translateX(2px);
+}
+
+@media (max-height: 720px) {
+    .ai-assistant-header {
+        min-height: 50px;
+        padding-block: 5px;
+    }
+
+    .ai-header-logo {
+        width: 32px;
+        height: 32px;
+    }
+
+    .ai-messages {
+        padding-top: 6px;
+        padding-bottom: 7px;
+    }
+
+    .ai-main-options-control {
+        min-height: 26px;
+    }
+}
+
+@media (max-width: 560px) {
+    .ai-assistant-header {
+        min-height: 52px;
+        padding: 5px 6px;
+    }
+
+    .ai-header-logo {
+        width: 33px;
+        height: 33px;
+    }
+
+    .ai-header-brand h2 {
+        font-size: 12.2px;
+    }
+
+    .ai-header-brand p {
+        font-size: 8.8px;
+    }
+
+    .ai-header-controls button {
+        width: 25px;
+        height: 25px;
+    }
+
+    .ai-messages {
+        padding-inline: 6px;
+    }
+
+    .ai-composer,
+    .ai-composer.is-hidden {
+        padding-inline: 5px;
+    }
+
+    .ai-live-suggestions {
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        max-height: min(44dvh, 330px);
+    }
+
+    .ai-suggestion-button {
+        min-height: 40px;
+    }
+
+    .ai-suggestion-title {
+        font-size: 11.2px;
+    }
+}
+
+/* =========================================================
+   V2.4 — SPACIOUS PREMIUM AI LEARNING WORKSPACE
+   Compact by default, expandable for serious learning.
+   ========================================================= */
+.ai-assistant-panel {
+    width: min(470px, calc(100vw - 28px));
+    max-height: min(760px, calc(100dvh - 30px));
+    border: 1px solid rgba(20, 83, 158, .18);
+    border-radius: 24px;
+    background: linear-gradient(180deg, #f4f8ff 0%, #edf5ff 100%);
+    box-shadow: 0 28px 80px rgba(3, 25, 63, .34), inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+.ai-assistant-header {
+    min-height: 66px;
+    padding: 10px 12px;
+    background:
+        radial-gradient(circle at 92% 12%, rgba(245, 188, 34, .22), transparent 27%),
+        linear-gradient(135deg, #061f47, #074b9b 68%, #0b67c9);
+}
+
+.ai-header-logo {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 214, 91, .55);
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+
+.ai-header-brand h2 {
+    color: #fff;
+    font-size: 14.5px;
+    letter-spacing: -.015em;
+}
+
+.ai-header-brand p { color: #dbeaff; font-size: 10px; }
+.ai-header-controls { gap: 5px; }
+.ai-header-controls button {
+    width: 31px;
+    height: 31px;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.22);
+    background: rgba(255,255,255,.10);
+}
+.ai-header-controls button:hover,
+.ai-header-controls button:focus-visible,
+.ai-header-controls button[aria-pressed="true"] {
+    color: #052a5f;
+    border-color: #ffd65b;
+    background: linear-gradient(135deg, #ffe38a, #f5b917);
+    box-shadow: 0 8px 22px rgba(245, 185, 23, .32);
+    transform: translateY(-2px);
+}
+
+.ai-assistant-body {
+    min-height: 0;
+    background:
+        radial-gradient(circle at 100% 0%, rgba(57, 138, 233, .10), transparent 30%),
+        linear-gradient(180deg, #f4f8ff, #eef5ff);
+}
+
+.ai-conversation-pane {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.ai-messages {
+    flex: 1 1 auto;
+    min-height: 270px;
+    padding: 17px 16px 20px;
+    scroll-padding-bottom: 24px;
+}
+
+.ai-message-row { margin-bottom: 14px; }
+.ai-message-content { gap: 8px; }
+.ai-message-bubble {
+    padding: 13px 14px;
+    border-radius: 17px;
+    border: 1px solid rgba(14, 75, 151, .12);
+    background: #fff;
+    box-shadow: 0 9px 25px rgba(7, 43, 91, .09);
+}
+.ai-message-row.user .ai-message-bubble {
+    border-color: rgba(255, 214, 91, .24);
+    background: linear-gradient(135deg, #073d80, #0b63bd);
+    box-shadow: 0 10px 26px rgba(4, 57, 126, .18);
+}
+.ai-message-bubble > p {
+    font-size: 13px;
+    line-height: 1.58;
+}
+
+.ai-source-badge,
+.ai-related-source {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 9px;
+    padding: 5px 8px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 850;
+    letter-spacing: .045em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.ai-source-badge.official,
+.ai-related-source.official {
+    color: #073a79;
+    border-color: rgba(240, 171, 0, .36);
+    background: linear-gradient(135deg, #fff7d4, #ffe9a0);
+}
+.ai-source-badge.general,
+.ai-related-source.general {
+    color: #0754a4;
+    border-color: rgba(35, 117, 214, .22);
+    background: linear-gradient(135deg, #e9f4ff, #d8eaff);
+}
+
+.ai-next-step {
+    display: grid;
+    gap: 3px;
+    margin-top: 11px;
+    padding: 10px 11px;
+    border-left: 4px solid #f2b30f;
+    border-radius: 10px;
+    color: #173a61;
+    background: linear-gradient(135deg, #fffaf0, #f4f9ff);
+}
+.ai-next-step strong {
+    color: #7a4b00;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+.ai-next-step span { font-size: 11.5px; line-height: 1.45; }
+
+.ai-related-inline {
+    display: grid;
+    gap: 7px;
+    margin-top: 12px;
+    padding-top: 11px;
+    border-top: 1px solid rgba(15, 78, 153, .12);
+}
+.ai-related-inline-title {
+    color: #173d69;
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+.ai-related-inline-list { display: grid; gap: 6px; }
+.ai-related-inline-link,
+.ai-related-panel-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 38px;
+    padding: 8px 10px;
+    border: 1px solid rgba(15, 83, 164, .13);
+    border-radius: 10px;
+    color: #0a4d98;
+    background: #f4f8ff;
+    font-size: 11px;
+    font-weight: 790;
+    text-decoration: none;
+    transition: color .28s ease, background .28s ease, border-color .28s ease, transform .28s ease, box-shadow .28s ease;
+}
+.ai-related-inline-link b,
+.ai-related-panel-link b { color: #c47a00; font-size: 15px; transition: transform .28s ease; }
+.ai-related-inline-link:hover,
+.ai-related-inline-link:focus-visible,
+.ai-related-panel-link:hover,
+.ai-related-panel-link:focus-visible {
+    color: #fff;
+    border-color: rgba(255, 212, 82, .74);
+    background: linear-gradient(135deg, #073b7d, #0b6bc7);
+    box-shadow: 0 10px 23px rgba(7, 70, 151, .18);
+    transform: translateY(-2px);
+}
+.ai-related-inline-link:hover b,
+.ai-related-inline-link:focus-visible b,
+.ai-related-panel-link:hover b,
+.ai-related-panel-link:focus-visible b { color: #ffd75e; transform: translateX(3px); }
+
+.ai-related-panel {
+    display: none;
+    min-width: 0;
+    border-left: 1px solid rgba(15, 76, 148, .13);
+    background:
+        radial-gradient(circle at 95% 2%, rgba(244, 183, 26, .14), transparent 27%),
+        linear-gradient(180deg, #fff, #f5f9ff);
+    overflow: auto;
+}
+.ai-related-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 18px 14px;
+    border-bottom: 1px solid rgba(14, 73, 145, .10);
+}
+.ai-related-panel-heading > span {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    border-radius: 11px;
+    color: #fff;
+    background: linear-gradient(135deg, #073f88, #0b6ac8);
+    box-shadow: 0 8px 20px rgba(8, 81, 168, .20);
+}
+.ai-related-panel-heading strong { display: block; color: #0a315f; font-size: 13px; }
+.ai-related-panel-heading small { display: block; margin-top: 2px; color: #607790; font-size: 9.5px; line-height: 1.3; }
+.ai-related-panel-content { display: grid; gap: 13px; padding: 17px 18px 22px; }
+.ai-related-panel-content > p,
+.ai-related-empty { margin: 0; color: #526b86; font-size: 11.5px; line-height: 1.55; }
+.ai-related-next {
+    padding: 13px;
+    border: 1px solid rgba(240, 177, 12, .20);
+    border-radius: 13px;
+    background: linear-gradient(135deg, #fffaf0, #f5f9ff);
+}
+.ai-related-next strong { color: #815000; font-size: 9.5px; letter-spacing: .055em; text-transform: uppercase; }
+.ai-related-next p { margin: 5px 0 0; color: #294a6d; font-size: 11.5px; line-height: 1.5; }
+.ai-related-panel-links { display: grid; gap: 8px; }
+
+.ai-composer,
+.ai-composer.is-hidden {
+    padding: 10px 12px 11px;
+    border-top: 1px solid rgba(14, 74, 145, .12);
+    background: rgba(255,255,255,.96);
+}
+.ai-main-options-control { min-height: 38px; margin-bottom: 7px; padding: 5px 9px; }
+.ai-main-options-control-copy strong { font-size: 11px; }
+.ai-main-options-control-copy small { font-size: 8.5px; }
+.ai-input-form {
+    grid-template-columns: minmax(0,1fr) 41px;
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid rgba(12, 81, 164, .17);
+    border-radius: 15px;
+    background: #f7faff;
+    box-shadow: inset 0 1px 0 #fff;
+}
+.ai-input-form:focus-within {
+    border-color: #f2b30f;
+    box-shadow: 0 0 0 3px rgba(242, 179, 15, .13), inset 0 1px 0 #fff;
+}
+.ai-input-form textarea { min-height: 38px; max-height: 110px; padding: 8px 6px; font-size: 13px; }
+.ai-send-button { width: 41px; height: 41px; border-radius: 12px; }
+.ai-assistant-footer { min-height: 25px; padding: 5px 10px calc(5px + env(safe-area-inset-bottom)); }
+
+/* Expanded desktop learning workspace */
+.ai-assistant-overlay.is-expanded {
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+}
+.ai-assistant-overlay.is-expanded .ai-assistant-panel {
+    position: relative;
+    inset: auto;
+    width: min(1180px, calc(100vw - 56px));
+    height: min(88dvh, 880px);
+    max-height: none;
+    border-radius: 28px;
+    transform-origin: center;
+}
+.ai-assistant-overlay.is-expanded .ai-assistant-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 330px);
+    min-height: 0;
+}
+.ai-assistant-overlay.is-expanded .ai-related-panel { display: block; }
+.ai-assistant-overlay.is-expanded .ai-messages {
+    min-height: 0;
+    padding: 25px clamp(20px, 3vw, 38px) 30px;
+}
+.ai-assistant-overlay.is-expanded .ai-message-content { max-width: min(780px, 88%); }
+.ai-assistant-overlay.is-expanded .ai-message-bubble { padding: 16px 18px; border-radius: 19px; }
+.ai-assistant-overlay.is-expanded .ai-message-bubble > p { font-size: 14px; line-height: 1.65; }
+.ai-assistant-overlay.is-expanded .ai-composer,
+.ai-assistant-overlay.is-expanded .ai-assistant-footer {
+    margin-right: min(330px, 28vw);
+}
+
+@media (max-width: 760px) {
+    .ai-assistant-panel {
+        width: calc(100vw - 14px);
+        max-height: calc(100dvh - 14px);
+        border-radius: 19px;
+    }
+    .ai-assistant-overlay.is-expanded { padding: 0; }
+    .ai-assistant-overlay.is-expanded .ai-assistant-panel {
+        width: 100vw;
+        height: 100dvh;
+        max-height: none;
+        border: 0;
+        border-radius: 0;
+    }
+    .ai-assistant-overlay.is-expanded .ai-assistant-body { display: block; }
+    .ai-assistant-overlay.is-expanded .ai-related-panel { display: none; }
+    .ai-assistant-overlay.is-expanded .ai-composer,
+    .ai-assistant-overlay.is-expanded .ai-assistant-footer { margin-right: 0; }
+    .ai-assistant-header { min-height: 58px; padding: 8px; }
+    .ai-header-logo { width: 36px; height: 36px; }
+    .ai-header-brand h2 { font-size: 12.5px; }
+    .ai-header-brand p { font-size: 8.8px; }
+    .ai-header-controls { gap: 2px; }
+    .ai-header-controls button { width: 27px; height: 27px; }
+    .ai-messages { padding: 13px 10px 17px; }
+    .ai-message-bubble { padding: 11px 12px; }
+    .ai-message-bubble > p { font-size: 12.4px; }
+    .ai-composer,
+    .ai-composer.is-hidden { padding: 7px 8px 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ai-header-controls button,
+    .ai-related-inline-link,
+    .ai-related-panel-link { transition-duration: .01ms !important; }
+}
+
+/* Compact assistant sits as a true floating workspace. */
+.ai-assistant-overlay {
+    align-items: end;
+    padding: 15px;
+}
+.ai-assistant-overlay.is-expanded {
+    align-items: center;
+}
+@media (max-width: 760px) {
+    .ai-assistant-overlay { padding: 7px; }
+    .ai-assistant-overlay.is-expanded { padding: 0; }
+}
+
+/* =========================================================
+   V2.4.1 — RELIABLE CHAT SCROLLING
+   Keeps the conversation history inside its own scroll region
+   in both compact and expanded assistant views.
+   ========================================================= */
+.ai-assistant-body {
+    display: flex;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.ai-conversation-pane {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.ai-messages {
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto !important;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    scrollbar-gutter: stable;
+}
+
+.ai-assistant-overlay.is-expanded .ai-assistant-body {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.ai-assistant-overlay.is-expanded .ai-conversation-pane {
+    height: 100%;
+    min-height: 0;
+}
+
+@media (max-width: 760px) {
+    .ai-assistant-body,
+    .ai-assistant-overlay.is-expanded .ai-assistant-body {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .ai-conversation-pane,
+    .ai-assistant-overlay.is-expanded .ai-conversation-pane {
+        flex: 1 1 auto;
+        height: auto;
+        min-height: 0;
+    }
+}

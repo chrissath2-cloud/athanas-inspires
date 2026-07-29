@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const VERSION = "20260726-skills-article-1";
+  const VERSION = "20260729-digital-tools-1";
   let loadingPromise = null;
 
   const track = (name, detail = {}) => document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name, ...detail } }));
@@ -55,10 +55,10 @@
     document.querySelector(".ai-loader-launcher")?.classList.add("is-loading");
     if (!loadingPromise) {
       loadingPromise = (async () => {
-        await loadStylesheet("css/bot.min.css");
-        await loadScript("js/bot-data.min.js");
-        await loadScript("js/assistant-learning-sync.js");
-        await loadScript("js/bot.min.js");
+        await loadStylesheet(window.AthanasPaths?.resolve("/css/bot.min.css") || "/css/bot.min.css");
+        await loadScript(window.AthanasPaths?.resolve("/js/bot-data.min.js") || "/js/bot-data.min.js");
+        await loadScript(window.AthanasPaths?.resolve("/js/assistant-learning-sync.js") || "/js/assistant-learning-sync.js");
+        await loadScript(window.AthanasPaths?.resolve("/js/bot.min.js") || "/js/bot.min.js");
         document.querySelector(".ai-loader-launcher")?.remove();
         track("assistant_loaded", { label: "AI Assistant" });
       })().catch((error) => {

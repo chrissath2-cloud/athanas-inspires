@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const current = articles[currentIndex] || articles[0] || {};
     const previous = articles[(currentIndex - 1 + articles.length) % articles.length] || { title: "Faith & Personal Growth", url: "faith-inspiration.html" };
     const next = articles[(currentIndex + 1) % articles.length] || { title: "Technology & Digital Growth", url: "technology-insights.html" };
-    const config = { previous, next, continue: current.continue || [{ title: "Explore ICT Lessons", url: "courses.html" }, { title: "Open Learning Tools", url: "tools.html" }, { title: "Read More Articles", url: "faith-inspiration.html" }] };
+    const config = { previous, next, continue: current.continue || [{ title: "Explore ICT Lessons", url: "courses.html" }, { title: "Open Digital Tools", url: "/digital-tools/index.html" }, { title: "Read More Articles", url: "faith-inspiration.html" }] };
 
     const words = (body.innerText || "").trim().split(/\s+/).filter(Boolean).length;
     const minutes = Math.max(1, Math.ceil(words / 220));
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const toc = document.createElement("aside");
         toc.className = "article-toc";
         toc.setAttribute("aria-label", "Table of contents");
-        toc.innerHTML = `<div class="article-toc-top"><span>Reading Guide</span><b aria-hidden="true">☰</b></div><h2>In this article</h2><nav>${headings.map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`).join("")}</nav><div class="article-toc-continue"><small>Turn reading into action</small><a href="${config.continue[0].url}">Continue Learning →</a></div>`;
+        toc.innerHTML = `<div class="article-toc-top"><span>Reading Guide</span><b aria-hidden="true">☰</b></div><h2>In this article</h2><nav>${headings.map((heading) => `<a href="#${heading.id}">${heading.textContent.trim()}</a>`).join("")}</nav><div class="article-toc-continue"><small>Turn reading into action</small><a href="${window.AthanasPaths?.resolve(config.continue[0].url) || config.continue[0].url}">Continue Learning →</a></div>`;
         layout.insertBefore(toc, body);
         const links = Array.from(toc.querySelectorAll("nav a"));
         if ("IntersectionObserver" in window) {
@@ -93,12 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const navigation = document.createElement("nav");
     navigation.className = "article-series-nav";
     navigation.setAttribute("aria-label", "Previous and next articles");
-    navigation.innerHTML = `<a class="article-series-link" href="${config.previous.url}"><small>← Previous article</small><strong>${config.previous.title}</strong></a><a class="article-series-link article-series-link--next" href="${config.next.url}"><small>Next article →</small><strong>${config.next.title}</strong></a>`;
+    navigation.innerHTML = `<a class="article-series-link" href="${window.AthanasPaths?.resolve(config.previous.url) || config.previous.url}"><small>← Previous article</small><strong>${config.previous.title}</strong></a><a class="article-series-link article-series-link--next" href="${window.AthanasPaths?.resolve(config.next.url) || config.next.url}"><small>Next article →</small><strong>${config.next.title}</strong></a>`;
     layout.appendChild(navigation);
 
     const continuation = document.createElement("section");
     continuation.className = "article-continue-learning";
     continuation.setAttribute("aria-labelledby", "continue-learning-title");
-    continuation.innerHTML = `<h2 id="continue-learning-title">Continue Learning</h2><p>Choose one practical next step while the message is still fresh.</p><div class="article-continue-links">${config.continue.map((item) => `<a href="${item.url}"${item.url.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${item.title} <span aria-hidden="true">→</span></a>`).join("")}</div>`;
+    continuation.innerHTML = `<h2 id="continue-learning-title">Continue Learning</h2><p>Choose one practical next step while the message is still fresh.</p><div class="article-continue-links">${config.continue.map((item) => `<a href="${window.AthanasPaths?.resolve(item.url) || item.url}"${item.url.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${item.title} <span aria-hidden="true">→</span></a>`).join("")}</div>`;
     layout.appendChild(continuation);
 });

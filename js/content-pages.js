@@ -192,7 +192,7 @@
   function renderLatest() {
     const root = document.getElementById("latestLearningRoot");
     if (!root) return;
-    const labels = { lesson: "Newest Lesson", assignment: "Newest Assignment", article: "Newest Article", tool: "Updated Tool" };
+    const labels = { lesson: "Newest Lesson", assignment: "Newest Assignment", article: "Newest Article", tool: "Newest Tool" };
     const now = new Date();
     now.setHours(0, 0, 0, 0);
     const items = [...(data.latestUpdates || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -202,9 +202,7 @@
       const isNew = ageDays >= 0 && ageDays <= 21;
       return `<a href="${escapeHtml(item.url)}" class="latest-update-card latest-update-card--${escapeHtml(item.type)} search-item" data-search="${escapeHtml(`${item.type} ${item.title} ${item.summary}`)}">
         <div class="latest-update-top"><span class="latest-update-icon" aria-hidden="true">${item.icon}</span>${isNew ? '<span class="latest-new-badge">New</span>' : ''}</div>
-        <span class="latest-update-type">${escapeHtml(labels[item.type] || item.type)}</span>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${escapeHtml(item.summary)}</p>
+        <div class="latest-update-copy"><span class="latest-update-type">${escapeHtml(labels[item.type] || item.type)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.summary)}</p></div>
         <span class="latest-update-footer"><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.dateLabel)}</time><span class="latest-update-open">Open <span aria-hidden="true">→</span></span></span>
       </a>`;
     }).join("");

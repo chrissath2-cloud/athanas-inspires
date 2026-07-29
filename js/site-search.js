@@ -4,6 +4,17 @@
   if (!data) return;
   const normalize = (value = "") => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
   const track = (name, detail = {}) => document.dispatchEvent(new CustomEvent("athanas:track", { detail: { name, ...detail } }));
+  const resolveUrl = (url = "") => /^(?:https?:|mailto:|tel:|#|\/)/i.test(url) ? url : `/${url.replace(/^\.\//, "")}`;
+  const groupFor = (entry) => {
+    if (/Digital Tool/i.test(entry.category)) return "Digital Tools";
+    if (/Article/i.test(entry.category)) return "Articles";
+    if (/Video Lesson/i.test(entry.category)) return "Videos";
+    if (/Assignment|Upcoming Lesson/i.test(entry.category)) return "Lessons";
+    if (/Download|Resource/i.test(entry.category) || /education|download/i.test(entry.title)) return "Resources";
+    if (/YouTube/i.test(entry.title)) return "Videos";
+    if (/ICT Lessons|Assignments/i.test(entry.title)) return "Lessons";
+    return "Pages";
+  };
 
   const rawEntries = [
     ...(data.pages || []),
@@ -12,15 +23,15 @@
       category: lesson.status === "published" ? "Video Lesson" : "Upcoming Lesson",
       title: lesson.displayTitle,
       description: lesson.description,
-      url: lesson.status === "published" ? lesson.videoUrl : `youtube.html#${series.id}`,
+      url: lesson.status === "published" ? lesson.videoUrl : `/youtube.html#${series.id}`,
       external: lesson.status === "published",
       keywords: `${series.title} ${lesson.title} ${lesson.session} ${lesson.status}`
     }))),
-    ...data.assignments.map((item) => ({ category: "Assignment", title: item.title, description: item.description, url: `assignments.html#${item.anchor}`, keywords: `${item.series} practice download submit` })),
+    ...data.assignments.map((item) => ({ category: "Assignment", title: item.title, description: item.description, url: `/assignments.html#${item.anchor}`, keywords: `${item.series} practice download submit` })),
     ...data.downloads.map((item) => ({ category: "Download", title: item.title, description: item.description, url: item.url, keywords: `${item.category} ${item.type} file resource` })),
-    ...data.tools.map((item) => ({ category: item.status === "available" ? "Learning Tool" : "Upcoming Tool", title: item.title, description: item.description, url: item.url || "tools.html", keywords: `${item.level} ${item.purpose} ${item.status}` }))
+    ...data.tools.map((item) => ({ category: item.status === "available" ? "Digital Tool" : "Upcoming Digital Tool", title: item.title, description: item.description, url: item.url || "/digital-tools/index.html", keywords: `${item.level} ${item.purpose} ${item.status}` }))
   ];
-  const entries = Array.from(new Map(rawEntries.map((entry) => [`${entry.url}|${entry.title}`, entry])).values()).map((entry) => ({ ...entry, search: normalize(`${entry.title} ${entry.description} ${entry.keywords || ""} ${entry.category}`) }));
+  const entries = Array.from(new Map(rawEntries.map((entry) => [`${entry.url}|${entry.title}`, entry])).values()).map((entry) => ({ ...entry, url: resolveUrl(entry.url), group: groupFor(entry), search: normalize(`${entry.title} ${entry.description} ${entry.keywords || ""} ${entry.category}`) }));
 
   function createUi() {
     if (document.getElementById("siteSearchDialog")) return;
@@ -35,7 +46,7 @@
             <button class="site-search-close" type="button" aria-label="Close website search">×</button>
           </header>
           <label class="site-search-field"><span class="sr-only">Search lessons, assignments, tools, articles, and pages</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="siteSearchInput" type="search" autocomplete="off" placeholder="Try ‘Excel Session 4’, ‘typing’, or ‘assignment’"></label>
-          <div class="site-search-suggestions" aria-label="Popular searches"><button type="button" data-search-suggestion="computer basics">Computer Basics</button><button type="button" data-search-suggestion="microsoft word">Microsoft Word</button><button type="button" data-search-suggestion="excel assignments">Excel Assignments</button><button type="button" data-search-suggestion="typing trainer">Typing Trainer</button><button type="button" data-search-suggestion="build valuable skills">Build Valuable Skills</button></div>
+          <div class="site-search-suggestions" aria-label="Popular searches"><button type="button" data-search-suggestion="computer basics">Computer Basics</button><button type="button" data-search-suggestion="microsoft word">Microsoft Word</button><button type="button" data-search-suggestion="excel assignments">Excel Assignments</button><button type="button" data-search-suggestion="qr code generator">QR Code Generator</button><button type="button" data-search-suggestion="build valuable skills">Build Valuable Skills</button></div>
           <div class="site-search-summary" id="siteSearchSummary">Start typing to search the whole platform.</div>
           <div class="site-search-results" id="siteSearchResults" role="listbox" aria-live="polite"></div>
         </section>
@@ -103,7 +114,9 @@
     }
     const matches = entries.map((entry) => ({ entry, score: score(entry, clean) })).filter((item) => item.score > 0).sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title)).slice(0, 18);
     summary.textContent = matches.length ? `${matches.length} result${matches.length === 1 ? "" : "s"} found for “${clean}”.` : `No results found for “${clean}”. Try a shorter phrase.`;
-    results.innerHTML = matches.map(({ entry }) => `<a class="site-search-result" role="option" href="${entry.url}"${entry.external || /^https?:/.test(entry.url) ? ' target="_blank" rel="noopener noreferrer"' : ""} data-search-result data-track="search_result_open" data-track-label="${entry.title.replace(/"/g, "&quot;")}"><span class="site-search-category">${entry.category}</span><strong>${entry.title}</strong><p>${entry.description}</p><span class="site-search-arrow" aria-hidden="true">→</span></a>`).join("");
+    const order = ["Lessons", "Digital Tools", "Articles", "Videos", "Resources", "Pages"];
+    const grouped = matches.reduce((map, item) => { (map[item.entry.group] ||= []).push(item.entry); return map; }, {});
+    results.innerHTML = order.filter((group) => grouped[group]?.length).map((group) => `<section class="site-search-group" aria-labelledby="search-group-${group.toLowerCase().replace(/[^a-z]+/g, "-")}"><h3 class="site-search-group-title" id="search-group-${group.toLowerCase().replace(/[^a-z]+/g, "-")}">${group}<span>${grouped[group].length}</span></h3><div class="site-search-group-list">${grouped[group].map((entry) => `<a class="site-search-result" role="option" href="${window.AthanasPaths?.resolve(entry.url) || entry.url}"${entry.external || /^https?:/.test(entry.url) ? ' target="_blank" rel="noopener noreferrer"' : ""} data-search-result data-track="search_result_open" data-track-label="${entry.title.replace(/"/g, "&quot;")}"><span class="site-search-category">${entry.category}</span><strong>${entry.title}</strong><p>${entry.description}</p><span class="site-search-arrow" aria-hidden="true">→</span></a>`).join("")}</div></section>`).join("");
     track("search_performed", { label: clean, value: matches.length });
   }
 

@@ -778,7 +778,7 @@
             .forEach((item) => {
             if (item.url) {
                 const link = createElement("a", `ai-action-link ${item.kind === "primary" ? "primary" : ""}`, item.label);
-                link.href = item.url;
+                link.href = window.AthanasPaths?.resolve(item.url) || item.url;
                 if (/^https?:/i.test(item.url)) {
                     link.target = "_blank";
                     link.rel = "noopener noreferrer";
@@ -1022,7 +1022,7 @@
         const names = { computer: "Computer Basics Session 0.1", word: "Microsoft Word Session 1", excel: "Microsoft Excel Session 1" };
         let text = `I recommend starting with ${names[area]}. It gives you the foundation for the lessons that follow.`;
         if (values.preference === "practice") {
-            text += " Watch the lesson first, repeat the steps on your computer, and then use the available assignments or learning tools for practice.";
+            text += " Watch the lesson first, repeat the steps on your computer, and then use the available assignments or digital tools for practice.";
         } else if (values.preference === "path") {
             text += " Follow the sessions in order, practise after each lesson, and move forward only when the main steps feel familiar.";
         }
@@ -1057,7 +1057,7 @@
             saveStorage();
             addBotMessage("Computer Basics does not currently have a downloadable assignment. Repeat the lesson steps on your computer, or use the General ICT Quiz Game for extra practice.", {
                 actions: [
-                    { label: "Open ICT Quiz", url: "quiz.html", kind: "primary" },
+                    { label: "Open ICT Quiz", url: "/digital-tools/ict-quiz.html", kind: "primary" },
                     { label: "Browse All Assignments", url: "assignments.html" }
                 ]
             });
@@ -1098,6 +1098,7 @@
                 { label: "Keyboard shortcuts", value: "tool:shortcuts", icon: "⚡" },
                 { label: "ICT knowledge", value: "tool:quiz", icon: "🎮" },
                 { label: "Mathematical calculations", value: "tool:calculator", icon: "🧮" },
+                { label: "Create a QR code", value: "tool:qr-generator", icon: "▦" },
                 { label: "I’m not sure", value: "tool:unsure", icon: "✨" }
             ]
         });
@@ -1111,7 +1112,7 @@
             const summary = DATA.tools.map((tool) => `${tool.label}: ${tool.need}.`).join(" ");
             addBotMessage(`Here is a quick guide. ${summary}`, {
                 actions: [
-                    { label: "View All Learning Tools", url: "tools.html", kind: "primary" },
+                    { label: "View All Digital Tools", url: "/digital-tools/index.html", kind: "primary" },
                     { label: "Choose Again", command: "tools" }
                 ]
             });
@@ -1125,7 +1126,7 @@
         addBotMessage(`${tool.label} is the best match. ${tool.description}`, {
             actions: [
                 { label: "Open Recommended Tool", url: tool.url, kind: "primary" },
-                { label: "View All Learning Tools", url: "tools.html" }
+                { label: "View All Digital Tools", url: "/digital-tools/index.html" }
             ]
         });
     }
@@ -1222,6 +1223,7 @@
                 { label: "Keyboard shortcuts", value: "tool:shortcuts", icon: "⚡" },
                 { label: "ICT knowledge", value: "tool:quiz", icon: "🎮" },
                 { label: "Mathematical calculations", value: "tool:calculator", icon: "🧮" },
+                { label: "Create a QR code", value: "tool:qr-generator", icon: "▦" },
                 { label: "I’m not sure", value: "tool:unsure", icon: "✨" }
             ]));
         }

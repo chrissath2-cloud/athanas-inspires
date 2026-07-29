@@ -1,6 +1,6 @@
 window.ATHANAS_ASSISTANT_DATA = {
-  "version": "1.5.5",
-  "updated": "2026-07-13",
+  "version": "1.6.1",
+  "updated": "2026-07-29",
   "name": "Athanas Inspires AI Assistant",
   "status": "Your learning guide",
   "greeting": "Hello. I'm the Athanas Inspires Assistant. Ask me about Athanas Inspires and ICT.",
@@ -21,7 +21,7 @@ window.ATHANAS_ASSISTANT_DATA = {
     },
     {
       "id": "learning-tools",
-      "label": "Learning Tools",
+      "label": "Digital Tools",
       "icon": "🛠️"
     },
     {
@@ -122,7 +122,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       {
         "session": "3",
         "title": "Word Session 3 Mini Project",
-        "page": "assignments.html#word-session-3-assignment",
+        "page": "/assignments.html#word-session-3-assignment",
         "download": "assets/downloads/word-session-3-mini-project-image.zip",
         "submit": "https://wa.me/255695110859?text=Hello%20Athanas%20Inspires%2C%20I%20want%20to%20submit%20my%20Word%20Session%203%20assignment.%20My%20name%20is%20_____.%20I%20recreated%20the%20Internet%20Safety%20Guide%20mini%20project."
       }
@@ -131,14 +131,14 @@ window.ATHANAS_ASSISTANT_DATA = {
       {
         "session": "2",
         "title": "Excel Session 2 Assignment",
-        "page": "assignments.html#excel-session-2",
+        "page": "/assignments.html#excel-session-2",
         "download": "assets/downloads/excel-session-2-assignment.xlsx",
         "submit": "https://wa.me/255695110859?text=Hello%20Athanas%20Inspires%2C%20I%20want%20to%20submit%20my%20assignment.%20My%20name%20is%20_____.%20The%20assignment%20is%20Excel%20Session%202."
       },
       {
         "session": "4",
         "title": "Excel Session 4 Assignment",
-        "page": "assignments.html#excel-session-4",
+        "page": "/assignments.html#excel-session-4",
         "download": "assets/downloads/excel-session-4-assignment.xlsx",
         "submit": "https://wa.me/255695110859?text=Hello%20Athanas%20Inspires%2C%20I%20want%20to%20submit%20my%20assignment.%20My%20name%20is%20_____.%20The%20assignment%20is%20Excel%20Session%204."
       }
@@ -150,7 +150,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "label": "Typing Speed Trainer",
       "need": "typing speed and accuracy",
       "description": "Practise accuracy first, then gradually improve speed with a physical keyboard.",
-      "url": "typing-trainer.html",
+      "url": "/digital-tools/typing-trainer.html",
       "keywords": [
         "typing",
         "speed",
@@ -163,7 +163,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "label": "Computer Shortcut Keys Trainer",
       "need": "keyboard shortcuts",
       "description": "Learn and test useful Windows, Word, and Excel shortcut keys.",
-      "url": "shortcut-trainer.html",
+      "url": "/digital-tools/shortcut-keys-trainer.html",
       "keywords": [
         "shortcut",
         "keyboard keys",
@@ -175,7 +175,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "label": "General ICT Quiz Game",
       "need": "ICT knowledge",
       "description": "Test computer basics, Word, Excel, and general ICT knowledge.",
-      "url": "quiz.html",
+      "url": "/digital-tools/ict-quiz.html",
       "keywords": [
         "quiz",
         "test",
@@ -187,7 +187,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "label": "Scientific Calculator",
       "need": "mathematical calculations",
       "description": "Solve everyday and scientific calculations directly in the browser.",
-      "url": "calculator.html",
+      "url": "/digital-tools/scientific-calculator.html",
       "keywords": [
         "calculator",
         "math",
@@ -196,10 +196,10 @@ window.ATHANAS_ASSISTANT_DATA = {
     },
     {
       "id": "qr-generator",
-      "label": "Premium QR Code Generator",
+      "label": "QR Code Generator",
       "need": "create and customise QR codes",
-      "description": "Create QR codes for websites, WhatsApp, Wi-Fi, contacts, payments, locations, and social media, then test and export them.",
-      "url": "qr-code-generator.html",
+      "description": "Create QR codes for websites, WhatsApp, Wi-Fi, contacts, payments, locations, and social media, then add optional poster text and export an A4 poster or QR-only image.",
+      "url": "/digital-tools/qr-code-generator.html",
       "keywords": [
         "qr",
         "qr code",
@@ -213,10 +213,90 @@ window.ATHANAS_ASSISTANT_DATA = {
   "featuredFaith": {
     "quote": "Small beginnings may look insignificant, but they can become the foundation of something meaningful. Keep moving forward—one faithful step at a time.",
     "title": "The Power of Small Beginnings",
-    "url": "the-power-of-small-beginnings.html",
-    "page": "faith-inspiration.html"
+    "url": "/the-power-of-small-beginnings.html",
+    "page": "/faith-inspiration.html"
   },
   "knowledge": [
+    {
+      "id": "qr-generator-overview",
+      "topic": "QR Code Generator",
+      "title": "How do I create a QR code?",
+      "aliases": ["make a QR code", "create QR", "free QR code generator"],
+      "keywords": ["qr code", "generator", "create", "build", "website", "whatsapp", "wifi"],
+      "answer": "Open the QR Code Generator, choose the QR type, enter the required details, add optional top or bottom poster text, adjust the design or logo, and download either a premium A4 poster or the QR code alone.",
+      "details": "The portrait poster preview stays visible while you work. The QR type field is searchable, and smart text suggestions can be edited or turned off.",
+      "actions": [{"label":"Open QR Code Generator","url":"/digital-tools/qr-code-generator.html","kind":"primary"},{"label":"Add Poster Text","url":"/digital-tools/qr-code-generator.html#poster"}]
+    },
+    {
+      "id": "qr-choose-type",
+      "topic": "QR Code Generator",
+      "title": "Which QR code type should I choose?",
+      "aliases": ["best QR type", "what QR code do I need"],
+      "keywords": ["qr type", "website", "whatsapp", "wifi", "email", "phone", "sms", "contact", "location"],
+      "answer": "Choose Website for a link, WhatsApp for starting a chat, Wi-Fi for sharing network access, Email for a prepared email, Phone or SMS for communication, Contact for saving details, and Location for a map position.",
+      "details": "The builder shows only the fields required for the type you select, so you do not need to complete unrelated settings.",
+      "actions": [{"label":"Choose a QR Type","url":"/digital-tools/qr-code-generator.html#type","kind":"primary"}]
+    },
+    {
+      "id": "qr-whatsapp",
+      "topic": "QR Code Generator",
+      "title": "How do I create a WhatsApp QR code?",
+      "aliases": ["WhatsApp QR", "QR for WhatsApp number"],
+      "keywords": ["whatsapp", "qr", "phone number", "country code", "+255", "message"],
+      "answer": "Choose WhatsApp, enter the full phone number with its country code, and add an optional opening message.",
+      "details": "For Tanzania, use +255 and remove the first zero from the mobile number. For example, 0695… becomes +255695…. Check the number carefully before downloading.",
+      "actions": [{"label":"Create WhatsApp QR","url":"/digital-tools/qr-code-generator.html#content","kind":"primary"}]
+    },
+    {
+      "id": "qr-wifi",
+      "topic": "QR Code Generator",
+      "title": "How do I create a Wi-Fi QR code?",
+      "aliases": ["wifi QR", "share wifi password QR"],
+      "keywords": ["wifi", "network", "ssid", "password", "security", "qr"],
+      "answer": "Choose Wi-Fi, enter the network name, password, and correct security type. People can then scan the QR code to join the network more easily.",
+      "details": "Network names and passwords are case-sensitive. Test the code with another phone before displaying it to visitors.",
+      "actions": [{"label":"Create Wi-Fi QR","url":"/digital-tools/qr-code-generator.html#content","kind":"primary"}]
+    },
+    {
+      "id": "qr-logo-design",
+      "topic": "QR Code Generator",
+      "title": "How do I add colours or a logo to a QR code?",
+      "aliases": ["customise QR", "QR logo", "QR colours"],
+      "keywords": ["qr", "logo", "colour", "background", "contrast", "rounded", "design"],
+      "answer": "Use the Design step for QR colour, background, corner style, and pattern. Use the Logo step to upload an image, choose square, rounded, or circular, and adjust its size.",
+      "details": "Keep strong contrast and avoid making the logo too large. A simple logo with a clear background scans more reliably.",
+      "actions": [{"label":"Open Design Step","url":"/digital-tools/qr-code-generator.html#design","kind":"primary"},{"label":"Open Logo Step","url":"/digital-tools/qr-code-generator.html#logo"}]
+    },
+    {
+      "id": "qr-poster-text",
+      "topic": "QR Code Generator",
+      "title": "How do I add text above or below a QR code?",
+      "aliases": ["QR poster text", "text above QR", "QR code poster", "A4 QR poster"],
+      "keywords": ["qr", "poster", "top text", "bottom text", "a4", "branding", "athanasinspires.com"],
+      "answer": "Open Poster Text, switch the top or bottom message on, and edit the smart suggestion. You can also show or hide the small athanasinspires.com website credit.",
+      "details": "The builder applies professional typography automatically and updates the portrait poster preview immediately.",
+      "actions": [{"label":"Open Poster Text","url":"/digital-tools/qr-code-generator.html#poster","kind":"primary"}]
+    },
+    {
+      "id": "qr-not-scanning",
+      "topic": "QR Code Generator",
+      "title": "Why is my QR code not scanning?",
+      "aliases": ["QR not working", "QR cannot scan", "fix QR code"],
+      "keywords": ["qr", "scan", "not scanning", "not working", "contrast", "logo", "invalid"],
+      "answer": "Check that the content is complete, use a dark QR colour on a light background, reduce an oversized logo, keep clear space around the code, and test it at the final size.",
+      "details": "Also confirm that website links, phone numbers, Wi-Fi passwords, and payment details are correct. Use the built-in Test QR button before sharing.",
+      "actions": [{"label":"Test or Fix My QR","url":"/digital-tools/qr-code-generator.html#download","kind":"primary"}]
+    },
+    {
+      "id": "qr-download-format",
+      "topic": "QR Code Generator",
+      "title": "Should I download the QR poster or QR code only?",
+      "aliases": ["download A4 QR poster", "QR only PNG", "QR poster PDF", "QR format"],
+      "keywords": ["qr", "download", "poster", "a4", "png", "pdf", "qr only", "print"],
+      "answer": "Use the A4 PDF poster for professional printing, the high-resolution poster PNG for digital sharing, or QR Only when you need a clean PNG without the poster text and frame.",
+      "details": "Always scan the downloaded result once before publishing or printing it.",
+      "actions": [{"label":"Open Download Step","url":"/digital-tools/qr-code-generator.html#download","kind":"primary"}]
+    },
     {
       "id": "faq-01",
       "topic": "About",
@@ -236,7 +316,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Learn More About Us",
-          "url": "about.html",
+          "url": "/about.html",
           "kind": "link"
         }
       ]
@@ -259,7 +339,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Start Your Learning Journey",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -307,7 +387,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Begin Your Journey",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -330,7 +410,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Learn More About Athanas",
-          "url": "about.html",
+          "url": "/about.html",
           "kind": "link"
         }
       ]
@@ -357,7 +437,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Our Mission",
-          "url": "about.html",
+          "url": "/about.html",
           "kind": "link"
         }
       ]
@@ -409,7 +489,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Start With Computer Basics",
-          "url": "courses.html#beginner-installments",
+          "url": "/courses.html#beginner-installments",
           "kind": "link"
         }
       ]
@@ -434,7 +514,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Start Learning From the Basics",
-          "url": "courses.html#beginner-installments",
+          "url": "/courses.html#beginner-installments",
           "kind": "link"
         }
       ]
@@ -463,7 +543,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Beginner ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -491,7 +571,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "View the Recommended Learning Path",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -518,7 +598,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Find Assignments and Practice Files",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         }
       ]
@@ -562,11 +642,11 @@ window.ATHANAS_ASSISTANT_DATA = {
         "free"
       ],
       "answer": "Yes. The ICT lessons currently available through Athanas Inspires are free.",
-      "details": "You can watch the beginner-friendly lessons on YouTube, follow the learning series through the website, practise with available assignments, and use the free interactive learning tools. New lessons and resources will continue to be added as the platform grows.",
+      "details": "You can watch the beginner-friendly lessons on YouTube, follow the learning series through the website, practise with available assignments, and use the free interactive digital tools. New lessons and resources will continue to be added as the platform grows.",
       "actions": [
         {
           "label": "Explore Free ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -590,7 +670,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Browse ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         },
         {
@@ -619,7 +699,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Available ICT Courses",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -646,7 +726,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Beginner-Friendly ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -673,7 +753,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Microsoft Word and Excel Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -703,7 +783,7 @@ window.ATHANAS_ASSISTANT_DATA = {
         },
         {
           "label": "Browse Downloads",
-          "url": "downloads.html",
+          "url": "/downloads.html",
           "kind": "link"
         }
       ]
@@ -729,12 +809,12 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Browse Assignments",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         },
         {
           "label": "Open Downloads",
-          "url": "downloads.html",
+          "url": "/downloads.html",
           "kind": "link"
         }
       ]
@@ -760,7 +840,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Browse Available Assignments",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         }
       ]
@@ -786,7 +866,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Submit an Assignment",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         }
       ]
@@ -810,7 +890,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "View Available Assignments",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         }
       ]
@@ -818,7 +898,7 @@ window.ATHANAS_ASSISTANT_DATA = {
     {
       "id": "faq-24",
       "topic": "Website Tools",
-      "title": "What learning tools are available on Athanas Inspires?",
+      "title": "What digital tools are available on Athanas Inspires?",
       "aliases": [],
       "keywords": [
         "what",
@@ -835,8 +915,8 @@ window.ATHANAS_ASSISTANT_DATA = {
       "details": "The available tools include: These tools can be opened directly through the website and used for practice at your own pace. More practical tools are planned as the platform continues to grow.",
       "actions": [
         {
-          "label": "Explore Learning Tools",
-          "url": "tools.html",
+          "label": "Explore Digital Tools",
+          "url": "/digital-tools/index.html",
           "kind": "link"
         }
       ]
@@ -860,12 +940,12 @@ window.ATHANAS_ASSISTANT_DATA = {
         "website",
         "tools"
       ],
-      "answer": "No. You do not need to install any software or create an account to use the learning tools currently available on Athanas Inspires.",
+      "answer": "No. You do not need to install any software or create an account to use the digital tools currently available on Athanas Inspires.",
       "details": "The Scientific Calculator, General ICT Quiz Game, Computer Shortcut Keys Trainer, and Typing Speed Trainer open directly in your web browser. Simply select the tool you want and begin practising. An internet connection is required to open the tools from the website. Your results and progress are not currently linked to a personal account, so they may not be saved after you close or refresh the page.",
       "actions": [
         {
-          "label": "Open the Learning Tools",
-          "url": "tools.html",
+          "label": "Open the Digital Tools",
+          "url": "/digital-tools/index.html",
           "kind": "link"
         }
       ]
@@ -873,7 +953,7 @@ window.ATHANAS_ASSISTANT_DATA = {
     {
       "id": "faq-26",
       "topic": "Website Tools",
-      "title": "Can I use the learning tools on a smartphone?",
+      "title": "Can I use the digital tools on a smartphone?",
       "aliases": [],
       "keywords": [
         "can",
@@ -887,12 +967,12 @@ window.ATHANAS_ASSISTANT_DATA = {
         "smartphone",
         "website"
       ],
-      "answer": "Yes. The Athanas Inspires learning tools can be opened through a modern web browser on a smartphone, tablet, or computer.",
+      "answer": "Yes. The Athanas Inspires digital tools can be opened through a modern web browser on a smartphone, tablet, or computer.",
       "details": "The Scientific Calculator and General ICT Quiz Game are convenient to use on a phone. The Computer Shortcut Keys Trainer can also be used to learn and test your knowledge on a smartphone. However, the Typing Speed Trainer and shortcut practice are most effective on a desktop or laptop with a physical keyboard, because they are designed to build real keyboard skills. No installation or account is required. Simply open the tool through the website and begin practising.",
       "actions": [
         {
-          "label": "Explore Learning Tools",
-          "url": "tools.html",
+          "label": "Explore Digital Tools",
+          "url": "/digital-tools/index.html",
           "kind": "link"
         }
       ]
@@ -1025,7 +1105,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Faith & Inspiration",
-          "url": "faith-inspiration.html",
+          "url": "/faith-inspiration.html",
           "kind": "link"
         }
       ]
@@ -1050,7 +1130,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Faith & Inspiration",
-          "url": "faith-inspiration.html",
+          "url": "/faith-inspiration.html",
           "kind": "link"
         }
       ]
@@ -1077,7 +1157,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Faith & Inspiration",
-          "url": "faith-inspiration.html",
+          "url": "/faith-inspiration.html",
           "kind": "link"
         }
       ]
@@ -1130,7 +1210,7 @@ window.ATHANAS_ASSISTANT_DATA = {
         "learning"
       ],
       "answer": "Subscribe to the Athanas Inspires YouTube channel and turn on the notification bell so you can be alerted when a new video is published.",
-      "details": "New lesson announcements and important updates may also be shared through the Athanas Inspires website and the WhatsApp ICT community . Checking these platforms regularly will help you stay informed about new ICT sessions, assignments, learning tools, and future video categories. Subscribing is free, and it helps you follow the learning journey without missing the next step.",
+      "details": "New lesson announcements and important updates may also be shared through the Athanas Inspires website and the WhatsApp ICT community . Checking these platforms regularly will help you stay informed about new ICT sessions, assignments, digital tools, and future video categories. Subscribing is free, and it helps you follow the learning journey without missing the next step.",
       "actions": [
         {
           "label": "Subscribe on YouTube",
@@ -1167,7 +1247,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Browse Assignments",
-          "url": "assignments.html",
+          "url": "/assignments.html",
           "kind": "link"
         }
       ]
@@ -1224,7 +1304,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Education Resources",
-          "url": "education.html",
+          "url": "/education.html",
           "kind": "link"
         }
       ]
@@ -1247,7 +1327,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Education Resources",
-          "url": "education.html",
+          "url": "/education.html",
           "kind": "link"
         }
       ]
@@ -1271,7 +1351,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Education Resources",
-          "url": "education.html",
+          "url": "/education.html",
           "kind": "link"
         }
       ]
@@ -1291,7 +1371,7 @@ window.ATHANAS_ASSISTANT_DATA = {
         "support"
       ],
       "answer": "You can contact Athanas Inspires through the official WhatsApp button available on the website.",
-      "details": "WhatsApp is the main support channel for questions about ICT lessons, assignments, downloads, learning tools, the WhatsApp community, and other website content. Before sending your message, explain clearly what you need help with. Where relevant, include the lesson name, assignment title, device you are using, and a screenshot of the problem. Clear information makes it easier to understand the issue and provide useful guidance.",
+      "details": "WhatsApp is the main support channel for questions about ICT lessons, assignments, downloads, digital tools, the WhatsApp community, and other website content. Before sending your message, explain clearly what you need help with. Where relevant, include the lesson name, assignment title, device you are using, and a screenshot of the problem. Clear information makes it easier to understand the issue and provide useful guidance.",
       "actions": [
         {
           "label": "Chat With Us on WhatsApp",
@@ -1349,7 +1429,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Start Computer Basics",
-          "url": "courses.html#beginner-installments",
+          "url": "/courses.html#beginner-installments",
           "kind": "link"
         }
       ]
@@ -1380,7 +1460,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Open Computer Basics",
-          "url": "courses.html#beginner-installments",
+          "url": "/courses.html#beginner-installments",
           "kind": "link"
         }
       ]
@@ -2460,7 +2540,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Open Word Lessons",
-          "url": "courses.html#word-series",
+          "url": "/courses.html#word-series",
           "kind": "link"
         }
       ]
@@ -3107,7 +3187,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Open Excel Lessons",
-          "url": "courses.html#excel-series",
+          "url": "/courses.html#excel-series",
           "kind": "link"
         }
       ]
@@ -5191,12 +5271,12 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Browse Excel Assignments",
-          "url": "assignments.html#excel-session-2",
+          "url": "/assignments.html#excel-session-2",
           "kind": "link"
         },
         {
           "label": "Open Downloads",
-          "url": "downloads.html",
+          "url": "/downloads.html",
           "kind": "link"
         }
       ]
@@ -5227,7 +5307,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Open Word Session 3 Assignment",
-          "url": "assignments.html#word-session-3-assignment",
+          "url": "/assignments.html#word-session-3-assignment",
           "kind": "link"
         },
         {
@@ -5258,12 +5338,12 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Open ICT Quiz",
-          "url": "quiz.html",
+          "url": "/digital-tools/ict-quiz.html",
           "kind": "link"
         },
         {
           "label": "Browse Lessons",
-          "url": "courses.html#beginner-installments",
+          "url": "/courses.html#beginner-installments",
           "kind": "link"
         }
       ]
@@ -5286,7 +5366,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "link"
         }
       ]
@@ -9344,16 +9424,16 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore ICT Lessons",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "primary"
         },
         {
           "label": "Browse Assignments",
-          "url": "assignments.html"
+          "url": "/assignments.html"
         },
         {
-          "label": "Open Learning Tools",
-          "url": "tools.html"
+          "label": "Open Digital Tools",
+          "url": "/digital-tools/index.html"
         }
       ]
     },
@@ -11915,7 +11995,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Start Computer Basics",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "primary"
         }
       ]
@@ -11938,7 +12018,7 @@ window.ATHANAS_ASSISTANT_DATA = {
       "actions": [
         {
           "label": "Explore Computer Basics",
-          "url": "courses.html",
+          "url": "/courses.html",
           "kind": "primary"
         }
       ]

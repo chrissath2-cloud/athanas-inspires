@@ -1,0 +1,85 @@
+(() => {
+  "use strict";
+  const selector = '[data-floating-control], .ai-floating-button, .ai-loader-launcher';
+  let scheduled = false;
+
+  function visible(element) {
+    if (!element || element.hidden) return false;
+    const style = getComputedStyle(element);
+    if (style.display === "none" || style.visibility === "hidden") return false;
+    if (element.classList.contains("ytp-back-top") && !element.classList.contains("is-visible")) return false;
+    if (element.classList.contains("ytp-floating-youtube") && !element.classList.contains("is-visible")) return false;
+    return true;
+  }
+
+  function heightOf(element, fallback) {
+    const rect = element.getBoundingClientRect();
+    return Math.max(rect.height || 0, fallback);
+  }
+
+  function layout() {
+    scheduled = false;
+    if (!document.body) return;
+    const controls = Array.from(document.querySelectorAll(selector)).filter(visible);
+    const mobile = matchMedia("(max-width: 760px)").matches;
+    const safe = mobile ? 10 : 16;
+    const gap = mobile ? 10 : 12;
+    const consent = controls.find((el) => el.dataset.floatingControl === "consent");
+    const audio = controls.filter((el) => (el.dataset.floatingControl || "").includes("audio"));
+    const circles = controls.filter((el) => {
+      const role = el.dataset.floatingControl || "";
+      return role !== "consent" && !role.includes("audio");
+    }).sort((a, b) => {
+      const order = { assistant: 0, youtube: 1, "back-top": 2 };
+      return (order[a.dataset.floatingControl] ?? 8) - (order[b.dataset.floatingControl] ?? 8);
+    });
+
+    let bottom = safe;
+    if (consent) {
+      consent.style.setProperty("--floating-offset", `${safe}px`);
+      consent.style.setProperty("--floating-right", `${safe}px`);
+      bottom += heightOf(consent, mobile ? 168 : 110) + gap;
+    }
+
+    audio.forEach((el) => {
+      el.style.setProperty("--floating-offset", `${bottom}px`);
+      el.style.setProperty("--floating-right", `${safe}px`);
+      bottom += heightOf(el, 76) + gap;
+    });
+
+    if (mobile) {
+      circles.forEach((el, index) => {
+        el.style.setProperty("--floating-offset", `${bottom}px`);
+        el.style.setProperty("--floating-right", `${safe + index * 64}px`);
+      });
+      if (circles.length) bottom += 66;
+    } else {
+      circles.forEach((el, index) => {
+        el.style.setProperty("--floating-offset", `${bottom + index * 72}px`);
+        el.style.setProperty("--floating-right", `${safe}px`);
+      });
+      if (circles.length) bottom += circles.length * 72;
+    }
+
+    document.body.style.setProperty("--floating-reserved-space", `${bottom}px`);
+    document.body.classList.toggle("has-visible-audio-control", audio.length > 0);
+    document.body.classList.toggle("has-cookie-consent", Boolean(consent));
+  }
+
+  function requestLayout() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(layout);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    requestLayout();
+    new MutationObserver(requestLayout).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class", "hidden", "style"] });
+    if ("ResizeObserver" in window) new ResizeObserver(requestLayout).observe(document.body);
+    window.addEventListener("resize", requestLayout, { passive: true });
+    window.visualViewport?.addEventListener("resize", requestLayout, { passive: true });
+    document.addEventListener("athanas:floating-layout", requestLayout);
+    window.setTimeout(requestLayout, 300);
+    window.setTimeout(requestLayout, 1200);
+  });
+})();

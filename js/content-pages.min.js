@@ -1,0 +1,219 @@
+(() => {
+  "use strict";
+  const data = window.ATHANAS_LEARNING_CONTENT;
+  if (!data) return;
+
+  const escapeHtml = (value = "") => String(value).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+  const externalAttrs = (url) => /^https?:/i.test(url || "") ? ' target="_blank" rel="noopener noreferrer"' : "";
+  const statusLabel = (status) => status === "available" || status === "published" ? "Available Now" : "Coming Soon";
+
+  function lessonActions(lesson) {
+    if (lesson.status !== "published") return '<span class="content-status content-status--soon">Coming Soon</span>';
+    const assignment = data.assignments.find((item) => item.lessonId === lesson.id);
+    const actions = [
+      `<a class="small-btn content-primary-action" href="${escapeHtml(lesson.videoUrl)}" target="_blank" rel="noopener noreferrer" data-track="lesson_watch" data-track-label="${escapeHtml(lesson.displayTitle)}">Watch Lesson</a>`
+    ];
+    if (assignment) actions.push(`<a class="small-btn outline-btn" href="assignments.html#${escapeHtml(assignment.anchor)}" data-track="assignment_open" data-track-label="${escapeHtml(assignment.title)}">Open Assignment</a>`);
+    (lesson.resources || []).forEach((resource) => actions.push(`<a class="small-btn outline-btn" href="${escapeHtml(resource.url)}" download data-track="resource_download" data-track-label="${escapeHtml(resource.label)}">${escapeHtml(resource.label)}</a>`));
+    return actions.join("");
+  }
+
+  function renderCourses() {
+    const root = document.getElementById("coursesLearningRoot");
+    if (!root) return;
+    root.innerHTML = data.series.map((series, seriesIndex) => `
+      <section class="learning-roadmap-series learning-roadmap-series--${escapeHtml(series.theme)}" id="${escapeHtml(series.anchor)}">
+        <div class="learning-roadmap-head">
+          <div class="learning-roadmap-icon" aria-hidden="true">${series.icon}</div>
+          <div>
+            <p class="eyebrow dark">${escapeHtml(series.eyebrow)}</p>
+            <h2>${escapeHtml(series.title)}</h2>
+            <p>${escapeHtml(series.description)}</p>
+          </div>
+          <a class="learning-roadmap-youtube" href="youtube.html#${escapeHtml(series.id)}" data-track="youtube_hub_series" data-track-label="${escapeHtml(series.title)}">Open in YouTube Hub <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="learning-roadmap-list">
+          ${series.lessons.map((lesson, lessonIndex) => `
+            <article class="learning-roadmap-item ${lesson.status === "coming-soon" ? "is-coming-soon" : ""}" id="${escapeHtml(lesson.id)}">
+              <div class="learning-roadmap-number" aria-label="Lesson ${lesson.session}">${escapeHtml(lesson.session)}</div>
+              <div class="learning-roadmap-copy">
+                <div class="learning-roadmap-meta"><span>${escapeHtml(series.title)}</span><span>${lesson.status === "published" ? "Published" : "Coming Soon"}</span></div>
+                <h3>${escapeHtml(lesson.title)}</h3>
+                <p>${escapeHtml(lesson.description)}</p>
+              </div>
+              <div class="card-actions learning-roadmap-actions">${lessonActions(lesson)}</div>
+            </article>`).join("")}
+        </div>
+      </section>`).join("") + `
+      <section class="future-learning-strip" id="future-ict">
+        <div><p class="eyebrow dark">Next Skills</p><h2>More practical digital skills are being prepared.</h2></div>
+        <div class="future-learning-items">${data.futureSeries.map((item) => `<article><span aria-hidden="true">${item.icon}</span><div><strong>${escapeHtml(item.title)}</strong><p>${escapeHtml(item.description)}</p></div><span class="content-status content-status--soon">Coming Soon</span></article>`).join("")}</div>
+      </section>`;
+  }
+
+  function renderAssignments() {
+    const root = document.getElementById("assignmentsRoot");
+    if (!root) return;
+    root.innerHTML = data.assignments.map((item) => `
+      <article class="premium-assignment-card" id="${escapeHtml(item.anchor)}">
+        <div class="premium-assignment-top">
+          <span class="premium-assignment-icon" aria-hidden="true">${item.icon}</span>
+          <span class="content-status content-status--available">Available Now</span>
+        </div>
+        ${item.preview ? `<img class="premium-assignment-preview" loading="lazy" src="${escapeHtml(item.preview)}" alt="Preview for ${escapeHtml(item.title)}">` : ""}
+        <p class="premium-assignment-series">${escapeHtml(item.series)}</p>
+        <h2>${escapeHtml(item.title)}</h2>
+        <p>${escapeHtml(item.description)}</p>
+        <ol class="assignment-journey-mini" aria-label="Assignment steps">
+          <li><span>1</span>Watch</li><li><span>2</span>Download</li><li><span>3</span>Complete</li><li><span>4</span>Submit</li>
+        </ol>
+        <div class="card-actions premium-assignment-actions">
+          <a class="small-btn" href="${escapeHtml(item.watchUrl)}" target="_blank" rel="noopener noreferrer" data-track="lesson_watch" data-track-label="${escapeHtml(item.title)}">Watch Lesson</a>
+          <a class="small-btn outline-btn" href="${escapeHtml(item.downloadUrl)}" download data-track="assignment_download" data-track-label="${escapeHtml(item.title)}">${escapeHtml(item.downloadLabel)}</a>
+          <a class="small-btn submit-btn" href="${escapeHtml(item.submitUrl)}" target="_blank" rel="noopener noreferrer" data-track="assignment_submit" data-track-label="${escapeHtml(item.title)}">Submit Assignment</a>
+        </div>
+      </article>`).join("");
+  }
+
+  function renderDownloads() {
+    const root = document.getElementById("downloadsRoot");
+    if (!root) return;
+    const groups = data.downloads.reduce((acc, item) => {
+      (acc[item.category] ||= []).push(item);
+      return acc;
+    }, {});
+    root.innerHTML = Object.entries(groups).map(([category, items]) => `
+      <section class="download-category">
+        <div class="download-category-head"><div><p class="eyebrow dark">Resource Library</p><h2>${escapeHtml(category)}</h2></div><span>${items.length} ${items.length === 1 ? "file" : "files"}</span></div>
+        <div class="download-category-list">
+          ${items.map((item) => `<article class="premium-download-row">
+            <span class="premium-download-icon" aria-hidden="true">${item.icon}</span>
+            <div class="premium-download-copy"><span class="download-type-badge">${escapeHtml(item.type)}</span><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.description)}</p></div>
+            <div class="premium-download-actions"><a class="small-btn" href="${escapeHtml(item.url)}" download data-track="resource_download" data-track-label="${escapeHtml(item.title)}">Download File</a><a class="small-btn outline-btn" href="${escapeHtml(item.relatedUrl)}">Open Assignment</a></div>
+          </article>`).join("")}
+        </div>
+      </section>`).join("") + `
+      <section class="download-category download-category--future">
+        <div class="download-category-head"><div><p class="eyebrow dark">Growing Library</p><h2>More resources are coming</h2></div></div>
+        <p>Future Word, Excel, PowerPoint, Python, education, and school-support resources will be organised here as they become available.</p>
+      </section>`;
+  }
+
+  function renderTools() {
+    const root = document.getElementById("toolsRoot");
+    if (!root) return;
+
+    const available = data.tools.filter((item) => item.status === "available").length;
+    const upcoming = data.tools.filter((item) => item.status === "coming-soon").length;
+    const availableCount = document.getElementById("toolsAvailableCount");
+    const upcomingCount = document.getElementById("toolsUpcomingCount");
+    if (availableCount) availableCount.textContent = available;
+    if (upcomingCount) upcomingCount.textContent = upcoming;
+
+    root.innerHTML = data.tools.map((item, index) => `
+      <article class="premium-tool-card premium-tool-card--${escapeHtml(item.id)} ${item.status === "coming-soon" ? "is-coming-soon" : "is-available"}" data-tool-status="${escapeHtml(item.status)}">
+        <span class="premium-tool-card-glow" aria-hidden="true"></span>
+        <div class="premium-tool-top">
+          <span class="premium-tool-index">${String(index + 1).padStart(2, "0")}</span>
+          <span class="content-status ${item.status === "available" ? "content-status--available" : "content-status--soon"}">${statusLabel(item.status)}</span>
+        </div>
+        <div class="premium-tool-visual" aria-hidden="true">
+          <span class="premium-tool-orbit"></span>
+          <span class="premium-tool-icon">${item.icon}</span>
+        </div>
+        <div class="premium-tool-tags"><span>${escapeHtml(item.level)}</span><span>${escapeHtml(item.purpose)}</span></div>
+        <h2>${escapeHtml(item.title)}</h2>
+        <p>${escapeHtml(item.description)}</p>
+        ${item.url ? `<a class="small-btn content-primary-action" href="${escapeHtml(item.url)}" data-track="tool_open" data-track-label="${escapeHtml(item.title)}">Open Tool <span aria-hidden="true">→</span></a>` : `<span class="premium-tool-wait"><i aria-hidden="true">✦</i> Being prepared with care</span>`}
+      </article>`).join("");
+
+    const filters = Array.from(document.querySelectorAll("[data-tool-filter]"));
+    const resultCount = document.getElementById("toolsResultCount");
+    const cards = Array.from(root.querySelectorAll("[data-tool-status]"));
+
+    const applyFilter = (filter) => {
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = filter === "all" || card.dataset.toolStatus === filter;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      filters.forEach((button) => {
+        const active = button.dataset.toolFilter === filter;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+      if (resultCount) {
+        const label = filter === "all" ? "all tools" : filter === "available" ? "available tools" : "upcoming tools";
+        resultCount.textContent = `Showing ${visible} ${label}`;
+      }
+    };
+
+    filters.forEach((button) => button.addEventListener("click", () => applyFilter(button.dataset.toolFilter || "all")));
+    applyFilter("all");
+  }
+
+
+  function articleLink(article, note = "Written Article") {
+    return `<a class="inspiration-link-row inspiration-link-row--article" href="${escapeHtml(article.url)}">
+      <span aria-hidden="true" class="inspiration-row-icon"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"></path><path d="M15 3v5h5M10 12h6M10 16h6"></path></svg></span>
+      <span><small>${escapeHtml(note)}</small><strong>${escapeHtml(article.title)}</strong></span><span aria-hidden="true" class="latest-arrow">→</span></a>`;
+  }
+
+  function renderArticleCollections() {
+    const articles = [...(data.articles || [])].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const featured = articles.find((item) => item.id === data.featuredArticleId) || articles[0];
+    const home = document.getElementById("homeFeaturedArticleRoot");
+    if (home && featured) home.innerHTML = `<article class="home-editorial-card"><a class="home-editorial-image" href="${escapeHtml(featured.url)}" aria-label="Read ${escapeHtml(featured.title)}"><img src="${escapeHtml(featured.image)}" alt="A learner building valuable complementary skills with technology" loading="lazy" decoding="async"><span class="home-editorial-badge"><span class="new-blink">NEW</span><span>ARTICLE</span></span></a><div class="home-editorial-copy"><div class="home-editorial-meta"><span>New Featured Article</span><small>${escapeHtml(featured.dateLabel)} · ${escapeHtml(featured.readingLabel)}</small></div><h2>${escapeHtml(featured.title)}</h2><p class="home-editorial-subtitle">${escapeHtml(featured.subtitle)}</p><a class="home-editorial-link" href="${escapeHtml(featured.url)}">Read the article <span aria-hidden="true">→</span></a></div></article>`;
+
+    const faithFeature = document.getElementById("faithFeaturedArticleRoot");
+    if (faithFeature && featured) faithFeature.innerHTML = `<p class="eyebrow dark">Featured Article</p><h2 id="featured-inspiration-title">${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><blockquote>“${escapeHtml(featured.quote)}”</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read the Article</a>`;
+    const faithVisual = document.getElementById("faithFeaturedVisualRoot");
+    if (faithVisual && featured) faithVisual.innerHTML = `<p class="eyebrow dark featured-visual-eyebrow">Featured Article Visual</p><a class="featured-inspiration-image article-feature-image" href="${escapeHtml(featured.url)}"><img alt="A learner building valuable complementary skills with technology" src="${escapeHtml(featured.image)}" loading="lazy" decoding="async"><span class="visual-spotlight-badge">Skills &amp; Growth</span><span class="image-view-hint">Read article →</span></a>`;
+    const faithList = document.getElementById("faithArticleListRoot");
+    if (faithList) faithList.innerHTML = articles.filter((item) => item.categories?.includes("faith")).map((item, index) => articleLink(item, index === 0 ? "Written Article · New" : "Written Article")).join("") + `<a aria-label="View Start Where You Are inspirational image on this page" class="inspiration-link-row inspiration-link-row--visual" data-image-alt="A farmer working with simple tools beside the words Start where you are. Use what you have." data-image-caption="A standalone visual reminder to begin faithfully with the resources already in your hands." data-image-src="assets/images/start-where-you-are.webp" data-image-title="Start Where You Are. Use What You Have." data-image-viewer href="#inspiration-image-viewer"><span aria-hidden="true" class="inspiration-row-icon"><svg viewBox="0 0 24 24"><rect height="16" rx="2" width="18" x="3" y="4"></rect><circle cx="8.5" cy="9" r="1.5"></circle><path d="m5 17 5-5 3 3 2-2 4 4"></path></svg></span><span><small>Visual Inspiration</small><strong>Start Where You Are. Use What You Have.</strong></span><span aria-hidden="true" class="latest-arrow">→</span></a>`;
+
+    const techFeature = document.getElementById("techFeaturedArticleRoot");
+    if (techFeature && featured) techFeature.innerHTML = `<p class="eyebrow dark">Featured Skills &amp; Technology Article</p><h2 id="tech-feature-title">${escapeHtml(featured.title)}</h2><p>${escapeHtml(featured.description)}</p><blockquote>“${escapeHtml(featured.quote)}”</blockquote><a class="btn" href="${escapeHtml(featured.url)}">Read the Article</a>`;
+    const techVisual = document.getElementById("techFeaturedVisualRoot");
+    if (techVisual && featured) techVisual.innerHTML = `<a class="tech-article-feature-image" href="${escapeHtml(featured.url)}"><img src="${escapeHtml(featured.image)}" alt="A learner combining technology, communication, and problem-solving skills" loading="lazy" decoding="async"><span>Skills amplified by technology</span></a>`;
+    const techList = document.getElementById("techArticleListRoot");
+    if (techList) techList.innerHTML = articles.filter((item) => item.categories?.includes("technology")).map((item, index) => articleLink(item, index === 0 ? "Skills &amp; Technology · New" : item.readingLabel)).join("");
+  }
+
+  function restoreDynamicHash() {
+    if (!location.hash) return;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = document.getElementById(id);
+    if (!target) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView({ block: "start" })));
+  }
+
+  function renderLatest() {
+    const root = document.getElementById("latestLearningRoot");
+    if (!root) return;
+    const labels = { lesson: "Newest Lesson", assignment: "Newest Assignment", article: "Newest Article", tool: "Newest Tool" };
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+    const items = [...(data.latestUpdates || [])].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
+    root.innerHTML = items.map((item) => {
+      const published = new Date(`${item.date}T00:00:00`);
+      const ageDays = Math.floor((now - published) / 86400000);
+      const isNew = ageDays >= 0 && ageDays <= 21;
+      return `<a href="${escapeHtml(item.url)}" class="latest-update-row latest-update-row--${escapeHtml(item.type)} search-item" data-search="${escapeHtml(`${item.type} ${item.title} ${item.summary}`)}">
+        <span class="latest-update-icon" aria-hidden="true">${item.icon}</span>
+        <span class="latest-update-copy"><span class="latest-update-meta"><span>${escapeHtml(labels[item.type] || item.type)}</span><time datetime="${escapeHtml(item.date)}">${escapeHtml(item.dateLabel)}</time>${isNew ? '<b>New</b>' : ''}</span><h3>${escapeHtml(item.title)}</h3></span>
+        <span class="latest-update-open" aria-hidden="true">→</span>
+      </a>`;
+    }).join("");
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    renderCourses();
+    renderAssignments();
+    renderDownloads();
+    renderTools();
+    renderLatest();
+    renderArticleCollections();
+    restoreDynamicHash();
+  });
+})();

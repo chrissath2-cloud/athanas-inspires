@@ -1,8 +1,0 @@
-AI Assistant scrolling fix
-==========================
-
-- The conversation pane now keeps a dedicated vertical scroll area.
-- Compact and expanded assistant layouts both scroll correctly.
-- Mobile touch scrolling is enabled with momentum scrolling.
-- New messages scroll into view after rendering and after layout changes.
-- The assistant asset version was updated to refresh cached CSS and JavaScript.

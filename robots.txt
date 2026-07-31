@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://athanasinspires.com/sitemap.xml

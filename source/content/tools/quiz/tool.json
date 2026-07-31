@@ -1,0 +1,11 @@
+{
+  "id": "quiz",
+  "title": "General ICT Quiz Game",
+  "description": "Practise computer basics, Word, Excel, internet safety, shortcuts, and beginner ICT skills with instant feedback.",
+  "icon": "🎮",
+  "url": "/digital-tools/ict-quiz.html",
+  "category": "learn-practise",
+  "status": "available",
+  "level": "Beginner",
+  "purpose": "Knowledge practice"
+}

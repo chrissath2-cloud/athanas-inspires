@@ -1,0 +1,11 @@
+{
+  "id": "calculator",
+  "title": "Scientific Calculator",
+  "description": "Use a practical calculator for school mathematics, science, percentages, powers, roots, and trigonometry.",
+  "icon": "🧮",
+  "url": "/digital-tools/scientific-calculator.html",
+  "category": "calculate",
+  "status": "available",
+  "level": "All levels",
+  "purpose": "Calculations"
+}

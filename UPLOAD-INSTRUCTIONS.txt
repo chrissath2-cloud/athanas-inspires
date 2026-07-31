@@ -1,0 +1,12 @@
+ATHANAS INSPIRES — SIMPLE GITHUB UPLOAD
+
+This folder contains only the finished public website.
+
+UPLOAD METHOD:
+1. Open this folder.
+2. Select all files and folders inside it.
+3. Upload them to the ROOT of your GitHub repository.
+4. In GitHub: Settings > Pages > Source: Deploy from a branch.
+5. Select branch: main and folder: /(root), then Save.
+
+Do not upload the outer folder itself as a nested folder.

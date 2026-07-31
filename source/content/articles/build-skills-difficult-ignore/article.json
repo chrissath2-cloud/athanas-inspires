@@ -1,0 +1,117 @@
+{
+  "id": "build-skills-difficult-ignore",
+  "title": "Build Skills That Make You Difficult to Ignore",
+  "subtitle": "Turn your hidden potential into visible value",
+  "description": "A bold, deeply practical guide to discovering your strongest potential, building complementary skills, using technology wisely, creating visible evidence, and becoming someone people can trust.",
+  "url": "build-skills-that-make-you-difficult-to-ignore.html",
+  "date": "2026-07-26",
+  "dateLabel": "26 July 2026",
+  "readingLabel": "Personal Growth · Skills · Technology",
+  "categories": [
+    "faith",
+    "technology"
+  ],
+  "primaryCategory": "faith",
+  "featured": true,
+  "image": "assets/images/articles/build-skills-difficult-to-ignore-premium.jpg",
+  "socialImage": "assets/images/social/social-build-skills.jpg",
+  "quote": "Do not aim to impress people once. Become the person who repeatedly brings value, solves problems, and finishes what they start.",
+  "keywords": "skills potential strengths skill stacking technology problem solving consistency character visibility career growth personal development 30 day challenge",
+  "assistantSummary": "The article teaches that people become difficult to ignore by developing valuable and complementary skills, solving real problems, using technology as a multiplier, building trust through consistency and character, and making their work visible without becoming noisy.",
+  "keyIdeas": [
+    "Potential is only a starting point; developed skill and results are the evidence.",
+    "Discover strengths through repeated interests, feedback, problems you solve well, and areas where you learn quickly.",
+    "Build a small stack of complementary skills instead of collecting unrelated abilities.",
+    "Use technology to amplify an existing strength, not to replace thinking or character.",
+    "Build visible evidence through completed work, solved problems, a portfolio, teaching, and consistent results.",
+    "Confidence grows stronger when it is supported by evidence, feedback, and repeated contribution.",
+    "Manage weaknesses that restrict progress while mastering strengths that distinguish you.",
+    "Use mistakes as feedback and measure progress against your previous level rather than copying another person's path.",
+    "Follow a simple four-week challenge: discover, practise, add technology, and create evidence."
+  ],
+  "assistantQuestions": [
+    {
+      "id": "article-skills-main",
+      "title": "How can I become difficult to ignore?",
+      "keywords": [
+        "difficult to ignore",
+        "stand out",
+        "be valuable",
+        "build valuable skills"
+      ],
+      "answer": "Become useful, skilled, trustworthy, adaptable, and consistent. Discover what you do well, develop one valuable core skill, add complementary skills, use technology to multiply your effectiveness, solve real problems, and create visible evidence of your work.",
+      "details": "The goal is not fame or noise. It is dependable value: the kind of contribution that saves time, improves results, explains ideas clearly, or helps people move forward."
+    },
+    {
+      "id": "article-skills-potential",
+      "title": "How do I discover my strongest potential?",
+      "keywords": [
+        "discover potential",
+        "find strengths",
+        "what am I good at",
+        "natural ability"
+      ],
+      "answer": "Look for repeated interests, tasks you learn unusually fast, problems people ask you to solve, positive feedback you receive, and work that gives you energy even when it requires effort.",
+      "details": "Do not rely on one personality test. Collect evidence from your experiences, results, feedback, and patterns over time, then choose one strength to develop deliberately."
+    },
+    {
+      "id": "article-skills-stack",
+      "title": "What is skill stacking?",
+      "keywords": [
+        "skill stacking",
+        "combine skills",
+        "complementary skills"
+      ],
+      "answer": "Skill stacking means combining a few abilities that strengthen one another. You may not be the world's best at each one, but the combination can make your contribution unusually useful.",
+      "details": "For example, teaching knowledge plus communication, presentation design, technology, leadership, and content creation can create far more value than any one skill alone."
+    },
+    {
+      "id": "article-skills-technology",
+      "title": "How can technology multiply my strengths?",
+      "keywords": [
+        "technology multiplier",
+        "technology skills",
+        "use technology for growth"
+      ],
+      "answer": "Choose technology that improves what you already do well. A teacher can use digital presentations and video; a businessperson can use spreadsheets and online communication; a creator can use editing, design, and publishing tools.",
+      "details": "Technology should make your work clearer, faster, more organised, or easier to share. It should strengthen thinking and service—not replace them."
+    },
+    {
+      "id": "article-skills-visible",
+      "title": "How do I make my skills visible without arrogance?",
+      "keywords": [
+        "show skills",
+        "visibility",
+        "portfolio",
+        "self promotion arrogance"
+      ],
+      "answer": "Let completed work provide the evidence. Build a small portfolio, share useful lessons, document results, solve problems, and communicate your contribution clearly without exaggeration.",
+      "details": "Do not become noisy without substance, but do not remain so hidden that nobody knows what you can contribute."
+    },
+    {
+      "id": "article-skills-challenge",
+      "title": "What is the article's 30-day challenge?",
+      "keywords": [
+        "30 day skill challenge",
+        "four week challenge",
+        "skill building plan"
+      ],
+      "answer": "Week 1: identify one strong potential. Week 2: practise one valuable skill. Week 3: add one useful technology skill. Week 4: create one small piece of visible evidence.",
+      "details": "Keep it simple. The goal is not perfection in thirty days; it is to replace vague ambition with focused, visible progress."
+    }
+  ],
+  "continue": [
+    {
+      "title": "Start a Practical ICT Skill",
+      "url": "courses.html"
+    },
+    {
+      "title": "Practise with a Free Tool",
+      "url": "/digital-tools/index.html"
+    },
+    {
+      "title": "Read More Personal Growth",
+      "url": "faith-inspiration.html"
+    }
+  ]
+}

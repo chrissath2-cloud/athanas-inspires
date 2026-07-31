@@ -1,0 +1,10 @@
+{
+  "id": "excel-4-file",
+  "category": "Microsoft Excel",
+  "title": "Excel Session 4 Assignment File",
+  "description": "Practice IF logic and automatic decision-making from Excel Session 4.",
+  "icon": "📈",
+  "type": "XLSX",
+  "url": "assets/downloads/excel-session-4-assignment.xlsx",
+  "relatedUrl": "assignments.html#excel-session-4"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "word-3-assignment",
+  "lessonId": "word-3",
+  "series": "Microsoft Word",
+  "title": "Word Session 3 Mini Project",
+  "description": "Recreate the Internet Safety Guide and practise pictures, Wrap Text, shapes, text boxes, WordArt, symbols, equations, and clean layout.",
+  "icon": "📄",
+  "status": "available",
+  "anchor": "word-session-3-assignment",
+  "watchUrl": "https://www.youtube.com/watch?v=Fr0np3nukWg",
+  "downloadUrl": "assets/downloads/word-session-3-mini-project-image.zip",
+  "downloadLabel": "Download Image Resource",
+  "preview": "assets/images/word-session-3-mini-project-preview.png",
+  "submitUrl": "https://wa.me/255695110859?text=Hello%20Athanas%20Inspires%2C%20I%20want%20to%20submit%20my%20Word%20Session%203%20assignment.%20My%20name%20is%20_____.%20I%20recreated%20the%20Internet%20Safety%20Guide%20mini%20project."
+}

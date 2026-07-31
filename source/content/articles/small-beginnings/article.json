@@ -1,0 +1,39 @@
+{
+  "id": "small-beginnings",
+  "title": "The Power of Small Beginnings",
+  "subtitle": "Start where you are and use what you have",
+  "description": "An encouragement to begin faithfully, use what you have, and grow one step at a time.",
+  "url": "the-power-of-small-beginnings.html",
+  "date": "2026-07-10",
+  "dateLabel": "10 July 2026",
+  "readingLabel": "Faith · Personal Growth",
+  "categories": [
+    "faith"
+  ],
+  "primaryCategory": "faith",
+  "featured": false,
+  "image": "assets/images/start-where-you-are.webp",
+  "socialImage": "assets/images/social/social-small-beginnings.jpg",
+  "quote": "A seed does not need to look like a harvest before it is planted.",
+  "keywords": "small beginnings start purpose faith courage Zechariah",
+  "assistantSummary": "This article encourages readers not to despise small beginnings, but to start with what they have, remain faithful, and allow steady action to grow into something meaningful.",
+  "keyIdeas": [
+    "Small beginnings can carry great potential.",
+    "Faithful action matters more than waiting for perfect conditions."
+  ],
+  "assistantQuestions": [],
+  "continue": [
+    {
+      "title": "Begin Computer Basics",
+      "url": "courses.html#beginner-installments"
+    },
+    {
+      "title": "Complete One Assignment",
+      "url": "assignments.html"
+    },
+    {
+      "title": "Read More Inspiration",
+      "url": "faith-inspiration.html"
+    }
+  ]
+}

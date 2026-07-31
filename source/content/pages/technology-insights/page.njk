@@ -1,0 +1,120 @@
+---
+permalink: "technology-insights.html"
+basePath: ""
+bodyClass: "technology-insights-page premium-simple-v2"
+sharedChrome: true
+analytics: true
+cssBundle: "articles"
+jsBundle: "content-pages"
+buildVersion: "20260731-contrast-youtube-2"
+extraStyles: []
+extraScripts: []
+---
+<!-- Uses the shared source/_includes/layouts/base.html skeleton. -->
+
+{% block head %}
+<!-- Google tag (gtag.js) -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Read simple, inspiring technology articles that help beginners build digital confidence, understand change, and move forward." name="description"/>
+<title>Technology &amp; Digital Growth | Athanas Inspires</title>
+<link href="https://athanasinspires.com/technology-insights.html" rel="canonical"/>
+<link href="assets/images/logo-512.png" rel="icon" type="image/png"/>
+<link href="assets/images/logo-512.png" rel="apple-touch-icon"/>
+<meta content="#06183a" name="theme-color"/>
+<meta content="Athanas Inspires" property="og:site_name"/>
+<meta content="Technology &amp; Digital Growth | Athanas Inspires" property="og:title"/>
+<meta content="Simple, inspiring technology articles for beginners who want to learn, adapt, and move forward." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://athanasinspires.com/technology-insights.html" property="og:url"/>
+<meta content="https://athanasinspires.com/assets/images/social/social-digital-skills-beginner.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Technology &amp; Digital Growth | Athanas Inspires" name="twitter:title"/>
+<meta content="Simple, inspiring technology articles for beginners who want to learn, adapt, and move forward." name="twitter:description"/>
+<meta content="https://athanasinspires.com/assets/images/social/social-digital-skills-beginner.jpg" name="twitter:image"/>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"Athanas Inspires","url":"https://athanasinspires.com","logo":"https://athanasinspires.com/assets/images/logo-512.png"},{"@context":"https://schema.org","@type":"CollectionPage","name":"Technology & Digital Growth","url":"https://athanasinspires.com/technology-insights.html","description":"Simple, inspiring technology articles for beginners."},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://athanasinspires.com"},{"@type":"ListItem","position":2,"name":"Technology & Digital Growth","item":"https://athanasinspires.com/technology-insights.html"}]}]</script>
+<style>
+.technology-insights-page{background:#f7faff}
+.technology-insights-hero{
+  position:relative;isolation:isolate;overflow:hidden;text-align:left;
+  padding:clamp(82px,9vw,128px) 8%;
+  background:radial-gradient(circle at 85% 12%,rgba(250,204,21,.25),transparent 27%),radial-gradient(circle at 12% 90%,rgba(56,189,248,.20),transparent 30%),linear-gradient(135deg,#04142f,#0a4697 58%,#052657);
+}
+.technology-insights-hero::after{content:"";position:absolute;z-index:-1;right:-170px;top:-170px;width:470px;height:470px;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(250,204,21,.025)}
+.technology-insights-hero .eyebrow{color:#fff4a7;background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.38)}
+.technology-insights-hero h1{max-width:900px;color:#fff!important;font-size:clamp(3rem,6vw,5.8rem);line-height:1.01;text-shadow:0 18px 46px rgba(0,0,0,.32)}
+.technology-insights-hero p:last-child{max-width:830px;margin-top:22px;color:#e5efff!important;font-size:clamp(1.08rem,2vw,1.35rem);line-height:1.75}
+.tech-feature-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.72fr);gap:clamp(28px,5vw,68px);align-items:center;max-width:1240px;margin:auto}
+.tech-feature-copy{padding:clamp(28px,4vw,48px);border:1px solid rgba(8,68,150,.13);border-radius:30px;background:#fff;box-shadow:0 28px 75px rgba(6,38,91,.12)}
+.tech-feature-copy h2{color:#073579;font-size:clamp(2rem,4vw,3.35rem);line-height:1.08;margin-bottom:18px}
+.tech-feature-copy p{color:#405672;font-size:1.08rem;line-height:1.8}
+.tech-feature-copy blockquote{margin:24px 0;padding:18px 20px;border-left:5px solid #facc15;border-radius:0 18px 18px 0;color:#073579;background:#f3f7ff;font-size:1.18rem;font-weight:850;line-height:1.55}
+.tech-feature-visual{position:relative;display:grid;place-items:center;min-height:430px;padding:35px;border:1px solid rgba(255,232,108,.42);border-radius:30px;background:radial-gradient(circle at 70% 20%,rgba(250,204,21,.27),transparent 29%),linear-gradient(145deg,#071b42,#0d47a1 58%,#082f73);box-shadow:0 35px 85px rgba(5,30,75,.25)}
+.tech-feature-visual::before,.tech-feature-visual::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.16);border-radius:50%}
+.tech-feature-visual::before{width:270px;height:270px}.tech-feature-visual::after{width:205px;height:205px;border-color:rgba(250,204,21,.32)}
+.tech-feature-core{position:relative;z-index:2;display:grid;place-items:center;width:145px;height:145px;border-radius:34px;background:linear-gradient(145deg,#fff9c7,#facc15);box-shadow:0 25px 55px rgba(0,0,0,.32)}
+.tech-feature-core svg{width:84px;height:84px;fill:none;stroke:#073775;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tech-feature-visual span{position:absolute;z-index:3;padding:7px 11px;border-radius:999px;color:#fff;background:rgba(2,24,60,.72);border:1px solid rgba(255,255,255,.16);font-size:12px;font-weight:850}
+.tech-v1{top:50px;left:34px}.tech-v2{top:74px;right:24px}.tech-v3{bottom:66px;left:30px}.tech-v4{bottom:42px;right:24px}
+.tech-focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1180px;margin:auto}
+.tech-focus-card{padding:28px;border:1px solid rgba(8,68,150,.12);border-radius:24px;background:#fff;box-shadow:0 18px 48px rgba(6,38,91,.09);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.tech-focus-card:hover{transform:translateY(-7px);border-color:rgba(245,158,11,.4);box-shadow:0 28px 65px rgba(6,38,91,.15)}
+.tech-focus-card b{display:grid;place-items:center;width:50px;height:50px;margin-bottom:18px;border-radius:15px;color:#073579;background:linear-gradient(145deg,#fff6bd,#facc15);font-size:1.35rem}
+.tech-focus-card h3{color:#073579;margin-bottom:10px;font-size:1.3rem}.tech-focus-card p{color:#4b617c;line-height:1.72}
+.tech-library-row{max-width:1050px;margin:auto}
+.tech-library-row .inspiration-link-row{background:#fff}
+.tech-library-coming{max-width:900px;margin:28px auto 0;padding:22px 26px;border:1px dashed rgba(8,68,150,.25);border-radius:22px;color:#405672;background:linear-gradient(135deg,#f7fbff,#fffbed);text-align:center;font-weight:750}
+@media(max-width:900px){.tech-feature-layout{grid-template-columns:1fr}.tech-feature-visual{min-height:370px}.tech-focus-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.technology-insights-hero{padding-inline:6%}.tech-feature-copy{padding:24px;border-radius:23px}.tech-feature-visual{min-height:320px;padding:22px;border-radius:23px}.tech-feature-core{width:118px;height:118px}.tech-feature-core svg{width:68px;height:68px}.tech-feature-visual span{font-size:10px;padding:6px 8px}}
+</style>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Athanas Inspires learning and personal growth" property="og:image:alt"/>
+{% endblock %}
+
+{% block beforeNavigation %}
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div aria-label="Website loading" aria-live="polite" class="site-loader"><div class="loader-card"><img alt="Athanas Inspires Logo" decoding="async" fetchpriority="high" height="320" src="assets/images/logo-320.png" width="320"/><span>Loading Athanas Inspires...</span><div aria-hidden="true" class="loader-bar"><span></span></div></div></div>
+{% endblock %}
+
+{% block content %}
+<section class="page-hero technology-insights-hero">
+<p class="eyebrow">Technology &amp; Digital Growth</p>
+<h1>Understand Technology. Build Confidence. Move Forward.</h1>
+<p>You do not need complicated language or expert knowledge to understand the digital world. Begin with one clear idea, one useful skill, and one courageous step.</p>
+</section>
+<main id="main-content">
+<section aria-labelledby="tech-feature-title" class="section section-white">
+<div class="tech-feature-layout">
+<article class="tech-feature-copy" id="techFeaturedArticleRoot">
+<p class="eyebrow dark">Featured Technology Article</p>
+<h2 id="tech-feature-title">Why Technology Is Necessary in Today’s World</h2>
+<p>Technology is already shaping how you learn, work, communicate, do business, and solve problems. This article speaks directly to you as a learner and shows why your next digital skill matters.</p>
+<blockquote>“You do not need to become an expert today. You only need the courage to begin.”</blockquote>
+<a class="btn" href="why-technology-is-necessary.html">Read the Article</a>
+</article>
+<div aria-label="Technology connects learning, work, business, and daily life" class="tech-feature-visual" id="techFeaturedVisualRoot">
+<span class="tech-v1">Learning</span><span class="tech-v2">Work</span><span class="tech-v3">Business</span><span class="tech-v4">Daily Life</span>
+<div class="tech-feature-core"><svg viewbox="0 0 100 100"><rect height="46" rx="6" width="64" x="18" y="20"></rect><path d="M10 76h80M40 66l-4 10M60 66l4 10"></path><path d="M31 45h10l6-10 8 20 6-10h9"></path></svg></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="tech-focus-title" class="section">
+<div class="section-heading"><p class="eyebrow dark">What You Will Find Here</p><h2 id="tech-focus-title">Technology Explained for Real People</h2><p>Clear ideas, practical encouragement, and learner-friendly guidance—without drowning you in difficult words.</p></div>
+<div class="tech-focus-grid">
+<article class="tech-focus-card"><b>01</b><h3>Digital Confidence</h3><p>Messages that help you overcome fear, begin with basic skills, and trust your ability to learn.</p></article>
+<article class="tech-focus-card"><b>02</b><h3>Technology in Life</h3><p>Simple explanations of how technology affects education, work, business, communication, and communities.</p></article>
+<article class="tech-focus-card"><b>03</b><h3>Skills for the Future</h3><p>Practical direction to help you adapt, keep learning, and use technology to solve real problems.</p></article>
+</div>
+</section>
+<section aria-labelledby="tech-library-title" class="section section-white">
+<div class="section-heading"><p class="eyebrow dark">Technology Article Library</p><h2 id="tech-library-title">Learn One Useful Idea at a Time</h2><p>Choose an article, read slowly, reflect, and turn one lesson into action.</p></div>
+<div class="tech-library-row"><div class="inspiration-link-list" id="techArticleListRoot"></div><p class="tech-library-coming">Begin with the article that answers your current question, then follow its links into lessons, tools, and practice. The library will continue growing one clear article at a time. 🙂</p></div>
+</section>
+<section aria-labelledby="tech-action-title" class="article-next-step">
+<div><p class="eyebrow">Turn Understanding into Skill</p><h2 id="tech-action-title">Ready to Learn Something Practical?</h2><p>Choose one beginner-friendly ICT lesson, practise what you learn, and keep moving from confusion to clarity.</p></div>
+<div class="article-next-actions"><a class="btn" href="courses.html">Explore ICT Lessons</a><a class="btn secondary-btn article-community-btn" href="https://chat.whatsapp.com/Fd9rDqOyxRrKUctGqfevmt" rel="noopener noreferrer" target="_blank">Join WhatsApp Community</a></div>
+</section>
+</main>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{
+  "id": "excel-2-assignment",
+  "lessonId": "excel-2",
+  "series": "Microsoft Excel",
+  "title": "Excel Session 2 Assignment",
+  "description": "Practise formulas, basic calculations, SUM, AVERAGE, RANK, and Excel cell references.",
+  "icon": "📊",
+  "status": "available",
+  "anchor": "excel-session-2",
+  "watchUrl": "https://www.youtube.com/watch?v=fDepU9fUpSw",
+  "downloadUrl": "assets/downloads/excel-session-2-assignment.xlsx",
+  "downloadLabel": "Download Assignment",
+  "submitUrl": "https://wa.me/255695110859?text=Hello%20Athanas%20Inspires%2C%20I%20want%20to%20submit%20my%20Excel%20Session%202%20assignment.%20My%20name%20is%20_____."
+}

@@ -1,8 +1,0 @@
-ATHANAS INSPIRES — DROPDOWN CONTRAST & QR HELP LAYER FIX
-Date: 29 July 2026
-
-1. Restored the premium gold active background for selected Digital Tools category links.
-2. Protected dark navy text and icons in normal, hover and keyboard-focus active states.
-3. Raised the QR Builder Help menu above the mobile/tablet sticky Live Preview panel.
-4. Added a safe scroll area to the help menu on shorter mobile screens.
-5. Updated CSS version query strings to prevent stale browser cache from hiding the fixes.

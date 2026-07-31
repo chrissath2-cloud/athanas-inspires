@@ -1,0 +1,23 @@
+ATHANAS INSPIRES — PREMIUM FRIENDLY UI REFINEMENT
+Date: 30 July 2026
+
+Completed updates
+1. QR Builder selected-step number remains white on a navy circle during hover/focus.
+2. Selected QR step uses a gold-to-amber gradient, controlled lift, and soft glow.
+3. Inactive QR steps use a navy-to-blue colour-changing hover with gold accents.
+4. QR steps now form a connected vertical timeline on desktop.
+5. Added a compact Step X of 6 / percentage progress indicator.
+6. Inactive and completed QR steps show titles only; the active step reveals its short description.
+7. Completed steps use a white check on navy with a subtle green completion accent.
+8. Mobile QR Builder uses one current-step navigator with Previous/Next controls and a progress line.
+9. QR form panels use compact guided cards with clearer grouping and focus states.
+10. QR validation uses a highlighted field plus a soft-red alert with dark readable text.
+11. Removed “New” from the Premium Learning Experience strip.
+12. Kept the separate NEW ARTICLE animation active.
+13. Shortcut Trainer feedback uses soft green/red panels, dark navy text, icons, and stronger borders.
+14. Correct and incorrect answer states remain readable during hover/focus.
+15. Added a small related-state audit for invalid fields and interactive controls.
+
+New final-layer files
+- css/premium-friendly-ui-20260730.css
+- js/premium-friendly-ui-20260730.js

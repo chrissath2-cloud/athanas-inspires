@@ -1,0 +1,36 @@
+ATHANAS INSPIRES — SWAHILI BIBLE INTEGRATION
+Date: 16 July 2026
+
+WHAT WAS ADDED
+- New premium page: bible.html
+- Complete Swahili Bible: 66 books, 1,189 chapters, 31,102 verses
+- Book and chapter selectors
+- Previous/next chapter navigation
+- Full-Bible text search
+- Verse highlighting and copying
+- Font-size controls, reading night mode, printing, and chapter sharing
+- Continue-reading memory stored locally in the visitor's browser
+- Direct book browser for the Old and New Testaments
+
+WEBSITE CONNECTIONS
+- Biblia ya Kiswahili added to the Inspiration navigation menu on every page
+- Biblia ya Kiswahili added to the premium footer on every page
+- New Bible feature added to Faith & Personal Growth
+- Bible page added to website search and sitemap.xml
+
+SOURCE HANDLING
+- Scripture text was extracted from the user-provided WordProject Swahili Bible package.
+- Old WordProject page layouts, branding, analytics code, obsolete Google+ sharing, Flash files, and external audio links were not copied.
+- The Scripture wording was preserved. A duplicated verse block found in the source file for Yoshua 18 was de-duplicated, retaining one copy of each verse.
+- The Bible page includes a visible source acknowledgement to WordProject.
+
+IMPORTANT FILES
+- bible.html
+- css/bible.css
+- js/bible.js
+- assets/bible-data/books.json
+- assets/bible-data/01-mwanzo.json through 66-ufunuo.json
+UPDATE 2026-07-16 — LOCAL PREVIEW FIX
+- Added JavaScript data fallbacks for all 66 books.
+- Biblia now works when bible.html is opened directly from a computer (file://), where browsers block fetch() for local JSON files.
+- Online hosting still uses the lightweight JSON route first and falls back automatically if needed.

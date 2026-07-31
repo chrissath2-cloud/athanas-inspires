@@ -1,0 +1,22 @@
+ATHANAS INSPIRES WEBSITE UPDATE — 26 JULY 2026
+
+Main content added:
+- Build Skills That Make You Difficult to Ignore
+- Subtitle: Turn your hidden potential into visible value
+- Premium article page, reflection prompts, and simple four-week challenge
+
+Updated everywhere:
+- Homepage featured article
+- Latest Updates
+- Faith & Personal Growth
+- Technology & Digital Growth
+- Website search
+- AI Assistant knowledge
+- Related article navigation
+- Sitemap and social metadata
+
+Repairs:
+- Central learning-content source now loads directly
+- Incorrect YouTube fallback/structured URL corrected
+- Dynamic hash links restored after content rendering
+- Outdated Bible note removed

@@ -1,0 +1,12 @@
+ATHANAS INSPIRES — FINAL ARTICLE CONTRAST & LIVE MESSAGE GLOW
+Date: 30 July 2026
+
+Completed:
+1. Fixed the action-link contrast on all "Keep Your Journey Connected" article cards.
+2. On hover and keyboard focus, card headings and descriptions remain white and readable.
+3. Eyebrow text becomes soft gold for hierarchy.
+4. The final action becomes a gold pill with dark navy text.
+5. The numbered badge keeps dark navy text on its gold background.
+6. Added a gentle blink-and-glow animation to the rotating live encouragement message.
+7. Kept reduced-motion accessibility support.
+8. Updated CSS cache versions across all pages.

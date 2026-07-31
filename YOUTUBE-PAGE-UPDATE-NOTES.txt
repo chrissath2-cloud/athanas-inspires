@@ -1,0 +1,26 @@
+ATHANAS INSPIRES — YOUTUBE PAGE UPDATE NOTES
+
+1. Replace the hero portrait later at:
+   assets/images/youtube/youtube-hero-athanas.jpg
+   Keep the same filename so no code changes are required.
+
+2. Replace the temporary welcome recording later at:
+   assets/audio/youtube-welcome.mp3
+   Keep the same filename.
+
+3. Add or update videos in one place:
+   js/youtube-data.js
+
+4. Excel Session 5 is currently marked Coming Soon in youtube-data.js.
+   When published, add its YouTube video ID/link to the Excel lessons array and update the upcoming section as required.
+
+5. The YouTube page uses:
+   css/youtube-premium.css
+   js/youtube-page.js
+   js/youtube-data.js
+
+6. July 14 refinements:
+   - All lesson lists are visible by default; the View All Lessons control was removed.
+   - Testimonials advance automatically every 3 seconds and pause during hover/focus.
+   - The featured YouTube player now supplies YouTube's required origin/referrer information on the live website.
+   - When youtube.html is opened directly as a file:// preview, it uses a clean Watch on YouTube fallback instead of displaying YouTube Error 153. Upload the site or preview it through a local web server to test embedded playback.

@@ -1,0 +1,2 @@
+Checked 25 HTML pages.
+PASS: public links, central content references, sitemap entries, and source loading checks are consistent.

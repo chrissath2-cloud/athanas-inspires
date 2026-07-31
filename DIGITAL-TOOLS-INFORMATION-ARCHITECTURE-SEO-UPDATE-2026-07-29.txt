@@ -1,0 +1,14 @@
+ATHANAS INSPIRES — DIGITAL TOOLS + SEO UPDATE
+Date: 29 July 2026
+
+MAIN CHANGES
+- Added Digital Tools as a top-level navbar menu across the website.
+- Navbar now uses broad sections: Home, Learn, YouTube, Digital Tools, Resources, Inspiration, Support.
+- Created /digital-tools/ hub with horizontal category filters and premium list rows.
+- Moved all five existing tools into /digital-tools/ with SEO-friendly URLs.
+- Added static redirect pages at old URLs for GitHub Pages compatibility.
+- Updated homepage What’s New to a compact premium list, with QR Code Generator first.
+- Grouped website search into Lessons, Digital Tools, Articles, Videos, Resources, and Pages.
+- Added full QR Code Generator knowledge and troubleshooting guidance to the AI Assistant.
+- Improved QR page SEO metadata, WebApplication schema, FAQ schema, breadcrumb schema, supporting guide, FAQs, and internal links.
+- Updated sitemap, internal links, footer links, canonical URLs, social metadata, and central content data.

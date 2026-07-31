@@ -1,0 +1,921 @@
+/* =========================================================
+   ATHANAS INSPIRES — PREMIUM REFINEMENT V4
+   Date: 2026-07-29
+   Purpose: stronger NEW badge, compact practice tools,
+   clearer Digital Tools hierarchy, slower dropdown cascade,
+   compact YouTube learning strip, and contact contrast fixes.
+   ========================================================= */
+
+:root {
+  --aiv4-navy: #06183a;
+  --aiv4-navy-2: #0a3477;
+  --aiv4-blue: #1769d2;
+  --aiv4-blue-bright: #2486f5;
+  --aiv4-gold: #ffd43b;
+  --aiv4-gold-deep: #f5ad0b;
+  --aiv4-soft: #eef5ff;
+  --aiv4-ink: #071b41;
+  --aiv4-copy: #43546d;
+  --aiv4-line: rgba(8, 47, 109, .14);
+  --aiv4-ease: cubic-bezier(.2, .78, .22, 1);
+}
+
+/* ---------- Stronger, cleaner NEW ARTICLE badge ---------- */
+.home-premium .home-editorial-image > span.home-editorial-badge,
+.home-premium .home-editorial-image > span {
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: auto !important;
+  z-index: 4 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: .36em !important;
+  width: auto !important;
+  max-width: calc(100% - 24px) !important;
+  min-height: 34px !important;
+  padding: 8px 13px !important;
+  border: 1px solid rgba(255,255,255,.72) !important;
+  border-radius: 999px !important;
+  color: #06183a !important;
+  background: linear-gradient(135deg, #fff38a 0%, #ffd43b 52%, #ffb312 100%) !important;
+  box-shadow: 0 12px 28px rgba(1, 19, 51, .30), 0 0 0 4px rgba(255, 212, 59, .15) !important;
+  font-size: .65rem !important;
+  font-weight: 1000 !important;
+  letter-spacing: .12em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.home-premium .home-editorial-image > span.home-editorial-badge::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+  background: rgba(4, 25, 62, .82);
+  filter: blur(8px);
+  opacity: .34;
+}
+
+/* The word NEW is intentionally stronger than the surrounding label. */
+.premium-simple-v2 .new-blink {
+  display: inline-block !important;
+  color: inherit !important;
+  font-weight: 1000 !important;
+  transform-origin: center !important;
+  animation: aiv4NewSignal 1.08s cubic-bezier(.4,0,.2,1) infinite !important;
+  will-change: opacity, transform, filter;
+}
+
+.premium-simple-v2 :is(.eyebrow, .home-editorial-meta, .home-editorial-image, .latest-update-meta):hover .new-blink,
+.premium-simple-v2 .new-blink:hover {
+  animation-play-state: paused !important;
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+  filter: brightness(1.18) drop-shadow(0 0 9px rgba(255, 212, 59, 1)) !important;
+}
+
+@keyframes aiv4NewSignal {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 2px rgba(255, 212, 59, .35));
+  }
+  42% {
+    opacity: .24;
+    transform: scale(.92);
+    filter: brightness(.9) drop-shadow(0 0 2px rgba(255, 212, 59, .25));
+  }
+  58% {
+    opacity: 1;
+    transform: scale(1.14);
+    filter: brightness(1.42) drop-shadow(0 0 13px rgba(255, 212, 59, 1));
+  }
+  72% {
+    opacity: .86;
+    transform: scale(1.03);
+    filter: brightness(1.15) drop-shadow(0 0 7px rgba(255, 212, 59, .86));
+  }
+}
+
+/* ---------- Compact premium YouTube learning strip ---------- */
+.home-premium .youtube-hub-promo.youtube-hub-promo--compact {
+  padding: clamp(24px, 3.6vw, 38px) 5% !important;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 212, 59, .20), transparent 26%),
+    radial-gradient(circle at 94% 8%, rgba(36, 134, 245, .24), transparent 30%),
+    linear-gradient(135deg, #03132f 0%, #082f6d 58%, #0a438e 100%) !important;
+}
+
+.home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner {
+  width: min(1120px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  grid-template-columns: 52px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 18px !important;
+  border: 1px solid rgba(255, 227, 109, .28) !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.07) !important;
+  box-shadow: 0 20px 48px rgba(0, 11, 34, .24), inset 0 1px 0 rgba(255,255,255,.10) !important;
+  backdrop-filter: blur(10px);
+}
+
+.youtube-hub-strip-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 17px;
+  color: #06183a;
+  background: linear-gradient(135deg, #fff084, #ffc51d);
+  box-shadow: 0 14px 30px rgba(255, 197, 29, .22);
+  font-size: 1.15rem;
+  transition: transform .34s var(--aiv4-ease), box-shadow .34s ease, background .34s ease;
+}
+
+.youtube-hub-strip-copy { min-width: 0; }
+.home-premium .youtube-hub-promo--compact .eyebrow {
+  margin: 0 0 4px !important;
+  color: #ffe569 !important;
+  font-size: .62rem !important;
+  letter-spacing: .14em !important;
+}
+.home-premium .youtube-hub-promo--compact h2 {
+  margin: 0 0 4px !important;
+  color: #fff !important;
+  font-size: clamp(1.15rem, 2vw, 1.52rem) !important;
+  letter-spacing: -.025em !important;
+  line-height: 1.18 !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-strip-copy > p:last-child {
+  max-width: 720px;
+  margin: 0 !important;
+  color: #d9e8ff !important;
+  font-size: .84rem !important;
+  line-height: 1.55 !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-strip-action {
+  min-height: 44px !important;
+  padding: 11px 17px !important;
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner:hover {
+    border-color: rgba(255, 220, 77, .62) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,.11), rgba(26, 112, 224, .14)) !important;
+    box-shadow: 0 28px 62px rgba(0, 11, 34, .34), 0 0 0 4px rgba(255, 212, 59, .08) !important;
+  }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner:hover .youtube-hub-strip-icon {
+    transform: translateY(-3px) rotate(-4deg) scale(1.06);
+    background: linear-gradient(135deg, #fff8bb, #ffd43b);
+    box-shadow: 0 18px 36px rgba(255, 197, 29, .32);
+  }
+}
+
+/* ---------- Digital Tools dropdown hierarchy ---------- */
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-card-menu {
+  padding-bottom: 12px !important;
+}
+
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card {
+  min-height: 60px !important;
+  border-color: rgba(255, 211, 58, .58) !important;
+  color: #06183a !important;
+  background: linear-gradient(135deg, #fff074 0%, #ffd43b 58%, #ffbd1c 100%) !important;
+  box-shadow: 0 12px 26px rgba(3, 31, 75, .20) !important;
+}
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card :where(strong, small, .nav-card-arrow) {
+  color: #06183a !important;
+}
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-card-icon {
+  color: #0a438e !important;
+  background: rgba(255,255,255,.68) !important;
+}
+
+.premium-simple-v2 .nav-tools-group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 26px;
+  padding: 8px 14px 3px 27px;
+  color: #9eb5d8;
+  font-size: .57rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.premium-simple-v2 .nav-tools-group-label::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, #ffd43b, transparent);
+}
+
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category {
+  position: relative;
+  margin-left: 13px !important;
+  padding-left: 9px !important;
+}
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -7px;
+  bottom: -7px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 212, 59, .72), rgba(38, 132, 245, .30));
+}
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card {
+  min-height: 48px !important;
+  padding-block: 8px !important;
+  border-radius: 14px !important;
+  background: rgba(255,255,255,.035) !important;
+}
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-card-icon {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 11px !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card:hover,
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card:focus-visible {
+    color: #fff !important;
+    border-color: #66aaff !important;
+    background: linear-gradient(135deg, #1769d2, #073a86 66%, #051c46) !important;
+    box-shadow: 0 17px 36px rgba(4, 35, 83, .34), 0 0 0 3px rgba(255, 212, 59, .10) !important;
+  }
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card:hover :where(strong, small, .nav-card-arrow),
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-overview .nav-menu-card:focus-visible :where(strong, small, .nav-card-arrow) {
+    color: #fff !important;
+  }
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card:not(.active):hover,
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card:not(.active):focus-visible {
+    color: #fff !important;
+    border-color: rgba(255, 212, 59, .52) !important;
+    background: linear-gradient(135deg, #0b55b5, #061f50) !important;
+  }
+}
+
+/* ---------- Slower, more visible one-by-one navbar animation ---------- */
+.premium-simple-v2 .nav-dropdown.is-open > .nav-card-menu > li,
+.premium-simple-v2 .nav-dropdown:focus-within > .nav-card-menu > li {
+  animation-duration: .58s !important;
+  animation-timing-function: var(--aiv4-ease) !important;
+}
+.premium-simple-v2 .nav-card-menu > li:nth-child(1) { animation-delay: 0ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(2) { animation-delay: 120ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(3) { animation-delay: 240ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(4) { animation-delay: 360ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(5) { animation-delay: 480ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(6) { animation-delay: 600ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(7) { animation-delay: 720ms !important; }
+.premium-simple-v2 .nav-card-menu > li:nth-child(8) { animation-delay: 840ms !important; }
+
+/* ---------- Practice tools: compact normal UI ---------- */
+body.tool-practice-page {
+  background: linear-gradient(180deg, #eef5ff 0%, #f8fbff 45%, #edf4ff 100%);
+}
+body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) {
+  min-height: 210px !important;
+  padding: 46px 7% 42px !important;
+}
+body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) h1 {
+  font-size: clamp(2rem, 4.2vw, 3.45rem) !important;
+  margin-bottom: 10px !important;
+}
+body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) p:not(.eyebrow) {
+  max-width: 760px !important;
+  margin-bottom: 16px !important;
+  font-size: .95rem !important;
+  line-height: 1.6 !important;
+}
+body.tool-practice-page :is(.quiz-page, .shortcut-page, .typing-page) {
+  width: min(1320px, 94%) !important;
+  margin: 0 auto !important;
+  padding: 22px 0 58px !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+body.tool-practice-page :is(.quiz-app-card, .shortcut-app-card, .typing-app-card) {
+  padding: clamp(18px, 2.2vw, 24px) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 20px 50px rgba(4, 33, 79, .11) !important;
+}
+body.tool-practice-page :is(.quiz-topbar, .typing-topbar) {
+  margin-bottom: 12px !important;
+}
+body.tool-practice-page :is(.quiz-topbar, .typing-topbar) h2 {
+  font-size: clamp(1.28rem, 2vw, 1.7rem) !important;
+}
+body.tool-practice-page :is(.quiz-category-tabs, .shortcut-category-tabs, .typing-duration-tabs) {
+  gap: 7px !important;
+  margin-bottom: 12px !important;
+}
+body.tool-practice-page .category-tab {
+  min-height: 36px !important;
+  padding: 8px 12px !important;
+  font-size: .72rem !important;
+}
+body.tool-practice-page :is(.quiz-status-grid, .shortcut-status-grid, .typing-status-grid) {
+  gap: 8px !important;
+  margin-bottom: 11px !important;
+}
+body.tool-practice-page .quiz-status-card {
+  min-height: 58px !important;
+  padding: 9px 10px !important;
+  border-radius: 15px !important;
+}
+body.tool-practice-page .quiz-status-card span { font-size: .62rem !important; }
+body.tool-practice-page .quiz-status-card strong { font-size: .94rem !important; }
+body.tool-practice-page .athanas-tool-note {
+  margin: 9px 0 !important;
+  padding: 10px 13px !important;
+  border-radius: 14px !important;
+  font-size: .76rem !important;
+  line-height: 1.48 !important;
+}
+body.tool-practice-page .quiz-progress {
+  height: 5px !important;
+  margin: 9px 0 12px !important;
+}
+body.tool-practice-page :is(.question-card, .shortcut-question-card, .typing-practice-card) {
+  padding: clamp(16px, 2vw, 22px) !important;
+  border-radius: 20px !important;
+}
+body.tool-practice-page :is(.question-card, .shortcut-question-card) h3 {
+  font-size: clamp(1.18rem, 2vw, 1.62rem) !important;
+  margin-bottom: 13px !important;
+}
+body.tool-practice-page .answer-grid { gap: 8px !important; }
+body.tool-practice-page :is(.answer-btn, .shortcut-choice-btn) {
+  min-height: 44px !important;
+  padding: 10px 12px !important;
+  border-radius: 13px !important;
+  font-size: .8rem !important;
+}
+body.tool-practice-page .quiz-actions {
+  margin-top: 12px !important;
+  gap: 9px !important;
+}
+body.tool-practice-page .quiz-actions .btn {
+  min-height: 41px !important;
+  padding: 10px 15px !important;
+  font-size: .78rem !important;
+}
+body.tool-practice-page :is(.quiz-side-panel, .shortcut-side-panel, .typing-side-panel) {
+  gap: 12px !important;
+}
+body.tool-practice-page :is(.quiz-side-panel, .shortcut-side-panel, .typing-side-panel) .side-card {
+  padding: 17px !important;
+  border-radius: 19px !important;
+}
+body.tool-practice-page :is(.quiz-side-panel, .shortcut-side-panel, .typing-side-panel) .side-card h3 {
+  margin-bottom: 8px !important;
+  font-size: .98rem !important;
+}
+body.tool-practice-page :is(.quiz-side-panel, .shortcut-side-panel, .typing-side-panel) .side-card :is(p, li) {
+  font-size: .75rem !important;
+  line-height: 1.5 !important;
+}
+body.tool-practice-page .result-score-circle {
+  width: 82px !important;
+  height: 82px !important;
+  margin: 13px auto !important;
+  font-size: 1.28rem !important;
+}
+body.tool-practice-page .typing-controls-row {
+  gap: 12px !important;
+  margin-bottom: 10px !important;
+}
+body.tool-practice-page .typing-passage-header { margin-bottom: 9px !important; }
+body.tool-practice-page .typing-passage {
+  min-height: 92px !important;
+  max-height: 126px !important;
+  padding: 14px !important;
+  margin-bottom: 9px !important;
+  overflow-y: auto !important;
+  font-size: .98rem !important;
+  line-height: 1.7 !important;
+}
+body.tool-practice-page .typing-input {
+  min-height: 104px !important;
+  max-height: 126px !important;
+  padding: 13px !important;
+  font-size: .93rem !important;
+  line-height: 1.55 !important;
+}
+body.tool-practice-page .typing-live-message {
+  min-height: 34px !important;
+  margin-top: 8px !important;
+  padding: 8px 10px !important;
+  font-size: .72rem !important;
+}
+
+/* Focus controls */
+.tool-focus-toolbar {
+  grid-column: 1 / -1;
+  position: relative;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 2px;
+  padding: 10px 12px;
+  border: 1px solid rgba(8, 56, 130, .13);
+  border-radius: 18px;
+  color: #0a2c61;
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 13px 34px rgba(4,33,79,.09), inset 0 1px 0 #fff;
+  backdrop-filter: blur(12px);
+}
+.tool-focus-intro {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.tool-focus-intro > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: #08295f;
+  background: linear-gradient(135deg, #fff084, #ffc51d);
+  box-shadow: 0 10px 22px rgba(255,197,29,.20);
+  font-size: 1rem;
+}
+.tool-focus-intro strong {
+  display: block;
+  color: #071b41;
+  font-size: .82rem;
+  line-height: 1.2;
+}
+.tool-focus-intro small {
+  display: block;
+  margin-top: 2px;
+  color: #60708a;
+  font-size: .66rem;
+  line-height: 1.3;
+}
+.tool-focus-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.tool-focus-button,
+.tool-fullscreen-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  border: 1px solid rgba(8, 56, 130, .18);
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #1769d2, #083b86);
+  box-shadow: 0 10px 22px rgba(9, 69, 157, .18);
+  font: inherit;
+  font-size: .72rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .28s var(--aiv4-ease), color .28s ease, background .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.tool-focus-button { padding: 9px 13px; }
+.tool-fullscreen-button {
+  width: 38px;
+  padding: 8px;
+  color: #0a3477;
+  background: #eef5ff;
+}
+.tool-fullscreen-button svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.tool-focus-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tool-focus-button:hover,
+  .tool-focus-button:focus-visible {
+    transform: translateY(-2px);
+    color: #06183a;
+    border-color: #ffd43b;
+    background: linear-gradient(135deg, #fff084, #ffc51d);
+    box-shadow: 0 15px 30px rgba(255,197,29,.25);
+  }
+  .tool-fullscreen-button:hover,
+  .tool-fullscreen-button:focus-visible {
+    transform: translateY(-2px) rotate(2deg);
+    color: #fff;
+    border-color: #66aaff;
+    background: linear-gradient(135deg, #2486f5, #0a438e);
+    box-shadow: 0 15px 30px rgba(9,69,157,.23);
+  }
+}
+
+/* Distraction-free Focus Mode */
+body.tool-focus-mode {
+  height: 100dvh;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(255,212,59,.15), transparent 25%),
+    radial-gradient(circle at 100% 8%, rgba(36,134,245,.18), transparent 28%),
+    linear-gradient(150deg, #eaf3ff, #f9fbff 54%, #edf4ff) !important;
+}
+body.tool-focus-mode :is(.navbar, .quiz-hero, .shortcut-hero, .typing-hero, .site-footer, .premium-site-footer, .ai-loader-launcher, .ai-floating-button, .site-search-launcher, .cookie-banner) {
+  display: none !important;
+}
+body.tool-focus-mode :is(.quiz-page, .shortcut-page, .typing-page) {
+  width: 100% !important;
+  max-width: none !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 10px !important;
+  display: block !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain;
+}
+body.tool-focus-mode .tool-focus-toolbar {
+  position: sticky;
+  top: 0;
+  width: min(1180px, 100%);
+  margin: 0 auto 9px;
+  border-color: rgba(255, 212, 59, .48);
+  background: rgba(4, 25, 62, .95);
+  box-shadow: 0 16px 40px rgba(2, 20, 50, .26), inset 0 1px 0 rgba(255,255,255,.10);
+}
+body.tool-focus-mode .tool-focus-intro strong { color: #fff; }
+body.tool-focus-mode .tool-focus-intro small { color: #c9daf5; }
+body.tool-focus-mode .tool-focus-button {
+  color: #06183a;
+  border-color: #ffe57a;
+  background: linear-gradient(135deg, #fff084, #ffc51d);
+}
+body.tool-focus-mode :is(.quiz-side-panel, .shortcut-side-panel, .typing-side-panel) {
+  display: none !important;
+}
+body.tool-focus-mode :is(.quiz-app-card, .shortcut-app-card, .typing-app-card) {
+  width: min(1180px, 100%) !important;
+  min-height: calc(100dvh - 76px) !important;
+  margin: 0 auto !important;
+  padding: 15px 17px !important;
+  border-color: rgba(8, 56, 130, .18) !important;
+  border-radius: 22px !important;
+  background: rgba(255,255,255,.96) !important;
+  box-shadow: 0 24px 60px rgba(4,33,79,.15) !important;
+}
+body.tool-focus-mode .athanas-tool-note { display: none !important; }
+body.tool-focus-mode :is(.quiz-topbar, .typing-topbar) { margin-bottom: 7px !important; }
+body.tool-focus-mode :is(.quiz-category-tabs, .shortcut-category-tabs, .typing-duration-tabs) {
+  margin-bottom: 7px !important;
+}
+body.tool-focus-mode :is(.quiz-status-grid, .shortcut-status-grid, .typing-status-grid) {
+  margin-bottom: 7px !important;
+}
+body.tool-focus-mode .quiz-progress { margin: 7px 0 9px !important; }
+body.tool-focus-mode :is(.question-card, .shortcut-question-card, .typing-practice-card) {
+  padding: 14px 16px !important;
+}
+body.tool-focus-mode .typing-passage {
+  min-height: 78px !important;
+  max-height: 112px !important;
+}
+body.tool-focus-mode .typing-input {
+  min-height: 92px !important;
+  max-height: 112px !important;
+}
+body.tool-focus-mode .quiz-actions { margin-top: 8px !important; }
+
+/* ---------- Contact page: guaranteed contrast in every state ---------- */
+.contact-premium-page .contact-channels-section {
+  background: linear-gradient(180deg, #edf5ff 0%, #f8fbff 100%) !important;
+}
+.contact-premium-page .contact-premium-card {
+  color: #071b41 !important;
+  background: linear-gradient(145deg, #ffffff, #f7faff) !important;
+}
+.contact-premium-page .contact-premium-card :where(h3, p, strong, .contact-card-label) {
+  transition: color .3s ease, background .3s ease, border-color .3s ease;
+}
+.contact-premium-page .contact-premium-card h3 { color: #071b41 !important; }
+.contact-premium-page .contact-premium-card p { color: #52637c !important; }
+.contact-premium-page .contact-premium-card strong { color: #0b438e !important; }
+.contact-premium-page .contact-premium-card .contact-card-label {
+  color: color-mix(in srgb, var(--contact-accent) 80%, #06183a) !important;
+  background: color-mix(in srgb, var(--contact-accent) 9%, #fff) !important;
+}
+.contact-premium-page .contact-purpose-grid article {
+  background: linear-gradient(135deg, #fff, #eef5ff) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-premium-page .contact-premium-card:hover,
+  .contact-premium-page .contact-premium-card:focus-visible {
+    color: #fff !important;
+    border-color: rgba(255, 220, 84, .56) !important;
+    box-shadow: 0 34px 76px rgba(3, 30, 75, .25), 0 0 0 4px rgba(255, 212, 59, .08) !important;
+  }
+  .contact-premium-page .contact-premium-card--whatsapp:hover,
+  .contact-premium-page .contact-premium-card--whatsapp:focus-visible {
+    background: linear-gradient(145deg, #08784f, #0ca66e 60%, #064b38) !important;
+  }
+  .contact-premium-page .contact-premium-card--phone:hover,
+  .contact-premium-page .contact-premium-card--phone:focus-visible {
+    background: linear-gradient(145deg, #0b438e, #1769d2 58%, #08326f) !important;
+  }
+  .contact-premium-page .contact-premium-card--email:hover,
+  .contact-premium-page .contact-premium-card--email:focus-visible {
+    background: linear-gradient(145deg, #7b4a00, #b87500 58%, #4c2d00) !important;
+  }
+  .contact-premium-page .contact-premium-card--youtube:hover,
+  .contact-premium-page .contact-premium-card--youtube:focus-visible {
+    background: linear-gradient(145deg, #a80f2d, #ec2348 58%, #720a20) !important;
+  }
+  .contact-premium-page .contact-premium-card:hover :where(h3, p, strong),
+  .contact-premium-page .contact-premium-card:focus-visible :where(h3, p, strong) {
+    color: #fff !important;
+  }
+  .contact-premium-page .contact-premium-card:hover strong,
+  .contact-premium-page .contact-premium-card:focus-visible strong {
+    border-top-color: rgba(255,255,255,.24) !important;
+  }
+  .contact-premium-page .contact-premium-card:hover .contact-card-label,
+  .contact-premium-page .contact-premium-card:focus-visible .contact-card-label {
+    color: #06183a !important;
+    background: linear-gradient(135deg, #fff18a, #ffd43b) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12) !important;
+  }
+  .contact-premium-page .contact-purpose-grid article:hover,
+  .contact-premium-page .contact-purpose-grid article:focus-within {
+    color: #fff !important;
+    border-color: rgba(255, 212, 59, .54) !important;
+    background: linear-gradient(135deg, #0b55b5, #061f50) !important;
+    box-shadow: 0 22px 48px rgba(3,30,75,.20) !important;
+  }
+  .contact-premium-page .contact-purpose-grid article:hover :where(h3, p, a),
+  .contact-premium-page .contact-purpose-grid article:focus-within :where(h3, p, a) {
+    color: #fff !important;
+  }
+  .contact-premium-page .contact-purpose-grid article:hover > span,
+  .contact-premium-page .contact-purpose-grid article:focus-within > span {
+    background: linear-gradient(135deg, #fff18a, #ffd43b) !important;
+  }
+}
+
+/* ---------- Consistent colour-changing buttons across pages ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .premium-simple-v2 :is(.btn, .small-btn, .lesson-btn, .youtube-main-btn):not(:disabled):hover,
+  .premium-simple-v2 :is(.btn, .small-btn, .lesson-btn, .youtube-main-btn):not(:disabled):focus-visible {
+    color: #fff !important;
+    border-color: rgba(255, 220, 84, .72) !important;
+    background: linear-gradient(135deg, #2486f5, #0b55b5 58%, #061f50) !important;
+    box-shadow: 0 17px 35px rgba(6, 58, 135, .26), 0 0 0 4px rgba(255, 212, 59, .08) !important;
+  }
+  .premium-simple-v2 :is(.secondary-btn, .outline-btn):not(:disabled):hover,
+  .premium-simple-v2 :is(.secondary-btn, .outline-btn):not(:disabled):focus-visible {
+    color: #06183a !important;
+    border-color: #ffd43b !important;
+    background: linear-gradient(135deg, #fff18a, #ffc51d) !important;
+    box-shadow: 0 16px 32px rgba(255,197,29,.24) !important;
+  }
+}
+
+/* ---------- Responsive adjustments ---------- */
+@media (max-width: 900px) {
+  .home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner {
+    grid-template-columns: 48px minmax(0, 1fr) !important;
+  }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-strip-action {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  body.tool-practice-page :is(.quiz-page, .shortcut-page, .typing-page) {
+    width: min(760px, 94%) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .premium-simple-v2 .nav-dropdown.is-open > .nav-card-menu > li,
+  .premium-simple-v2 .nav-dropdown:focus-within > .nav-card-menu > li {
+    animation-duration: .42s !important;
+  }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(1) { animation-delay: 0ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(2) { animation-delay: 75ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(3) { animation-delay: 150ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(4) { animation-delay: 225ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(5) { animation-delay: 300ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(6) { animation-delay: 375ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(7) { animation-delay: 450ms !important; }
+  .premium-simple-v2 .nav-card-menu > li:nth-child(8) { animation-delay: 525ms !important; }
+
+  .home-premium .home-editorial-image > span.home-editorial-badge,
+  .home-premium .home-editorial-image > span {
+    top: 9px !important;
+    left: 9px !important;
+    min-height: 29px !important;
+    padding: 7px 10px !important;
+    font-size: .57rem !important;
+  }
+
+  .home-premium .youtube-hub-promo.youtube-hub-promo--compact {
+    padding: 20px 4% !important;
+  }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner {
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 12px !important;
+    padding: 15px !important;
+    border-radius: 19px !important;
+  }
+  .youtube-hub-strip-icon { width: 42px; height: 42px; border-radius: 14px; }
+  .home-premium .youtube-hub-promo--compact h2 { font-size: 1.05rem !important; }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-strip-copy > p:last-child { font-size: .75rem !important; }
+
+  body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) {
+    min-height: 168px !important;
+    padding: 30px 5% 28px !important;
+  }
+  body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) h1 {
+    font-size: 1.82rem !important;
+  }
+  body.tool-practice-page :is(.quiz-hero, .shortcut-hero, .typing-hero) p:not(.eyebrow) {
+    font-size: .82rem !important;
+    line-height: 1.5 !important;
+  }
+  body.tool-practice-page :is(.quiz-page, .shortcut-page, .typing-page) {
+    width: calc(100% - 20px) !important;
+    padding-top: 12px !important;
+  }
+  .tool-focus-toolbar {
+    padding: 8px;
+    border-radius: 15px;
+  }
+  .tool-focus-intro small { display: none; }
+  .tool-focus-intro > span { width: 34px; height: 34px; border-radius: 11px; }
+  .tool-focus-button { min-height: 35px; padding: 8px 10px; font-size: .67rem; }
+  .tool-fullscreen-button { width: 35px; min-height: 35px; }
+  body.tool-practice-page :is(.quiz-app-card, .shortcut-app-card, .typing-app-card) {
+    padding: 14px !important;
+    border-radius: 19px !important;
+  }
+  body.tool-practice-page :is(.quiz-category-tabs, .shortcut-category-tabs, .typing-duration-tabs) {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: thin;
+    padding-bottom: 4px !important;
+  }
+  body.tool-practice-page .category-tab { flex: 0 0 auto; }
+  body.tool-practice-page :is(.quiz-status-grid, .shortcut-status-grid, .typing-status-grid) {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+  body.tool-practice-page .typing-controls-row { grid-template-columns: 1fr !important; }
+  body.tool-practice-page .typing-passage { max-height: 112px !important; }
+  body.tool-practice-page .typing-input { max-height: 118px !important; }
+  body.tool-focus-mode :is(.quiz-page, .shortcut-page, .typing-page) { padding: 6px !important; }
+  body.tool-focus-mode .tool-focus-toolbar { margin-bottom: 6px; }
+  body.tool-focus-mode :is(.quiz-app-card, .shortcut-app-card, .typing-app-card) {
+    min-height: calc(100dvh - 62px) !important;
+    padding: 11px !important;
+    border-radius: 17px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-simple-v2 .new-blink { animation: none !important; }
+  .premium-simple-v2 .nav-card-menu > li { animation-delay: 0ms !important; }
+  .tool-focus-button,
+  .tool-fullscreen-button,
+  .youtube-hub-strip-icon { transition: none !important; }
+}
+
+/* Keep the two words inside the unified badge in normal flow.
+   Older article CSS styled every descendant span as a separate badge. */
+.home-premium .home-editorial-image > .home-editorial-badge > span {
+  position: static !important;
+  inset: auto !important;
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: inherit !important;
+  background: none !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+/* Final compactness pass for the New Premium Learning Experience strip. */
+.home-premium .youtube-hub-promo.youtube-hub-promo--compact {
+  padding: clamp(16px, 2.2vw, 24px) 5% !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner {
+  grid-template-columns: 46px minmax(0, 1fr) auto !important;
+  gap: 14px !important;
+  padding: 13px 16px !important;
+  border-radius: 19px !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-strip-icon {
+  width: 46px !important;
+  height: 46px !important;
+  border-radius: 14px !important;
+}
+.home-premium .youtube-hub-promo--compact h2 {
+  font-size: clamp(1.04rem, 1.7vw, 1.34rem) !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-strip-copy > p:last-child {
+  font-size: .78rem !important;
+  line-height: 1.45 !important;
+}
+.home-premium .youtube-hub-promo--compact .youtube-hub-strip-action {
+  min-height: 40px !important;
+  padding: 9px 14px !important;
+}
+@media (max-width: 720px) {
+  .home-premium .youtube-hub-promo.youtube-hub-promo--compact { padding: 14px 4% !important; }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-promo-inner {
+    grid-template-columns: 38px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+  .home-premium .youtube-hub-promo--compact .youtube-hub-strip-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* ---------- 2026-07-29: Digital Tools active-category contrast fix ---------- */
+/* The hierarchy styling is declared after the shared active-link rules, so the
+   category background must be restored here with greater specificity. */
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active,
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"] {
+  color: #041934 !important;
+  border-color: rgba(255, 231, 102, .96) !important;
+  background: linear-gradient(135deg, #fff7bd 0%, #ffdc42 55%, #f7b517 100%) !important;
+  box-shadow: 0 15px 34px rgba(239, 172, 10, .27), inset 0 1px 0 rgba(255,255,255,.84) !important;
+}
+
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow),
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"] :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow) {
+  color: #041934 !important;
+  text-shadow: none !important;
+}
+
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active .nav-card-icon,
+.premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"] .nav-card-icon {
+  color: #073b81 !important;
+  border-color: rgba(4, 25, 52, .14) !important;
+  background: rgba(255,255,255,.67) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active:hover,
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active:focus-visible,
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"]:hover,
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"]:focus-visible {
+    color: #03162f !important;
+    border-color: #fff4ad !important;
+    background: linear-gradient(135deg, #fff3a0 0%, #ffd22e 52%, #ee9f08 100%) !important;
+    box-shadow: 0 21px 44px rgba(238, 158, 7, .35), 0 0 0 4px rgba(255, 216, 59, .10) !important;
+  }
+
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active:hover :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow),
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card.active:focus-visible :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow),
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"]:hover :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow),
+  .premium-simple-v2 .nav-dropdown-digital-tools .nav-tools-category .nav-menu-card[aria-current="page"]:focus-visible :where(.nav-card-copy strong, .nav-card-copy small, .nav-card-arrow) {
+    color: #03162f !important;
+  }
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "type": "tool",
+    "icon": "▦",
+    "title": "QR Code Generator",
+    "summary": "Create customised QR codes with a searchable builder, optional poster text, a premium A4 output, and QR-only downloads.",
+    "url": "/digital-tools/qr-code-generator.html",
+    "date": "2026-07-29",
+    "dateLabel": "29 July 2026"
+  },
+  {
+    "type": "article",
+    "icon": "✦",
+    "title": "Build Skills That Make You Difficult to Ignore",
+    "summary": "A bold, practical guide to discovering your strongest potential, building valuable skills, and turning hidden ability into visible value.",
+    "url": "/build-skills-that-make-you-difficult-to-ignore.html",
+    "date": "2026-07-26",
+    "dateLabel": "26 July 2026"
+  },
+  {
+    "type": "lesson",
+    "icon": "▶",
+    "title": "Word Session 3: Professional Documents with Visuals",
+    "summary": "Learn pictures, Wrap Text, shapes, text boxes, WordArt, symbols, and equations step by step.",
+    "url": "/youtube.html#featured",
+    "date": "2026-07-06",
+    "dateLabel": "6 July 2026"
+  },
+  {
+    "type": "assignment",
+    "icon": "✓",
+    "title": "Word Session 3 Mini Project",
+    "summary": "Recreate the Internet Safety Guide and turn the lesson into a complete practical document.",
+    "url": "/assignments.html#word-session-3-assignment",
+    "date": "2026-07-06",
+    "dateLabel": "6 July 2026"
+  }
+]

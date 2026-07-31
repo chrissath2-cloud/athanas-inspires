@@ -1,0 +1,23 @@
+/* =========================================================
+   ATHANAS INSPIRES — DESIGN SETTINGS
+   Change these named values carefully to update shared design choices.
+   Existing compatibility styles are being migrated gradually to use them.
+   ========================================================= */
+:root {
+  --ai-brand-yellow: #facc15;
+  --ai-brand-yellow-dark: #f59e0b;
+  --ai-brand-blue: #0d47a1;
+  --ai-brand-blue-dark: #061a40;
+  --ai-brand-navy: #06183a;
+  --ai-text-main: #1f2937;
+  --ai-text-muted: #475569;
+  --ai-surface: #ffffff;
+  --ai-surface-soft: #f8fafc;
+  --ai-radius-small: 12px;
+  --ai-radius-medium: 20px;
+  --ai-radius-large: 28px;
+  --ai-shadow-small: 0 10px 25px rgba(15, 23, 42, 0.10);
+  --ai-shadow-medium: 0 22px 55px rgba(15, 23, 42, 0.12);
+  --ai-transition-fast: 180ms ease;
+  --ai-transition-normal: 320ms ease;
+}

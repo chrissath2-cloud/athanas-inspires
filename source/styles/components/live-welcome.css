@@ -1,0 +1,297 @@
+/* Athanas Inspires live welcome strip + final Digital Tools contrast repair
+   2026-07-30: designed to reuse the navbar's existing vertical footprint. */
+
+.navbar.has-live-strip {
+  position: sticky;
+  min-height: 76px;
+  padding-top: 5px !important;
+  padding-bottom: 24px !important;
+  transition: min-height .28s ease, padding .28s ease, box-shadow .28s ease, background .28s ease;
+}
+
+.navbar.has-live-strip .brand img {
+  width: 46px;
+  height: 46px;
+}
+
+.ai-live-strip {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 23px;
+  padding: 0 clamp(16px, 5.8vw, 88px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  overflow: hidden;
+  color: #f8fbff;
+  background:
+    linear-gradient(90deg, rgba(1, 16, 45, .98), rgba(7, 63, 139, .98) 55%, rgba(3, 29, 73, .98));
+  border-top: 1px solid rgba(255, 255, 255, .10);
+  box-shadow: inset 0 1px 0 rgba(250, 204, 21, .16);
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  transition: height .28s ease, opacity .24s ease, transform .28s ease;
+}
+
+.ai-live-primary,
+.ai-live-encouragement {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ai-live-primary { gap: 7px; }
+
+.ai-live-icon {
+  width: 18px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 13px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, .28));
+}
+
+.ai-live-greeting {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.ai-live-separator {
+  color: rgba(250, 204, 21, .86);
+  font-weight: 900;
+}
+
+.ai-live-date-full,
+.ai-live-date-short {
+  color: #e6efff;
+  font-weight: 680;
+}
+
+.ai-live-date-short { display: none; }
+
+.ai-live-clock {
+  min-width: 92px;
+  color: #ffe56f;
+  font-variant-numeric: tabular-nums;
+  font-weight: 950;
+  letter-spacing: .025em;
+  text-shadow: 0 0 12px rgba(250, 204, 21, .25);
+}
+
+.ai-live-encouragement {
+  max-width: min(48vw, 610px);
+  justify-content: flex-end;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #edf5ff;
+  font-style: italic;
+  font-weight: 720;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .32s ease, transform .32s ease;
+}
+
+.ai-live-encouragement.is-changing {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.navbar.has-live-strip.nav-scrolled {
+  min-height: 66px;
+  padding-top: 4px !important;
+  padding-bottom: 19px !important;
+}
+
+.navbar.has-live-strip.nav-scrolled .brand img {
+  width: 42px;
+  height: 42px;
+}
+
+.navbar.has-live-strip.nav-scrolled .ai-live-strip { height: 18px; }
+
+.navbar.has-live-strip.nav-scrolled .ai-live-encouragement {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+}
+
+.navbar.has-live-strip.live-menu-open {
+  padding-bottom: 10px !important;
+}
+
+.navbar.has-live-strip.live-menu-open .ai-live-strip {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Focused tool workspaces intentionally stay distraction-free. */
+body.tool-focus-mode .ai-live-strip,
+body.tool-focus-mode .navbar.has-live-strip {
+  display: none !important;
+}
+
+/* Digital Tools card action: clear contrast on blue card hover/focus. */
+.digital-tools-page .digital-tool-row .digital-tool-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 999px;
+  transition: color .28s ease, background .28s ease, border-color .28s ease,
+              box-shadow .28s ease, transform .28s ease;
+}
+
+.digital-tools-page .digital-tool-row:hover .digital-tool-open,
+.digital-tools-page .digital-tool-row:focus-within .digital-tool-open {
+  padding: 7px 10px;
+  color: #fff1a6 !important;
+  background: rgba(255, 255, 255, .13) !important;
+  border: 1px solid rgba(255, 229, 105, .66);
+  box-shadow: 0 8px 22px rgba(0, 8, 34, .22);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .28);
+}
+
+.digital-tools-page .digital-tool-row .digital-tool-open:hover,
+.digital-tools-page .digital-tool-row .digital-tool-open:focus-visible {
+  color: #061a3b !important;
+  background: linear-gradient(135deg, #fff6ad, #facc15) !important;
+  border-color: #fff0a0;
+  box-shadow: 0 10px 25px rgba(250, 204, 21, .30);
+  transform: translateY(-1px);
+  text-shadow: none;
+}
+
+.digital-tools-page .digital-tool-row:hover .digital-tool-open span,
+.digital-tools-page .digital-tool-row:focus-within .digital-tool-open span {
+  color: inherit !important;
+}
+
+@media (max-width: 1120px) {
+  .ai-live-encouragement { max-width: 38vw; }
+}
+
+@media (max-width: 860px) {
+  .navbar.has-live-strip {
+    min-height: 68px;
+    padding-top: 3px !important;
+    padding-bottom: 23px !important;
+  }
+
+  .navbar.has-live-strip .brand img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .navbar.has-live-strip.nav-scrolled {
+    min-height: 62px;
+    padding-top: 3px !important;
+    padding-bottom: 19px !important;
+  }
+
+  .navbar.has-live-strip.nav-scrolled .brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ai-live-strip {
+    height: 21px;
+    justify-content: center;
+    padding-inline: 12px;
+    font-size: 10px;
+  }
+
+  .ai-live-primary { gap: 5px; }
+  .ai-live-encouragement { display: none; }
+  .ai-live-date-full { display: none; }
+  .ai-live-date-short { display: inline; }
+  .ai-live-clock { min-width: 84px; }
+}
+
+@media (max-width: 430px) {
+  .ai-live-strip { font-size: 9.5px; }
+  .ai-live-primary { gap: 4px; }
+  .ai-live-clock { min-width: 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-live-strip,
+  .ai-live-encouragement,
+  .digital-tools-page .digital-tool-row .digital-tool-open {
+    transition: none !important;
+  }
+}
+
+/* Final article journey contrast + live encouragement glow — 2026-07-30 */
+@media (hover: hover) and (pointer: fine) {
+  .premium-simple-v2 .article-connection-card:hover,
+  .premium-simple-v2 .article-connection-card:focus-visible {
+    color: #ffffff !important;
+  }
+
+  .premium-simple-v2 .article-connection-card:hover :where(small, strong, p, b, span),
+  .premium-simple-v2 .article-connection-card:focus-visible :where(small, strong, p, b, span) {
+    color: #ffffff !important;
+  }
+
+  .premium-simple-v2 .article-connection-card:hover small,
+  .premium-simple-v2 .article-connection-card:focus-visible small {
+    color: #fff19a !important;
+  }
+
+  .premium-simple-v2 .article-connection-card:hover b,
+  .premium-simple-v2 .article-connection-card:focus-visible b {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 235, 133, .68);
+    border-radius: 999px;
+    color: #061a3b !important;
+    background: linear-gradient(135deg, #fff7b8, #facc15);
+    box-shadow: 0 9px 23px rgba(0, 8, 34, .22);
+    text-shadow: none;
+  }
+
+  .premium-simple-v2 .article-connection-card:hover .article-connection-number,
+  .premium-simple-v2 .article-connection-card:focus-visible .article-connection-number {
+    color: #061a3b !important;
+  }
+}
+
+.ai-live-encouragement > span {
+  display: inline-block;
+  color: #f7fbff;
+  animation: aiLiveMessageGlow 2.7s ease-in-out infinite;
+}
+
+@keyframes aiLiveMessageGlow {
+  0%, 100% {
+    opacity: .78;
+    color: #e9f3ff;
+    text-shadow: 0 0 0 rgba(250, 204, 21, 0);
+    filter: brightness(.98);
+  }
+  50% {
+    opacity: 1;
+    color: #fff4aa;
+    text-shadow:
+      0 0 7px rgba(250, 204, 21, .42),
+      0 0 16px rgba(66, 153, 255, .30);
+    filter: brightness(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-live-encouragement > span {
+    animation: none !important;
+    opacity: 1;
+    color: #f7fbff;
+    text-shadow: 0 0 9px rgba(250, 204, 21, .22);
+  }
+}

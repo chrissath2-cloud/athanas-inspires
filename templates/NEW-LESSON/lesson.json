@@ -1,0 +1,10 @@
+{
+  "id": "REPLACE-WITH-UNIQUE-ID",
+  "session": "REPLACE-WITH-SESSION-NUMBER",
+  "title": "REPLACE WITH LESSON TITLE",
+  "displayTitle": "REPLACE WITH FULL DISPLAY TITLE",
+  "description": "REPLACE WITH A SHORT BEGINNER-FRIENDLY DESCRIPTION",
+  "videoId": "REPLACE WITH YOUTUBE VIDEO ID",
+  "videoUrl": "REPLACE WITH YOUTUBE VIDEO LINK",
+  "status": "published"
+}

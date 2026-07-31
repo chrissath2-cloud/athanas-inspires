@@ -1,0 +1,15 @@
+{
+  "id": "REPLACE-WITH-UNIQUE-ID",
+  "title": "REPLACE WITH ARTICLE TITLE",
+  "subtitle": "REPLACE WITH SUBTITLE",
+  "description": "REPLACE WITH SEARCH DESCRIPTION",
+  "url": "replace-with-page-name.html",
+  "date": "YYYY-MM-DD",
+  "dateLabel": "DAY Month YEAR",
+  "categories": ["technology"],
+  "primaryCategory": "technology",
+  "featured": false,
+  "image": "assets/images/articles/replace-image.jpg",
+  "socialImage": "assets/images/social/replace-social-image.jpg",
+  "keywords": "replace with useful search words"
+}

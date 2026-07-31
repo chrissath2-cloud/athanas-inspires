@@ -1,0 +1,408 @@
+/* Premium styles for the featured skills article and shared article promotion. */
+.home-editorial-feature{padding-top:1.5rem;padding-bottom:4.5rem;background:linear-gradient(180deg,#f7fbff 0%,#eef7f6 100%)}
+.home-editorial-card{max-width:1180px;margin:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(340px,.95fr);gap:clamp(1.5rem,4vw,4rem);align-items:center;padding:clamp(1.4rem,4vw,3.5rem);border:1px solid rgba(8,45,88,.12);border-radius:32px;background:rgba(255,255,255,.94);box-shadow:0 28px 70px rgba(8,34,67,.13);overflow:hidden;position:relative}
+.home-editorial-card:before{content:"";position:absolute;inset:0 auto 0 0;width:7px;background:linear-gradient(#f0b43f,#14b8a6)}
+.home-editorial-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin:.6rem 0 1rem}.home-editorial-tags span{padding:.38rem .75rem;border-radius:999px;background:#eaf5f3;color:#0a5b55;font-weight:800;font-size:.78rem}
+.home-editorial-copy h2{font-size:clamp(2rem,4.2vw,4rem);line-height:1.02;max-width:14ch;margin:.5rem 0}.home-editorial-subtitle{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:800;color:#a2640e}.home-editorial-copy blockquote{border-left:4px solid #e7ad3d;padding:.65rem 0 .65rem 1.1rem;margin:1.25rem 0 1.5rem;color:#28435e;font-weight:700}
+.home-editorial-image{position:relative;display:block;border-radius:26px;overflow:hidden;box-shadow:0 25px 60px rgba(1,17,39,.28);background:#061a39}.home-editorial-image img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .5s ease}.home-editorial-image:hover img{transform:scale(1.025)}.home-editorial-image span{position:absolute;top:1rem;right:1rem;padding:.5rem .8rem;border-radius:999px;background:#ffd761;color:#172b45;font-weight:900;font-size:.78rem;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.article-feature-image,.tech-article-feature-image{display:block;border-radius:26px;overflow:hidden;position:relative;box-shadow:0 24px 58px rgba(2,22,47,.25)}.article-feature-image img,.tech-article-feature-image img{display:block;width:100%;height:100%;min-height:320px;object-fit:cover}.tech-article-feature-image span{position:absolute;left:1rem;bottom:1rem;padding:.55rem .85rem;border-radius:999px;background:rgba(255,255,255,.92);color:#0a345d;font-weight:850}
+.skill-builder-hero{align-items:stretch}.skill-builder-visual{padding:0!important;overflow:hidden;display:flex!important;flex-direction:column;background:#061a39!important}.skill-builder-visual img{width:100%;height:100%;min-height:520px;object-fit:cover;display:block}.skill-builder-visual figcaption{position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;padding:.8rem 1rem;border-radius:14px;background:rgba(5,22,52,.84);backdrop-filter:blur(10px);color:#fff;font-size:.9rem;line-height:1.45}
+.skill-reflection{background:linear-gradient(135deg,#fff8e7,#f3fbfa)!important;border-color:#e8c46b!important}.skill-stack-strip{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.65rem;margin:2rem 0;padding:1.2rem;border-radius:20px;background:#071e43;color:#fff;box-shadow:0 18px 40px rgba(7,30,67,.18)}.skill-stack-strip span,.skill-stack-strip strong{padding:.55rem .8rem;border-radius:10px;background:rgba(255,255,255,.1)}.skill-stack-strip strong{background:#ffd45e;color:#142c49}.skill-stack-strip b{color:#66dfd0;font-size:1.2rem}
+.skill-challenge{background:linear-gradient(145deg,#071f46,#0c5060)!important;color:#fff!important}.skill-challenge h2,.skill-challenge strong{color:#fff!important}.skill-challenge>p,.skill-challenge li p{color:#eaf7f6!important}.skill-challenge>ol>li{background:rgba(255,255,255,.09)!important;border-color:rgba(255,255,255,.13)!important}.skill-challenge>ol>li>span{background:#ffd45e!important;color:#0b2748!important}.skill-challenge>blockquote{color:#fff5cb!important;border-color:#ffd45e!important}
+.faith-reflection-box{margin:2.25rem 0;padding:clamp(1.4rem,4vw,2.4rem);border-radius:24px;background:linear-gradient(135deg,#eef8ff,#fff8e5);border:1px solid rgba(9,55,101,.12);box-shadow:0 18px 42px rgba(8,44,80,.08)}.faith-reflection-box h2{margin-top:.25rem!important}
+@media(max-width:850px){.home-editorial-card{grid-template-columns:1fr}.home-editorial-image{order:-1}.home-editorial-copy h2{max-width:none}.skill-builder-visual img{min-height:360px}}
+@media(max-width:560px){.home-editorial-card{border-radius:22px;padding:1.1rem}.skill-stack-strip{justify-content:flex-start}.skill-builder-visual figcaption{position:static;border-radius:0;background:#071e43}.article-feature-image img,.tech-article-feature-image img{min-height:240px}}
+
+/* Version 29: compact premium homepage pathways and stronger article contrast */
+.start-here-compact{padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,2rem);background:linear-gradient(180deg,#f7fbff,#fff)}
+.compact-section-heading{max-width:1180px;margin:0 auto 1.25rem;display:flex;align-items:end;justify-content:space-between;gap:1rem}.compact-section-heading h2{margin:.15rem 0 0;color:#071f46;font-size:clamp(1.55rem,3vw,2.2rem)}.compact-section-heading>p{max-width:36ch;margin:0;color:#40566d}
+.start-here-mini-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.start-here-mini-card{display:grid;grid-template-columns:auto 1fr;gap:.95rem;align-items:center;min-height:148px;padding:1.15rem;border:1px solid rgba(8,45,88,.12);border-radius:20px;background:#fff;color:#102b49;text-decoration:none;box-shadow:0 12px 30px rgba(5,35,68,.07);position:relative;overflow:hidden;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+.start-here-mini-card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#15b8a6,#3b82f6,#e7ad3d);transform:scaleX(.22);transform-origin:left;transition:transform .32s ease}.start-here-mini-card:hover,.start-here-mini-card:focus-visible{transform:translateY(-6px);box-shadow:0 22px 44px rgba(5,35,68,.15);border-color:rgba(20,184,166,.38)}.start-here-mini-card:hover:after,.start-here-mini-card:focus-visible:after{transform:scaleX(1)}
+.mini-card-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(145deg,#e8f8f5,#eaf2ff);font-size:1.55rem;box-shadow:inset 0 0 0 1px rgba(11,71,111,.08);transition:transform .28s ease}.start-here-mini-card:hover .mini-card-icon{transform:scale(1.06) rotate(-2deg)}.start-here-mini-card h3{margin:0 0 .3rem;font-size:1.05rem;color:#071f46}.start-here-mini-card p{margin:0 0 .55rem;color:#53687d;font-size:.92rem;line-height:1.45}.start-here-mini-card strong{font-size:.86rem;color:#087b73}
+.home-learning-section{padding-top:3.2rem!important;padding-bottom:3.8rem!important}.home-learning-heading{margin-bottom:1.35rem!important}.home-learning-grid{gap:1rem!important}.home-learning-card{min-height:0!important;padding:1.15rem!important;border-radius:20px!important}.home-learning-card .home-learning-icon{width:50px!important;height:50px!important;font-size:1.45rem!important;margin:.65rem 0!important}.home-learning-copy h3{font-size:1.25rem!important;margin:.2rem 0 .35rem!important}.home-learning-copy>p{font-size:.9rem!important;line-height:1.45!important}.home-learning-topline{font-size:.75rem!important}.home-learning-chips span{font-size:.72rem!important;padding:.3rem .55rem!important}.home-learning-footer{margin-top:.75rem!important;padding-top:.7rem!important}.home-learning-card:hover{transform:translateY(-7px)!important;box-shadow:0 22px 44px rgba(5,35,68,.16)!important}.home-learning-card:hover .home-learning-icon{transform:scale(1.07) rotate(-2deg)}
+.home-editorial-image span{top:.8rem;right:.8rem;padding:.38rem .65rem;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;background:linear-gradient(135deg,#ffe69a,#eab84b);color:#09254a;border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 22px rgba(6,25,54,.24)}
+.home-editorial-copy,.home-editorial-copy p,.home-editorial-copy blockquote{color:#203b57}.home-editorial-copy h2{color:#071f46}.home-editorial-subtitle{color:#8a5108!important}.article-hero-copy,.article-hero-copy p{color:#eaf3ff}.article-hero-copy h1{color:#fff}.article-hero-copy .article-intro{color:#ffe49a}.article-back-link{color:#dff8f4!important}.article-meta{color:#c7d8ec!important}.article-opening-quote{color:#fff!important;background:rgba(255,255,255,.08);border-color:#f3c75d!important}
+@media(max-width:760px){.compact-section-heading{align-items:flex-start;flex-direction:column}.start-here-mini-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.start-here-mini-card{grid-template-columns:1fr;align-content:start}.home-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.home-learning-card{padding:1rem!important}}
+@media(max-width:460px){.start-here-mini-grid,.home-learning-grid{grid-template-columns:1fr!important}.start-here-mini-card{grid-template-columns:auto 1fr;min-height:132px}}
+
+/* Version 30 — corrected featured image framing, premium homepage colour hovers, and reading-meta contrast */
+.home-editorial-image{
+  aspect-ratio:4/3;
+  background:linear-gradient(145deg,#061a39,#0b3766);
+}
+.home-editorial-image img{
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center 42%;
+}
+.skill-builder-visual{
+  position:relative;
+  min-height:520px;
+}
+.skill-builder-visual img{
+  width:100%;
+  height:100%;
+  min-height:520px;
+  object-fit:cover;
+  object-position:center center;
+}
+.article-feature-image img,.tech-article-feature-image img{
+  object-position:center center;
+}
+
+/* High-contrast reading time pill on the dark article hero. */
+.digital-skills-page .article-reading-meta{
+  color:#ffffff!important;
+  background:rgba(3,24,59,.72)!important;
+  border:1px solid rgba(255,226,112,.48)!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.10)!important;
+  text-shadow:0 1px 4px rgba(0,0,0,.45)!important;
+  backdrop-filter:blur(14px);
+}
+.digital-skills-page .article-reading-meta span{
+  color:#ffe270!important;
+}
+
+/* Start Here — compact premium cards with clear colour-changing hover states. */
+.start-here-mini-card{
+  --start-accent:#0f8f83;
+  --start-accent-rgb:15,143,131;
+  isolation:isolate;
+  border-color:rgba(var(--start-accent-rgb),.18);
+  background:linear-gradient(145deg,#ffffff 0%,rgba(var(--start-accent-rgb),.035) 100%);
+  transition:transform .36s cubic-bezier(.22,1,.36,1),box-shadow .36s ease,border-color .3s ease,color .3s ease,background .35s ease;
+}
+.start-here-mini-card:nth-child(2){--start-accent:#1769c7;--start-accent-rgb:23,105,199}
+.start-here-mini-card:nth-child(3){--start-accent:#7742c8;--start-accent-rgb:119,66,200}
+.start-here-mini-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  opacity:0;
+  background:
+    radial-gradient(circle at 88% 18%,rgba(255,255,255,.24),transparent 28%),
+    linear-gradient(135deg,color-mix(in srgb,var(--start-accent) 88%,#08234d),var(--start-accent));
+  transition:opacity .34s ease;
+}
+.start-here-mini-card::after{
+  background:linear-gradient(90deg,var(--start-accent),#ffd45e);
+}
+.start-here-mini-card:hover,.start-here-mini-card:focus-visible{
+  transform:translateY(-8px) scale(1.012);
+  border-color:rgba(var(--start-accent-rgb),.62);
+  box-shadow:0 26px 54px rgba(5,35,68,.21),0 0 0 5px rgba(var(--start-accent-rgb),.07);
+  color:#fff;
+}
+.start-here-mini-card:hover::before,.start-here-mini-card:focus-visible::before{opacity:1}
+.start-here-mini-card:hover h3,.start-here-mini-card:focus-visible h3,
+.start-here-mini-card:hover p,.start-here-mini-card:focus-visible p,
+.start-here-mini-card:hover strong,.start-here-mini-card:focus-visible strong{
+  color:#fff!important;
+}
+.start-here-mini-card:hover p,.start-here-mini-card:focus-visible p{color:rgba(255,255,255,.88)!important}
+.start-here-mini-card .mini-card-icon{
+  color:#092b56;
+  background:linear-gradient(145deg,#f4fbff,rgba(var(--start-accent-rgb),.13));
+  border:1px solid rgba(var(--start-accent-rgb),.15);
+}
+.start-here-mini-card:hover .mini-card-icon,.start-here-mini-card:focus-visible .mini-card-icon{
+  color:var(--start-accent);
+  background:#fff;
+  box-shadow:0 13px 30px rgba(2,18,47,.24);
+  transform:translateY(-3px) scale(1.08) rotate(-3deg);
+}
+.start-here-mini-card strong span{display:inline-block;transition:transform .28s ease}
+.start-here-mini-card:hover strong span,.start-here-mini-card:focus-visible strong span{transform:translateX(6px)}
+
+/* Learn at Your Level — richer cards that change to their pathway colour on hover. */
+.home-learning-card{
+  isolation:isolate;
+  overflow:hidden;
+  transition:transform .38s cubic-bezier(.22,1,.36,1),box-shadow .38s ease,border-color .3s ease,color .3s ease;
+}
+.home-learning-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  opacity:0;
+  background:
+    radial-gradient(circle at 84% 12%,rgba(255,255,255,.2),transparent 27%),
+    linear-gradient(145deg,color-mix(in srgb,var(--path-accent) 82%,#071c42),color-mix(in srgb,var(--path-accent) 68%,#082b58));
+  transition:opacity .36s ease;
+}
+.home-learning-card:hover::before,.home-learning-card:focus-visible::before{opacity:1}
+.home-learning-card:hover,.home-learning-card:focus-visible{
+  transform:translateY(-9px) scale(1.012)!important;
+  border-color:rgba(var(--path-accent-rgb),.7)!important;
+  box-shadow:0 30px 62px rgba(4,31,74,.24),0 0 0 5px rgba(var(--path-accent-rgb),.08)!important;
+}
+.home-learning-card:hover .home-learning-number,
+.home-learning-card:hover .home-learning-series,
+.home-learning-card:hover h3,
+.home-learning-card:hover .home-learning-copy>p,
+.home-learning-card:hover .home-learning-footer strong,
+.home-learning-card:focus-visible .home-learning-number,
+.home-learning-card:focus-visible .home-learning-series,
+.home-learning-card:focus-visible h3,
+.home-learning-card:focus-visible .home-learning-copy>p,
+.home-learning-card:focus-visible .home-learning-footer strong{
+  color:#fff!important;
+}
+.home-learning-card:hover .home-learning-copy>p,.home-learning-card:focus-visible .home-learning-copy>p{color:rgba(255,255,255,.88)!important}
+.home-learning-card:hover .home-learning-status,.home-learning-card:focus-visible .home-learning-status,
+.home-learning-card:hover .home-learning-chips span,.home-learning-card:focus-visible .home-learning-chips span{
+  color:#fff!important;
+  background:rgba(255,255,255,.13)!important;
+  border-color:rgba(255,255,255,.22)!important;
+}
+.home-learning-card:hover .home-learning-icon,.home-learning-card:focus-visible .home-learning-icon{
+  background:#fff!important;
+  color:var(--path-accent)!important;
+  box-shadow:0 15px 34px rgba(2,18,47,.26)!important;
+  transform:translateY(-3px) scale(1.09) rotate(-3deg)!important;
+}
+.home-learning-card:hover .home-learning-footer,.home-learning-card:focus-visible .home-learning-footer{
+  border-top-color:rgba(255,255,255,.2)!important;
+}
+.home-learning-card .home-learning-footer strong span{display:inline-block;transition:transform .28s ease}
+.home-learning-card:hover .home-learning-footer strong span,.home-learning-card:focus-visible .home-learning-footer strong span{transform:translateX(7px)}
+.home-learning-card:hover .home-learning-glow,.home-learning-card:focus-visible .home-learning-glow{opacity:.32!important;transform:scale(1.18)}
+
+@media(max-width:850px){
+  .skill-builder-visual{min-height:auto}
+  .skill-builder-visual img{min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center center}
+}
+@media(max-width:560px){
+  .home-editorial-image{aspect-ratio:4/3}
+  .home-editorial-image img{object-position:center center}
+  .digital-skills-page .article-reading-meta{font-size:.75rem;padding:8px 11px;gap:7px}
+}
+@media(hover:none){
+  .start-here-mini-card:active{transform:scale(.985)}
+  .home-learning-card:active{transform:scale(.985)!important}
+}
+
+
+/* Version 31 — portrait article image + fixed premium hover contrast */
+.home-editorial-card{
+  grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);
+}
+.home-editorial-image{
+  width:min(100%,460px);
+  justify-self:end;
+  aspect-ratio:4/5;
+  background:linear-gradient(160deg,#051733,#0b3563 58%,#08264e 100%);
+}
+.home-editorial-image img{
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center 20%;
+}
+.home-editorial-image span{
+  top:.9rem;
+  right:.9rem;
+  padding:.42rem .72rem;
+  font-size:.62rem;
+  letter-spacing:.18em;
+}
+.skill-builder-visual{
+  position:relative;
+  min-height:auto;
+  aspect-ratio:4/5;
+  align-self:stretch;
+  background:linear-gradient(160deg,#051733,#0b3563 58%,#08264e 100%)!important;
+}
+.skill-builder-visual img{
+  width:100%;
+  height:100%;
+  min-height:0;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  object-position:center 18%;
+}
+.article-hero.skill-builder-hero{
+  align-items:center;
+}
+.digital-skills-page .article-reading-meta{
+  color:#f8fbff!important;
+  background:rgba(7,31,70,.82)!important;
+  border:1px solid rgba(255,224,120,.52)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.11)!important;
+}
+.digital-skills-page .article-reading-meta,
+.digital-skills-page .article-reading-meta *{
+  text-shadow:0 1px 4px rgba(0,0,0,.42)!important;
+}
+.digital-skills-page .article-reading-meta span[aria-hidden="true"]{
+  color:#ffe270!important;
+}
+.start-here-mini-card,
+.home-learning-card{
+  text-decoration:none;
+}
+.home-learning-card::before{
+  z-index:0;
+}
+.home-learning-card > *{
+  position:relative;
+  z-index:1;
+}
+.home-learning-card:hover .home-learning-number,
+.home-learning-card:focus-visible .home-learning-number{
+  color:rgba(255,255,255,.88)!important;
+}
+.home-learning-card:hover .home-learning-status,
+.home-learning-card:focus-visible .home-learning-status,
+.home-learning-card:hover .home-learning-chips span,
+.home-learning-card:focus-visible .home-learning-chips span{
+  color:#f8fbff!important;
+  background:rgba(255,255,255,.16)!important;
+  border:1px solid rgba(255,255,255,.26)!important;
+  box-shadow:none!important;
+}
+.home-learning-card:hover .home-learning-series,
+.home-learning-card:focus-visible .home-learning-series,
+.home-learning-card:hover h3,
+.home-learning-card:focus-visible h3,
+.home-learning-card:hover .home-learning-copy > p,
+.home-learning-card:focus-visible .home-learning-copy > p,
+.home-learning-card:hover .home-learning-footer strong,
+.home-learning-card:focus-visible .home-learning-footer strong,
+.home-learning-card:hover .home-learning-footer strong span,
+.home-learning-card:focus-visible .home-learning-footer strong span{
+  color:#ffffff!important;
+}
+.home-learning-card:hover .home-learning-copy > p,
+.home-learning-card:focus-visible .home-learning-copy > p{
+  color:rgba(255,255,255,.9)!important;
+}
+.home-learning-card:hover .home-learning-footer,
+.home-learning-card:focus-visible .home-learning-footer{
+  border-top-color:rgba(255,255,255,.22)!important;
+}
+.home-learning-card:hover .home-learning-glow,
+.home-learning-card:focus-visible .home-learning-glow{
+  opacity:.18!important;
+}
+.home-learning-card:hover .home-learning-icon,
+.home-learning-card:focus-visible .home-learning-icon{
+  background:#ffffff!important;
+  color:var(--path-accent)!important;
+}
+@media(max-width:980px){
+  .home-editorial-card{
+    grid-template-columns:1fr;
+  }
+  .home-editorial-image{
+    justify-self:center;
+    width:min(100%,420px);
+  }
+}
+@media(max-width:850px){
+  .skill-builder-visual,
+  .skill-builder-visual img{
+    aspect-ratio:4/5;
+    object-position:center 18%;
+  }
+}
+@media(max-width:560px){
+  .home-editorial-image,
+  .skill-builder-visual,
+  .skill-builder-visual img{
+    aspect-ratio:4/5;
+    object-position:center 16%;
+  }
+  .home-editorial-image{
+    width:100%;
+  }
+}
+
+
+/* Version 32 — apply portrait image everywhere and force visible hover contrast for Learn at Your Level */
+.home-editorial-image,
+.skill-builder-visual,
+.skill-builder-visual img{
+  aspect-ratio:4/5 !important;
+}
+.home-editorial-image img{
+  object-fit:cover !important;
+  object-position:center 16% !important;
+}
+.skill-builder-visual img{
+  object-fit:cover !important;
+  object-position:center 16% !important;
+}
+.home-learning-card{
+  background:linear-gradient(150deg,rgba(255,255,255,.99),rgba(246,250,255,.97)) !important;
+}
+.home-learning-card:hover,
+.home-learning-card:focus-visible{
+  background:linear-gradient(145deg,
+    color-mix(in srgb,var(--path-accent) 86%,#071b3e),
+    color-mix(in srgb,var(--path-accent) 68%,#0a2f5f)) !important;
+  color:#ffffff !important;
+  border-color:rgba(var(--path-accent-rgb),.72) !important;
+  box-shadow:0 30px 62px rgba(4,31,74,.24),0 0 0 5px rgba(var(--path-accent-rgb),.08) !important;
+}
+.home-learning-card:hover::before,
+.home-learning-card:focus-visible::before{
+  opacity:0 !important;
+}
+.home-learning-card:hover .home-learning-number,
+.home-learning-card:focus-visible .home-learning-number{
+  color:rgba(255,255,255,.88) !important;
+}
+.home-learning-card:hover .home-learning-status,
+.home-learning-card:focus-visible .home-learning-status,
+.home-learning-card:hover .home-learning-chips span,
+.home-learning-card:focus-visible .home-learning-chips span{
+  color:#ffffff !important;
+  background:rgba(255,255,255,.16) !important;
+  border:1px solid rgba(255,255,255,.26) !important;
+  box-shadow:none !important;
+}
+.home-learning-card:hover .home-learning-series,
+.home-learning-card:focus-visible .home-learning-series,
+.home-learning-card:hover h3,
+.home-learning-card:focus-visible h3,
+.home-learning-card:hover .home-learning-copy > p,
+.home-learning-card:focus-visible .home-learning-copy > p,
+.home-learning-card:hover .home-learning-footer strong,
+.home-learning-card:focus-visible .home-learning-footer strong,
+.home-learning-card:hover .home-learning-footer strong span,
+.home-learning-card:focus-visible .home-learning-footer strong span,
+.home-learning-card:hover a,
+.home-learning-card:focus-visible a,
+.home-learning-card:hover strong,
+.home-learning-card:focus-visible strong,
+.home-learning-card:hover span,
+.home-learning-card:focus-visible span{
+  color:#ffffff !important;
+}
+.home-learning-card:hover .home-learning-copy > p,
+.home-learning-card:focus-visible .home-learning-copy > p{
+  color:rgba(255,255,255,.9) !important;
+}
+.home-learning-card:hover .home-learning-footer,
+.home-learning-card:focus-visible .home-learning-footer{
+  border-top-color:rgba(255,255,255,.22) !important;
+}
+.home-learning-card:hover .home-learning-icon,
+.home-learning-card:focus-visible .home-learning-icon{
+  background:#ffffff !important;
+  color:var(--path-accent) !important;
+  box-shadow:0 15px 34px rgba(2,18,47,.26) !important;
+  transform:translateY(-3px) scale(1.09) rotate(-3deg) !important;
+}
+.home-learning-card:hover .home-learning-glow,
+.home-learning-card:focus-visible .home-learning-glow{
+  opacity:.14 !important;
+  transform:scale(1.14) !important;
+}

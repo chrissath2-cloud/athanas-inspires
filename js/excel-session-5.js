@@ -1,0 +1,13 @@
+(function(){
+  const links=[...document.querySelectorAll('#e5JumpLinks a')];
+  const sections=links.map(a=>document.getElementById(a.dataset.section)).filter(Boolean);
+  const pbar=document.getElementById('e5ProgressBar'), ptext=document.getElementById('e5ProgressText'), mp=document.getElementById('e5MobileProgress');
+  const mobileBtn=document.getElementById('e5MobileJumpBtn'), mobileMenu=document.getElementById('e5MobileJumpMenu');
+  if(mobileMenu&&links.length){mobileMenu.innerHTML=links.map(a=>'<a href="'+a.getAttribute('href')+'" data-section="'+a.dataset.section+'"><span>'+a.querySelector('span').textContent+'</span><b>'+a.querySelector('b').textContent+'</b></a>').join('');}
+  function setActive(id){links.forEach(a=>a.classList.toggle('is-active',a.dataset.section===id)); if(mobileMenu)[...mobileMenu.querySelectorAll('a')].forEach(a=>a.classList.toggle('is-active',a.dataset.section===id));}
+  function update(){if(!sections.length)return; const y=window.scrollY+150; let active=sections[0]; sections.forEach(s=>{if(s.offsetTop<=y)active=s}); setActive(active.id); const start=sections[0].offsetTop, end=sections[sections.length-1].offsetTop+sections[sections.length-1].offsetHeight-window.innerHeight; const pct=Math.max(0,Math.min(100,Math.round((window.scrollY-start)/(Math.max(1,end-start))*100))); if(pbar)pbar.style.width=pct+'%'; if(ptext)ptext.textContent=pct+'%'; if(mp)mp.textContent=pct+'%';}
+  window.addEventListener('scroll',update,{passive:true}); window.addEventListener('resize',update); update();
+  if(mobileBtn&&mobileMenu){mobileBtn.addEventListener('click',()=>{const open=mobileBtn.getAttribute('aria-expanded')==='true'; mobileBtn.setAttribute('aria-expanded',String(!open)); mobileMenu.hidden=open}); mobileMenu.addEventListener('click',e=>{if(e.target.closest('a')){mobileMenu.hidden=true;mobileBtn.setAttribute('aria-expanded','false')}})}
+  document.querySelectorAll('.e5-copy').forEach(btn=>btn.addEventListener('click',async()=>{const text=btn.dataset.copy||''; try{await navigator.clipboard.writeText(text)}catch(e){const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()} const old=btn.textContent;btn.textContent='✓ Copied';btn.classList.add('is-copied');setTimeout(()=>{btn.textContent=old;btn.classList.remove('is-copied')},1600)}));
+  document.querySelectorAll('.e5-reveal').forEach(btn=>btn.addEventListener('click',()=>{const ans=btn.nextElementSibling;const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));ans.hidden=open;btn.textContent=open?'Reveal Answer':'Hide Answer'}));
+})();

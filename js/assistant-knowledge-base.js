@@ -556,7 +556,7 @@
   const excelSession5Knowledge = {
     id: "excel-session-5-nested-if",
     topic: "Microsoft Excel",
-    title: "Excel Session 5: Excel Nested IF Made Easy",
+    title: "Excel Session 5: Nested IF Made Easy",
     keywords: ["excel session 5", "nested if", "many decisions", "grade system", "stock status", "payment status"],
     answer: "Excel Session 5 teaches Nested IF: how Excel checks several conditions step by step and returns the first matching response. The lesson uses Grade, Stock Status, Payment Status, and a connected Student Grading System.",
     details: "Key idea: Simple IF gives two answers; Nested IF gives many answers. Learners should understand the checking order before writing the formula, then test boundaries and copy the formula down with the Fill Handle.",

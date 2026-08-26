@@ -553,13 +553,27 @@
   ];
 
   const incomingIds = new Set(entries.map((item) => item.id));
+  const excelSession5Knowledge = {
+    id: "excel-session-5-nested-if",
+    topic: "Microsoft Excel",
+    title: "Excel Session 5: Excel Nested IF Made Easy",
+    keywords: ["excel session 5", "nested if", "many decisions", "grade system", "stock status", "payment status"],
+    answer: "Excel Session 5 teaches Nested IF: how Excel checks several conditions step by step and returns the first matching response. The lesson uses Grade, Stock Status, Payment Status, and a connected Student Grading System.",
+    details: "Key idea: Simple IF gives two answers; Nested IF gives many answers. Learners should understand the checking order before writing the formula, then test boundaries and copy the formula down with the Fill Handle.",
+    actions: [
+      { label: "Learn Excel Session 5", url: "/excel-session-5.html", kind: "primary" },
+      { label: "Watch Session 5", url: "https://youtu.be/3V6fQXy5-oM" },
+      { label: "Session 5 Assignment", url: "/assignments.html#excel-session-5" }
+    ]
+  };
+
   assistant.knowledge = [
     ...entries,
     ...(assistant.knowledge || []).filter((item) => !incomingIds.has(item.id))
   ];
 
-  assistant.version = "2.4.0";
-  assistant.updated = "2026-07-29";
+  assistant.version = "2.5.0";
+  assistant.updated = "2026-08-26";
   assistant.status = "Official guide + general guidance";
   assistant.greeting = "Hello 👋 I’m the Athanas Inspires AI Assistant. I can guide you through official lessons, assignments, tools, articles, and support options, or give clearly labelled general ICT guidance.";
   assistant.examples = [

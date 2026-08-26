@@ -18500,3 +18500,18 @@ body.tool-focus-mode .navbar.has-live-strip {
     text-shadow: 0 0 9px rgba(250, 204, 21, .22);
   }
 }
+
+
+/* Session 5 homepage feature: preserve the 16:9 thumbnail */
+.home-premium .home-editorial-card--lesson{grid-template-columns:minmax(300px,38%) minmax(0,1fr)!important;align-items:center!important;min-height:0!important;padding:16px 24px 16px 16px!important}
+.home-premium .home-editorial-card--lesson .home-editorial-image{width:100%!important;min-height:0!important;aspect-ratio:16/9!important;justify-self:stretch!important;border-radius:16px!important}
+.home-premium .home-editorial-card--lesson .home-editorial-image img{width:100%!important;height:100%!important;aspect-ratio:16/9!important;object-fit:cover!important;object-position:center!important}
+.home-premium .home-editorial-card--lesson .home-editorial-badge{display:none!important}
+@media(max-width:850px){.home-premium .home-editorial-card--lesson{grid-template-columns:1fr!important;padding:14px!important}.home-premium .home-editorial-card--lesson .home-editorial-image{max-width:none!important}}
+
+/* Excel Session 5 homepage feature refinement v3 */
+.home-premium .home-editorial-card--lesson{grid-template-columns:minmax(420px,44%) minmax(0,1fr)!important;gap:30px!important;align-items:center!important;padding:20px!important}
+.home-premium .home-editorial-card--lesson .home-editorial-image{display:block!important;width:100%!important;aspect-ratio:16/9!important;min-height:0!important;overflow:hidden!important;border-radius:18px!important}
+.home-premium .home-editorial-card--lesson .home-editorial-image img{display:block!important;width:100%!important;height:100%!important;aspect-ratio:16/9!important;object-fit:contain!important;object-position:center!important;background:#061329!important}
+.home-premium .home-editorial-card--lesson .home-editorial-badge{display:none!important}
+@media(max-width:900px){.home-premium .home-editorial-card--lesson{grid-template-columns:1fr!important;gap:18px!important}.home-premium .home-editorial-card--lesson .home-editorial-image{max-width:760px!important;margin-inline:auto!important}}

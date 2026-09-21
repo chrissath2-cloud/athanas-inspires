@@ -1,0 +1,63 @@
+ATHANAS INSPIRES — EXCEL 20 SKILLS MASTERCLASS UPDATE
+Date: 21 September 2026
+
+NEW PREMIUM PAGE
+- excel-20-tips-tricks.html
+- Headline: 20 Excel Tips & Tricks to Save Time and Work Faster
+- Premium desktop left-side Jump to Skill navigator with all 20 skills
+- Active skill highlighting while scrolling
+- Mobile horizontal skill navigator
+- Watch + Practise video section
+- Practice Workbook download
+- Lesson Guide PDF download
+- What You'll Learn summary
+- Full premium block for every skill: title, explanation, shortcut/command, practical use
+- Final learning CTA
+
+WEBSITE INTEGRATION
+- Homepage now features the Excel masterclass as the main editorial lesson
+- Courses page includes a featured masterclass banner and the masterclass inside the Excel roadmap
+- YouTube Hub now uses the Excel masterclass as the featured lesson
+- Downloads page now includes the Excel 20 Skills Practice Workbook and Lesson Guide PDF
+- Sitemap updated with the new masterclass page
+
+NEW ASSETS
+- assets/images/youtube/excel-20-masterclass-thumbnail.png
+- assets/downloads/excel-20-skills-practice-workbook.xlsx
+- assets/downloads/excel-20-skills-lesson-guide.pdf
+- css/excel-20-masterclass.css
+- css/excel-masterclass-promo.css
+- js/excel-20-masterclass.js
+
+UPDATED FILES
+- index.html
+- courses.html
+- youtube.html
+- downloads.html
+- sitemap.xml
+- js/content-pages.min.js
+- js/youtube.min.js
+
+YOUTUBE VIDEO
+https://youtu.be/fnUmUISMOFs
+
+VALIDATION COMPLETED
+- New page local references: PASS
+- Duplicate ID check: PASS
+- sitemap.xml parse: PASS
+- JavaScript syntax: PASS
+- 20 skill sections present: PASS
+- 20 sidebar skill links present: PASS
+
+DEPLOYMENT
+Upload the CONTENTS of the updated athanas-inspires-main folder to the website repository/root, replacing matching files and adding the new files/folders. Keep the folder structure unchanged.
+
+
+WATCH + PRACTISE REFINEMENT — 21 Sep 2026
+------------------------------------------
+- Preserved the full 16:9 YouTube thumbnail instead of stretching/cropping it to the resource column height.
+- Added a premium 3-step learning flow: Watch → Open the workbook → Practise.
+- Rebuilt the resource area as a compact “Your Practice Kit” panel so the workbook and PDF feel connected to the video rather than two oversized cards.
+- Added a clear Play Masterclass cue and an Open on YouTube link.
+- Improved section spacing, visual hierarchy, responsive behavior, and left navigation polish.
+- No lesson content, download file, YouTube URL, or 20-skill navigation was removed.

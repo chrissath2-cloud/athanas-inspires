@@ -19,3 +19,18 @@ html{scroll-behavior:smooth}.excel-masterclass-page{background:#f5f8f6;color:#10
 @media(max-width:1100px){.xm-watch-grid{grid-template-columns:1fr}.xm-practice-kit{display:grid;grid-template-columns:1fr 1fr;align-items:start}.xm-kit-head{grid-column:1/-1}.xm-kit-note{grid-column:1/-1}.xm-video-meta{padding-bottom:2px}}
 @media(max-width:820px){.xm-watch-flow{grid-template-columns:1fr;gap:8px}.xm-watch-flow>i{display:none}.xm-watch-flow>div{padding:2px}.xm-practice-kit{grid-template-columns:1fr 1fr}.xm-video-meta{align-items:flex-start}.xm-video-meta div strong{font-size:.73rem}}
 @media(max-width:620px){.xm-watch-flow{display:none}.xm-practice-kit{grid-template-columns:1fr;padding:18px}.xm-kit-head,.xm-kit-note{grid-column:auto}.xm-video-meta{display:grid;gap:8px}.xm-video-cta{display:none}.xm-watch .xm-section-heading h2{font-size:2.25rem}}
+
+
+/* Mobile skill navigator scroll fix — 21 Sep 2026 */
+@media(max-width:820px){
+  .xm-jump-skills{
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    overscroll-behavior-y:auto;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-x pan-y;
+    scrollbar-width:none;
+  }
+  .xm-jump-skills::-webkit-scrollbar{display:none}
+}

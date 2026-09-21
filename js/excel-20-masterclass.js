@@ -6,6 +6,31 @@
   const current = document.getElementById("xmCurrentSkill");
   const progressText = document.getElementById("xmProgressText");
   const progressBar = document.getElementById("xmProgressBar");
+  const skillList = document.querySelector(".xm-jump-skills");
+
+  // Keep the active skill visible inside the navigator without moving the page itself.
+  // Using Element.scrollIntoView here caused some mobile browsers to fight normal page
+  // scrolling when the sticky navigator updated, which could trap the page near Skill 2.
+  const keepJumpLinkVisible = (link) => {
+    if (!skillList || !link) return;
+    const navRect = skillList.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const mobile = window.matchMedia("(max-width: 820px)").matches;
+    const edge = 10;
+
+    if (mobile) {
+      let deltaX = 0;
+      if (linkRect.left < navRect.left + edge) deltaX = linkRect.left - navRect.left - edge;
+      else if (linkRect.right > navRect.right - edge) deltaX = linkRect.right - navRect.right + edge;
+      if (Math.abs(deltaX) > 1) skillList.scrollBy({left: deltaX, behavior: "smooth"});
+      return;
+    }
+
+    let deltaY = 0;
+    if (linkRect.top < navRect.top + edge) deltaY = linkRect.top - navRect.top - edge;
+    else if (linkRect.bottom > navRect.bottom - edge) deltaY = linkRect.bottom - navRect.bottom + edge;
+    if (Math.abs(deltaY) > 1) skillList.scrollBy({top: deltaY, behavior: "smooth"});
+  };
 
   const setActive = (id, number) => {
     links.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
@@ -15,7 +40,7 @@
       if (current) current.textContent = link?.querySelector("strong")?.textContent || `Skill ${number}`;
       if (progressText) progressText.textContent = `${number} / 20`;
       if (progressBar) progressBar.style.width = `${(number / 20) * 100}%`;
-      link?.scrollIntoView({block:"nearest", inline:"nearest"});
+      keepJumpLinkVisible(link);
     } else {
       if (current) current.textContent = id === "what-youll-learn" ? "What You’ll Learn" : "Watch + Practise";
     }

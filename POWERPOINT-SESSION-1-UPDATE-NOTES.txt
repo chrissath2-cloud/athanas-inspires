@@ -1,0 +1,19 @@
+POWERPOINT SESSION 1 UPDATE · REVISION 2 · 8 OCTOBER 2026
+
+Changes requested and completed:
+1. Removed the editable About Me PowerPoint PPTX file and all associated download links from the website course page and embedded learning data.
+2. Created a dedicated English-only PowerPoint Session 1 Notes page:
+   powerpoint-session-1-notes.html
+   css/powerpoint-notes.css
+   js/powerpoint-notes.js
+   assets/downloads/powerpoint-session-1-complete-notes.pdf
+3. Moved the PowerPoint homepage promotion above the Excel masterclass promotion, preserving both.
+
+Other notes:
+- 11 source-aligned learning sections, an interactive table of contents, expandable explanations, visual diagrams, and 7 optional multiple-choice self-check questions with immediate feedback. No tracking or submission.
+- Dedicated page includes an embedded Session 1 YouTube video, a Watch on YouTube link, PDF download and Print Notes button.
+- Video topic timestamps are NOT provided because their exact start times were not independently verified. No timestamps have been invented.
+- Notes page links were added to the homepage feature, the PowerPoint hub, ICT Lessons and Downloads; site learning data/search was updated consistently.
+- The pre-existing Quick Reference PDF is retained as a separate optional resource.
+- No PowerPoint Session 1 assignment was created.
+- This ZIP is for review and deployment. It does NOT modify the live website.

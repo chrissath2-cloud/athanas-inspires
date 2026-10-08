@@ -1,0 +1,50 @@
+/* PowerPoint series additions, 8 October 2026. Scoped styles to preserve the existing site. */
+:root{--ppt-orange:#ee681a;--ppt-amber:#ffc96b;--ppt-navy:#071e40;--ppt-ink:#09294c;--ppt-white:#fff;}
+.ppt-feature{padding:clamp(24px,4vw,60px) max(20px,calc((100vw - 1180px)/2));background:#fafcff;}
+.ppt-feature__panel{position:relative;display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);align-items:center;gap:clamp(24px,4vw,60px);border-radius:26px;padding:clamp(22px,4vw,48px);color:#fff;background:radial-gradient(circle at 95% 5%,rgba(248,158,51,.25),transparent 48%),linear-gradient(120deg,#081d3c,#0b3153);box-shadow:0 24px 70px rgba(6,24,52,.18);overflow:hidden;}
+.ppt-feature__eyebrow,.ppt-hub__eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:.79rem;color:#ffd79d;margin:0 0 14px}
+.ppt-feature h2{font-size:clamp(2rem,4.3vw,3.5rem);line-height:1.09;letter-spacing:-.035em;margin:.1em 0 .34em;color:#fff}
+.ppt-feature h2 em{color:#ffc36b;font-style:normal}.ppt-feature__lead{color:#dbe9fa;font-size:1.12rem;line-height:1.65;max-width:48ch;margin:0 0 17px}
+.ppt-feature__meta{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 23px;color:#bfcfe2;font-size:.93rem}
+.ppt-feature__meta span{border:1px solid #3e566e;border-radius:999px;padding:5px 11px}
+.ppt-actions{display:flex;gap:12px;flex-wrap:wrap}.ppt-action{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:13px 19px;font-weight:800;font-size:.96rem;text-decoration:none;transition:transform .2s,box-shadow .2s;background:linear-gradient(110deg,#fa882e,#eb5a10);color:#171c2e!important;border:1px solid transparent;box-shadow:0 8px 22px rgba(242,94,21,.24)}
+.ppt-action:hover,.ppt-action:focus-visible{transform:translateY(-2px);box-shadow:0 12px 30px rgba(242,94,21,.3)}
+.ppt-action--ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.44);color:#fff!important;box-shadow:none}
+.ppt-feature__image{display:block;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.2);box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.ppt-feature__image img{display:block;aspect-ratio:16/9;width:100%;height:auto;object-fit:cover}
+.home-learning-card--powerpoint{background:linear-gradient(140deg,#fff6ed,#fff);border-color:#f7c5a0!important}.home-learning-card--powerpoint .home-learning-number{color:#ca5817}
+.learning-roadmap-series--powerpoint{border-color:#f1b47b!important}.learning-roadmap-series--powerpoint .learning-roadmap-icon{background:#fff1e5}.ytp-series--powerpoint{background:linear-gradient(160deg,#0c2844,#101f39);color:#f5faff}.ytp-series--powerpoint .ytp-series-head p{color:#dbe6f4}.ytp-series--powerpoint .ytp-series-art img{border-radius:17px;aspect-ratio:16/9;object-fit:cover}
+.ppt-hub{font-family:inherit;color:var(--ppt-ink);background:#f6f9fd}.ppt-hub__shell{width:min(1180px,calc(100% - 40px));margin:auto}
+.ppt-hub__hero{padding:clamp(42px,7vw,95px) 0;background:radial-gradient(circle at 85% 16%,rgba(255,133,40,.16),transparent 35%),linear-gradient(125deg,#071b37,#103359);color:#fff;overflow:hidden}
+.ppt-hub__grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(24px,5vw,70px)}
+.ppt-hub__hero h1{font-size:clamp(2.6rem,5.7vw,5rem);letter-spacing:-.045em;line-height:1.07;color:#fff;margin:0 0 20px}
+.ppt-hub__hero h1 span{color:#ffc46d}.ppt-hub__hero p:not(.ppt-hub__eyebrow){color:#dce9f7;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7;max-width:62ch}
+.ppt-hub__hero-visual{position:relative}.ppt-hub__hero-visual img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;border:1px solid rgba(255,255,255,.23);border-radius:19px;box-shadow:0 26px 60px rgba(0,0,0,.32)}
+.ppt-hub__tag{display:inline-block;background:rgba(255,180,93,.12);color:#ffe2bc;font-size:.83rem;font-weight:800;letter-spacing:.05em;border:1px solid rgba(255,180,93,.38);border-radius:100px;padding:8px 13px;margin-bottom:18px}
+.ppt-hub__section{padding:clamp(42px,6vw,80px) 0}.ppt-hub__section--white{background:#fff}
+.ppt-hub__head{max-width:750px;margin-bottom:26px}.ppt-hub__head .ppt-hub__eyebrow{color:#b54c16}.ppt-hub__head h2{font-size:clamp(1.8rem,3.2vw,3rem);letter-spacing:-.03em;line-height:1.15;color:#0a2b50;margin:0 0 11px}.ppt-hub__head p{font-size:1.04rem;color:#4d6178;line-height:1.7}
+.ppt-hub__points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.ppt-hub__point{padding:24px;border-radius:18px;background:#fff;border:1px solid #e1e9f1;box-shadow:0 10px 25px rgba(11,40,77,.05)}
+.ppt-hub__point strong{display:block;color:#0a2b50;margin:14px 0 6px;font-size:1.12rem}.ppt-hub__point p{line-height:1.6;color:#526377;margin:0}.ppt-hub__point span{display:grid;place-items:center;width:45px;height:45px;border-radius:13px;background:#fff0e4;color:#a9470d;font-weight:800;font-size:1.05rem}
+.ppt-hub__watch-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(270px,.7fr);gap:28px;align-items:start}
+.ppt-hub__player{overflow:hidden;border-radius:20px;background:#04182f;box-shadow:0 18px 42px rgba(9,33,67,.16);aspect-ratio:16/9}
+.ppt-hub__player iframe{width:100%;height:100%;border:0;display:block}
+.ppt-hub__lesson-details{padding:26px;background:#fff;border:1px solid #e1e8f0;border-radius:19px;box-shadow:0 8px 28px rgba(5,32,65,.05)}
+.ppt-hub__lesson-details h3{color:#0a2b50;font-size:1.45rem;margin:10px 0 14px}.ppt-hub__lesson-details p{line-height:1.65;color:#4d6077}.ppt-hub__lesson-details ul{padding-left:21px;color:#3d536d;line-height:1.8;margin:0 0 20px}
+.ppt-hub__status{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:99px;font-weight:800;font-size:.78rem;background:#e4f8e9;color:#126337}.ppt-hub__status--soon{color:#7e4c08;background:#fff4d7}
+.ppt-hub__roadmap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ppt-hub__session{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid #e2e9f1;border-radius:18px;padding:22px}.ppt-hub__session--next{background:#f8fbff}
+.ppt-hub__session-num{flex:0 0 auto;width:48px;height:48px;display:grid;place-items:center;background:#fce7d6;color:#a3410d;border-radius:14px;font-size:1.25rem;font-weight:800}
+.ppt-hub__session h3{font-size:1.2rem;color:#0a2b50;margin:9px 0 7px}.ppt-hub__session p{color:#52677d;line-height:1.6;margin:0 0 14px}.ppt-hub__session a{font-weight:800;color:#9f4310}
+.ppt-hub__resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.ppt-hub__resource{background:#fff;padding:25px;border-radius:17px;border:1px solid #e0e8f0}
+.ppt-hub__resource small{display:block;color:#ba4f10;letter-spacing:.08em;text-transform:uppercase;font-weight:800}.ppt-hub__resource h3{color:#0a2b50;font-size:1.2rem;margin:10px 0}.ppt-hub__resource p{color:#4c6078;line-height:1.55}
+.ppt-hub__resource a{color:#aa4a15;font-weight:800;text-underline-offset:3px}
+.ppt-hub__next{padding:clamp(32px,6vw,55px);border-radius:25px;background:linear-gradient(112deg,#102e51,#0c2545);text-align:center;color:#fff}.ppt-hub__next h2{color:#fff;font-size:clamp(1.7rem,3vw,2.5rem)}.ppt-hub__next p{max-width:650px;color:#d5e4f3;line-height:1.7;margin:12px auto 24px}
+@media(max-width:860px){.ppt-feature__panel,.ppt-hub__grid,.ppt-hub__watch-grid{grid-template-columns:1fr}.ppt-feature__image{max-width:760px}.ppt-hub__points{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.ppt-feature{padding:24px 14px}.ppt-feature__panel{padding:22px 17px}.ppt-hub__shell{width:min(100% - 30px,1180px)}.ppt-hub__hero{padding:50px 0}.ppt-hub__points,.ppt-hub__roadmap,.ppt-hub__resource-grid{grid-template-columns:1fr}.ppt-actions>*{width:100%}}
+@media(prefers-reduced-motion:reduce){.ppt-action{transition:none}.ppt-action:hover{transform:none}}
+
+/* PowerPoint notes integrations */
+.ppt-hub__resource-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,295px),1fr))}.ppt-hub__resource--notes{border-color:#f4be92;background:#fff9f4}.ppt-hub__resource--notes h3{color:#853d0f}.ppt-hub__lesson-details .ppt-action--read-notes{background:#163a61;color:#fff!important;border-color:#163a61}.ppt-notes-course-promo{padding:30px max(20px,calc((100vw - 1180px)/2));background:#f5f9fd}.ppt-notes-course-promo__inner{border-radius:21px;background:linear-gradient(120deg,#0a2648,#144468);display:flex;justify-content:space-between;align-items:center;gap:23px;padding:25px 30px;color:#fff}.ppt-notes-course-promo__inner h2{color:#fff;font-size:clamp(1.4rem,2.6vw,2rem);margin:8px 0}.ppt-notes-course-promo__inner p:not(.eyebrow){color:#dae6f3;max-width:560px;line-height:1.55}.ppt-notes-course-promo__actions{display:flex;gap:12px;flex-wrap:wrap}.ppt-notes-course-promo__actions a{white-space:nowrap}.ppt-notes-download-promo{margin:20px auto;padding:19px 24px;max-width:1140px;background:#fff8f1;border:1px solid #f4d1ad;border-radius:15px;color:#244760}.ppt-notes-download-promo p{margin:8px 0;line-height:1.5}.ppt-notes-download-promo a{color:#a3490f;font-weight:800}@media(max-width:760px){.ppt-notes-course-promo__inner{display:block}.ppt-notes-course-promo__actions{margin-top:14px}.ppt-notes-course-promo__actions a{width:100%}}
+
+.ppt-hub__session a.ppt-hub__notes-link{display:block;margin-top:8px}
